@@ -40,10 +40,10 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template: 10% 10% repeat(10,1fr)/repeat(12,1fr);
+    grid-template: 15% 15% 1fr 10%/ 15% 1fr 1fr 15%;
     justify-content: center;
     padding: 0;
-    margin: 0;
+    margin: 0;      
 }
 
 .grid-heading {
@@ -61,6 +61,7 @@ body {
     font-size: 7vh;
     padding: 0;
     margin: 0;
+    max-height: 10%;
 }
 
 .video-row {

@@ -40,6 +40,7 @@ class VideoPlayer extends React.Component {
   const videoJsOptions = {
     autoplay: true,
     controls: true,
+    muted: true,
     loop: true,
     sources: [{
       src: "https://i.imgur.com/Vw4qKin.mp4"
