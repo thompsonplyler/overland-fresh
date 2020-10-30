@@ -26,6 +26,7 @@ a {
 body {
     background-image: url('./assets/images/blue_sky.jpeg');
     background-size: 100vw;
+    overflow: hidden;
 }
 
 .container {
@@ -68,15 +69,24 @@ body {
  justify-self: center;
  display: grid;
  grid-template-columns: 4fr 2fr;
+ column-gap: 15px;
+}
+
+.video-player {
+    right: 40%;
 }
 
 .timer-component {
     color: white;
+    font-size: 4.5vh;
 }
 
 .chat-area {
     background-color: rgba(255,255,255,.6);
     color: rgba(112, 110, 110,1);
+    font-size: 4vh;
+    /* justify-self: end; */
+
 }
 
 form {
@@ -109,13 +119,14 @@ h2.registration-heading-2 {
 }
 
 .offset {
+    font-family: Roboto;
     color: red;
-    font-size: 3vh;
+    font-size: 1.5vh;
     position: absolute;
-    bottom: 5%;
+    top: 2%;
     line-height: 0px;
     right: 5%;
-    max-width: 40%;
+    max-width: 50%;
     padding: 8px;
     background: rgba(255,255,255,.2);
     box-shadow: black 2px 2px 2px;

@@ -15,7 +15,7 @@ function PostEvent() {
           <h2 style={{color: "white", fontFamily: "PTSerif"}}>Worldwide Meeting 2020</h2> 
           <h2 className="registration-heading-1">under one sky</h2>
           <p className="para1">Thank you for coming!</p>
-    <ClientPendingBanner/>
+    <ClientPendingBanner subject="post-event"/>
 
     </div>
     )

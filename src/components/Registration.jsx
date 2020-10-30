@@ -17,8 +17,8 @@ function Reg() {
           <img className="img-fresh-logo" src={freshLogo}/>
           <h2 style={{color: "white", fontFamily: "PTSerif"}}>Worldwide Meeting 2020</h2> 
           <h2 className="registration-heading-1">under one sky</h2>
-            <ClientPendingBanner/>
-          <p className="para1">Nov 17</p>
+            <ClientPendingBanner subject="registration"/>
+          <p className="para1">November 17, 2020</p>
           <p className="para1">Register today</p>
           <form>
             <input placeholder="Please enter your e-mail"></input>

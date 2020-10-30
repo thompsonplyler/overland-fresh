@@ -23,14 +23,16 @@ class VideoPlayer extends React.Component {
   
     render() {
       return (
-        <>
-          <div data-vjs-player style={{
-              width: 960, 
-              height: 540
-            }}>
-            <video  ref={(node) => { this.videoNode = node; }} className="video-js" />
+        <div className="video-player">
+
+          <div  data-vjs-player style={{
+            width: 960, 
+            height: 540
+          }}>
+            <video ref={(node) => { this.videoNode = node; }} className="video-js" />
           </div>
-        </>
+        
+          </div>
       );
     }
   }
@@ -60,7 +62,7 @@ class VideoPlayer extends React.Component {
             </div>
         </div>
 
-        <ClientPendingBanner />
+        <ClientPendingBanner subject="event"/>
 
       </div>
     );

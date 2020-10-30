@@ -25,7 +25,8 @@ function FakeChat() {
 
     return(
         <div className="chat-area">
-            {randomphrases[random]}
+            {/* {randomphrases[random]} */}
+            [chat box location]
         </div>
     )
 }
