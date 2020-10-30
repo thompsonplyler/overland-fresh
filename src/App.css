@@ -1,38 +1,51 @@
-.App {
-  text-align: center;
+@font-face {
+    font-family: Amalina;
+    src: url('./assets/fonts/Amalina.ttf')
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    background-image: url('./assets/images/blue_sky.jpeg');
+    background-size: 100vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15vh;
+    line-height: 0%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.grid-heading {
+    
 }
 
-.App-link {
-  color: #61dafb;
+form {
+    overflow-y: hidden;
+}
+h2.registration-heading-1 {
+    font-family: Amalina;
+    color: white;
+    font-size: 8vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2.registration-heading-2 {
+    font-family: Amalina;
+    color: white;
+    font-size: 7vh;
 }
+
+.para1 {
+    color: white;
+    font-size: 6vh;
+}
+
+.img-fresh-logo {
+    width: 20vw;
+}
+
+.img-fresh-conference {
+    width: 10vw;
+}
+

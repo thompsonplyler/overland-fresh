@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-overlandfresh-dev-203451-authRole",
+      "UnauthRoleArn": "arn:aws:iam::011781131224:role/amplify-overlandfresh-dev-203451-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::011781131224:role/amplify-overlandfresh-dev-203451-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-overlandfresh-dev-203451-deployment",
+      "UnauthRoleName": "amplify-overlandfresh-dev-203451-unauthRole",
+      "StackName": "amplify-overlandfresh-dev-203451",
+      "StackId": "arn:aws:cloudformation:us-east-1:011781131224:stack/amplify-overlandfresh-dev-203451/baa97500-1a47-11eb-a10b-0ee443750bc7",
+      "AmplifyAppId": "d2pbgpsguklnp"
+    }
+  }
+}
