@@ -24,7 +24,7 @@ a {
 }
 
 body {
-    background-image: url('./assets/images/blue_sky.jpeg');
+    background-image: url('https://i.imgur.com/oZskCnV.jpg');
     background-size: 100vw;
     overflow: hidden;
 }
