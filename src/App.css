@@ -76,7 +76,7 @@ body {
 
 .chat-area {
     background-color: rgba(255,255,255,.6);
-    color: darkgray;
+    color: rgba(112, 110, 110,1);
 }
 
 form {

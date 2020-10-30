@@ -16,15 +16,16 @@ function FakeChat() {
          timedCount() 
         }, 1500 );
 
-     let random = Math.floor(Math.random() * (11 - 0 + 1)) + 0;
-     
-    //  $('.putmehere').html( randomphrases[random]);
-    
+        
+        //  $('.putmehere').html( randomphrases[random]);
+        
     }
+    
+    let random = Math.floor(Math.random() * (11 - 0 + 1)) + 0;
 
     return(
         <div className="chat-area">
-            {randomphrases[0]}
+            {randomphrases[random]}
         </div>
     )
 }

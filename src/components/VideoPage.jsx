@@ -40,7 +40,7 @@ class VideoPlayer extends React.Component {
     controls: true,
     loop: true,
     sources: [{
-      src: videoFile
+      src: "https://i.imgur.com/Vw4qKin.mp4"
       // src: awsvideoconfig.awsOutputLiveLL,
     }]
   }
