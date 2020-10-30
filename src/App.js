@@ -10,14 +10,18 @@ import {
 } from "react-router-dom";
 import VideoPage from "./components/VideoPage"
 import Reg from "./components/Registration"
+import PreEvent from "./components/PreEvent"
+import PostEvent from "./components/PostEvent"
 
 function App() {
   return (
     <Router>
     <Switch>
-      <Route path="/conference"><VideoPage /></Route>
+      <Route path="/postevent"><PostEvent /></Route>
+      <Route path="/preevent"><PreEvent /></Route>
+      <Route path="/event"><VideoPage /></Route>
+      <Route path="/register"><Reg /></Route>
       <Route path="/"><Reg /></Route>
-      {/* <Route path="/register"><Registration /></Route> */}
     </Switch>
     </Router>
   );

@@ -5,10 +5,9 @@ import InputField from '../components/InputField'
 import freshLogo from '../assets/images/frshlogo.svg'
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
+import ClientPendingBanner from '../components/ClientPendingBanner'
 
 
 function Reg() {
@@ -16,12 +15,14 @@ function Reg() {
 <Fragment>
     <div className="container">
           <img className="img-fresh-logo" src={freshLogo}/>
+          <h2 style={{color: "white", fontFamily: "PTSerif"}}>Worldwide Meeting 2020</h2> 
           <h2 className="registration-heading-1">under one sky</h2>
+            <ClientPendingBanner/>
           <p className="para1">Nov 17</p>
           <p className="para1">Register today</p>
           <form>
-            <input></input>
-            <Link to="/conference"><Button /></Link>
+            <input placeholder="Please enter your e-mail"></input>
+            <Link to="/event"><Button /></Link>
           </form>
     </div>
     </Fragment>
