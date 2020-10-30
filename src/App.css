@@ -17,6 +17,10 @@ body {
     line-height: 0%;
 }
 
+.grid-container {
+    display:grid;
+}
+
 .grid-heading {
     
 }

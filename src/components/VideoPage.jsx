@@ -40,7 +40,7 @@ class VideoPlayer extends React.Component {
   
   function VideoPage() {
     return (
-      <div className="container" style={{marginTop: "5vh"}}>
+      <div className="grid-container" style={{marginTop: "5vh"}}>
           {/* <img className="img-fresh-logo" src={freshLogo}/> */}
           <img className="grid-heading" style={{width: "10vw"}} src={freshLogo}/>
           <h2 className="registration-heading-2">under one sky</h2>
