@@ -51,14 +51,16 @@ class VideoPlayer extends React.Component {
     return (
       <div>
 
-        <div className="grid-container" style={{marginTop: "5vh"}}>
+        <div className="grid-container" style={{paddingTop: "5vh", paddingLeft: "15vh"}}>
             {/* <img className="img-fresh-logo" src={freshLogo}/> */}
             <img className="grid-heading" style={{width: "10vw"}} src={freshLogo}/>
             <h2 className="registration-heading-grid">under one sky</h2>
+
             <div className="video-row" style={{padding: "3vh"}}>
               {/* <div className="chat-area">Test</div> */}
               <VideoPlayer { ...videoJsOptions }/>
               <FakeChat/>
+            
             </div>
         </div>
 
