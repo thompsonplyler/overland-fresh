@@ -12,6 +12,7 @@ import VideoPage from "./components/VideoPage"
 import Reg from "./components/Registration"
 import PreEvent from "./components/PreEvent"
 import PostEvent from "./components/PostEvent"
+import RealChat from "./components/RealChat"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/preevent"><PreEvent /></Route>
       <Route path="/event"><VideoPage /></Route>
       <Route path="/register"><Reg /></Route>
+      <Route path="/realchat"><RealChat /></Route>
       <Route path="/"><Reg /></Route>
     </Switch>
     </Router>
