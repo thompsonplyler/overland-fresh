@@ -4,6 +4,11 @@
       "service": "video",
       "serviceType": "livestream",
       "providerPlugin": "awscloudformation"
+    },
+    "secondlivestream": {
+      "service": "video",
+      "serviceType": "livestream",
+      "providerPlugin": "awscloudformation"
     }
   }
 }
