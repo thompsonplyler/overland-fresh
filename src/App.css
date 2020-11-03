@@ -70,6 +70,12 @@ body {
     max-height: 10%;
 }
 
+.reg-form-1 {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .video-row {
  grid-row: 3/4;
  grid-column: 1/12;

@@ -20,10 +20,11 @@ function Reg() {
             <ClientPendingBanner subject="registration"/>
           <p className="para1">November 17, 2020</p>
           <p className="para1">Log In</p>
-          <form>
+          <form className="reg-form-1">
             <input placeholder="First Name"></input>
-            <input placeholder="Last Name"></input>
-            <Link to="/event"><Button /></Link>
+            <input placeholder="Last Name"></input><br />
+            <input placeholder="E-mail"></input>
+            <Link to="/event"><br/><Button /></Link>
           </form>
     </div>
     </Fragment>
