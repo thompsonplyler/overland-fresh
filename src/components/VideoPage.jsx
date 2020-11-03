@@ -26,8 +26,7 @@ class VideoPlayer extends React.Component {
         <div className="video-player">
 
           <div  data-vjs-player style={{
-            width: 960, 
-            height: 540
+            width: 1080
           }}>
             <video ref={(node) => { this.videoNode = node; }} className="video-js" />
           </div>
@@ -53,7 +52,7 @@ class VideoPlayer extends React.Component {
 
         <div className="grid-container" style={{paddingTop: "5vh", paddingLeft: "15vh"}}>
             {/* <img className="img-fresh-logo" src={freshLogo}/> */}
-            <img className="grid-heading" style={{width: "10vw"}} src={freshLogo}/>
+            <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
             <h2 className="registration-heading-grid">under one sky</h2>
 
             <div className="video-row" style={{padding: "3vh"}}>

@@ -5,7 +5,7 @@ export default class extends Component {
   render() {
     return (
       <Button color="blue" onClick={() => console.log('Clicked!')}>
-        Register
+        Submit
       </Button>
     );
   }

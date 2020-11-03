@@ -17,8 +17,8 @@ const calculateTimeLeft = () => {
         timeLeft = {
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24)+7,
-          minutes: Math.floor((difference / 1000 / 60) % 60)+30,
-          seconds: Math.floor((difference / 1000) % 60)
+          // minutes: Math.floor((difference / 1000 / 60) % 60)+30,
+          // seconds: Math.floor((difference / 1000) % 60)
         };
     }
 
@@ -63,7 +63,7 @@ Object.keys(timeLeft).forEach((interval) => {
     return(
     <div className="container">
           <img className="img-fresh-logo" src={freshLogo}/>
-          <h2 style={{color: "white", fontFamily: "PTSerif"}}>Worldwide Meeting 2020</h2> 
+          {/* <h2 style={{color: "white", fontFamily: "PTSerif"}}>Worldwide Meeting 2020</h2>  */}
           <h2 className="registration-heading-1">under one sky</h2>
           <ClientPendingBanner subject="pre-event"/>
           <p className="para1">November 17, 2020</p>
