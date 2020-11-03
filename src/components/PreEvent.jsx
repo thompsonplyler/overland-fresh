@@ -18,7 +18,7 @@ const calculateTimeLeft = () => {
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24)+7,
           minutes: Math.floor((difference / 1000 / 60) % 60)+30,
-          seconds: Math.floor((difference / 1000) % 60)
+          // seconds: Math.floor((difference / 1000) % 60)
         };
     }
 
