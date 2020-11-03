@@ -1,0 +1,9 @@
+{
+  "video": {
+    "testlivestream": {
+      "service": "video",
+      "serviceType": "livestream",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}
