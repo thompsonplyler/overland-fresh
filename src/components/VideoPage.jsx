@@ -8,77 +8,59 @@ import freshLogo from '../assets/images/frshlogo.svg'
 import videoFile from "../assets/videos/160825_05_Sunflowers3_1080p.mp4"
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import FakeChat from './FakeChat'
-
-
-
-
-function MyComponent() {
-  const [dimensions, setDimensions] = React.useState({ 
-    height: window.innerHeight,
-    width: window.innerWidth
-  })
-
-  React.useEffect(() => {
-    function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth
-      })
-    
-}
-
-    window.addEventListener('resize', handleResize)
-  })
-  return <div>Rendered at {dimensions.width} x {dimensions.height}</div>
-}
-
-class VideoPlayer extends React.Component {
-  constructor(props) {
-    super(props);
-   
-   
-    }
-
-  // console.log(props)
-
-    componentDidMount(props) {
-      this.player = videojs(this.videoNode, this.props)
-    }
   
-    componentWillUnmount() {
-      if (this.player) {
-        this.player.dispose()
-      }
-    }
-
-    render() {
-      let {windowHeight, windowWidth} = this.props
-
-      return (
-        <div className="video-player">
-
-          <div  data-vjs-player style={{
-            width: windowWidth*.75
-          }}>
-            <video ref={(node) => { this.videoNode = node; }} className="video-js" />
-          </div>
-        
-          </div>
-      );
-    }
-  }
-  
-  const videoJsOptions = {
+const videoJsOptions = {
     autoplay: true,
     controls: true,
     loop: true,
     sources: [{
-      src: "https://i.imgur.com/Vw4qKin.mp4"
+      src: "https://i.imgur.com/8kDpUiB.mp4"
       // src: awsvideoconfig.awsOutputLiveLL,
     }]
   }
   
   function VideoPage() {
+
+    class VideoPlayer extends React.Component {
+      constructor(props) {
+        super(props);
+       
+       
+        }
+    
+      // console.log(props)
+    
+        componentDidMount(props) {
+          this.player = videojs(this.videoNode, this.props)
+        }
+      
+        componentWillUnmount() {
+          if (this.player) {
+            this.player.dispose()
+          }
+        }
+    
+        render() {
+          let {windowHeight, windowWidth} = this.props
+          let newWidth = windowWidth *.60
+          let newHeight = newWidth * .5625
+          console.log("rendering:", this)
+    
+          return (
+            <div className="video-player">
+    
+              <div  data-vjs-player style={{
+                width: newWidth,
+                height: newHeight
+              }}>
+                <video ref={(node) => { this.videoNode = node; }} className="video-js" />
+              </div>
+            
+              </div>
+          );
+        }
+      }
+
     let windowSize = {}
     let [stateWidth, setWidth] = useState(window.innerWidth)
     let [stateHeight, setHeight] = useState(window.innerHeight)
@@ -87,15 +69,12 @@ class VideoPlayer extends React.Component {
       setHeight(window.innerHeight)
       setWidth(window.innerWidth)
       console.log(stateWidth, stateHeight)
-
     })
 
     return (
-      <div>
-
-        <div className="grid-container" style={{paddingTop: "5vh", paddingLeft: "15vh"}}>
+              <div className="grid-container">
             {/* <img className="img-fresh-logo" src={freshLogo}/> */}
-            <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
+            
             <h2 className="registration-heading-grid">under one sky</h2>
 
             <div className="video-row" style={{padding: "3vh"}}>
@@ -104,11 +83,11 @@ class VideoPlayer extends React.Component {
               <FakeChat windowHeight={stateHeight} windowWidth={stateWidth}/>
             
             </div>
+            <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
+            <ClientPendingBanner subject="event"/>
         </div>
 
-        <ClientPendingBanner subject="event"/>
 
-      </div>
     );
   }
   

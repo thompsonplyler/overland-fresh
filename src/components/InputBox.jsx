@@ -24,19 +24,21 @@ const inputDetermine = (loginState) => {
     //     }
     if (loginState==="login"){
 
-        return<form >
+        return<form className="form-grid">
             <input placeholder="E-mail"></input>
             <input placeholder="Password"></input>
+            <Link to="/event"><Button /></Link>
         </form>
     }
     else {
-        return <form>
+        return <form className="form-grid">
             <input placeholder="First Name"></input>
             <input placeholder="Last Name"></input>
             <input placeholder="E-Mail"></input>
             <input placeholder="Confirm E-Mail"></input>
             <input placeholder="Password"></input>
             <input placeholder="Confirm Password"></input>
+            <Link to="/event"><Button classname="submit-button"/></Link>
         </form>
     }
     
@@ -50,9 +52,9 @@ const inputDetermine = (loginState) => {
 
 
     return(
-        <div>
-            <h3 data-name="login" onClick={clickHandler}>Login</h3>
-            <h3 data-name="register" onClick={clickHandler}>Register</h3>
+        <div className="form-grid-container">
+            <div className="login-heading"><h3 data-name="login" onClick={clickHandler}>Login</h3></div>
+            <div className="login-heading login-heading-register" data-name="register"><h3 onClick={clickHandler}>Register</h3></div>
         {inputDetermine(loginState)}
     </div>
     )

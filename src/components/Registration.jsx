@@ -25,7 +25,7 @@ return(
             <ClientPendingBanner subject="registration"/>
           <p className="para1">November 17, 2020</p>
           
-          {/* <InputBox /> */}
+          <InputBox />
     </div>
     </Fragment>
     )
