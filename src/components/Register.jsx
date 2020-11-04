@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import InputBox from '../components/InputBox'
+import { createGlobalStyle } from 'styled-components'
+
 
 
 
@@ -17,6 +19,7 @@ function Reg() {
   const [inputBox, setInputBoxState] = useState("signin")
 
 return(
+    
 <Fragment>
     <div className="container">
           <img className="img-fresh-logo" src={freshLogo}/>
@@ -24,8 +27,8 @@ return(
           <h2 className="registration-heading-1">under one sky</h2>
             <ClientPendingBanner subject="registration"/>
           <p className="para1">November 17, 2020</p>
-          
-          {/* <InputBox /> */}
+          <p className="para1"> This is the building page.</p>
+          <InputBox />
     </div>
     </Fragment>
     )

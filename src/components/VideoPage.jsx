@@ -1,5 +1,5 @@
 import React from 'react'
-import {Fragment} from 'react'
+import {Fragment, useState, useEffect} from 'react'
 import videojs from 'video.js'
 import awsvideoconfig from '../aws-video-exports'
 import 'video.js/dist/video-js.css'
@@ -10,8 +10,38 @@ import ClientPendingBanner from '../components/ClientPendingBanner'
 import FakeChat from './FakeChat'
 
 
+
+
+function MyComponent() {
+  const [dimensions, setDimensions] = React.useState({ 
+    height: window.innerHeight,
+    width: window.innerWidth
+  })
+
+  React.useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      })
+    
+}
+
+    window.addEventListener('resize', handleResize)
+  })
+  return <div>Rendered at {dimensions.width} x {dimensions.height}</div>
+}
+
 class VideoPlayer extends React.Component {
-    componentDidMount() {
+  constructor(props) {
+    super(props);
+   
+   
+    }
+
+  // console.log(props)
+
+    componentDidMount(props) {
       this.player = videojs(this.videoNode, this.props)
     }
   
@@ -20,13 +50,15 @@ class VideoPlayer extends React.Component {
         this.player.dispose()
       }
     }
-  
+
     render() {
+      let {windowHeight, windowWidth} = this.props
+
       return (
         <div className="video-player">
 
           <div  data-vjs-player style={{
-            width: 1080
+            width: windowWidth*.75
           }}>
             <video ref={(node) => { this.videoNode = node; }} className="video-js" />
           </div>
@@ -47,6 +79,17 @@ class VideoPlayer extends React.Component {
   }
   
   function VideoPage() {
+    let windowSize = {}
+    let [stateWidth, setWidth] = useState(window.innerWidth)
+    let [stateHeight, setHeight] = useState(window.innerHeight)
+
+    window.addEventListener('resize',()=>{
+      setHeight(window.innerHeight)
+      setWidth(window.innerWidth)
+      console.log(stateWidth, stateHeight)
+
+    })
+
     return (
       <div>
 
@@ -57,8 +100,8 @@ class VideoPlayer extends React.Component {
 
             <div className="video-row" style={{padding: "3vh"}}>
               {/* <div className="chat-area">Test</div> */}
-              <VideoPlayer { ...videoJsOptions }/>
-              <FakeChat/>
+              <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{ ...videoJsOptions }/>
+              <FakeChat windowHeight={stateHeight} windowWidth={stateWidth}/>
             
             </div>
         </div>

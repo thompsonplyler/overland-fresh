@@ -13,19 +13,25 @@ import Reg from "./components/Registration"
 import PreEvent from "./components/PreEvent"
 import PostEvent from "./components/PostEvent"
 import RealChat from "./components/RealChat"
+import Register from "./components/Register"
+
 
 function App() {
   return (
+    <Fragment>
     <Router>
     <Switch>
       <Route path="/postevent"><PostEvent /></Route>
       <Route path="/preevent"><PreEvent /></Route>
       <Route path="/event"><VideoPage /></Route>
+      <Route path="/register-temp"><Register /></Route>
       <Route path="/register"><Reg /></Route>
       <Route path="/realchat"><RealChat /></Route>
       <Route path="/"><Reg /></Route>
     </Switch>
     </Router>
+    </Fragment>
+    
   );
 }
 
