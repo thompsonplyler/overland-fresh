@@ -10,7 +10,6 @@ import {
 
 
 function ClientPendingBanner(props) {
-    console.log("These are the props:",props)
     let {subject} = props
     return(
         <div className="offset">
@@ -20,7 +19,7 @@ function ClientPendingBanner(props) {
             <p>To see draft pages, please click the following:</p>
             <ul>
                 <li><Link to="/register">Registration</Link></li>
-                <li><Link to="/preevent">Pre-Event</Link></li>
+                <li><Link to="/preevent">Confirmation</Link></li>
                 <li><Link to="/event">Event</Link></li>
                 <li><Link to="/postevent">Post-Event</Link></li>
             </ul>

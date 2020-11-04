@@ -65,10 +65,11 @@ Object.keys(timeLeft).forEach((interval) => {
           <img className="img-fresh-logo" src={freshLogo}/>
           {/* <h2 style={{color: "white", fontFamily: "PTSerif"}}>Worldwide Meeting 2020</h2>  */}
           <h2 className="registration-heading-1">under one sky</h2>
-          <ClientPendingBanner subject="pre-event"/>
-          <p className="para1">November 17, 2020</p>
+          <ClientPendingBanner subject="confirmation"/>
+          <p className="para1">Welcome, [REGISTERED GUEST NAME]</p>
+          <p className="para1">We look forward to seeing you on November 17, 2020</p>
           <div>
-    {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+    {/* {timerComponents.length ? timerComponents : <span>Time's up!</span>} */}
             </div> 
     </div>
     )

@@ -4,7 +4,7 @@ import { Button } from 'react-desktop/macOs';
 export default class extends Component {
   render() {
     return (
-      <Button color="blue" onClick={() => console.log('Clicked!')}>
+      <Button color="blue" onClick={this.props.submitHandler}>
         Submit
       </Button>
     );
