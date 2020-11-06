@@ -27,7 +27,7 @@ function App() {
       <Route path="/register-temp"><Register /></Route>
       <Route path="/register"><Reg /></Route>
       <Route path="/realchat"><RealChat /></Route>
-      <Route path="/"><Reg /></Route>
+      <Route exact path="/"><VideoPage/></Route>
     </Switch>
     </Router>
     </Fragment>
