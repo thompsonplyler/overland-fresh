@@ -15,8 +15,8 @@ const videoJsOptions = {
     loop: true,
     poster: "https://i.imgur.com/Aaog0bm.png",
     sources: [{
-      // src: "https://i.imgur.com/8kDpUiB.mp4"
-      src: awsvideoconfig.awsOutputLiveLL,
+      src: "https://i.imgur.com/8kDpUiB.mp4",
+      // src: awsvideoconfig.awsOutputLiveLL,
       poster: "https://i.imgur.com/Aaog0bm.png"
     }]
   }
@@ -86,7 +86,7 @@ const videoJsOptions = {
             
             </div>
             <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
-            {/* <ClientPendingBanner subject="event"/> */}
+            <ClientPendingBanner subject="event"/>
         </div>
 
 
