@@ -15,7 +15,6 @@ const videoJsOptions = {
   autoplay: true,
   controls: true,
   loop: true,
-  muted: true,
   sources: [{
     // src: "https://i.imgur.com/8kDpUiB.mp4"
     src: awsvideoconfig.awsOutputLiveLL,
