@@ -7,23 +7,15 @@ import {
     Link,
     Redirect
   } from "react-router-dom";
-  import Button from '../components/EmailForm'
+  import Button from './SubmitButton'
 import { isCompositeComponent } from 'react-dom/test-utils';
 
 function InputBox(props) {
-    console.log(props)
+    
     const [loginState, setLogin] = useState("register")
-const inputDetermine = (loginState) => {
-    // if (loginState = "login") {
-    //     return(
-    //         <div>Login</div>
-    //     )
-    // }
-    //     else {
-    //         return (
-    //             <div>Register</div>
-    //         )
-    //     }
+    
+    const inputDetermine = (loginState) => {
+
     if (loginState==="login"){
 
         return<form className="form-grid">

@@ -1,6 +1,6 @@
 import '../App.css';
 import {Fragment} from 'react'
-import Button from '../components/EmailForm'
+import Button from './SubmitButton'
 import InputField from '../components/InputField'
 import freshLogo from '../assets/images/frshlogo.svg'
 import {
@@ -18,10 +18,11 @@ function ClientPendingBanner(props) {
             <p> Final client copy and/or artwork pending.</p>
             <p>To see draft pages, please click the following:</p>
             <ul>
+                <li><Link to="/login">Login</Link></li>
                 <li><Link to="/register">Registration</Link></li>
-                <li><Link to="/preevent">Confirmation</Link></li>
-                <li><Link to="/event">Event</Link></li>
-                <li><Link to="/postevent">Post-Event</Link></li>
+                <li><Link to="/confirmation-test">Confirmation</Link></li>
+                <li><Link to="/event-test">Event</Link></li>
+                <li><Link to="/postevent-test">Post-Event</Link></li>
             </ul>
         </div>
     )
