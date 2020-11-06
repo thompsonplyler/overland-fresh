@@ -165,8 +165,9 @@ input {
   grid-column: 2/4;
   justify-self: center;
   display: grid;
-  grid-template-columns: 1fr;
-  column-gap: 15px; }
+  grid-template-columns: 1fr 1fr;
+  column-gap: 15px; 
+}
 
 /* .inputbox {
     background-color: rgba(112, 112, 255, .2);
@@ -188,7 +189,7 @@ input {
   color: #706e6e;
   font-size: 4vh;
   width: 20vw;
-  /* justify-self: end; */ }
+  justify-self: end; }
 
 form {
   overflow-y: hidden; }
