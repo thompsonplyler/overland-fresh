@@ -18,8 +18,9 @@ function ClientPendingBanner(props) {
             <p> Final client copy and/or artwork pending.</p>
             <p>To see draft pages, please click the following:</p>
             <ul>
+                <li><Link to="/login">Login</Link></li>
                 <li><Link to="/register">Registration</Link></li>
-                <li><Link to="/preevent">Confirmation</Link></li>
+                <li><Link to="/confirmation">Confirmation</Link></li>
                 <li><Link to="/event">Event</Link></li>
                 <li><Link to="/postevent">Post-Event</Link></li>
             </ul>

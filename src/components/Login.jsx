@@ -9,7 +9,8 @@ import {
 } from "react-router-dom";
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import LoginInputBox from '../components/LoginInputBox'
-import RegisterButton from '../components/RegisterButton'
+import RegisterButton from './RegisterSubmitButton'
+import RegisterLinkButton from '../components/RegisterLinkButton'
 
 
 function Login() {
@@ -22,12 +23,17 @@ return(
           <img className="img-fresh-logo" src={freshLogo}/>
           {/* <h2 style={{color: "white", fontFamily: "PTSerif"}}>Worldwide Meeting 2020</h2>  */}
           <h2 className="registration-heading-1">under one sky</h2>
-            <ClientPendingBanner subject="registration"/>
+            <ClientPendingBanner subject="login"/>
           <p className="para1">November 17, 2020</p>
             <div className="login-grid-row">
           <LoginInputBox />
-          <RegisterButton/>
+          <div className="heading-login-selecter">
+            <h3 >or</h3>
+          </div>
+          <div className="register-button">
+          <RegisterLinkButton className="register-button"/>
             </div>
+          </div>
     </div>
     </Fragment>
     )

@@ -9,7 +9,8 @@ import {
   } from "react-router-dom";
   import Button from './SubmitButton'
 import { isCompositeComponent } from 'react-dom/test-utils';
-import RegisterButton from '../components/RegisterButton'
+import RegisterButton from './RegisterSubmitButton'
+import LoginSubmitButton from '../components/LoginSubmitButton'
 import axios from 'axios'
 
 class LoginInputBox extends Component{
@@ -87,7 +88,7 @@ class LoginInputBox extends Component{
             <form className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>
             <input onChange={this.handleChange} type="password" name="password" value={password} placeholder="Password"></input>
-            <button placeholder="submit" type="submit">Submit</button>
+            <LoginSubmitButton placeholder="submit" type="submit" handleSubmit={this.handleSubmit} className="login-submit-button"/>
             {/* <Link to="/event"><Button type="submit" link="event" submitHandler={this.submitHandler}/></Link> */}
         </form>
     

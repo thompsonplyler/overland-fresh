@@ -10,6 +10,7 @@ import {
   import Button from './SubmitButton'
 import { isCompositeComponent } from 'react-dom/test-utils';
 import axios from 'axios'
+import RegisterSubmitButton from '../components/RegisterSubmitButton'
 
 
 class RegisterInputBox extends Component{
@@ -59,7 +60,7 @@ class RegisterInputBox extends Component{
       };
 
     redirect = () => {
-        this.props.history.push('/')
+        this.props.history.push('/confirmation')
       }
 
     handleErrors = () => {
@@ -86,7 +87,8 @@ class RegisterInputBox extends Component{
             <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="Password"></input>
             <input type="password" name="password_confirmation" value={password_confirmation} onChange={this.handleChange} placeholder="Confirm Password"></input>
             <div style={{gridColumn:"1/3"}}>
-                <button type="submit" placeholder="submit" classname="register-submit-button">Submit</button>
+                {/* <button type="submit" placeholder="submit" classname="">Submit</button> */}
+                <RegisterSubmitButton placeholder="submit" type="submit" handleSubmit={this.handleSubmit} className="register-submit-button"/>
             </div>
         </form>
         <div>{this.state.errors ? this.handleErrors():null}</div>

@@ -1,9 +1,11 @@
 import React from 'react'
 import {Fragment, useState, useEffect} from 'react'
+
 import videojs from 'video.js'
 import awsvideoconfig from '../aws-video-exports'
 import 'video.js/dist/video-js.css'
 import '../App.css';
+import '../Video.css';
 import freshLogo from '../assets/images/frshlogo.svg'
 import videoFile from "../assets/videos/160825_05_Sunflowers3_1080p.mp4"
 import ClientPendingBanner from '../components/ClientPendingBanner'
@@ -11,14 +13,16 @@ import FakeChat from './FakeChat'
 import { registerIVSTech } from 'amazon-ivs-player';
 // import { setupForm, getFormStream } from '../components/common/form-control'
 
+window.VIDEOJS_NO_DYNAMIC_STYLE = true
+
 const videoJsOptions = {
-  autoplay: true,
+  autoplay: false,
   controls: true,
   loop: true,
   poster: "https://i.imgur.com/Aaog0bm.png",
   sources: [{
-    // src: "https://i.imgur.com/8kDpUiB.mp4"
-    src: awsvideoconfig.awsOutputLiveLL,
+    src: "https://i.imgur.com/8kDpUiB.mp4",
+    // src: awsvideoconfig.awsOutputLiveLL,
     poster: "https://i.imgur.com/Aaog0bm.png"
   }]
 }
@@ -64,9 +68,9 @@ registerIVSTech(videojs, videoJsOptions);
           // })
           // console.log(this)
           return (
-            <div className="video-player">
+            <div className="">
     
-              <div  data-vjs-player style={{
+              <div data-vjs-player style={{
                 width: newWidth,
                 height: newHeight
               }}>

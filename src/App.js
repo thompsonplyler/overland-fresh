@@ -73,28 +73,43 @@ class App extends Component {
           <Router>
             <Switch>
             <Route 
-              exact path='/' 
+              exact path='/login' 
               render={props => (
-              <VideoPage {...props} handleLogout={this.handleLogout} //pass prop 
+              <Login {...props} handleLogout={this.handleLogout} //pass prop 
+              loggedInStatus={this.state.isLoggedIn}/>)}
+              />
+                         <Route 
+              exact path='/register' 
+              render={props => (
+              <Register {...props} handleLogout={this.handleLogout} //pass prop 
               loggedInStatus={this.state.isLoggedIn}/>)}
               />
 
-              <Route 
-                exact path='/login' 
+              <AuthenticatedRoute 
+                exact path='/confirmation' 
                 render={props => (
-                <Login {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+                <PreEvent {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
                 )}
               />
-              <Route 
-                exact path='/register' 
+              <AuthenticatedRoute 
+                exact path='/event' 
                 render={props => (
-                <Register {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+                <VideoPage {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
                 )}
               />
-              <Route exact path="/postevent"><PostEvent /></Route>
-              <Route exact path="/preevent"><PreEvent /></Route>
-              <Route exact path="/event"><VideoPage /></Route>
-              <Route exact path="/realchat"><RealChat /></Route>
+             <AuthenticatedRoute 
+                exact path='/' 
+                render={props => (
+                <PreEvent {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+                )}
+              />
+                <AuthenticatedRoute 
+                exact path='/postevent' 
+                render={props => (
+                <PostEvent {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+                )}
+              />
+
             </Switch>
           </Router>
         </Fragment>
