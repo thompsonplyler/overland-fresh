@@ -15,9 +15,11 @@ const videoJsOptions = {
   autoplay: true,
   controls: true,
   loop: true,
+  poster: "https://i.imgur.com/Aaog0bm.png",
   sources: [{
     // src: "https://i.imgur.com/8kDpUiB.mp4"
     src: awsvideoconfig.awsOutputLiveLL,
+    poster: "https://i.imgur.com/Aaog0bm.png"
   }]
 }
 registerIVSTech(videojs, videoJsOptions);
@@ -27,8 +29,6 @@ registerIVSTech(videojs, videoJsOptions);
     class VideoPlayer extends React.Component {
       constructor(props) {
         super(props);
-       
-       
         }
     
       // console.log(props)
