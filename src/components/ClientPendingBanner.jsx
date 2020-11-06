@@ -1,6 +1,6 @@
 import '../App.css';
 import {Fragment} from 'react'
-import Button from '../components/EmailForm'
+import Button from './SubmitButton'
 import InputField from '../components/InputField'
 import freshLogo from '../assets/images/frshlogo.svg'
 import {

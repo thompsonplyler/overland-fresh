@@ -8,16 +8,20 @@ import freshLogo from '../assets/images/frshlogo.svg'
 import videoFile from "../assets/videos/160825_05_Sunflowers3_1080p.mp4"
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import FakeChat from './FakeChat'
-  
+import { registerIVSTech } from 'amazon-ivs-player';
+// import { setupForm, getFormStream } from '../components/common/form-control'
+
 const videoJsOptions = {
-    autoplay: true,
-    controls: true,
-    loop: true,
-    sources: [{
-      src: "https://i.imgur.com/8kDpUiB.mp4"
-      // src: awsvideoconfig.awsOutputLiveLL,
-    }]
-  }
+  autoplay: true,
+  controls: true,
+  loop: true,
+  muted: true,
+  sources: [{
+    // src: "https://i.imgur.com/8kDpUiB.mp4"
+    src: awsvideoconfig.awsOutputLiveLL,
+  }]
+}
+registerIVSTech(videojs, videoJsOptions);
   
   function VideoPage() {
 
@@ -31,7 +35,11 @@ const videoJsOptions = {
       // console.log(props)
     
         componentDidMount(props) {
+        //   const player = videojs('videojs-player', {
+        //     techOrder: ["AmazonIVS"]
+        // });
           this.player = videojs(this.videoNode, this.props)
+
         }
       
         componentWillUnmount() {
@@ -44,8 +52,18 @@ const videoJsOptions = {
           let {windowHeight, windowWidth} = this.props
           let newWidth = windowWidth *.60
           let newHeight = newWidth * .5625
-          console.log("rendering:", this)
-    
+          console.log("props are:", this.props)
+
+          let PLAYBACK_URL = '';
+          registerIVSTech(videojs)
+          
+          // let newPlayer = videojs('amazon-ivs-videojs',{
+          //   techOrder:['AmazonIVS']
+          // }, ()=>{
+          //   console.log("Player is ready to use!")
+          //   newPlayer.src(PLAYBACK_URL);
+          // })
+          // console.log(this)
           return (
             <div className="video-player">
     
@@ -68,24 +86,17 @@ const videoJsOptions = {
     window.addEventListener('resize',()=>{
       setHeight(window.innerHeight)
       setWidth(window.innerWidth)
-      console.log(stateWidth, stateHeight)
     })
 
     return (
-              <div className="grid-container">
-            {/* <img className="img-fresh-logo" src={freshLogo}/> */}
-            
-            <h2 className="registration-heading-grid">under one sky</h2>
-
-            <div className="video-row" style={{padding: "3vh"}}>
-              {/* <div className="chat-area">Test</div> */}
-              <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{ ...videoJsOptions }/>
-              <FakeChat windowHeight={stateHeight} windowWidth={stateWidth}/>
-            
-            </div>
-            <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
-            <ClientPendingBanner subject="event"/>
-        </div>
+    <div className="grid-container">
+      <h2 className="registration-heading-grid">under one sky</h2>
+      <div className="src-input"></div>
+        <div className="video-row">
+          <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{ ...videoJsOptions }/>
+          </div>
+        <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
+    </div>
 
 
     );
