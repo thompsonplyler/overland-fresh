@@ -1,28 +1,28 @@
 import '../App.css';
-import {Fragment, useState, useEffect} from 'react'
-import Button from './SubmitButton'
-import InputField from '../components/InputField'
+import {Fragment} from 'react'
+// import Button from './SubmitButton'
+// import InputField from '../components/InputField'
 import freshLogo from '../assets/images/frshlogo.svg'
-import {
-  BrowserRouter as Router,
-  Link, 
-  Redirect
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Link, 
+//   Redirect
+// } from "react-router-dom";
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import LoginInputBox from '../components/LoginInputBox'
-import RegisterButton from './RegisterSubmitButton'
-import RegisterLinkButton from '../components/RegisterLinkButton'
+// import RegisterButton from './RegisterSubmitButton'
+// import RegisterLinkButton from '../components/RegisterLinkButton'
 
 
 function Login() {
 
-  const [inputBox, setInputBoxState] = useState("signin")
+  // const [inputBox, setInputBoxState] = useState("signin")
 
-  const {from} = this.props.location.state || {from:{pathname:'/'}}
+  // const {from} = this.props.location.state || {from:{pathname:'/'}}
 
-  if (this.state.redirect === true) {
-    return <Redirect to={from} />
-  }
+  // if (this.state.redirect === true) {
+  //   return <Redirect to={from} />
+  // }
 
 return(
 <Fragment>

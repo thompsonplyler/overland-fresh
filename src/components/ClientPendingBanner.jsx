@@ -1,13 +1,8 @@
 import '../App.css';
-import {Fragment} from 'react'
-import Button from './SubmitButton'
-import InputField from '../components/InputField'
-import freshLogo from '../assets/images/frshlogo.svg'
 import {
-  BrowserRouter as Router,
   Link
 } from "react-router-dom";
-
+import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL} from '../urls'
 
 function ClientPendingBanner(props) {
     let {subject} = props
@@ -18,10 +13,10 @@ function ClientPendingBanner(props) {
             <p> Final client copy and/or artwork pending.</p>
             <p>To see draft pages, please click the following:</p>
             <ul>
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/confirmation">Confirmation</Link></li>
-                <li><Link to="/event">Event</Link></li>
-                <li><Link to="/postevent">Post-Event</Link></li>
+                <li><Link to={LOGIN_URL}>Login</Link></li>
+                <li><Link to={CONFIRMATION_URL}>Confirmation</Link></li>
+                <li><Link to={EVENT_URL}>Event</Link></li>
+                <li><Link to={POST_EVENT_URL}>Post-Event</Link></li>
             </ul>
         </div>
     )

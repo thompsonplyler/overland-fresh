@@ -1,11 +1,10 @@
 import React from 'react'
-import {Fragment, useState, useEffect} from 'react'
+import {useState} from 'react'
 import videojs from 'video.js'
 import awsvideoconfig from '../aws-video-exports'
 import 'video.js/dist/video-js.css'
 import '../App.css';
 import freshLogo from '../assets/images/frshlogo.svg'
-import videoFile from "../assets/videos/160825_05_Sunflowers3_1080p.mp4"
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import FakeChat from './FakeChat'
   
@@ -24,11 +23,7 @@ const videoJsOptions = {
   function VideoPage() {
 
     class VideoPlayer extends React.Component {
-      constructor(props) {
-        super(props);
-       
-       
-        }
+
     
       // console.log(props)
     
@@ -63,7 +58,7 @@ const videoJsOptions = {
         }
       }
 
-    let windowSize = {}
+    // let windowSize = {}
     let [stateWidth, setWidth] = useState(window.innerWidth)
     let [stateHeight, setHeight] = useState(window.innerHeight)
 

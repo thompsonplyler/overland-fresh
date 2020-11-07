@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import videojs from 'video.js'
-import awsvideoconfig from '../aws-video-exports'
+// import videojs from 'video.js'
+// import awsvideoconfig from '../aws-video-exports'
 import 'video.js/dist/video-js.css'
 import '../App.css';
 import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 
-const dateToFormat = '2020-11-17T09:00-0500'
+// const dateToFormat = '2020-11-17T09:00-0500'
 const calculateTimeLeft = () => {
     let year = new Date().getFullYear();
     const difference = +new Date(`11/17/${year}`) - +new Date();
