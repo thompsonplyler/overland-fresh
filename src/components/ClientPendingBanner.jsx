@@ -19,7 +19,6 @@ function ClientPendingBanner(props) {
             <p>To see draft pages, please click the following:</p>
             <ul>
                 <li><Link to="/login">Login</Link></li>
-                <li><Link to="/register">Registration</Link></li>
                 <li><Link to="/confirmation-test">Confirmation</Link></li>
                 <li><Link to="/event-test">Event</Link></li>
                 <li><Link to="/postevent-test">Post-Event</Link></li>

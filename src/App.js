@@ -14,7 +14,6 @@ import VideoPage from "./components/VideoPage"
 import PreEvent from "./components/PreEvent"
 import PostEvent from "./components/PostEvent"
 import RealChat from "./components/RealChat"
-import Register from "./components/Register"
 import Login from "./components/Login"
 
 function AuthenticatedRoute({component: Component, authenticated, ...rest}) {
@@ -80,13 +79,6 @@ class App extends Component {
               <Login {...props} handleLogout={this.handleLogout} //pass prop 
               loggedInStatus={this.state.isLoggedIn}/>)}
               />
-                         <Route 
-              exact path='/register' 
-              render={props => (
-              <Register {...props} handleLogout={this.handleLogout} //pass prop 
-              loggedInStatus={this.state.isLoggedIn}/>)}
-              />
-
               <Route 
               exact path='/event-test' 
               render={props => (

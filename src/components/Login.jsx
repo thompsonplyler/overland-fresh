@@ -27,12 +27,6 @@ return(
           <p className="para1">November 17, 2020</p>
             <div className="login-grid-row">
           <LoginInputBox />
-          <div className="heading-login-selecter">
-            <h3 >or</h3>
-          </div>
-          <div className="register-button">
-          <RegisterLinkButton className="register-button"/>
-            </div>
           </div>
     </div>
     </Fragment>

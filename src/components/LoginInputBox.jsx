@@ -39,11 +39,11 @@ class LoginInputBox extends Component{
 
       handleSubmit = (event) => {
         event.preventDefault()
-        const {username, email, password} = this.state
+        const {email} = this.state
         let user = {
-          username: username,
-          email: email,
-          password: password
+          
+          email: email
+          
         }
         
     axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
@@ -78,7 +78,7 @@ class LoginInputBox extends Component{
       
     
     render(){
-        const {email, password} = this.state
+        const {email} = this.state
 
     return(
         <div className="form-grid-container">
@@ -87,7 +87,6 @@ class LoginInputBox extends Component{
             </div>
             <form className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>
-            <input onChange={this.handleChange} type="password" name="password" value={password} placeholder="Password"></input>
             <LoginSubmitButton placeholder="submit" type="submit" handleSubmit={this.handleSubmit} className="login-submit-button"/>
             {/* <Link to="/event"><Button type="submit" link="event" submitHandler={this.submitHandler}/></Link> */}
         </form>
