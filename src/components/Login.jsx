@@ -14,7 +14,9 @@ import LoginInputBox from '../components/LoginInputBox'
 // import RegisterLinkButton from '../components/RegisterLinkButton'
 
 
-function Login() {
+function Login(props) {
+
+  console.log("Props from Login component",props)
 
   // const [inputBox, setInputBoxState] = useState("signin")
 

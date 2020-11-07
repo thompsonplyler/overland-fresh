@@ -23,6 +23,8 @@ class LoginInputBox extends Component{
           errors: ''
          };
       }
+
+      
     
     inputDetermine = () => {
 
@@ -108,9 +110,10 @@ axios(config)
       }
       
     
-    render(){
+    render(props){
         const {email} = this.state
-
+      
+      console.log("This from Login Box component:",this)
     return(
         <div className="form-grid-container">
             <div className="login-heading">

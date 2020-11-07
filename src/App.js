@@ -80,6 +80,8 @@ class App extends Component {
 
             <Route 
               exact path={LOGIN_URL} 
+              parameters={this.props}
+              
               component={Login}
                 />
                             
