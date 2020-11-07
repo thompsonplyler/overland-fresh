@@ -16,13 +16,13 @@ import PostEvent from "./components/PostEvent"
 import RealChat from "./components/RealChat"
 import Login from "./components/Login"
 
-function AuthenticatedRoute({component: Component, authenticated, ...rest}) {
+function AuthenticatedRoute({component: Component, loggedInStatus, ...rest}) {
   return (
     <Route
       {...rest}
-      render={(props) => authenticated === true
+      render={(props) => loggedInStatus === true
           ? <Component {...props} {...rest} />
-          : <Redirect to='/login' />} />
+          : <Redirect to={{pathname: '/login', state: {from:props.location}}}/>} />
   )
 }
 
@@ -31,8 +31,29 @@ class App extends Component {
     super(props);
     this.state = { 
       isLoggedIn: false,
+      authenticated: false,
+      currentUser: null,
+      loading: true,
       user: {}
      };
+  }
+
+  setCurrentUser = (user) => {
+    if (user) {
+      this.setState({
+        currentUser: user,
+        isLoggedIn: true
+      })
+    } else {
+      this.setState({
+        currentUser: null,
+        isLoggedIn: false
+      })
+    }
+  }
+
+  componentWillMount(){
+    
   }
 
   componentDidMount() {
@@ -79,26 +100,27 @@ class App extends Component {
               <Login {...props} handleLogout={this.handleLogout} //pass prop 
               loggedInStatus={this.state.isLoggedIn}/>)}
               />
-              <Route 
+
+              {/* <Route 
               exact path='/event-test' 
               render={props => (
               <VideoPage {...props} handleLogout={this.handleLogout} //pass prop 
               loggedInStatus={this.state.isLoggedIn}/>)}
-              />
+              /> */}
 
-              <Route 
+              {/* <Route 
               exact path='/confirmation-test' 
               render={props => (
               <PreEvent {...props} handleLogout={this.handleLogout} //pass prop 
               loggedInStatus={this.state.isLoggedIn}/>)}
-              />
+              /> */}
 
-<Route 
+{/* <Route 
               exact path='/postevent-test' 
               render={props => (
               <PostEvent {...props} handleLogout={this.handleLogout} //pass prop 
               loggedInStatus={this.state.isLoggedIn}/>)}
-              />
+              /> */}
 
               <AuthenticatedRoute 
                 exact path='/confirmation' 
@@ -123,6 +145,12 @@ class App extends Component {
                 render={props => (
                 <PostEvent {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
                 )}
+              />
+                          <Route 
+              path='/' 
+              render={props => (
+              <Login {...props} handleLogout={this.handleLogout} //pass prop 
+              loggedInStatus={this.state.isLoggedIn}/>)}
               />
 
             </Switch>

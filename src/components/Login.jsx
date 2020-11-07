@@ -5,7 +5,8 @@ import InputField from '../components/InputField'
 import freshLogo from '../assets/images/frshlogo.svg'
 import {
   BrowserRouter as Router,
-  Link
+  Link, 
+  Redirect
 } from "react-router-dom";
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import LoginInputBox from '../components/LoginInputBox'
@@ -16,6 +17,12 @@ import RegisterLinkButton from '../components/RegisterLinkButton'
 function Login() {
 
   const [inputBox, setInputBoxState] = useState("signin")
+
+  const {from} = this.props.location.state || {from:{pathname:'/'}}
+
+  if (this.state.redirect === true) {
+    return <Redirect to={from} />
+  }
 
 return(
 <Fragment>
