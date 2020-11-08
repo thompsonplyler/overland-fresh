@@ -27,14 +27,13 @@ const RequireAuth = ({component: Component, children, location, isLoggedIn, user
   // console.log("Children of Auth router," children)
   console.log("isLoggedIn?", isLoggedIn)
   console.log("Location from RequireAuth",location)
-  console.log(user)
-  if (!realAuth.signedIn){
+  if (!isLoggedIn){
     return <Redirect to={{
       pathname: LOGIN_URL,
       search: location.search
     }} />
   }
-
+  
   return children
 }
 class App extends Component {
@@ -59,7 +58,11 @@ class App extends Component {
       user: data.data.user
     })
 
+    
     console.log("Reading user state: ", this.state.user)
+    console.log("Reading login state: ", this.state.isLoggedIn)
+    return this.props.history.push("/confirmation")
+
   }
   
 
@@ -100,6 +103,7 @@ class App extends Component {
     console.log("App/Router State:",this.state)
     
       return (
+        
           <Router>
             <Switch>
 
@@ -108,40 +112,46 @@ class App extends Component {
             <Route 
               exact path={LOGIN_URL} 
               params={this.props.match}
-              component={Login}
+              render={(props)=> <Login {...props} user={this.state.user} topLevelLogin={this.loginStatus}/>}
                 />
                             
 
 
             <RequireAuth 
-              isLoggedin={this.state.isLoggedIn} 
+              isLoggedIn={this.state.isLoggedIn} 
               location={this.props.location}
-              user={this.state.user}>
+              user={this.state.user}
+              topLevelLogin={this.handleLogin}
+              >
+              
 
             <Route 
-              path="/" 
-              component={PreEvent}
+              exact path="/" 
+              render={(props)=> <PreEvent {...props} user={this.state.user} topLevelLogin={this.handleLogin}/>}
+              
+              
               />
 
             <Route
               exact path={CONFIRMATION_URL}
-              exact component={PreEvent}
+              render={(props)=> <PreEvent {...props} user={this.state.user} topLevelLogin={this.handleLogin}/>}
               
             />
 
               <Route 
                   exact path={EVENT_URL}
-                  component={VideoPage}
+                  render={(props)=> <VideoPage {...props} topLevelLogin={this.handleLogin} user={this.state.user}/>}
               
               />
 
               <Route
               exact path={POST_EVENT_URL} 
-              component={PostEvent}
+              render={(props)=> <PostEvent {...props} topLevelLogin={this.handleLogin} user={this.state.user}/>}
               />
             </RequireAuth>
             </Switch>
           </Router>
+          
       );
     }
   }

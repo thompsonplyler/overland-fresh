@@ -27,35 +27,36 @@ const calculateTimeLeft = () => {
 };
 
 
-function PreEvent() {
+function PreEvent(props) {
+  console.log("Pre-event props: ", props)
 
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+//     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setTimeLeft(calculateTimeLeft());
-  }, 1000);
+// useEffect(() => {
+//   const timer = setTimeout(() => {
+//     setTimeLeft(calculateTimeLeft());
+//   }, 1000);
 
 
   
-  return () => clearTimeout(timer);
+//   return () => clearTimeout(timer);
 
 
-});
+// });
 
-const timerComponents = [];
+// const timerComponents = [];
 
-Object.keys(timeLeft).forEach((interval) => {
-  if (!timeLeft[interval]) {
-    return;
-  }
+// Object.keys(timeLeft).forEach((interval) => {
+//   if (!timeLeft[interval]) {
+//     return;
+//   }
 
-  timerComponents.push(
-    <span className="timer-component">
-      {timeLeft[interval]} {interval}{" "}
-    </span>
-  );
-});
+//   timerComponents.push(
+//     <span className="timer-component">
+//       {timeLeft[interval]} {interval}{" "}
+//     </span>
+//   );
+// });
 
     return(
     <div className="container">
@@ -63,7 +64,7 @@ Object.keys(timeLeft).forEach((interval) => {
           {/* <h2 style={{color: "white", fontFamily: "PTSerif"}}>Worldwide Meeting 2020</h2>  */}
           <h2 className="registration-heading-1">under one sky</h2>
           <ClientPendingBanner subject="confirmation"/>
-          <p className="para1">Welcome, [REGISTERED GUEST NAME]</p>
+    <p className="para1" style={{textTransform: "capitalize"}}>Welcome, {props.user.firstname}</p>
           <p className="para1">We look forward to seeing you on November 17, 2020</p>
           <div>
     {/* {timerComponents.length ? timerComponents : <span>Time's up!</span>} */}

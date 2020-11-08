@@ -56,7 +56,6 @@ handleSubmit = (event) => {
     .then(response => {
       if (response.data.logged_in) {
         this.props.handleLogin(response)
-        this.redirect()
       } else {
         this.setState({
           errors: response.data.errors
@@ -100,7 +99,7 @@ axios(config)
 */
 
     redirect = () => {
-        this.props.history.push('/')
+        this.props.history.push('/confirmation')
       }
 
     handleErrors = () => {
