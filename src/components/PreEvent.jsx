@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 // import awsvideoconfig from '../aws-video-exports'
 import 'video.js/dist/video-js.css'
 import '../App.css';
+import {
+  withRouter
+} from "react-router-dom";
 import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
 // import Moment from 'react-moment';
@@ -73,4 +76,4 @@ function PreEvent(props) {
     )
 }
 
-export default PreEvent;
+export default withRouter(PreEvent);

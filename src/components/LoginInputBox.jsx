@@ -98,10 +98,6 @@ axios(config)
 
 */
 
-    redirect = () => {
-        this.props.history.push('/confirmation')
-      }
-
     handleErrors = () => {
         return (
           <div>

@@ -61,8 +61,19 @@ class App extends Component {
     
     console.log("Reading user state: ", this.state.user)
     console.log("Reading login state: ", this.state.isLoggedIn)
-    return this.props.history.push("/confirmation")
+    this.props.history.push("/confirmation")
+    return <Redirect to="/confirmation"/>
 
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    console.log("CDU prevState ",prevState)
+    console.log("CDU prevProps ",prevProps)
+    if (prevProps.location.pathname!=this.props.location.pathname){
+      if (prevProps.location.pathname == LOGIN_URL && this.props.location.pathname==CONFIRMATION_URL){
+        return <Redirect to="/confirmation" />
+      }
+    }
   }
   
 
@@ -108,7 +119,12 @@ class App extends Component {
             <Switch>
 
 
-
+            <Route
+              exact path={CONFIRMATION_URL}
+              render={(props)=> <PreEvent {...props} user={this.state.user} topLevelLogin={this.handleLogin}/>}
+              
+            />
+            
             <Route 
               exact path={LOGIN_URL} 
               params={this.props.match}
@@ -117,12 +133,12 @@ class App extends Component {
                             
 
 
-            <RequireAuth 
+            {/* <RequireAuth 
               isLoggedIn={this.state.isLoggedIn} 
               location={this.props.location}
               user={this.state.user}
               topLevelLogin={this.handleLogin}
-              >
+              > */}
               
 
             <Route 
@@ -132,11 +148,7 @@ class App extends Component {
               
               />
 
-            <Route
-              exact path={CONFIRMATION_URL}
-              render={(props)=> <PreEvent {...props} user={this.state.user} topLevelLogin={this.handleLogin}/>}
-              
-            />
+          
 
               <Route 
                   exact path={EVENT_URL}
@@ -148,7 +160,7 @@ class App extends Component {
               exact path={POST_EVENT_URL} 
               render={(props)=> <PostEvent {...props} topLevelLogin={this.handleLogin} user={this.state.user}/>}
               />
-            </RequireAuth>
+            {/* </RequireAuth> */}
             </Switch>
           </Router>
           
