@@ -17,11 +17,14 @@ import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL} from './urls'
 export const fakeAuth = {
   signedIn: false
 }
-console.log(fakeAuth)
+console.log(window.location.search.substring(1))
 
 const RequireAuth = ({children}) => {
   if (!fakeAuth.signedIn){
-    return <Redirect to={LOGIN_URL} />
+    return <Redirect to={{
+      pathname: LOGIN_URL,
+      search: window.location.search.substring(1)
+    }} />
   }
 
   return children
