@@ -27,9 +27,6 @@ const calculateTimeLeft = () => {
 };
 
 
-
-console.log(calculateTimeLeft())
-
 function PreEvent() {
 
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());

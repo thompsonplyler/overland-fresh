@@ -5,6 +5,7 @@ import {
   Switch,
   Route,
   Redirect,
+  withRouter,
   Link
 } from "react-router-dom";
 import axios from 'axios'
@@ -17,19 +18,17 @@ import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL} from './urls'
 export const fakeAuth = {
   signedIn: false
 }
-console.log(window.location.search.substring(1))
 
-const RequireAuth = ({children}) => {
+const RequireAuth = ({children, location}) => {
   if (!fakeAuth.signedIn){
     return <Redirect to={{
       pathname: LOGIN_URL,
-      search: this.props.location.search
+      search: location.search
     }} />
   }
 
   return children
 }
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -38,16 +37,7 @@ class App extends Component {
      };
   }
 
-  const RequireAuth = ({children}) => {
-    if (!fakeAuth.signedIn){
-      return <Redirect to={{
-        pathname: LOGIN_URL,
-        search: this.props.location.search
-      }} />
-    }
-  
-    return children
-  }
+
 
   // componentDidMount() {
   //   this.loginStatus()
@@ -100,7 +90,7 @@ class App extends Component {
                             
 
 
-            <RequireAuth>
+            <RequireAuth location={this.props.location}>
 
             <Route 
               path="/" 
@@ -130,7 +120,7 @@ class App extends Component {
     }
   }
 
-export default App;
+export default withRouter(App);
 
 /* Old Routing Stuff:
 <AuthenticatedRoute 
