@@ -23,7 +23,7 @@ const RequireAuth = ({children}) => {
   if (!fakeAuth.signedIn){
     return <Redirect to={{
       pathname: LOGIN_URL,
-      search: window.location.search.substring(1)
+      search: this.props.location.search
     }} />
   }
 
