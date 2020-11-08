@@ -38,6 +38,17 @@ class App extends Component {
      };
   }
 
+  const RequireAuth = ({children}) => {
+    if (!fakeAuth.signedIn){
+      return <Redirect to={{
+        pathname: LOGIN_URL,
+        search: this.props.location.search
+      }} />
+    }
+  
+    return children
+  }
+
   // componentDidMount() {
   //   this.loginStatus()
   // }
