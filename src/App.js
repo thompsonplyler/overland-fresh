@@ -19,8 +19,16 @@ export const fakeAuth = {
   signedIn: false
 }
 
-const RequireAuth = ({children, location}) => {
-  if (!fakeAuth.signedIn){
+export const realAuth = {
+  signedIn: false
+}
+
+const RequireAuth = ({component: Component, children, location, isLoggedIn, user} ) => {
+  // console.log("Children of Auth router," children)
+  console.log("isLoggedIn?", isLoggedIn)
+  console.log("Location from RequireAuth",location)
+  console.log(user)
+  if (!realAuth.signedIn){
     return <Redirect to={{
       pathname: LOGIN_URL,
       search: location.search
@@ -33,48 +41,63 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-
+      isLoggedIn: false,
+      user: {}
      };
   }
 
 
 
-  // componentDidMount() {
-  //   this.loginStatus()
-  // }
+  componentDidMount() {
+    this.loginStatus()
+  }
 
-  // handleLogin = (data) => {
-  //   this.setState({
-  //     isLoggedIn: true,
-  //     user: data.user
-  //   })
-  // }
+  handleLogin = (data) => {
+    console.log("Data from login check:", data)
+    this.setState({
+      isLoggedIn: true,
+      user: data.data.user
+    })
+
+    console.log("Reading user state: ", this.state.user)
+  }
   
 
-  // handleLogout = () => {
-  //   this.setState({
-  //   isLoggedIn: false,
-  //   user: {}
-  //   })
-  // }
+  handleLogout = () => {
+    this.setState({
+    isLoggedIn: false,
+    user: {}
+    })
+  }
 
   // loginStatus retriever from Rails API
   // save for later
-  // loginStatus = () => {
-  //   axios.get('http://localhost:3001/logged_in', 
-  //  {withCredentials: true})    
-  //  .then(response => {
-  //     if (response.data.logged_in) {
-  //       this.handleLogin(response)
-  //     } else {
-  //       this.handleLogout()
-  //     }
-  //   }
-  //   )
-  //   .catch(error => console.log('api errors:', error))
-  // }
+  loginStatus = () => {
+    console.log("Reading localStorage during login status check: ",localStorage)
+    let user
+    if (localStorage.loggedIn && localStorage.confirm_token){
+      user = {confirm_token: localStorage.confirm_token}
+      }
+
+      console.log("User object taken from local storage and sent to Rails: ",user)
+      
+    
+
+    axios.post('http://localhost:3001/logged_in', {user},
+   {withCredentials: true})    
+   .then(response => {
+      if (response.data.logged_in) {
+        this.handleLogin(response)
+      } else {
+        this.handleLogout()
+      }
+    }
+    )
+    .catch(error => console.log('api errors:', error))
+  }
 
   render(){
+    console.log("App/Router State:",this.state)
     
       return (
           <Router>
@@ -90,7 +113,10 @@ class App extends Component {
                             
 
 
-            <RequireAuth location={this.props.location}>
+            <RequireAuth 
+              isLoggedin={this.state.isLoggedIn} 
+              location={this.props.location}
+              user={this.state.user}>
 
             <Route 
               path="/" 

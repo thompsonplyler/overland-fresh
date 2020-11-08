@@ -2,16 +2,18 @@ import React from 'react'
 import {Component} from 'react'
 // import {useState} from 'react'
 import '../App.css';
-// import {
-//     BrowserRouter as Router,
-//     Link,
-//     Redirect
-//   } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Link,
+    Redirect,
+    withRouter
+  } from "react-router-dom";
 //   import Button from './SubmitButton'
 // import { isCompositeComponent } from 'react-dom/test-utils';
 // import RegisterButton from './RegisterSubmitButton'
 import LoginSubmitButton from '../components/LoginSubmitButton'
 import axios from 'axios'
+import { createImportSpecifier } from 'typescript';
 
 class LoginInputBox extends Component{
 
@@ -23,6 +25,8 @@ class LoginInputBox extends Component{
           errors: ''
          };
       }
+
+
 
       
     
@@ -45,11 +49,13 @@ handleSubmit = (event) => {
   let user = {
     email: email
     }
+
+  console.log(user)
         
   axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
     .then(response => {
       if (response.data.logged_in) {
-        this.props.handleLogin(response.data)
+        this.props.handleLogin(response)
         this.redirect()
       } else {
         this.setState({
@@ -111,8 +117,8 @@ axios(config)
       
     
     render(props){
-        const {email} = this.state
-      
+    const {email} = this.state
+    
     return(
         <div className="form-grid-container">
             <div className="login-heading">
@@ -121,7 +127,6 @@ axios(config)
             <form className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>
             <LoginSubmitButton placeholder="submit" type="submit" handleSubmit={this.handleSubmit} className="login-submit-button"/>
-            {/* <Link to="/event"><Button type="submit" link="event" submitHandler={this.submitHandler}/></Link> */}
         </form>
     
         <div>
@@ -133,4 +138,4 @@ axios(config)
     )}
 }
 
-export default LoginInputBox;
+export default withRouter(LoginInputBox);

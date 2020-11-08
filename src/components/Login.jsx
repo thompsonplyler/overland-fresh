@@ -3,11 +3,11 @@ import {Fragment} from 'react'
 // import Button from './SubmitButton'
 // import InputField from '../components/InputField'
 import freshLogo from '../assets/images/frshlogo.svg'
-// import {
-//   BrowserRouter as Router,
-//   Link, 
-//   Redirect
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link, 
+  Redirect
+} from "react-router-dom";
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import LoginInputBox from '../components/LoginInputBox'
 // import RegisterButton from './RegisterSubmitButton'
@@ -20,6 +20,22 @@ import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 function Login(props) {
   console.log(queryString.parse(props.location.search))
 
+  
+  const handleLogin = (e) => {
+    console.log(e.data)
+    if (e.data.logged_in){
+      localStorage.setItem("loggedIn", "true")
+    }
+
+    if (e.data.user.confirm_token){
+      localStorage.setItem("confirm_token", `${e.data.user.confirm_token}`)
+    }
+
+    
+    console.log(localStorage)
+  
+
+  }
 
   // console.log("Props from Login component",props)
   // console.log(queryString.parse(props.location.search))
@@ -41,7 +57,9 @@ return(
             <ClientPendingBanner subject="login"/>
           <p className="para1">November 17, 2020</p>
             <div className="login-grid-row">
-          <LoginInputBox />
+              <Router>
+          <LoginInputBox handleLogin={handleLogin} />
+          </Router>
           </div>
     </div>
     </Fragment>
