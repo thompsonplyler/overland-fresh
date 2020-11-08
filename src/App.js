@@ -71,7 +71,7 @@ class App extends Component {
   // }
 
   render(){
-    console.log(POST_EVENT_URL)
+    
       return (
           <Router>
             <Switch>
@@ -80,8 +80,7 @@ class App extends Component {
 
             <Route 
               exact path={LOGIN_URL} 
-              parameters={this.props}
-              
+              params={this.props.match}
               component={Login}
                 />
                             

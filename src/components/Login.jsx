@@ -12,11 +12,14 @@ import ClientPendingBanner from '../components/ClientPendingBanner'
 import LoginInputBox from '../components/LoginInputBox'
 // import RegisterButton from './RegisterSubmitButton'
 // import RegisterLinkButton from '../components/RegisterLinkButton'
+import queryString from 'query-string'
+console.log(queryString)
 
 
 function Login(props) {
 
   console.log("Props from Login component",props)
+  console.log(queryString.parse(props.location.search))
 
   // const [inputBox, setInputBoxState] = useState("signin")
 
