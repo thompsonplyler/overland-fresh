@@ -117,6 +117,7 @@ class App extends Component {
   render() {
     console.log("App/Router State:", this.state);
     console.log(this.loginStatus);
+    console.log(process.env)
 
     return (
       <Router>
