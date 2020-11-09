@@ -88,6 +88,8 @@ class App extends Component {
       localStorage.setItem("firstname", e.firstname);
       localStorage.setItem("lastname", e.lastname);
       localStorage.setItem("company", e.company);
+    } else {
+      localStorage.clear();
     }
     // let user
     // if (localStorage.loggedIn && localStorage.confirm_token){
@@ -114,6 +116,7 @@ class App extends Component {
 
   render() {
     console.log("App/Router State:", this.state);
+    console.log(this.loginStatus);
 
     return (
       <Router>
@@ -122,9 +125,14 @@ class App extends Component {
             exact
             path={LOGIN_URL}
             params={this.props.match}
-            render={(props) => <Login {...props} user={this.state.user} />}
+            render={(props) => (
+              <Login
+                {...props}
+                user={this.state.user}
+                topLevelLogin={this.loginStatus}
+              />
+            )}
           />
-
           <Route
             exact
             path={CONFIRMATION_URL}
@@ -133,18 +141,32 @@ class App extends Component {
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
-                topLevelLogin={this.handleLogin}
+                topLevelLogin={this.loginStatus}
               />
             )}
           />
-
-          {/* <RequireAuth 
-              isLoggedIn={this.state.isLoggedIn} 
-              location={this.props.location}
-              user={this.state.user}
-              topLevelLogin={this.loginStatus}
-              > */}
-
+          <Route
+            exact
+            path={EVENT_URL}
+            render={(props) => (
+              <VideoPage
+                {...props}
+                topLevelLogin={this.loginStatus}
+                user={this.state.user}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={POST_EVENT_URL}
+            render={(props) => (
+              <PostEvent
+                {...props}
+                topLevelLogin={this.loginStatus}
+                user={this.state.user}
+              />
+            )}
+          />
           <Route
             exact
             path="/"
@@ -153,35 +175,10 @@ class App extends Component {
               <Login
                 {...props}
                 user={this.state.user}
-                topLevelLogin={this.LoginStatus}
+                topLevelLogin={this.loginStatus}
               />
             )}
           />
-
-          <Route
-            exact
-            path={EVENT_URL}
-            render={(props) => (
-              <VideoPage
-                {...props}
-                topLevelLogin={this.handleLogin}
-                user={this.state.user}
-              />
-            )}
-          />
-
-          <Route
-            exact
-            path={POST_EVENT_URL}
-            render={(props) => (
-              <PostEvent
-                {...props}
-                topLevelLogin={this.handleLogin}
-                user={this.state.user}
-              />
-            )}
-          />
-          {/* </RequireAuth> */}
         </Switch>
       </Router>
     );

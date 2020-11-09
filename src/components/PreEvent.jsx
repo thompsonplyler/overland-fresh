@@ -36,7 +36,7 @@ function PreEvent(props) {
       ) : (
         <Fragment>
           <p className="para1">
-            Unfortunately, we don't have a user by that name.{" "}
+            Unfortunately, we don't have user with your e-mail address.{" "}
           </p>
           <p className="para1">
             If you feel you have reached this message in error, please contact
@@ -59,9 +59,7 @@ function PreEvent(props) {
 
 export default withRouter(PreEvent);
 
-{
-  /* {timerComponents.length ? timerComponents : <span>Time's up!</span>} */
-}
+/* {timerComponents.length ? timerComponents : <span>Time's up!</span>} */
 
 const calculateTimeLeft = () => {
   let year = new Date().getFullYear();
