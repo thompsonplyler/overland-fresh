@@ -293,9 +293,11 @@ h2.heading-post {
     color: white;
     font-size: 2.3vh;
     align-self: center;
-    padding-bottom: 1.5rem; 
+    padding-bottom: 1rem; 
     padding-right: 5%;
     padding-left: 5%;
+    text-align: center;
+    text-justify: auto;
   }
 
   .container {display: flex;
@@ -304,7 +306,7 @@ h2.heading-post {
   justify-content: center;
   margin-top: 15vh;
   width: 100%;
-  line-height: 35px;
+  line-height: 10px;
   }
 }
 
@@ -320,7 +322,11 @@ h2.heading-post {
   .para1 {
     color: white;
     font-size: 2.3vh;
-    padding-bottom: 1.5rem; 
+    padding-bottom: 1rem; 
+    text-align: center;
+    text-justify: auto;
+    padding-right: 5%;
+    padding-left: 5%;
   }
 
   .container {display: flex;
@@ -330,7 +336,7 @@ h2.heading-post {
   justify-items: center;
   margin-top: 15vh;
   /* width: 100%; */
-  line-height: 30px;
+  line-height: 20px;
   }
 }
 
@@ -346,7 +352,11 @@ h2.heading-post {
   .para1 {
     color: white;
     font-size: 2.3vh;
-    padding-bottom: 1.5rem; 
+    padding-bottom: 1.5rem;
+    text-align: center;
+    text-justify: auto;
+    padding-right: 5%;
+    padding-left: 5%;
   }
 
   .container {display: flex;
@@ -372,6 +382,10 @@ h2.heading-post {
     color: white;
     font-size: 3vh;
     padding-bottom: 1.5rem; 
+    text-align: center;
+    text-justify: auto;
+    padding-right: 5%;
+    padding-left: 5%;
     
   }
 
