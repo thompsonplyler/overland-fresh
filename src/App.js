@@ -123,6 +123,7 @@ class App extends Component {
   render(){
     console.log("App/Router State:",this.state)
     console.log(this.loginStatus)
+    console.log("PRocess Env from APP: ",process.env)
     
       return (
         

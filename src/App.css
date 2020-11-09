@@ -158,7 +158,7 @@ input {
   align-items: center;
   justify-content: center;
   margin-top: 15vh;
-  line-height: 0%; }
+  line-height: 1px; }
 
 .grid-container {
   display: grid;
@@ -236,8 +236,9 @@ h2.registration-heading-2 {
 
 .para1 {
   color: white;
-  font-size: 4vh;
-  padding-bottom: 1.5rem; }
+  font-size: 3vh;
+  /* padding-bottom: 1.5rem; */
+ }
 
 h2.heading-post {
   color: white;
@@ -291,7 +292,10 @@ h2.heading-post {
   .para1 {
     color: white;
     font-size: 2.3vh;
+    align-self: center;
     padding-bottom: 1.5rem; 
+    padding-right: 5%;
+    padding-left: 5%;
   }
 
   .container {display: flex;
@@ -323,9 +327,10 @@ h2.heading-post {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  justify-items: center;
   margin-top: 15vh;
-  width: 100%;
-  line-height: 35px;
+  /* width: 100%; */
+  line-height: 30px;
   }
 }
 
@@ -347,9 +352,9 @@ h2.heading-post {
   .container {display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  align-items: center;
   margin-top: 15vh;
-  width: 100%;
+  /* width: 100%; */
   line-height: 35px;
   }
 }
@@ -367,14 +372,14 @@ h2.heading-post {
     color: white;
     font-size: 3vh;
     padding-bottom: 1.5rem; 
+    
   }
 
   .container {display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin-top: 15vh;
-  width: 100%;
+  /* width: 100%; */
   line-height: 35px;
   }
 }

@@ -11,7 +11,7 @@ import ClientPendingBanner from '../components/ClientPendingBanner'
 import LoginInputBox from '../components/LoginInputBox'
 import queryString from 'query-string'
 import Logout from "../components/Logout"
-
+import axios from 'axios'
 
 
 function Login(props) {
@@ -39,6 +39,35 @@ function Login(props) {
     
     // Use this history
     props.history.push("/confirmation")
+  }
+
+const customerIoSend = (data) =>{
+
+  
+  let userData = JSON.stringify({"name":"login",
+  "data":{
+  "recipient": `${data.email}`,
+  "firstname": `${data.firstname}`
+
+}});
+
+var config = {
+  method: 'post',
+  url: 'https://track.customer.io/api/v1/events',
+  headers: { 
+    'Content-Type': 'application/json', 
+    'Authorization': 'Basic MmY3Y2IzZDVmM2RlZjFkNjlhY2Q6ZTRhM2U2Yjk3OTFmMTg5MTZmMDU='
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
   }
 
 return(

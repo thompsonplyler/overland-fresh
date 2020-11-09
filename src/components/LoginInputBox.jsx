@@ -125,12 +125,14 @@ axios(config)
     
     render(props){
     const {email} = this.state
+    console.log("Process ENV: ", process.env)
     
     
     return(
         <div className="form-grid-container">
             <div className="login-heading">
                 <h3 data-name="login">Register / Log In</h3>
+            <p>{process.env.NOT_SECRET_CODE}</p>
             </div>
             <form className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>
