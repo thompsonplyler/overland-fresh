@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
+import AddToCalendar from '../components/AddToCalendar'
+import BackToLogin from '../components/BackToLogin'
 
 
 function PreEvent(props) {
@@ -21,9 +23,9 @@ function PreEvent(props) {
           
           <h2 className="registration-heading-1">under one sky</h2>
           {props.user.firstname || localStorage.email?
-          <Fragment><p className="para1" style={{textTransform: "capitalize"}}>Welcome, {props.user.firstname || localStorage.firstname}</p>
-          <p className="para1">We look forward to seeing you on</p><p className="para1"> November 17, 2020</p></Fragment>:<Fragment><p className="para1">Oops, sorry we couldn’t find your email.</p>
-          <p className="para1">Please contact</p> <p className="para1"><a className="pretty-link" href="mailto:knewton@fresh.com">knewton@fresh.com</a></p><p className="para1">to notify them of the issue.</p></Fragment>}
+          <Fragment><p className="para1" style={{textTransform: "capitalize"}}>Welcome {props.user.firstname || localStorage.firstname}</p>
+          <p className="para1">We look forward to seeing you on November 17, 2020.</p><AddToCalendar /></Fragment>:<Fragment><p className="para1">Oops, sorry we couldn’t find your email.</p>
+          <p className="para1">Please contact <a className="pretty-link" href="mailto:knewton@fresh.com">knewton@fresh.com</a> to notify them of the issue.</p><div style={{paddingTop: "3vh"}}></div><BackToLogin /></Fragment>}
           
       
             <div>

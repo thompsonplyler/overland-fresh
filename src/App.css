@@ -143,9 +143,8 @@ input {
   justify-items: center;
   border-radius: 0%; }
 
-  .pretty-link{
-    color: rgb(175, 224, 255);
-    text-shadow: 1px 1px 2px black;
+  .pretty-link {
+    color: rgb(0, 0, 255);
     border-bottom: 1px;
     border-style: solid;
     border-top: 0px;
