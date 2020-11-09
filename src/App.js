@@ -90,7 +90,7 @@ class App extends Component {
       localStorage.setItem("firstname", e.firstname)
       localStorage.setItem("lastname", e.lastname)
       localStorage.setItem("company", e.company)
-
+      
     }
     else {
       localStorage.clear()

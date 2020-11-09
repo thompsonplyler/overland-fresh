@@ -1,6 +1,7 @@
 import React from 'react'
 import {Component} from 'react'
 // import {useState} from 'react'
+import axios from 'axios'
 import '../App.css';
 import {
     BrowserRouter as Router,
@@ -12,7 +13,6 @@ import {
 // import { isCompositeComponent } from 'react-dom/test-utils';
 // import RegisterButton from './RegisterSubmitButton'
 import LoginSubmitButton from '../components/LoginSubmitButton'
-import axios from 'axios'
 import { createImportSpecifier } from 'typescript';
 import data from "../assets/json/authenticated_roster.json"
 
@@ -46,21 +46,40 @@ class LoginInputBox extends Component{
 
 handleSubmit = (event) => {
   event.preventDefault()
-  
   const {email} = this.state
   
   let user = {
     email: email
     }
 
-  let newUser=[]
+    // let personData = JSON.stringify({"name":"login",
+    //   "data":{
+    //   "recipient":"thompson@thompsonplyler.com"
+    
+    // }});
+    
+    // let config = {
+    //   method: 'post',
+    //   url: 'https://track.customer.io/api/v1/events',
+    //   headers: { 
+    //     'Content-Type': 'application/json', 
+    //     'Authorization': 'Basic MmY3Y2IzZDVmM2RlZjFkNjlhY2Q6ZTRhM2U2Yjk3OTFmMTg5MTZmMDU='
+    //   },
+    //   data : personData
+    // };
+    
+    // axios(config)
+    // .then(function (response) {
+      let fuckOffThompson = data.find(userA => userA.email == user.email)
+      console.log("The real fuckoff Thompson", fuckOffThompson)
+      this.props.handleLogin(fuckOffThompson)
+      // console.log(JSON.stringify(response.data));
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
 
-  console.log(data[0])
-  console.log(user)
 
-  let fuckOffThompson = data.find(userA => userA.email == user.email)
-  console.log("The real fuckoff Thompson", fuckOffThompson)
-  this.props.handleLogin(fuckOffThompson)
   
   
         

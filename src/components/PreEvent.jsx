@@ -14,18 +14,29 @@ function PreEvent(props) {
   console.log("Pre-event props: ", props)
   console.log("History item: ", props.history)
 
+// const [hidden,setHidden] = useState("none")
+
+// useEffect(()=>{
+//   if (!!hidden) return
+//   setHidden("none") 
+// })
 // const redirect =()=>props.history.push("/login")
 // if (!props.isLoggedIn)return <Fragment>  {redirect()}</Fragment>
-
+const hidden = props.user.firstname || localStorage.email? "auto" : "none"
+console.log(hidden)
     return(
+
+      
     <div className="container">
           <img className="img-fresh-logo" src={freshLogo}/>
           
           <h2 className="registration-heading-1">under one sky</h2>
           {props.user.firstname || localStorage.email?
           <Fragment><p className="para1" style={{textTransform: "capitalize"}}>Congratulations {props.user.firstname || localStorage.firstname}</p>
-          <p className="para1">You have successfully registered for <i>fresh</i>’s Under One Sky. </p><p className="para1">We look forward to the <i>fresh</i> family coming together on November 17, 2020.</p><div style={{paddingTop: "15px"}}></div><AddToCalendar /></Fragment>:<Fragment><p className="para1">Oops, sorry we couldn’t find your email.</p>
+          <p className="para1">You have successfully registered for <i>fresh</i>’s Under One Sky. </p><p className="para1">We look forward to the <i>fresh</i> family coming together on November 17, 2020.</p><div style={{paddingTop: "15px"}}></div></Fragment>:<Fragment><p className="para1">Oops, sorry we couldn’t find your email.</p>
           <p className="para1">Please contact <a className="pretty-link" href="mailto:knewton@fresh.com">knewton@fresh.com</a> to notify them of the issue.</p><div style={{paddingTop: "3vh"}}></div><BackToLogin /></Fragment>}
+          
+          <div style={{display: hidden}}><AddToCalendar /></div>
           
       
             <div>
