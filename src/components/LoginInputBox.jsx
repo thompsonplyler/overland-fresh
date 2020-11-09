@@ -60,12 +60,8 @@ handleSubmit = (event) => {
 
   let fuckOffThompson = data.find(userA => userA.email == user.email)
   console.log("The real fuckoff Thompson", fuckOffThompson)
+  this.props.handleLogin(fuckOffThompson)
   
-  // data.forEach(user=>{
-  //     if(user.email==user){
-  //       newUser.push(user)
-  //     }
-  //   })
   
         
   // axios.post('http://localhost:3001/login', {user}, {withCredentials: true})

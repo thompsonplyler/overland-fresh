@@ -20,10 +20,14 @@ function PreEvent(props) {
           <img className="img-fresh-logo" src={freshLogo}/>
           
           <h2 className="registration-heading-1">under one sky</h2>
-          <p className="para1" style={{textTransform: "capitalize"}}>Welcome, {props.user.firstname}</p>
-          <p className="para1">We look forward to seeing you on November 17, 2020</p>
-          <div>
-          <ClientPendingBanner subject="confirmation"/>
+          {props.user.firstname || localStorage.email?
+          <Fragment><p className="para1" style={{textTransform: "capitalize"}}>Welcome, {props.user.firstname || localStorage.firstname}</p>
+          <p className="para1">We look forward to seeing you on November 17, 2020</p></Fragment>:<Fragment><p className="para1">Unfortunately, we don't have a user by that name. </p>
+          <p className="para1">If you feel you have reached this message in error, please contact</p> <p className="para1"><a className="pretty-link" href="mailto:thompson@thompsonplyler.com">thompson@thompsonplyler.com</a></p></Fragment>}
+          
+      
+            <div>
+          {/* <ClientPendingBanner subject="confirmation"/> */}
             </div> 
     </div>
     )

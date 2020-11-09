@@ -14,7 +14,7 @@ function PostEvent() {
           <p className="para1">Thank you for coming!</p>
           <p className="para1">Today's meeting has concluded.</p>
         
-        <ClientPendingBanner subject="post-event"/>
+        {/* <ClientPendingBanner subject="post-event"/> */}
 
     </div>
     )

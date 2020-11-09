@@ -81,7 +81,7 @@ const videoJsOptions = {
             
             </div>
             <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
-            <ClientPendingBanner subject="event"/>
+            {/* <ClientPendingBanner subject="event"/> */}
         </div>
 
 

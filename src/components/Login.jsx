@@ -56,8 +56,8 @@ return(
     
     </div>
             
-            <Logout />
-            <ClientPendingBanner subject="login"/>
+            {/* <Logout /> */}
+            {/* <ClientPendingBanner subject="login"/> */}
     </Fragment>
     )
 }

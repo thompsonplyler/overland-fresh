@@ -77,31 +77,44 @@ class App extends Component {
   }
 
   // verifies login status with Rails server every time a routed component loads
-  loginStatus = () => {
+  loginStatus = (e) => {
     console.log("Reading localStorage during login status check: ",localStorage)
-    let user
-    if (localStorage.loggedIn && localStorage.confirm_token){
-      user = {confirm_token: localStorage.confirm_token}
-      }
+    if (e){
+      console.log("Props from login json:", e)
+      this.setState({
+        isLoggedIn: true,
+        user: e
+      })
 
-    console.log("User object taken from local storage and sent to Rails: ",user)
+      localStorage.setItem("email", e.email)
+      localStorage.setItem("firstname", e.firstname)
+      localStorage.setItem("lastname", e.lastname)
+      localStorage.setItem("company", e.company)
+      
+    }
+    // let user
+    // if (localStorage.loggedIn && localStorage.confirm_token){
+    //   user = {confirm_token: localStorage.confirm_token}
+    //   }
+
+    // console.log("User object taken from local storage and sent to Rails: ",user)
       
     
 
-    axios.post('http://localhost:3001/logged_in',
-      {user},
-      {withCredentials: true})
+    // axios.post('http://localhost:3001/logged_in',
+    //   {user},
+    //   {withCredentials: true})
 
-        .then(response => {
-          if (response.data.logged_in) {
+    //     .then(response => {
+    //       if (response.data.logged_in) {
             
-            this.handleLogin(response)
-          } else {
-            this.handleLogout()
-          }
-    }
-    )
-    .catch(error => console.log('api errors:', error))
+    //         this.handleLogin(response)
+    //       } else {
+    //         this.handleLogout()
+    //       }
+    // }
+    
+    // .catch(error => console.log('api errors:', error))
   }
 
   render(){
