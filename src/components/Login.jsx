@@ -22,6 +22,7 @@ function Login(props) {
     console.log(props)
     console.log("Data returned from the Rails server to parse: ",e)
     props.topLevelLogin(e)
+    customerIoSend(e)
     // let {topLevelLogin} = props
     
     // console.log(topLevelLogin)
@@ -41,24 +42,26 @@ function Login(props) {
     props.history.push("/confirmation")
   }
 
-const customerIoSend = (data) =>{
+const customerIoSend = (info) =>{
 
   
   let userData = JSON.stringify({"name":"login",
   "data":{
-  "recipient": `${data.email}`,
-  "firstname": `${data.firstname}`
+  "recipient": `${info.email}`,
+  "firstname": `${info.firstname}`
 
 }});
 
-var config = {
+console.log("UserData, ",userData)
+
+let config = {
   method: 'post',
   url: 'https://track.customer.io/api/v1/events',
   headers: { 
     'Content-Type': 'application/json', 
     'Authorization': 'Basic MmY3Y2IzZDVmM2RlZjFkNjlhY2Q6ZTRhM2U2Yjk3OTFmMTg5MTZmMDU='
   },
-  data : data
+  data : userData
 };
 
 axios(config)
