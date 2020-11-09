@@ -19,6 +19,7 @@ function Login(props) {
 
   
   const handleLogin = (e) => {
+    console.log(props)
     console.log("Data returned from the Rails server to parse: ",e)
     props.topLevelLogin(e)
     // let {topLevelLogin} = props

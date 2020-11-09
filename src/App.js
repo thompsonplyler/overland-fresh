@@ -119,6 +119,7 @@ class App extends Component {
 
   render(){
     console.log("App/Router State:",this.state)
+    console.log(this.loginStatus)
     
       return (
         
@@ -134,39 +135,25 @@ class App extends Component {
 
             <Route
               exact path={CONFIRMATION_URL}
-              render={(props)=> <PreEvent {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} topLevelLogin={this.handleLogin}/>}
-              
-            />
-                            
-
-
-
-            {/* <RequireAuth 
-              isLoggedIn={this.state.isLoggedIn} 
-              location={this.props.location}
-              user={this.state.user}
-              topLevelLogin={this.loginStatus}
-              > */}
-
-
-
-              
-
-            <Route 
-              exact path="/" 
-              params={this.props.match}
-              render={(props)=> <Login {...props} user={this.state.user} topLevelLogin={this.LoginStatus}/>}     
-              />
+              render={(props)=> <PreEvent {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} topLevelLogin={this.loginStatus}/>} />
+                          
+            
 
               <Route 
                   exact path={EVENT_URL}
-                  render={(props)=> <VideoPage {...props} topLevelLogin={this.handleLogin} user={this.state.user}/>}
+                  render={(props)=> <VideoPage {...props} topLevelLogin={this.loginStatus} user={this.state.user}/>}
               
               />
 
               <Route
               exact path={POST_EVENT_URL} 
-              render={(props)=> <PostEvent {...props} topLevelLogin={this.handleLogin} user={this.state.user}/>}
+              render={(props)=> <PostEvent {...props} topLevelLogin={this.loginStatus} user={this.state.user}/>}
+              />
+
+              <Route               
+              exact path="/" 
+              params={this.props.match}
+              render={(props)=> <Login {...props} user={this.state.user} topLevelLogin={this.loginStatus}/>}     
               />
             {/* </RequireAuth> */}
             </Switch>
