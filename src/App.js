@@ -92,6 +92,9 @@ class App extends Component {
       localStorage.setItem("company", e.company)
 
     }
+    else {
+      localStorage.clear()
+    }
     // let user
     // if (localStorage.loggedIn && localStorage.confirm_token){
     //   user = {confirm_token: localStorage.confirm_token}
