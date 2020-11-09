@@ -41,22 +41,22 @@ class App extends Component {
     this.loginStatus()
   }
 
-  handleLogin = (data) => {
-    console.log("Data from login check:", data)
-    this.setState({
-      isLoggedIn: true,
-      user: data.data.user
-    })
+  // handleLogin = (data) => {
+  //   console.log("Data from login check:", data)
+  //   this.setState({
+  //     isLoggedIn: true,
+  //     user: data.data.user
+  //   })
 
     
-    console.log("Reading user state: ", this.state.user)
-    console.log("Reading login state: ", this.state.isLoggedIn)
-    // this.props.history.push("/confirmation")
-    // return <Redirect to="/confirmation"/>
+  //   console.log("Reading user state: ", this.state.user)
+  //   console.log("Reading login state: ", this.state.isLoggedIn)
+  //   // this.props.history.push("/confirmation")
+  //   // return <Redirect to="/confirmation"/>
     
 
 
-  }
+  // }
 
   // componentDidUpdate(prevProps, prevState){
   //   console.log("CDU prevState ",prevState)
