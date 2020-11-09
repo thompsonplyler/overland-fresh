@@ -90,7 +90,7 @@ class App extends Component {
       localStorage.setItem("firstname", e.firstname)
       localStorage.setItem("lastname", e.lastname)
       localStorage.setItem("company", e.company)
-      
+
     }
     // let user
     // if (localStorage.loggedIn && localStorage.confirm_token){
@@ -154,7 +154,7 @@ class App extends Component {
 
             <Route 
               exact path="/" 
-              render={(props)=> <PreEvent {...props} user={this.state.user} topLevelLogin={this.handleLogin}/>}
+              render={(props)=> <Login {...props} user={this.state.user} topLevelLogin={this.handleLogin}/>}
                       
               />
 
