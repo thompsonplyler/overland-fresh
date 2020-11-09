@@ -1,5 +1,6 @@
 
 import {Component} from 'react'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,6 +9,7 @@ import {
   withRouter,
   Link
 } from "react-router-dom";
+
 import axios from 'axios'
 import VideoPage from "./components/VideoPage"
 import PreEvent from "./components/PreEvent"
@@ -15,27 +17,17 @@ import PostEvent from "./components/PostEvent"
 import Login from "./components/Login"
 import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL} from './urls'
 
-export const fakeAuth = {
-  signedIn: false
-}
+// const RequireAuth = ({component: Component, children, location, isLoggedIn, user} ) => {
+//   console.log("isLoggedIn?", isLoggedIn)
+//   console.log("Location from RequireAuth",location)
+//   if (!isLoggedIn){
 
-export const realAuth = {
-  signedIn: false
-}
-
-const RequireAuth = ({component: Component, children, location, isLoggedIn, user} ) => {
-  // console.log("Children of Auth router," children)
-  console.log("isLoggedIn?", isLoggedIn)
-  console.log("Location from RequireAuth",location)
-  if (!isLoggedIn){
-    return <Redirect to={{
-      pathname: LOGIN_URL,
-      search: location.search
-    }} />
-  }
+//     this.history.push(LOGIN_URL)
   
-  return children
-}
+//   }
+  
+//   return children
+// }
 class App extends Component {
   constructor(props) {
     super(props);
@@ -44,8 +36,6 @@ class App extends Component {
       user: {}
      };
   }
-
-
 
   componentDidMount() {
     this.loginStatus()
@@ -61,31 +51,30 @@ class App extends Component {
     
     console.log("Reading user state: ", this.state.user)
     console.log("Reading login state: ", this.state.isLoggedIn)
-    this.props.history.push("/confirmation")
-    return <Redirect to="/confirmation"/>
+    // this.props.history.push("/confirmation")
+    // return <Redirect to="/confirmation"/>
 
   }
 
-  componentDidUpdate(prevProps, prevState){
-    console.log("CDU prevState ",prevState)
-    console.log("CDU prevProps ",prevProps)
-    if (prevProps.location.pathname!=this.props.location.pathname){
-      if (prevProps.location.pathname == LOGIN_URL && this.props.location.pathname==CONFIRMATION_URL){
-        return <Redirect to="/confirmation" />
-      }
-    }
-  }
+  // componentDidUpdate(prevProps, prevState){
+  //   console.log("CDU prevState ",prevState)
+  //   console.log("CDU prevProps ",prevProps)
+  //   if (prevProps.location.pathname!=this.props.location.pathname){
+  //     if (prevProps.location.pathname == LOGIN_URL && this.props.location.pathname==CONFIRMATION_URL){
+  //       return this.props.history.push("/confirmation")
+  //     }
+  //   }
+  // }
   
 
   handleLogout = () => {
     this.setState({
-    isLoggedIn: false,
+    isLoggedIn: true,
     user: {}
     })
   }
 
-  // loginStatus retriever from Rails API
-  // save for later
+  // verifies login status with Rails server every time a routed component loads
   loginStatus = () => {
     console.log("Reading localStorage during login status check: ",localStorage)
     let user
@@ -93,18 +82,21 @@ class App extends Component {
       user = {confirm_token: localStorage.confirm_token}
       }
 
-      console.log("User object taken from local storage and sent to Rails: ",user)
+    console.log("User object taken from local storage and sent to Rails: ",user)
       
     
 
-    axios.post('http://localhost:3001/logged_in', {user},
-   {withCredentials: true})    
-   .then(response => {
-      if (response.data.logged_in) {
-        this.handleLogin(response)
-      } else {
-        this.handleLogout()
-      }
+    axios.post('http://localhost:3001/logged_in',
+      {user},
+      {withCredentials: true})
+
+        .then(response => {
+          if (response.data.logged_in) {
+            
+            this.handleLogin(response)
+          } else {
+            this.handleLogout()
+          }
     }
     )
     .catch(error => console.log('api errors:', error))
@@ -118,34 +110,37 @@ class App extends Component {
           <Router>
             <Switch>
 
-
-            <Route
-              exact path={CONFIRMATION_URL}
-              render={(props)=> <PreEvent {...props} user={this.state.user} topLevelLogin={this.handleLogin}/>}
-              
-            />
             
             <Route 
               exact path={LOGIN_URL} 
               params={this.props.match}
               render={(props)=> <Login {...props} user={this.state.user} topLevelLogin={this.loginStatus}/>}
                 />
+
+            <Route
+              exact path={CONFIRMATION_URL}
+              render={(props)=> <PreEvent {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} topLevelLogin={this.handleLogin}/>}
+              
+            />
                             
+
 
 
             {/* <RequireAuth 
               isLoggedIn={this.state.isLoggedIn} 
               location={this.props.location}
               user={this.state.user}
-              topLevelLogin={this.handleLogin}
+              topLevelLogin={this.loginStatus}
               > */}
+
+
+
               
 
             <Route 
               exact path="/" 
               render={(props)=> <PreEvent {...props} user={this.state.user} topLevelLogin={this.handleLogin}/>}
-              
-              
+                      
               />
 
           
@@ -169,30 +164,3 @@ class App extends Component {
   }
 
 export default withRouter(App);
-
-/* Old Routing Stuff:
-<AuthenticatedRoute 
-                exact path='/confirmation' 
-                render={props => (
-                <PreEvent {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
-                )}
-              />
-              <AuthenticatedRoute 
-                exact path='/event' 
-                render={props => (
-                <VideoPage {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
-                )}
-              />
-             <AuthenticatedRoute 
-                exact path='/' 
-                render={props => (
-                <PreEvent {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
-                )}
-              />
-                <AuthenticatedRoute 
-                exact path='/postevent' 
-                render={props => (
-                <PostEvent {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
-                )}
-              />
-*/

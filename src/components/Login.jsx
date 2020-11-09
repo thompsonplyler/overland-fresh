@@ -10,6 +10,7 @@ import {
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import LoginInputBox from '../components/LoginInputBox'
 import queryString from 'query-string'
+import Logout from "../components/Logout"
 
 
 
@@ -18,9 +19,12 @@ function Login(props) {
 
   
   const handleLogin = (e) => {
-    console.log(e.data)
+    console.log("Data returned from the Rails server to parse: ",e.data)
+    
     let {topLevelLogin} = props
+    
     console.log(topLevelLogin)
+
     if (e.data.logged_in){
       localStorage.setItem("loggedIn", "true")
     }
@@ -28,8 +32,9 @@ function Login(props) {
     if (e.data.user.confirm_token){
       localStorage.setItem("confirm_token", `${e.data.user.confirm_token}`)
     }
-
+    
     topLevelLogin()
+    return props.history.push({pathname:"/confirmation", state: {loggedIn: true}})
 
   }
 
@@ -40,11 +45,13 @@ return(
           <h2 className="registration-heading-1">under one sky</h2>
           <p className="para1">November 17, 2020</p>
             <div className="login-grid-row">
-              <Router>
+          
           <LoginInputBox handleLogin={handleLogin} />
-          </Router>
+          
           </div>
     </div>
+            
+            <Logout />
             <ClientPendingBanner subject="login"/>
     </Fragment>
     )

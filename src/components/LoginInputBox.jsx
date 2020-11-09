@@ -14,6 +14,7 @@ import {
 import LoginSubmitButton from '../components/LoginSubmitButton'
 import axios from 'axios'
 import { createImportSpecifier } from 'typescript';
+import data from "../assets/json/authenticated_roster.json"
 
 class LoginInputBox extends Component{
 
@@ -113,6 +114,7 @@ axios(config)
     
     render(props){
     const {email} = this.state
+    
     
     return(
         <div className="form-grid-container">
