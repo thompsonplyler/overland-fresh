@@ -46,24 +46,39 @@ class LoginInputBox extends Component{
 
 handleSubmit = (event) => {
   event.preventDefault()
+  
   const {email} = this.state
+  
   let user = {
     email: email
     }
 
+  let newUser=[]
+
+  console.log(data[0])
   console.log(user)
+
+  let fuckOffThompson = data.find(userA => userA.email == user.email)
+  console.log("The real fuckoff Thompson", fuckOffThompson)
+  
+  // data.forEach(user=>{
+  //     if(user.email==user){
+  //       newUser.push(user)
+  //     }
+  //   })
+  
         
-  axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
-    .then(response => {
-      if (response.data.logged_in) {
-        this.props.handleLogin(response)
-      } else {
-        this.setState({
-          errors: response.data.errors
-        })
-        }
-    })
-    .catch(error => console.log('api errors:', error))
+  // axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
+  //   .then(response => {
+  //     if (response.data.logged_in) {
+  //       this.props.handleLogin(response)
+  //     } else {
+  //       this.setState({
+  //         errors: response.data.errors
+  //       })
+  //       }
+  //   })
+  //   .catch(error => console.log('api errors:', error))
 };
 
 /*

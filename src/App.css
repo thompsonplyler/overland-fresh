@@ -46,8 +46,10 @@ body {
 .error-div {
   padding: 15px;
   font-family: Roboto;
-background-color: rgb(1, 141, 255);
-color: white;
+  background-color: rgb(93, 150, 202);
+  color: white;
+  border-style: solid;
+  border-width: 0.1px;
 }
 
 .gotoconfirm-button {
