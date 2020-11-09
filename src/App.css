@@ -277,3 +277,105 @@ h2.heading-post {
 
 .inputbox {
   display: grid; }
+
+
+
+@media only screen and (max-width: 360px) {
+  h2.registration-heading-1 {
+    font-size: 5vh;
+    
+  }
+
+  body {background-size: 250vh;}
+  
+
+  .para1 {
+    color: white;
+    font-size: 2.3vh;
+    padding-bottom: 1.5rem; 
+  }
+
+  .container {display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15vh;
+  width: 100%;
+  line-height: 35px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  h2.registration-heading-1 {
+    font-size: 5vh;
+    
+  }
+
+  body {background-size: 250vh;}
+  
+
+  .para1 {
+    color: white;
+    font-size: 2.3vh;
+    padding-bottom: 1.5rem; 
+  }
+
+  .container {display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15vh;
+  width: 100%;
+  line-height: 35px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  h2.registration-heading-1 {
+    font-size: 5vh;
+    
+  }
+
+  body {background-size: 250vh;}
+  
+
+  .para1 {
+    color: white;
+    font-size: 2.3vh;
+    padding-bottom: 1.5rem; 
+  }
+
+  .container {display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15vh;
+  width: 100%;
+  line-height: 35px;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  h2.registration-heading-1 {
+    font-size: 5vh;
+    
+  }
+
+  body {background-size: 240vh;}
+  
+
+  .para1 {
+    color: white;
+    font-size: 3vh;
+    padding-bottom: 1.5rem; 
+  }
+
+  .container {display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15vh;
+  width: 100%;
+  line-height: 35px;
+  }
+}

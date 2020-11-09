@@ -22,7 +22,7 @@ function PreEvent(props) {
           <h2 className="registration-heading-1">under one sky</h2>
           {props.user.firstname || localStorage.email?
           <Fragment><p className="para1" style={{textTransform: "capitalize"}}>Welcome, {props.user.firstname || localStorage.firstname}</p>
-          <p className="para1">We look forward to seeing you on November 17, 2020</p></Fragment>:<Fragment><p className="para1">Unfortunately, we don't have user with your e-mail address. </p>
+          <p className="para1">We look forward to seeing you on</p><p className="para1"> November 17, 2020</p></Fragment>:<Fragment><p className="para1">Unfortunately, we don't have user with your e-mail address. </p>
           <p className="para1">If you feel you have reached this message in error, please contact</p> <p className="para1"><a className="pretty-link" href="mailto:info@freshunderonesky.com">info@freshunderonesky.com</a></p></Fragment>}
           
       
