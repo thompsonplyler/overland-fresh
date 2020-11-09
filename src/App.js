@@ -1,5 +1,4 @@
-
-import {Component} from 'react'
+import { Component } from "react";
 
 import {
   BrowserRouter as Router,
@@ -7,15 +6,15 @@ import {
   Route,
   Redirect,
   withRouter,
-  Link
+  Link,
 } from "react-router-dom";
 
-import axios from 'axios'
-import VideoPage from "./components/VideoPage"
-import PreEvent from "./components/PreEvent"
-import PostEvent from "./components/PostEvent"
-import Login from "./components/Login"
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL} from './urls'
+import axios from "axios";
+import VideoPage from "./components/VideoPage";
+import PreEvent from "./components/PreEvent";
+import PostEvent from "./components/PostEvent";
+import Login from "./components/Login";
+import { LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL } from "./urls";
 
 // const RequireAuth = ({component: Component, children, location, isLoggedIn, user} ) => {
 //   console.log("isLoggedIn?", isLoggedIn)
@@ -23,22 +22,22 @@ import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL} from './urls'
 //   if (!isLoggedIn){
 
 //     this.history.push(LOGIN_URL)
-  
+
 //   }
-  
+
 //   return children
 // }
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       isLoggedIn: false,
-      user: {}
-     };
+      user: {},
+    };
   }
 
   componentDidMount() {
-    this.loginStatus()
+    this.loginStatus();
   }
 
   // handleLogin = (data) => {
@@ -48,13 +47,10 @@ class App extends Component {
   //     user: data.data.user
   //   })
 
-    
   //   console.log("Reading user state: ", this.state.user)
   //   console.log("Reading login state: ", this.state.isLoggedIn)
   //   // this.props.history.push("/confirmation")
   //   // return <Redirect to="/confirmation"/>
-    
-
 
   // }
 
@@ -67,30 +63,31 @@ class App extends Component {
   //     }
   //   }
   // }
-  
 
   handleLogout = () => {
     this.setState({
-    isLoggedIn: true,
-    user: {}
-    })
-  }
+      isLoggedIn: true,
+      user: {},
+    });
+  };
 
   // verifies login status with Rails server every time a routed component loads
   loginStatus = (e) => {
-    console.log("Reading localStorage during login status check: ",localStorage)
-    if (e){
-      console.log("Props from login json:", e)
+    console.log(
+      "Reading localStorage during login status check: ",
+      localStorage
+    );
+    if (e) {
+      console.log("Props from login json:", e);
       this.setState({
         isLoggedIn: true,
-        user: e
-      })
+        user: e,
+      });
 
-      localStorage.setItem("email", e.email)
-      localStorage.setItem("firstname", e.firstname)
-      localStorage.setItem("lastname", e.lastname)
-      localStorage.setItem("company", e.company)
-
+      localStorage.setItem("email", e.email);
+      localStorage.setItem("firstname", e.firstname);
+      localStorage.setItem("lastname", e.lastname);
+      localStorage.setItem("company", e.company);
     }
     // let user
     // if (localStorage.loggedIn && localStorage.confirm_token){
@@ -98,8 +95,6 @@ class App extends Component {
     //   }
 
     // console.log("User object taken from local storage and sent to Rails: ",user)
-      
-    
 
     // axios.post('http://localhost:3001/logged_in',
     //   {user},
@@ -107,73 +102,90 @@ class App extends Component {
 
     //     .then(response => {
     //       if (response.data.logged_in) {
-            
+
     //         this.handleLogin(response)
     //       } else {
     //         this.handleLogout()
     //       }
     // }
-    
+
     // .catch(error => console.log('api errors:', error))
-  }
+  };
 
-  render(){
-    console.log("App/Router State:",this.state)
-    
-      return (
-        
-          <Router>
-            <Switch>
+  render() {
+    console.log("App/Router State:", this.state);
 
-            
-            <Route 
-              exact path={LOGIN_URL} 
-              params={this.props.match}
-              render={(props)=> <Login {...props} user={this.state.user} topLevelLogin={this.loginStatus}/>}
-                />
+    return (
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path={LOGIN_URL}
+            params={this.props.match}
+            render={(props) => <Login {...props} user={this.state.user} />}
+          />
 
-            <Route
-              exact path={CONFIRMATION_URL}
-              render={(props)=> <PreEvent {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} topLevelLogin={this.handleLogin}/>}
-              
-            />
-                            
+          <Route
+            exact
+            path={CONFIRMATION_URL}
+            render={(props) => (
+              <PreEvent
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                user={this.state.user}
+                topLevelLogin={this.handleLogin}
+              />
+            )}
+          />
 
-
-
-            {/* <RequireAuth 
+          {/* <RequireAuth 
               isLoggedIn={this.state.isLoggedIn} 
               location={this.props.location}
               user={this.state.user}
               topLevelLogin={this.loginStatus}
               > */}
 
-
-
-              
-
-            <Route 
-              exact path="/" 
-              params={this.props.match}
-              render={(props)=> <Login {...props} user={this.state.user} topLevelLogin={this.LoginStatus}/>}     
+          <Route
+            exact
+            path="/"
+            params={this.props.match}
+            render={(props) => (
+              <Login
+                {...props}
+                user={this.state.user}
+                topLevelLogin={this.LoginStatus}
               />
+            )}
+          />
 
-              <Route 
-                  exact path={EVENT_URL}
-                  render={(props)=> <VideoPage {...props} topLevelLogin={this.handleLogin} user={this.state.user}/>}
-              
+          <Route
+            exact
+            path={EVENT_URL}
+            render={(props) => (
+              <VideoPage
+                {...props}
+                topLevelLogin={this.handleLogin}
+                user={this.state.user}
               />
+            )}
+          />
 
-              <Route
-              exact path={POST_EVENT_URL} 
-              render={(props)=> <PostEvent {...props} topLevelLogin={this.handleLogin} user={this.state.user}/>}
+          <Route
+            exact
+            path={POST_EVENT_URL}
+            render={(props) => (
+              <PostEvent
+                {...props}
+                topLevelLogin={this.handleLogin}
+                user={this.state.user}
               />
-            {/* </RequireAuth> */}
-            </Switch>
-          </Router>
-          
-      );
-    }
+            )}
+          />
+          {/* </RequireAuth> */}
+        </Switch>
+      </Router>
+    );
   }
+}
 
 export default withRouter(App);
