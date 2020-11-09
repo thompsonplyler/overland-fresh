@@ -101,7 +101,7 @@ axios(config)
 
     handleErrors = () => {
         return (
-          <div>
+          <div className="error-div">
             <ul>
             {this.state.errors.map(error => {
             return <li key={error}>{error}</li>
@@ -124,13 +124,14 @@ axios(config)
             <form className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>
             <LoginSubmitButton placeholder="submit" type="submit" handleSubmit={this.handleSubmit} className="login-submit-button"/>
-        </form>
-    
-        <div>
+            <div>
           {
             this.state.errors ? this.handleErrors() : null
           }
-        </div>
+          </div>
+        </form>
+    
+ 
     </div>
     )}
 }

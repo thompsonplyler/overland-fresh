@@ -53,6 +53,8 @@ class App extends Component {
     console.log("Reading login state: ", this.state.isLoggedIn)
     // this.props.history.push("/confirmation")
     // return <Redirect to="/confirmation"/>
+    
+
 
   }
 

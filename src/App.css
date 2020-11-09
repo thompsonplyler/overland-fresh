@@ -14,7 +14,8 @@ ul {
 
 li {
   padding: 10px;
-  color: red; }
+  /* color: red; } */
+}
 
 a {
   color: #660000;
@@ -40,6 +41,13 @@ body {
   position: absolute;
   top: 60%;
   left: 30%;
+}
+
+.error-div {
+  padding: 15px;
+  font-family: Roboto;
+background-color: rgb(1, 141, 255);
+color: white;
 }
 
 .gotoconfirm-button {
