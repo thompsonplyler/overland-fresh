@@ -154,11 +154,9 @@ class App extends Component {
 
             <Route 
               exact path="/" 
-              render={(props)=> <Login {...props} user={this.state.user} topLevelLogin={this.handleLogin}/>}
-                      
+              params={this.props.match}
+              render={(props)=> <Login {...props} user={this.state.user} topLevelLogin={this.LoginStatus}/>}     
               />
-
-          
 
               <Route 
                   exact path={EVENT_URL}
