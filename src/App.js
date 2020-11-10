@@ -80,7 +80,7 @@ class App extends Component {
   loginStatus = (e) => {
     // console.log("Reading localStorage during login status check: ",localStorage)
     if (e){
-      console.log("Props from login json:", e)
+      // console.log("Props from login json:", e)
       this.setState({
         isLoggedIn: true,
         user: e

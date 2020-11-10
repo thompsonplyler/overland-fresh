@@ -62,7 +62,9 @@ handleSubmit = (event) => {
     // axios(config)
     // .then(function (response) {
       let personData = data.find(userA => userA.email == user.email.toLowerCase())
-      console.log("The real person data. This is being sent to the Rails server: ", personData)
+      // console.log("The real person data. This is being sent to the Rails server: ", personData)
+
+      if (personData){
 
       let config = {
         method: 'post',
@@ -73,10 +75,10 @@ handleSubmit = (event) => {
       };
 
       axios(config)
-      .then(function (response) {console.log(response)})
-      .catch(function (error) {
+      .then(function (response){})
+      .catch(function (error){})
    
-    });
+    }
       this.props.handleLogin(personData)
       // console.log(JSON.stringify(response.data));
     // })
