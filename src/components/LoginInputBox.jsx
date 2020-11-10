@@ -58,21 +58,25 @@ handleSubmit = (event) => {
     
     // }});
     
-    // let config = {
-    //   method: 'post',
-    //   url: 'https://track.customer.io/api/v1/events',
-    //   headers: { 
-    //     'Content-Type': 'application/json', 
-    //     'Authorization': 'Basic MmY3Y2IzZDVmM2RlZjFkNjlhY2Q6ZTRhM2U2Yjk3OTFmMTg5MTZmMDU='
-    //   },
-    //   data : personData
-    // };
-    
+
     // axios(config)
     // .then(function (response) {
       let personData = data.find(userA => userA.email == user.email.toLowerCase())
-      console.log("The real person data: ", personData)
-      
+      console.log("The real person data. This is being sent to the Rails server: ", personData)
+
+      let config = {
+        method: 'post',
+        mode: 'cors',
+        headers: { 'Access-Control-Allow': 'CORS' },
+        url: `https://fresh-under-one-sky-email-api.herokuapp.com/api/v1/person?email=${personData.email}&first_name=${personData.firstname}&last_name=${personData.lastname}&company=${personData.company}`,
+        data : personData
+      };
+
+      axios(config)
+      .then(function (response) {console.log(response)})
+      .catch(function (error) {
+   
+    });
       this.props.handleLogin(personData)
       // console.log(JSON.stringify(response.data));
     // })
@@ -145,14 +149,13 @@ axios(config)
     
     render(props){
     const {email} = this.state
-    console.log("Process ENV: ", process.env)
+    // console.log("Process ENV: ", process.env)
     
     
     return(
         <div className="form-grid-container">
             <div className="login-heading">
                 <h3 data-name="login">Register / Log In</h3>
-            <p>{process.env.NOT_SECRET_CODE}</p>
             </div>
             <form className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>

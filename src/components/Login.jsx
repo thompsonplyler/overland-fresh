@@ -19,8 +19,8 @@ function Login(props) {
 
   
   const handleLogin = (e) => {
-    console.log(props)
-    console.log("Data returned from the Rails server to parse: ",e)
+    // console.log(props)
+    // console.log("Data returned from the Rails server to parse: ",e)
     props.topLevelLogin(e)
     props.history.push("/confirmation")
     

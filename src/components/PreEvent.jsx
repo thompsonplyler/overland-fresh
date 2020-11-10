@@ -11,8 +11,8 @@ import BackToLogin from '../components/BackToLogin'
 
 
 function PreEvent(props) {
-  console.log("Pre-event props: ", props)
-  console.log("History item: ", props.history)
+  // console.log("Pre-event props: ", props)
+  // console.log("History item: ", props.history)
 
 // const [hidden,setHidden] = useState("none")
 
@@ -23,7 +23,7 @@ function PreEvent(props) {
 // const redirect =()=>props.history.push("/login")
 // if (!props.isLoggedIn)return <Fragment>  {redirect()}</Fragment>
 const hidden = props.user.firstname || localStorage.email? "auto" : "none"
-console.log(hidden)
+// console.log(hidden)
     return(
 
       

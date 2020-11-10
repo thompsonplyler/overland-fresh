@@ -78,7 +78,7 @@ class App extends Component {
 
   // verifies login status with Rails server every time a routed component loads
   loginStatus = (e) => {
-    console.log("Reading localStorage during login status check: ",localStorage)
+    // console.log("Reading localStorage during login status check: ",localStorage)
     if (e){
       console.log("Props from login json:", e)
       this.setState({
@@ -121,9 +121,9 @@ class App extends Component {
   }
 
   render(){
-    console.log("App/Router State:",this.state)
-    console.log(this.loginStatus)
-    console.log("PRocess Env from APP: ",process.env)
+    // console.log("App/Router State:",this.state)
+    // console.log(this.loginStatus)
+    // console.log("PRocess Env from APP: ",process.env)
     
       return (
         
