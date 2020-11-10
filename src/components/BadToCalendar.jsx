@@ -5,7 +5,7 @@ import { Button } from 'react-desktop/macOs';
 export default class extends Component {
   render() {
     return (
-<div title="Add to Calendar" className="addeventatc">
+<div title="Add to Calendar" className="addeventatc" data-render="inline-buttons">
     Add to Calendar
     <span className="start">11/17/2020 07:30 AM</span>
     <span className="end">11/17/2020 10:00 AM</span>
