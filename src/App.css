@@ -240,6 +240,13 @@ h2.registration-heading-2 {
   /* padding-bottom: 1.5rem; */
  }
 
+ .para2 {
+  padding-top: 15px;
+  color: white;
+  font-size: 1.8vh;
+  /* padding-bottom: 1.5rem; */
+ }
+
 h2.heading-post {
   color: white;
   max-width: 60%; }
