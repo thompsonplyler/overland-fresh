@@ -14,7 +14,7 @@ import {
 // import RegisterButton from './RegisterSubmitButton'
 import LoginSubmitButton from '../components/LoginSubmitButton'
 import { createImportSpecifier } from 'typescript';
-import data from "../assets/json/authenticated_roster.json"
+// import data from "../assets/json/authenticated_roster.json"
 
 class LoginInputBox extends Component{
 
@@ -51,6 +51,8 @@ handleSubmit = (event) => {
   let user = {
     email: email
     }
+
+    let data
 
     // let personData = JSON.stringify({"name":"login",
     //   "data":{
