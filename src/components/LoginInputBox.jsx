@@ -70,9 +70,10 @@ handleSubmit = (event) => {
     
     // axios(config)
     // .then(function (response) {
-      let fuckOffThompson = data.find(userA => userA.email == user.email)
-      console.log("The real fuckoff Thompson", fuckOffThompson)
-      this.props.handleLogin(fuckOffThompson)
+      let personData = data.find(userA => userA.email == user.email.toLowerCase())
+      console.log("The real person data: ", personData)
+      
+      this.props.handleLogin(personData)
       // console.log(JSON.stringify(response.data));
     // })
     // .catch(function (error) {
