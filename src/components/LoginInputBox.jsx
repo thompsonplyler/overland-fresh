@@ -157,7 +157,7 @@ axios(config)
     return(
         <div className="form-grid-container">
             <div className="login-heading">
-                <h3 data-name="login">Register / Log In</h3>
+                <h3 data-name="login">Register</h3>
             </div>
             <form className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>
