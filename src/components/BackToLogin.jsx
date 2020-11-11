@@ -10,9 +10,9 @@ export default class extends Component {
   render() {
     return (
       <Link to="/">
-          <Button color="blue" onClick={this.props.handleSubmit}>
+          <button onClick={this.props.handleSubmit}>
         Return
-      </Button>
+      </button>
       </Link>
     );
   }

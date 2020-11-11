@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, Fragment} from 'react'
 import videojs from 'video.js'
 import awsvideoconfig from '../aws-video-exports'
 import 'video.js/dist/video-js.css'
@@ -30,7 +30,9 @@ const videoJsOptions = {
   function VideoPage(props) {
 
     useEffect(() => {
+      console.log("Props during Event page's componentDidMount: ",props)
       const user = checkUserCreds(props.user);
+      
       if (!user) {
         props.history.push('/login');
       }
@@ -83,21 +85,21 @@ const videoJsOptions = {
     })
 
     return (
+      <Fragment>
               <div className="grid-container">
             {/* <img className="img-fresh-logo" src={freshLogo}/> */}
             
             <h2 className="registration-heading-grid">under one sky</h2>
 
             <div className="video-row" style={{padding: "3vh"}}>
-              {/* <div className="chat-area">Test</div> */}
               <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{ ...videoJsOptions }/>
-              <FakeChat windowHeight={stateHeight} windowWidth={stateWidth}/>
-            
             </div>
             <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
-            {/* <ClientPendingBanner subject="event"/> */}
         </div>
-
+        <div>
+              <FakeChat windowHeight={stateHeight} windowWidth={stateWidth}/>
+              </div>
+              </Fragment>
 
     );
   }
