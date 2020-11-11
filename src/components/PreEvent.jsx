@@ -32,8 +32,8 @@ function PreEvent(props) {
           
           <h2 className="registration-heading-1">under one sky</h2>
           {props.user.firstname || localStorage.email?
-          <Fragment><p className="para1" style={{textTransform: "capitalize"}}>Dear {props.user.firstname || localStorage.firstname}</p>
-          <p className="para1">This is a confirmation that you have successfully registered for <i>fresh</i>’s global meeting: Under One Sky. </p><p className="para1">We look forward to the <i>fresh</i> family coming together on Tuesday, November 17 at 8:00am Eastern Daylight Time.</p>
+          <Fragment><p className="para1" style={{textTransform: "capitalize"}}>Congratulations {props.user.firstname || localStorage.firstname}</p>
+          <p className="para1">You have successfully registered. We look forward to the <i>fresh</i> family coming together on Tuesday, November 17, 2020. Please be sure to tune in via your laptop for optimal viewing.</p>
           
           </Fragment>
           :<Fragment><p className="para1">Oops, sorry we couldn’t find your email.</p>

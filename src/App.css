@@ -162,8 +162,10 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 15vh;
-  line-height: 1px; }
+  margin-top: 10vh;
+  padding-left: 10%;
+  padding-right: 10%;
+  line-height: 40px; }
 
 .grid-container {
   display: grid;
@@ -242,6 +244,8 @@ h2.registration-heading-2 {
 .para1 {
   color: white;
   font-size: 3vh;
+  line-height: auto;
+  font-family: Sabon;
   /* padding-bottom: 1.5rem; */
  }
 
