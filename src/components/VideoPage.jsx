@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import videojs from 'video.js'
 import awsvideoconfig from '../aws-video-exports'
 import 'video.js/dist/video-js.css'
@@ -7,6 +7,8 @@ import '../App.css';
 import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import FakeChat from './FakeChat'
+import {checkUserCreds} from '../components/checkUserCreds'
+
   
 const videoJsOptions = {
     autoplay: true,
@@ -20,7 +22,19 @@ const videoJsOptions = {
     }]
   }
   
-  function VideoPage() {
+
+
+
+
+
+  function VideoPage(props) {
+
+    useEffect(() => {
+      const user = checkUserCreds(props.user);
+      if (!user) {
+        props.history.push('/login');
+      }
+    }, [])
 
     class VideoPlayer extends React.Component {
 

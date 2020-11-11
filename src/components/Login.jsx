@@ -22,13 +22,12 @@ function Login(props) {
 
   const handleLogin = async (email) => {
     console.log("Data returned from the Rails server to parse: ", email);
-    console.log(props);
 
     const user = await request(email)
     
 
     if (user.email) {
-      // const emailConfirm = await emailConfirmSend(user)
+      const emailConfirm = await emailConfirmSend(user)
       console.log("we got a match IN LOGIN");
       let userInfo = {
         firstname: user.firstname,
@@ -47,6 +46,7 @@ function Login(props) {
         pathname: "/loginfailed",
         state: {loggedIn: false}
       })
+      localStorage.clear()
     }
   };
 
