@@ -249,6 +249,14 @@ h2.registration-heading-2 {
   /* padding-bottom: 1.5rem; */
  }
 
+ .para3 {
+  color: white;
+  font-size: 5vh;
+  line-height: auto;
+  font-family: Sabon;
+  /* padding-bottom: 1.5rem; */
+ }
+
  .para2 {
   padding-top: 15px;
   color: white;
