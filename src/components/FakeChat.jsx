@@ -35,7 +35,7 @@ render(){
 
     return(
         
-        <div className="arena-chat chat-area" data-publisher="fresh-underonesky" data-chatroom="fresh-underonesky-global" data-position={`${pagePos.bottom}`} ></div>
+        <div className="arena-chat chat-area" data-publisher="fresh-underonesky" data-chatroom="fresh-underonesky-global" data-position={`${pagePos.overlay}`} ></div>
     )
 }
 }
