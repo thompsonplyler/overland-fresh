@@ -33,12 +33,16 @@ class App extends Component {
     super(props);
     this.state = { 
       isLoggedIn: false,
-      user: {}
+      confirm_token: "",
+      email: "",
+      firstname: "",
+      lastname: "",
+      company: ""
      };
   }
 
   componentDidMount() {
-    this.loginStatus()
+    this.decideTopLevelLogin()
   }
 
   // handleLogin = (data) => {
@@ -71,21 +75,27 @@ class App extends Component {
 
   handleLogout = () => {
     this.setState({
-    isLoggedIn: true,
+    isLoggedIn: false,
     user: {}
     })
+
+    localStorage.clear()
   }
 
   // verifies login status with Rails server every time a routed component loads
-  loginStatus = (e) => {
+  decideTopLevelLogin = (e) => {
+    
+    console.log("2. With successful response, return value to top level Login component: ", e)
+  
     // console.log("Reading localStorage during login status check: ",localStorage)
-    if (e){
+    if (e && e.logged_in){
+      console.log("2. With successful response, return value to top level Login component: ", e)
       // console.log("Props from login json:", e)
       this.setState({
-        isLoggedIn: true,
+        isLoggedIn: e.logged_in,
         user: e
       })
-
+      localStorage.setItem("logged_in", e.logged_in)
       localStorage.setItem("email", e.email)
       localStorage.setItem("firstname", e.firstname)
       localStorage.setItem("lastname", e.lastname)
@@ -93,6 +103,8 @@ class App extends Component {
       
     }
     else {
+      console.log("2. Unsuccessful response. Clearing local storage and effectively logging out the person. Login from Rails server returned", e?e.logged_in:null)
+      this.setState({isLoggedIn: false})
       localStorage.clear()
     }
     // let user
@@ -121,9 +133,6 @@ class App extends Component {
   }
 
   render(){
-    // console.log("App/Router State:",this.state)
-    // console.log(this.loginStatus)
-    // console.log("PRocess Env from APP: ",process.env)
     
       return (
         
@@ -134,30 +143,30 @@ class App extends Component {
             <Route 
               exact path={LOGIN_URL} 
               params={this.props.match}
-              render={(props)=> <Login {...props} user={this.state.user} topLevelLogin={this.loginStatus}/>}
+              render={(props)=> <Login {...props} user={this.state.user} decideTopLevelLogin={this.decideTopLevelLogin}/>}
                 />
 
             <Route
               exact path={CONFIRMATION_URL}
-              render={(props)=> <PreEvent {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} topLevelLogin={this.loginStatus}/>} />
+              render={(props)=> <PreEvent {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} decideTopLevelLogin={this.decideTopLevelLogin}/>} />
                           
             
 
               <Route 
                   exact path={EVENT_URL}
-                  render={(props)=> <VideoPage {...props} topLevelLogin={this.loginStatus} user={this.state.user}/>}
+                  render={(props)=> <VideoPage {...props} decideTopLevelLogin={this.decideTopLevelLogin} user={this.state.user}/>}
               
               />
 
               <Route
               exact path={POST_EVENT_URL} 
-              render={(props)=> <PostEvent {...props} topLevelLogin={this.loginStatus} user={this.state.user}/>}
+              render={(props)=> <PostEvent {...props} decideTopLevelLogin={this.decideTopLevelLogin} user={this.state.user}/>}
               />
 
               <Route               
               exact path="/" 
               params={this.props.match}
-              render={(props)=> <Login {...props} user={this.state.user} topLevelLogin={this.loginStatus}/>}     
+              render={(props)=> <Login {...props} user={this.state.user} decideTopLevelLogin={this.decideTopLevelLogin}/>}     
               />
             {/* </RequireAuth> */}
             </Switch>

@@ -14,7 +14,7 @@ import {
 // import RegisterButton from './RegisterSubmitButton'
 import LoginSubmitButton from '../components/LoginSubmitButton'
 import { createImportSpecifier } from 'typescript';
-import data from "../assets/json/authenticated_roster.json"
+// import data from "../assets/json/authenticated_roster.json"
 
 class LoginInputBox extends Component{
 
@@ -22,20 +22,9 @@ class LoginInputBox extends Component{
         super(props);
         this.state = { 
           email: '',
-          password: '',
           errors: ''
          };
       }
-
-
-
-      
-    
-    inputDetermine = () => {
-
-  
-        return
-    }
 
     handleChange = (event) => {
         const {name, value} = event.target
@@ -44,13 +33,49 @@ class LoginInputBox extends Component{
         })
       };
 
+
 handleSubmit = (event) => {
   event.preventDefault()
   const {email} = this.state
+  const {decideTopLevelLogin} = this.props
   
   let user = {
     email: email
     }
+
+    var inputData = {"user":{"email":`${email}`}};
+
+    var config = {
+      method: 'post',
+      url: 'http://localhost:3001/api/v1/login',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : inputData
+    };
+
+    fetch(config.url,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(inputData)
+    })
+    .then (r=>r.json())
+    .then(r=>{
+      console.log("1. After submission, acquire response from Rails server: ", r)
+      decideTopLevelLogin(r)
+
+    })
+    .catch(e=>console.log(e))
+    
+    // axios(config)
+    // .then(function (response) {
+    //   console.log(JSON.stringify(response.data));
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
 
     // let personData = JSON.stringify({"name":"login",
     //   "data":{
@@ -61,30 +86,28 @@ handleSubmit = (event) => {
 
     // axios(config)
     // .then(function (response) {
-      let personData = data.find(userA => userA.email == user.email.toLowerCase())
-      // console.log("The real person data. This is being sent to the Rails server: ", personData)
+    
+    // data variable refers to exposed JSON data
+    // let personData = data.find(userA => userA.email == user.email.toLowerCase())
+      
 
-      if (personData){
+      // if (personData){
 
-      let config = {
-        method: 'post',
-        mode: 'cors',
-        headers: { 'Access-Control-Allow': 'CORS' },
-        url: `https://fresh-under-one-sky-email-api.herokuapp.com/api/v1/person?email=${personData.email}&first_name=${personData.firstname}&last_name=${personData.lastname}&company=${personData.company}`,
-        data : personData
-      };
+      // let config = {
+      //   method: 'post',
+      //   mode: 'cors',
+      //   headers: { 'Access-Control-Allow': 'CORS' },
+      //   url: `https://fresh-under-one-sky-email-api.herokuapp.com/api/v1/person?email=${personData.email}&first_name=${personData.firstname}&last_name=${personData.lastname}&company=${personData.company}`,
+      //   data : personData
+      // };
 
-      axios(config)
-      .then(function (response){})
-      .catch(function (error){})
+    //   axios(config)
+    //   .then(function (response){})
+    //   .catch(function (error){})
    
-    }
-      this.props.handleLogin(personData)
-      // console.log(JSON.stringify(response.data));
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    // }
+      // this.props.handleLogin(personData)
+
 
 
   

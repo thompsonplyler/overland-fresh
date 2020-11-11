@@ -56,7 +56,7 @@ return(
           <p className="para1">November 17, 2020</p>
           
           <div className="login-grid-row">
-            <LoginInputBox handleLogin={handleLogin} />          
+            <LoginInputBox decideTopLevelLogin={props.decideTopLevelLogin} handleLogin={handleLogin} />          
           </div>
     
     </div>
