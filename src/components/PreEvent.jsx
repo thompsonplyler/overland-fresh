@@ -3,10 +3,19 @@ import "video.js/dist/video-js.css";
 import "../App.css";
 import { withRouter } from "react-router-dom";
 import freshLogo from "../assets/images/frshlogo.svg";
+import {checkUserCreds} from '../components/checkUserCreds'
+
 
 function PreEvent(props) {
   console.log("Pre-event props: ", props);
   console.log("History item: ", props.history);
+
+  useEffect(() => {
+    const user = checkUserCreds(props.user);
+    if (!user) {
+      props.history.push('/login');
+    }
+  }, [])
 
   let loggedIn = props?.location?.state?.loggedIn;
 

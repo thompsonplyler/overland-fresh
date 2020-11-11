@@ -37,7 +37,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.loginStatus();
     let localUser = localStorage.getItem('user');
     if (localUser) {
       const user = JSON.parse(localUser); 
@@ -77,49 +76,6 @@ class App extends Component {
     });
   };
 
-  // verifies login status with Rails server every time a routed component loads
-  loginStatus = (e) => {
-    // console.log(
-    //   "Reading localStorage during login status check: ",
-    //   localStorage
-    // );
-    // if (e) {
-    //   console.log("Props from login json:", e);
-    //   this.setState({
-    //     isLoggedIn: true,
-    //     user: e,
-    //   });
-
-    //   localStorage.setItem("email", e.email);
-    //   localStorage.setItem("firstname", e.firstname);
-    //   localStorage.setItem("lastname", e.lastname);
-    //   localStorage.setItem("company", e.company);
-    // } else {
-    //   localStorage.clear();
-    // }
-    // let user
-    // if (localStorage.loggedIn && localStorage.confirm_token){
-    //   user = {confirm_token: localStorage.confirm_token}
-    //   }
-
-    // console.log("User object taken from local storage and sent to Rails: ",user)
-
-    // axios.post('http://localhost:3001/logged_in',
-    //   {user},
-    //   {withCredentials: true})
-
-    //     .then(response => {
-    //       if (response.data.logged_in) {
-
-    //         this.handleLogin(response)
-    //       } else {
-    //         this.handleLogout()
-    //       }
-    // }
-
-    // .catch(error => console.log('api errors:', error))
-  };
-
   render() {
 
     return (
@@ -145,7 +101,7 @@ class App extends Component {
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
-                topLevelLogin={this.loginStatus}
+                
               />
             )}
           />
@@ -155,7 +111,7 @@ class App extends Component {
             render={(props) => (
               <VideoPage
                 {...props}
-                topLevelLogin={this.loginStatus}
+                isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
               />
             )}
@@ -166,7 +122,7 @@ class App extends Component {
             render={(props) => (
               <PostEvent
                 {...props}
-                topLevelLogin={this.loginStatus}
+                isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
               />
             )}
@@ -190,3 +146,105 @@ class App extends Component {
 }
 
 export default withRouter(App);
+
+
+// super(props);
+// this.state = { 
+//   isLoggedIn: false,
+//   confirm_token: "",
+//   email: "",
+//   firstname: "",
+//   lastname: "",
+//   company: ""
+//  };
+// }
+
+// componentDidMount() {
+// this.decideTopLevelLogin()
+// }
+
+// handleLogin = (data) => {
+//   console.log("Data from login check:", data)
+//   this.setState({
+//     isLoggedIn: true,
+//     user: data.data.user
+//   })
+
+
+//   console.log("Reading user state: ", this.state.user)
+//   console.log("Reading login state: ", this.state.isLoggedIn)
+//   // this.props.history.push("/confirmation")
+//   // return <Redirect to="/confirmation"/>
+
+
+
+// }
+
+// componentDidUpdate(prevProps, prevState){
+//   console.log("CDU prevState ",prevState)
+//   console.log("CDU prevProps ",prevProps)
+//   if (prevProps.location.pathname!=this.props.location.pathname){
+//     if (prevProps.location.pathname == LOGIN_URL && this.props.location.pathname==CONFIRMATION_URL){
+//       return this.props.history.push("/confirmation")
+//     }
+//   }
+// }
+
+
+// handleLogout = () => {
+// this.setState({
+// isLoggedIn: false,
+// user: {}
+// })
+
+// localStorage.clear()
+// }
+
+// verifies login status with Rails server every time a routed component loads
+// decideTopLevelLogin = (e) => {
+
+// console.log("2. With successful response, return value to top level Login component: ", e)
+
+// console.log("Reading localStorage during login status check: ",localStorage)
+// if (e && e.logged_in){
+//   console.log("2. With successful response, return value to top level Login component: ", e)
+//   // console.log("Props from login json:", e)
+//   this.setState({
+//     isLoggedIn: e.logged_in,
+//     user: e
+//   })
+//   localStorage.setItem("logged_in", e.logged_in)
+//   localStorage.setItem("email", e.email)
+//   localStorage.setItem("firstname", e.firstname)
+//   localStorage.setItem("lastname", e.lastname)
+//   localStorage.setItem("company", e.company)
+  
+// }
+// else {
+//   console.log("2. Unsuccessful response. Clearing local storage and effectively logging out the person. Login from Rails server returned", e?e.logged_in:null)
+//   this.setState({isLoggedIn: false})
+//   localStorage.clear()
+// }
+// let user
+// if (localStorage.loggedIn && localStorage.confirm_token){
+//   user = {confirm_token: localStorage.confirm_token}
+//   }
+
+// console.log("User object taken from local storage and sent to Rails: ",user)
+  
+
+
+// axios.post('http://localhost:3001/logged_in',
+//   {user},
+//   {withCredentials: true})
+
+//     .then(response => {
+//       if (response.data.logged_in) {
+        
+//         this.handleLogin(response)
+//       } else {
+//         this.handleLogout()
+//       }
+// }
+
+// .catch(error => console.log('api errors:', error))

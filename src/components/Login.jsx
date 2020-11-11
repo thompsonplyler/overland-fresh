@@ -11,25 +11,37 @@ import ClientPendingBanner from "../components/ClientPendingBanner";
 import LoginInputBox from "../components/LoginInputBox";
 import queryString from "query-string";
 import Logout from "../components/Logout";
-import authorizedData from "../../src/assets/json/authenticated_roster.json";
+// import authorizedData from "../../src/assets/json/authenticated_roster.json";
 import styled from 'styled-components';
+import {request} from '../components/request'
 
 function Login(props) {
   const [ showNullMessage, setShowNullMessage ] = useState(false);
   const [ failedCount, setFailedCount ] = useState(0);
 
-  const handleLogin = (email) => {
+
+  const handleLogin = async (email) => {
     console.log("Data returned from the Rails server to parse: ", email);
     console.log(props);
-    // INTERIM JUST FIND USER IN HERE
-    const loggedInUser = authorizedData.find((user) => {
-      return email.toLowerCase() === user.email.toLowerCase();
-    });
 
-    if (loggedInUser) {
+    const user = await request(email)
+    console.log(user)
+
+    // INTERIM JUST FIND USER IN HER
+    // const loggedInUser = authorizedData.find((user) => {
+    //   return email.toLowerCase() === user.email.toLowerCase();
+    // });
+
+    if (user.email) {
       console.log("we got a match IN LOGIN");
-      localStorage.setItem('_id', `${loggedInUser?.userid}`);
-      props.handleLogin(loggedInUser);
+      let userInfo = {
+        firstname: user.firstname,
+        lastname: user.lastname,
+        email: user.email,
+        company: user.company
+      }
+
+      props.handleLogin(userInfo);
       props.history.push({
         pathname: "/confirmation",
         state: { loggedIn: true },
