@@ -14,6 +14,7 @@ import LoginInputBox from '../components/LoginInputBox'
 import axios from 'axios'
 import styled from 'styled-components';
 import {request} from '../components/request'
+import {emailConfirmSend} from '../components/emailConfirmSend'
 
 
 function Login(props) {
@@ -24,8 +25,10 @@ function Login(props) {
     console.log(props);
 
     const user = await request(email)
+    
 
     if (user.email) {
+      // const emailConfirm = await emailConfirmSend(user)
       console.log("we got a match IN LOGIN");
       let userInfo = {
         firstname: user.firstname,
@@ -60,11 +63,7 @@ return(
           <div className="login-grid-row">
             <LoginInputBox handleLogin={handleLogin} />          
           </div>
-    
     </div>
-            
-            {/* <Logout /> */}
-            {/* <ClientPendingBanner subject="login"/> */}
     </Fragment>
     )
 }
