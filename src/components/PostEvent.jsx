@@ -4,17 +4,15 @@ import '../App.css';
 import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
 
-
-
 function PostEvent() {
     return(
     <div className="container">
-          <img className="img-fresh-logo" src={freshLogo}/>
-          <h2 className="registration-heading-1">under one sky</h2>
-          <p className="para1">Thank you for coming!</p>
-          <p className="para1">Today's meeting has concluded.</p>
-        
-        {/* <ClientPendingBanner subject="post-event"/> */}
+			<img className="img-fresh-logo" src={freshLogo}/>
+			<h2 className="registration-heading-1">under one sky</h2>
+			<p className="para1">Thank you for coming!</p>
+			<p className="para1">Today's meeting has concluded.</p>
+
+			<ClientPendingBanner subject="post-event"/>
 
     </div>
     )

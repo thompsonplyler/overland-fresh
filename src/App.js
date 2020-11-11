@@ -1,5 +1,4 @@
-
-import {Component} from 'react'
+import { Component } from "react";
 
 import {
   BrowserRouter as Router,
@@ -7,15 +6,15 @@ import {
   Route,
   Redirect,
   withRouter,
-  Link
+  Link,
 } from "react-router-dom";
-
-import axios from 'axios'
-import VideoPage from "./components/VideoPage"
-import PreEvent from "./components/PreEvent"
-import PostEvent from "./components/PostEvent"
-import Login from "./components/Login"
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL} from './urls'
+import ClientPendingBanner from './components/ClientPendingBanner';
+import axios from "axios";
+import VideoPage from "./components/VideoPage";
+import PreEvent from "./components/PreEvent";
+import PostEvent from "./components/PostEvent";
+import Login from "./components/Login";
+import { LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL } from "./urls";
 
 // const RequireAuth = ({component: Component, children, location, isLoggedIn, user} ) => {
 //   console.log("isLoggedIn?", isLoggedIn)
@@ -23,26 +22,31 @@ import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL} from './urls'
 //   if (!isLoggedIn){
 
 //     this.history.push(LOGIN_URL)
-  
+
 //   }
-  
+
 //   return children
 // }
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       isLoggedIn: false,
-      confirm_token: "",
-      email: "",
-      firstname: "",
-      lastname: "",
-      company: ""
-     };
+      user: {},
+    };
   }
 
   componentDidMount() {
-    this.decideTopLevelLogin()
+    this.loginStatus();
+    let localUser = localStorage.getItem('user');
+    if (localUser) {
+      const user = JSON.parse(localUser); 
+      this.setState({
+        isLoggedIn: true, 
+        user
+      });
+      console.log('USER PRESENT', user);
+    }
   }
 
   // handleLogin = (data) => {
@@ -52,69 +56,53 @@ class App extends Component {
   //     user: data.data.user
   //   })
 
-    
   //   console.log("Reading user state: ", this.state.user)
   //   console.log("Reading login state: ", this.state.isLoggedIn)
   //   // this.props.history.push("/confirmation")
   //   // return <Redirect to="/confirmation"/>
-    
-
-
   // }
 
-  // componentDidUpdate(prevProps, prevState){
-  //   console.log("CDU prevState ",prevState)
-  //   console.log("CDU prevProps ",prevProps)
-  //   if (prevProps.location.pathname!=this.props.location.pathname){
-  //     if (prevProps.location.pathname == LOGIN_URL && this.props.location.pathname==CONFIRMATION_URL){
-  //       return this.props.history.push("/confirmation")
-  //     }
-  //   }
-  // }
-  
+  handleLogin = (user) => {
+    localStorage.setItem("user", JSON.stringify(user));
+    this.setState({
+      isLoggedIn: true,
+      user: user
+    })
+  }
 
   handleLogout = () => {
     this.setState({
-    isLoggedIn: false,
-    user: {}
-    })
-
-    localStorage.clear()
-  }
+      isLoggedIn: true,
+      user: {},
+    });
+  };
 
   // verifies login status with Rails server every time a routed component loads
-  decideTopLevelLogin = (e) => {
-    
-    console.log("2. With successful response, return value to top level Login component: ", e)
-  
-    // console.log("Reading localStorage during login status check: ",localStorage)
-    if (e && e.logged_in){
-      console.log("2. With successful response, return value to top level Login component: ", e)
-      // console.log("Props from login json:", e)
-      this.setState({
-        isLoggedIn: e.logged_in,
-        user: e
-      })
-      localStorage.setItem("logged_in", e.logged_in)
-      localStorage.setItem("email", e.email)
-      localStorage.setItem("firstname", e.firstname)
-      localStorage.setItem("lastname", e.lastname)
-      localStorage.setItem("company", e.company)
-      
-    }
-    else {
-      console.log("2. Unsuccessful response. Clearing local storage and effectively logging out the person. Login from Rails server returned", e?e.logged_in:null)
-      this.setState({isLoggedIn: false})
-      localStorage.clear()
-    }
+  loginStatus = (e) => {
+    // console.log(
+    //   "Reading localStorage during login status check: ",
+    //   localStorage
+    // );
+    // if (e) {
+    //   console.log("Props from login json:", e);
+    //   this.setState({
+    //     isLoggedIn: true,
+    //     user: e,
+    //   });
+
+    //   localStorage.setItem("email", e.email);
+    //   localStorage.setItem("firstname", e.firstname);
+    //   localStorage.setItem("lastname", e.lastname);
+    //   localStorage.setItem("company", e.company);
+    // } else {
+    //   localStorage.clear();
+    // }
     // let user
     // if (localStorage.loggedIn && localStorage.confirm_token){
     //   user = {confirm_token: localStorage.confirm_token}
     //   }
 
     // console.log("User object taken from local storage and sent to Rails: ",user)
-      
-    
 
     // axios.post('http://localhost:3001/logged_in',
     //   {user},
@@ -122,58 +110,83 @@ class App extends Component {
 
     //     .then(response => {
     //       if (response.data.logged_in) {
-            
+
     //         this.handleLogin(response)
     //       } else {
     //         this.handleLogout()
     //       }
     // }
-    
+
     // .catch(error => console.log('api errors:', error))
+  };
+
+  render() {
+
+    return (
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path={LOGIN_URL}
+            params={this.props.match}
+            render={(props) => (
+              <Login
+                {...props}
+                user={this.state.user}
+                handleLogin={this.handleLogin}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={CONFIRMATION_URL}
+            render={(props) => (
+              <PreEvent
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                user={this.state.user}
+                topLevelLogin={this.loginStatus}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={EVENT_URL}
+            render={(props) => (
+              <VideoPage
+                {...props}
+                topLevelLogin={this.loginStatus}
+                user={this.state.user}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={POST_EVENT_URL}
+            render={(props) => (
+              <PostEvent
+                {...props}
+                topLevelLogin={this.loginStatus}
+                user={this.state.user}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/"
+            params={this.props.match}
+            render={(props) => (
+              <Login
+                {...props}
+                user={this.state.user}
+                handleLogin={this.handleLogin}
+              />
+            )}
+          />
+        </Switch>
+      </Router>
+    );
   }
-
-  render(){
-    
-      return (
-        
-          <Router>
-            <Switch>
-
-            
-            <Route 
-              exact path={LOGIN_URL} 
-              params={this.props.match}
-              render={(props)=> <Login {...props} user={this.state.user} decideTopLevelLogin={this.decideTopLevelLogin}/>}
-                />
-
-            <Route
-              exact path={CONFIRMATION_URL}
-              render={(props)=> <PreEvent {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} decideTopLevelLogin={this.decideTopLevelLogin}/>} />
-                          
-            
-
-              <Route 
-                  exact path={EVENT_URL}
-                  render={(props)=> <VideoPage {...props} decideTopLevelLogin={this.decideTopLevelLogin} user={this.state.user}/>}
-              
-              />
-
-              <Route
-              exact path={POST_EVENT_URL} 
-              render={(props)=> <PostEvent {...props} decideTopLevelLogin={this.decideTopLevelLogin} user={this.state.user}/>}
-              />
-
-              <Route               
-              exact path="/" 
-              params={this.props.match}
-              render={(props)=> <Login {...props} user={this.state.user} decideTopLevelLogin={this.decideTopLevelLogin}/>}     
-              />
-            {/* </RequireAuth> */}
-            </Switch>
-          </Router>
-          
-      );
-    }
-  }
+}
 
 export default withRouter(App);

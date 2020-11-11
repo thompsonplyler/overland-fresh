@@ -1,12 +1,6 @@
 import '../App.css';
 import {Fragment} from 'react'
-// import Button from './SubmitButton'
-// import InputField from './InputField'
 import freshLogo from '../assets/images/frshlogo.svg'
-// import {
-//   BrowserRouter as Router,
-//   Link
-// } from "react-router-dom";
 import ClientPendingBanner from './ClientPendingBanner'
 import RegisterInputBox from './RegisterInputBox'
 

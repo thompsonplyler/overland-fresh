@@ -1,5 +1,6 @@
 import React from 'react'
-import {useState} from 'react'
+import { withRouter } from 'react-router-dom'
+import { useState } from 'react'
 import videojs from 'video.js'
 import awsvideoconfig from '../aws-video-exports'
 import 'video.js/dist/video-js.css'
@@ -20,13 +21,8 @@ const videoJsOptions = {
     }]
   }
   
-  function VideoPage() {
-
+  function VideoPage(props) {
     class VideoPlayer extends React.Component {
-
-    
-      // console.log(props)
-    
         componentDidMount(props) {
           this.player = videojs(this.videoNode, this.props)
         }
@@ -68,25 +64,31 @@ const videoJsOptions = {
       console.log(stateWidth, stateHeight)
     })
 
+    const storedUser = localStorage.getItem('user');
+    console.log('STOREDUSER', storedUser);
+    if (!props?.user?.firstname && !storedUser) {
+      props.history.push('/login');
+      return <></>
+    }
     return (
-              <div className="grid-container">
-            {/* <img className="img-fresh-logo" src={freshLogo}/> */}
-            
-            <h2 className="registration-heading-grid">under one sky</h2>
+        <div className="grid-container">
+      {/* <img className="img-fresh-logo" src={freshLogo}/> */}
+      
+      <h2 className="registration-heading-grid">under one sky</h2>
 
-            <div className="video-row" style={{padding: "3vh"}}>
-              {/* <div className="chat-area">Test</div> */}
-              <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{ ...videoJsOptions }/>
-              <FakeChat windowHeight={stateHeight} windowWidth={stateWidth}/>
-            
-            </div>
-            <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
-            {/* <ClientPendingBanner subject="event"/> */}
-        </div>
+      <div className="video-row" style={{padding: "3vh"}}>
+        {/* <div className="chat-area">Test</div> */}
+        <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{ ...videoJsOptions }/>
+        <FakeChat windowHeight={stateHeight} windowWidth={stateWidth}/>
+      
+      </div>
+      <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
+      <ClientPendingBanner subject="event"/>
+  </div>
 
 
     );
   }
   
   
-  export default VideoPage
+  export default withRouter(VideoPage);

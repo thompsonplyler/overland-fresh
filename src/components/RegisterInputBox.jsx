@@ -1,16 +1,9 @@
 import React from 'react'
 import {Component} from 'react'
-// import {useState} from 'react'
 import '../App.css';
-// import {
-//     BrowserRouter as Router,
-//     Link,
-//     Redirect
-//   } from "react-router-dom";
-//   import Button from './SubmitButton'
-// import { isCompositeComponent } from 'react-dom/test-utils';
 import axios from 'axios'
 import RegisterSubmitButton from '../components/RegisterSubmitButton'
+import StyledButton from './buttons/StyledButton';
 
 
 class RegisterInputBox extends Component{
@@ -88,7 +81,7 @@ class RegisterInputBox extends Component{
             <input type="password" name="password_confirmation" value={password_confirmation} onChange={this.handleChange} placeholder="Confirm Password"></input>
             <div style={{gridColumn:"1/3"}}>
                 {/* <button type="submit" placeholder="submit" classname="">Submit</button> */}
-                <RegisterSubmitButton placeholder="submit" type="submit" handleSubmit={this.handleSubmit} className="register-submit-button"/>
+                <StyledButton  handleSubmit={this.handleSubmit}/>
             </div>
         </form>
         <div>{this.state.errors ? this.handleErrors():null}</div>

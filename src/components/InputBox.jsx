@@ -1,12 +1,11 @@
 import React from 'react'
-
 import {useState} from 'react'
 import '../App.css';
+import StyledButton from './buttons/StyledButton';
 import {
     Link,
     Redirect
   } from "react-router-dom";
-  import Button from './SubmitButton'
 
 function InputBox(props) {
     
@@ -19,7 +18,7 @@ function InputBox(props) {
         return<form className="form-grid">
             <input placeholder="E-mail"></input>
             <input placeholder="Password"></input>
-            <Link to="/event"><Button type="submit" link="event" submitHandler={submitHandler}/></Link>
+            <Link to="/event"><StyledButton type="submit" link="event" submitHandler={submitHandler}/></Link>
         </form>
     }
     else {
@@ -30,7 +29,7 @@ function InputBox(props) {
             <input placeholder="Confirm E-Mail"></input>
             <input placeholder="Password"></input>
             <input placeholder="Confirm Password"></input>
-            <Link to="/preevent"><Button type="submit" link="preevent" classname="submit-button" submitHandler={submitHandler}/></Link>
+            <Link to="/preevent"><StyledButton type="submit" link="preevent" submitHandler={submitHandler}/></Link>
         </form>
     }
     
