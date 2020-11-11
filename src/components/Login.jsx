@@ -9,41 +9,43 @@ import {
 } from "react-router-dom";
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import LoginInputBox from '../components/LoginInputBox'
-import queryString from 'query-string'
-import Logout from "../components/Logout"
+
+
 import axios from 'axios'
+import styled from 'styled-components';
+import {request} from '../components/request'
 
 
 function Login(props) {
   // console.log(queryString.parse(props.location.search))
 
-  
-  const handleLogin = (e) => {
-    // console.log(props)
-    // console.log("Data returned from the Rails server to parse: ",e)
-    props.topLevelLogin(e)
-    props.history.push("/confirmation")
-    
-    // let {topLevelLogin} = props
-    
-    // console.log(topLevelLogin)
+  const handleLogin = async (email) => {
+    console.log("Data returned from the Rails server to parse: ", email);
+    console.log(props);
 
-    // if (e.data.logged_in){
-    //   localStorage.setItem("loggedIn", "true")
-    // }
+    const user = await request(email)
 
-    // if (e.data.user.confirm_token){
-    //   localStorage.setItem("confirm_token", `${e.data.user.confirm_token}`)
-    // }
-    
-    // topLevelLogin()
-    // return props.history.push({pathname:"/confirmation", state: {loggedIn: true}})
-    
-    // Use this history
-    
-  }
+    if (user.email) {
+      console.log("we got a match IN LOGIN");
+      let userInfo = {
+        firstname: user.firstname,
+        lastname: user.lastname,
+        email: user.email,
+        company: user.company
+      }
 
-
+      props.handleLogin(userInfo);
+      props.history.push({
+        pathname: "/confirmation",
+        state: { loggedIn: true },
+      });
+    } else {
+      props.history.push({
+        pathname: "/loginfailed",
+        state: {loggedIn: false}
+      })
+    }
+  };
 
 return(
 <Fragment>

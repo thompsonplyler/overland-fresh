@@ -1,10 +1,10 @@
 @font-face {
   font-family: Amalina;
   src: url("./assets/fonts/Amalina.ttf"); }
-@font-face {
-  font-family: PTSerif;
-  src: url("./assets/fonts/PTSerif-Italic.ttf"); }
-@font-face {
+
+  @import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+  @font-face {
   font-family: Roboto;
   src: url("./assets/fonts/Roboto-Regular.ttf"); }
   @font-face {
