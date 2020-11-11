@@ -28,7 +28,7 @@ function Login(props) {
 
     if (user.email) {
       const emailConfirm = await emailConfirmSend(user)
-      console.log("we got a match IN LOGIN");
+      // console.log("we got a match IN LOGIN");
       let userInfo = {
         firstname: user.firstname,
         lastname: user.lastname,

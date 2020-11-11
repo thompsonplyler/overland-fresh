@@ -31,7 +31,7 @@ class App extends Component {
         isLoggedIn: true, 
         user
       });
-      console.log('USER PRESENT', user);
+      // console.log('USER PRESENT', user);
     }
   }
 
