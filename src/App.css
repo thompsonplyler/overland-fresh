@@ -3,7 +3,7 @@
   src: url("./assets/fonts/Amalina.ttf"); }
 @font-face {
   font-family: PTSerif;
-  src: url("./assets/fonts/PTSerif-Italic.ttf"); }
+  src: url("./assets/fonts/PTSerif-Regular.ttf"); }
 @font-face {
   font-family: Roboto;
   src: url("./assets/fonts/Roboto-Regular.ttf"); }
@@ -28,7 +28,9 @@ a {
 body {
   background-image: url("https://i.imgur.com/zfBPXIZ.jpg");
   background-size: cover;
-font-family: Sabon }
+  font-family: PTSerif 
+}
+
 
 .login-heading {
   color: white;
