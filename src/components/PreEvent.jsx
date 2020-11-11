@@ -32,13 +32,15 @@ function PreEvent(props) {
           
           <h2 className="registration-heading-1">under one sky</h2>
           {props.user.firstname || localStorage.email?
-          <Fragment><p className="para3" style={{textTransform: "capitalize"}}>Congratulations {props.user.firstname || localStorage.firstname}</p>
-          <p className="para1">You have successfully registered for <i>fresh</i>'s Under One Sky. We look forward to the <i>fresh</i> family coming together on Tuesday, November 17, 2020.</p>
+          <Fragment><p className="para3" style={{textTransform: "capitalize"}}>Congratulations {props.user.firstname || localStorage.firstname}!</p>
+          <p className="para1">You have successfully registered for <i>fresh</i>'s Under One Sky. We look forward to coming
+together on November 17, 2020. Please be sure to tune in via your laptop for optimal
+viewing by clicking the link in your calendar invitation.</p>
           
           </Fragment>
           :<Fragment></Fragment>}
-          <div style={{paddingTop: "2vh"}}></div>
-          <div style={{display: hidden}}><AddToCalendar /></div>
+          {/* <div style={{paddingTop: "2vh"}}></div>
+          <div style={{display: hidden}}><AddToCalendar /></div> */}
       
             <div>
           {/* <ClientPendingBanner subject="confirmation"/> */}
