@@ -330,6 +330,14 @@ h2.heading-post {
       background-color: rgb(84, 122, 230);
       color: white;
     }
+
+    .heads-up {
+      color: red;
+      font-family: Roboto;
+      position: absolute;
+      bottom: 60px;
+      left: 40%;
+    }
     
     input {
         border-radius: 5px;
