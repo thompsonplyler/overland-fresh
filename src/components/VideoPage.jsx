@@ -17,8 +17,8 @@ const videoJsOptions = {
     responsive: true,
     poster: "https://i.imgur.com/Aaog0bm.png",
     sources: [{
-      // src: "https://i.imgur.com/8kDpUiB.mp4",
-      src: awsvideoconfig.awsOutputLiveLL,
+      src: "https://i.imgur.com/8kDpUiB.mp4",
+      // src: awsvideoconfig.awsOutputLiveLL,
       poster: "https://i.imgur.com/Aaog0bm.png"
     }]
   }
