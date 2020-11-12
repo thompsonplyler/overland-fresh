@@ -81,7 +81,7 @@ class App extends Component {
           />
           <Route
             exact
-            path={EVENT_URL}
+            path="/"
             render={(props) => (
               <VideoPage
                 {...props}
@@ -113,7 +113,7 @@ class App extends Component {
               />
             )}
           />
-          <Route
+          {/* <Route
             exact
             path="/"
             params={this.props.match}
@@ -123,7 +123,7 @@ class App extends Component {
                 // user={this.state.user}
                 handleLogin={this.handleLogin}
               />
-            )}
+            )} */}
           />
         </Switch>
       </Router>

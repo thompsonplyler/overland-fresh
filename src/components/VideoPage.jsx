@@ -14,6 +14,7 @@ const videoJsOptions = {
     autoplay: true,
     controls: true,
     loop: true,
+    responsive: true,
     poster: "https://i.imgur.com/Aaog0bm.png",
     sources: [{
       src: "https://i.imgur.com/8kDpUiB.mp4",
@@ -29,12 +30,12 @@ const videoJsOptions = {
 
   function VideoPage(props) {
 
-    useEffect(() => {
-      const user = checkUserCreds(props.user);
-      if (!user) {
-        props.history.push('/login');
-      }
-    }, [])
+    // useEffect(() => {
+    //   const user = checkUserCreds(props.user);
+    //   if (!user) {
+    //     props.history.push('/login');
+    //   }
+    // }, [])
 
     class VideoPlayer extends React.Component {
 
