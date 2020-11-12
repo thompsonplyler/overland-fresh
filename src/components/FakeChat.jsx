@@ -1,35 +1,42 @@
+import React, { Component, Fragment } from 'react';
+
 import '../App.css';
+import '../chat.css'
 
 
-function FakeChat(props) {
-    // const randomphrases = ['We the people','in order to form','a more perfect union','establish justice','insure domestic tranquility','provide for the common defence, promote the general welfare','and secure the blessings of liberty','to ourselves','and our posterity','do ordain and establish this constitution','of the United States of America'];
-    // console.log("I run.")
-    // let c = 0;
-    // let t;
-    // let timer_is_on = 0;
-    
-    // timedCount();
-    
-    // function timedCount()
-    // {
-    //  t = setTimeout( function(){ 
-    //      timedCount() 
-    //     }, 1500 );
+// const rumbleChatScript = `<div style="height: 500px;"><div id="rt-5b6961d2f1da63d021ee524f74fa38a4"></div> <script src="https://rumbletalk.com/client/?k7oEx~5-"></script></div>`
+// const amplifyChatScript = `<div class="arena-liveblog" data-publisher="fresh-underonesky" data-event="3f62" data-version="2"></div><script async src="https://go.arena.im/public/js/arenalib.js?p=fresh-underonesky&e=3f62"></script>`
+export default class extends Component {
+    state = {
+      loaded: true
+    }
 
-        
-    //     //  $('.putmehere').html( randomphrases[random]);
-        
-    // }
-    
-    // let random = Math.floor(Math.random() * (11 - 0 + 1)) + 0;
+    componentDidMount() {
+        var loadScript = function (src) {
+          var tag = document.createElement('script');
+          tag.async = true;
+          tag.src = src;
+          var body = document.getElementsByTagName('body')[0];
+          body.appendChild(tag);
+        }
+      
+        loadScript('https://go.arena.im/public/js/arenachatlib.js?p=fresh-underonesky&e=fresh-underonesky-global');
+      }
+
+
+
+
+render(){
+    const pagePos = {
+        overlay: "overlay",
+        inPage: "in-page",
+        bottom: "bottom",
+        side: "side"
+    }
 
     return(
         
-        <div className="chat-area">
-            {/* {randomphrases[random]} */}
-            <p>[chat box location]</p>
-        </div>
+        <div className="arena-chat chat-area" data-publisher="fresh-underonesky" data-chatroom="fresh-underonesky-global" data-position={`${pagePos.overlay}`} ></div>
     )
 }
-
-export default FakeChat;
+}

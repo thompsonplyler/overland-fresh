@@ -73,15 +73,10 @@ const videoJsOptions = {
         }
       }
 
-    // let windowSize = {}
     let [stateWidth, setWidth] = useState(window.innerWidth)
     let [stateHeight, setHeight] = useState(window.innerHeight)
 
-    window.addEventListener('resize',()=>{
-      setHeight(window.innerHeight)
-      setWidth(window.innerWidth)
-      console.log(stateWidth, stateHeight)
-    })
+
 
     return (
               <div className="grid-container">
@@ -92,9 +87,9 @@ const videoJsOptions = {
             <div className="video-row" style={{padding: "3vh"}}>
               {/* <div className="chat-area">Test</div> */}
               <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{ ...videoJsOptions }/>
-              <FakeChat windowHeight={stateHeight} windowWidth={stateWidth}/>
             
             </div>
+              <FakeChat windowHeight={stateHeight} windowWidth={stateWidth}/>
             <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
             {/* <ClientPendingBanner subject="event"/> */}
         </div>
