@@ -305,10 +305,10 @@ h2.heading-post {
   display: grid; }
 
   button {
-    user-select: none;
-    cursor: default;
+    /* user-select: none;
+    cursor: default; */
     /* background-color: rgb(255, 255, 255); */
-    outline: currentcolor none medium;
+    /* outline: currentcolor none medium;
     border-width: 1px;
     border-style: solid;
     border-radius: 5px;
@@ -319,7 +319,7 @@ h2.heading-post {
     font-size: 14px;
     margin-top: 10px !important;
     font-family: Sabon;
-    font-size: 14px;
+    font-size: 14px; */
     }
 
     /* button:focus{
