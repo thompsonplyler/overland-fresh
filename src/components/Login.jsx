@@ -22,7 +22,7 @@ function Login(props) {
 
   const handleLogin = async (email) => {
     console.log("Data returned from the Rails server to parse: ", email);
-
+    email = email.toLowerCase()
     const user = await request(email)
     
 
