@@ -21,7 +21,7 @@ function Login(props) {
   // console.log(queryString.parse(props.location.search))
 
   const handleLogin = async (email) => {
-    console.log("Data returned from the Rails server to parse: ", email);
+    // console.log("Data returned from the Rails server to parse: ", email);
     email = email.toLowerCase()
     const user = await request(email)
     
