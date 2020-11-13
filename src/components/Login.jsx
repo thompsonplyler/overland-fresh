@@ -28,12 +28,15 @@ function Login(props) {
 
     if (user.email) {
       const emailConfirm = await emailConfirmSend(user)
+
+      if (emailConfirm) console.log("This is what was sent back from Customer.io", emailConfirm)
+      if (!emailConfirm) console.log("Nothing sent to customer.io because user.registered ==", user.registered)
       // console.log("we got a match IN LOGIN");
       let userInfo = {
         firstname: user.firstname,
         lastname: user.lastname,
         email: user.email,
-        company: user.company
+        company: user.company,
       }
 
       props.handleLogin(userInfo);
