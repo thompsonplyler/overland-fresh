@@ -415,7 +415,7 @@ h2.heading-post {
     line-height: 19px;
     font-size: 14px;
     margin-top: 10px !important;
-    font-family: Sabon;
+    /* font-family: Sabon; */
     font-size: 14px;
     }
 
@@ -434,7 +434,7 @@ h2.heading-post {
         display: block;
         width: 80%;
         font-size: 14px;
-        font-family: Sabon;
+        /* font-family: Sabon; */
     }
 
     .btn-pretty {
