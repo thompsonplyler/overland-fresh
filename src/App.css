@@ -159,7 +159,7 @@ font-family: Sabon }
   background-color: #dc3246; }
 
 input {
-  border-radius: 0px;
+  /* border-radius: 0px;
   border-style: solid;
   border-width: 1px;
   line-height: 1px;
@@ -170,7 +170,7 @@ input {
     position: relative;
     -ms-grid-column-align: start;
         justify-self: start;
-    left: 2vh;
+    left: 2vh; */
     /* background-color: red; */
   }
 
@@ -419,13 +419,13 @@ h2.heading-post {
     font-size: 14px;
     }
 
-    button:hover{
+    /* button:hover{
       background-color: rgb(84, 122, 230);
       color: white;
-    }
+    } */
     
     input {
-        border-radius: 5px;
+        /* border-radius: 5px;
         border-style: solid;
         border-width: 1px;
         line-height: 1px;
@@ -433,7 +433,7 @@ h2.heading-post {
         margin: .2rem;
         display: block;
         width: 80%;
-        font-size: 14px;
+        font-size: 14px; */
         /* font-family: Sabon; */
     }
 
