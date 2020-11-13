@@ -419,10 +419,6 @@ h2.heading-post {
     font-size: 14px;
     }
 
-    button:focus{
-      background-color: rgba(0,0,255,1)
-    }
-
     button:hover{
       background-color: rgb(84, 122, 230);
       color: white;
@@ -439,6 +435,10 @@ h2.heading-post {
         width: 80%;
         font-size: 14px;
         font-family: Sabon;
+    }
+
+    .btn-pretty {
+      
     }
 
     @media only screen and (max-width: 1280px) {
