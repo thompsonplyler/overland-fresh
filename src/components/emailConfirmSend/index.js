@@ -1,4 +1,5 @@
 export const emailConfirmSend = async(event) => {
+  console.log(event.registered)
 if (!event.registered)
   {
 console.log("New user discovered! Sending confirmation to e-mail service.")

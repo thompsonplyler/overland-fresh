@@ -24,6 +24,7 @@ function Login(props) {
     // console.log("Data returned from the Rails server to parse: ", email);
     email = email.toLowerCase()
     const user = await request(email)
+    console.log(user)
     
 
     if (user.email) {
