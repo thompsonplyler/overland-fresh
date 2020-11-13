@@ -74,7 +74,10 @@ this.props.handleLogin(email)
             </div>
             <form className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>
-            <LoginSubmitButton placeholder="submit" type="submit" handleSubmit={this.handleSubmit} className="login-submit-button"/>
+            
+              <button placeholder="submit" type="submit" className="login-submit-button" onClick={this.handleSubmit}>
+                Submit
+              </button>
             <div>
           {
             this.state.errors ? this.handleErrors() : null
