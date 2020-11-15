@@ -66,7 +66,7 @@ this.props.handleLogin(email)
             <form className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>
             
-              <button placeholder="submit" type="submit" className="login-submit-button" onClick={this.handleSubmit}>
+              <button name="dog" placeholder="submit" type="submit" className="login-submit-button" onClick={this.handleSubmit}>
                 Submit
               </button>
             <div>
