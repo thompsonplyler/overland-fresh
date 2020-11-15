@@ -1,3 +1,4 @@
+import 'react-app-polyfill/ie11';
 export const request = async(event) => {
 
     var myHeaders = new Headers();

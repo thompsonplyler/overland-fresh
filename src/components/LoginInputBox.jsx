@@ -63,6 +63,7 @@ this.props.handleLogin(email)
             <div className="login-heading">
                 <h3 data-name="login">Register</h3>
             </div>
+            
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>
             
               <button name="email-auth-submit" placeholder="submit" type="submit" className="login-submit-button" onClick={this.handleSubmit}>
