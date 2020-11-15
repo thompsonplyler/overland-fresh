@@ -63,17 +63,12 @@ this.props.handleLogin(email)
             <div className="login-heading">
                 <h3 data-name="login">Register</h3>
             </div>
-            <form className="form-grid" onSubmit={this.handleSubmit}>
+            <form name="email-auth" className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>
             
-              <button name="dog" placeholder="submit" type="submit" className="login-submit-button" onClick={this.handleSubmit}>
+              <button name="email-auth-submit" placeholder="submit" type="submit" className="login-submit-button" onClick={this.handleSubmit}>
                 Submit
               </button>
-            <div>
-          {
-            this.state.errors ? this.handleErrors() : null
-          }
-          </div>
         </form>
     
  
