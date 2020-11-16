@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import LoginInputBox from '../components/LoginInputBox'
-
+import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL} from '../urls'
 
 import axios from 'axios'
 import styled from 'styled-components';
@@ -26,7 +26,7 @@ function Login(props) {
     console.log(email)
     
     const user = await request(email)
-    // console.log(user)
+    console.log(user)
     
 
     if (user.email) {
@@ -44,7 +44,7 @@ function Login(props) {
 
       props.handleLogin(userInfo);
       props.history.push({
-        pathname: "/confirmation",
+        pathname: EVENT_URL,
         state: { loggedIn: true },
       });
     } else {

@@ -15,6 +15,7 @@
     "amazon-ivs-player": "^1.1.2",
     "axios": "^0.21.0",
     "babel-loader": "^8.1.0",
+    "commentbox.io": "^2.0.0",
     "copy-webpack-plugin": "^6.1.0",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^5.1.0",
