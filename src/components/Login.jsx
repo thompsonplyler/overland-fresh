@@ -24,7 +24,7 @@ function Login(props) {
   useEffect(() => {
     const user = checkUserCreds(props.user);
     if (!user) {
-      props.history.push('/event');
+      props.history.push('/login');
     }
   }, [])
   // console.log(queryString.parse(props.location.search))
