@@ -1,5 +1,5 @@
 import '../App.css';
-import {Fragment} from 'react'
+import { useEffect, useState, Fragment } from 'react'
 import freshLogo from '../assets/images/frshlogo.svg'
 import {
   BrowserRouter as Router,
@@ -15,9 +15,18 @@ import axios from 'axios'
 import styled from 'styled-components';
 import {request} from '../components/request'
 import {emailConfirmSend} from '../components/emailConfirmSend'
+import {checkUserCreds} from '../components/checkUserCreds'
+
 
 
 function Login(props) {
+
+  useEffect(() => {
+    const user = checkUserCreds(props.user);
+    if (!user) {
+      props.history.push('/event');
+    }
+  }, [])
   // console.log(queryString.parse(props.location.search))
 
   const handleLogin = async (email) => {
