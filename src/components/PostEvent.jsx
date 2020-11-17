@@ -54,7 +54,7 @@ function PostEvent() {
           <h2 className="registration-heading-1">under one sky</h2>
           <p className="para1">Thank you for coming!</p>
           <p className="para1">Today's meeting has concluded.</p>
-        <PageWithComments />
+        {/* <PageWithComments /> */}
         {/* <ClientPendingBanner subject="post-event"/> */}
 
     </div>
