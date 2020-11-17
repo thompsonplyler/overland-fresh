@@ -13,7 +13,7 @@ import PostEvent from "./components/PostEvent"
 import Login from "./components/Login"
 import LoginFailed from "./components/LoginFailed"
 import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL} from './urls'
-import {isIE} from 'react-device-detect'
+// import {isIE} from 'react-device-detect'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -69,6 +69,7 @@ class App extends Component {
               />
             )}
           />
+          
           <Route
             exact
             path={CONFIRMATION_URL}
@@ -78,17 +79,34 @@ class App extends Component {
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
                 
+                
               />
             )}
           />
+
+        <Route
+            exact
+            path={EVENT_URL}
+            params={this.props.match}
+            render={(props) => (
+              <VideoPage
+                {...props}
+                user={this.state.user}
+                handleLogin={this.handleLogin}
+              />
+              )}
+              />
+    
+
           <Route
             exact
             path="/"
             render={(props) => (
-              <VideoPage
+              <Login
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
+                handleLogin={this.handleLogin}
               />
             )}
           />
