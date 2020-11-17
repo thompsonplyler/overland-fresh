@@ -78,6 +78,7 @@ class App extends Component {
           <Route
             exact
             path={LOGIN_URL}
+            history={history}
             params={this.props.match}
             render={(props) => (
               <Login
@@ -91,6 +92,7 @@ class App extends Component {
           <Route
             exact
             path={CONFIRMATION_URL}
+            history={history}
             render={(props) => (
               <PreEvent
                 {...props}
@@ -106,6 +108,7 @@ class App extends Component {
             exact
             path={EVENT_URL}
             params={this.props.match}
+            history={history}
             render={(props) => (
               <VideoPage
                 {...props}
@@ -119,6 +122,7 @@ class App extends Component {
           <Route
             exact
             path="/"
+            history={history}
             render={(props) => (
               <Login
                 {...props}
@@ -131,6 +135,7 @@ class App extends Component {
           <Route
             exact
             path={POST_EVENT_URL}
+            history={history}
             render={(props) => (
               <PostEvent
                 {...props}
@@ -143,6 +148,7 @@ class App extends Component {
 <Route
             exact
             path={LOGIN_FAILED_URL}
+            history={history}
             render={(props) => (
               <LoginFailed
                 {...props}
@@ -151,18 +157,7 @@ class App extends Component {
               />
             )}
           />
-          {/* <Route
-            exact
-            path="/"
-            params={this.props.match}
-            render={(props) => (
-              <Login
-                {...props}
-                // user={this.state.user}
-                handleLogin={this.handleLogin}
-              />
-            )} */}
-          />
+          
         </Switch>
       </Router>
     );
