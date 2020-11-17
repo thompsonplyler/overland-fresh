@@ -7,6 +7,7 @@ import {
   Route,
   withRouter
 } from "react-router-dom";
+import {createBrowserHistory} from 'history'
 import VideoPage from "./components/VideoPage"
 import PreEvent from "./components/PreEvent"
 import PostEvent from "./components/PostEvent"
@@ -31,6 +32,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+    ReactGA.initialize('G-GJYMBF5T3F');
+    ReactGA.pageview(window.location.pathname);
     let localUser = localStorage.getItem('user');
     if (localUser) {
       const user = JSON.parse(localUser); 
@@ -58,6 +61,14 @@ class App extends Component {
   }
 
   render(){
+    const history = createBrowserHistory();
+
+    // Initialize google analytics page view tracking
+    history.listen(location => {
+      ReactGA.initialize('G-GJYMBF5T3F');
+      ReactGA.set({ page: location.pathname }); // Update the user's current page
+      ReactGA.pageview(location.pathname); // Record a pageview for the given page
+    });
     
     return (
       
