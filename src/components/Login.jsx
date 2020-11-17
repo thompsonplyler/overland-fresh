@@ -23,8 +23,12 @@ function Login(props) {
 
   useEffect(() => {
     const user = checkUserCreds(props.user);
+    console.log(localStorage.user)
     if (!user) {
       props.history.push('/login');
+    }
+    if (user || localStorage.user) {
+      props.history.push('/event')
     }
   }, [])
   // console.log(queryString.parse(props.location.search))
