@@ -28,6 +28,7 @@
     "react-desktop": "^0.3.9",
     "react-device-detect": "^1.14.0",
     "react-dom": "^17.0.1",
+    "react-ga": "^3.2.1",
     "react-gsap": "^2.2.1",
     "react-moment": "^1.0.0",
     "react-router-dom": "4.3.1",

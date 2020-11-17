@@ -13,6 +13,13 @@ import PostEvent from "./components/PostEvent"
 import Login from "./components/Login"
 import LoginFailed from "./components/LoginFailed"
 import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL} from './urls'
+import ReactGA from 'react-ga';
+
+// const trackingId = ""
+// ReactGA.initialize()
+// ReactGA.set({
+
+// })
 // import {isIE} from 'react-device-detect'
 class App extends Component {
   constructor(props) {

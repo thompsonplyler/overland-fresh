@@ -56,7 +56,7 @@ const videoJsOptions = {
           let {windowHeight, windowWidth} = this.props
           let newWidth = windowWidth *.60
           let newHeight = newWidth * .5625
-          console.log("rendering:", this)
+          // console.log("rendering:", this)
     
           return (
             <div className="video-player">

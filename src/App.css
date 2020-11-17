@@ -304,32 +304,16 @@ h2.heading-post {
 .inputbox {
   display: grid; }
 
-  button {
-    user-select: none;
-    cursor: default;
-    /* background-color: rgb(255, 255, 255); */
-    outline: currentcolor none medium;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 5px;
-    border-color: rgb(200, 200, 200) rgb(194, 194, 194) rgb(172, 172, 172);
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 1px;
-    padding: 5px 20px;
-    line-height: 19px;
-    font-size: 14px;
-    margin-top: 10px !important;
-    font-family: Sabon;
-    font-size: 14px;
-    }
+
 
     /* button:focus{
       background-color: rgba(0,0,255,1)
     } */
 
-    button:hover{
+    /* button:hover{
       background-color: rgb(84, 122, 230);
       color: white;
-    }
+    } */
 
     .heads-up {
       color: red;
