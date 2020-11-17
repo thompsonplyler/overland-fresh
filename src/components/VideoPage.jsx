@@ -92,7 +92,7 @@ const videoJsOptions = {
               <FakeChat windowHeight={stateHeight} windowWidth={stateWidth}/>
             <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
             {/* <ClientPendingBanner subject="event"/> */}
-            <div className="heads-up">This is a staging page for testing purposes only.</div>
+            {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
         </div>
 
 
