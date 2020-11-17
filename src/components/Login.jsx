@@ -41,12 +41,25 @@ function Login(props) {
         email: user.email,
         company: user.company,
       }
-
       props.handleLogin(userInfo);
+
+      let startTime = 1605612000
+      console.log ("right now", new Date().toUTCString())
+      console.log("start time", startTime)
+
+      if (new Date().toUTCString() < startTime){
       props.history.push({
         pathname: CONFIRMATION_URL,
         state: { loggedIn: true },
       });
+    }
+    else {
+      props.history.push({
+        pathname: EVENT_URL,
+        state: { loggedIn: true },
+      });
+
+    }
     } else {
       props.history.push({
         pathname: "/loginfailed",
