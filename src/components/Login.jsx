@@ -28,7 +28,7 @@ function Login(props) {
       props.history.push('/login');
     }
     if (user || localStorage.user) {
-      props.history.push(POST_EVENT_URL)
+      props.history.push(EVENT_URL)
     }
   }, [])
   // console.log(queryString.parse(props.location.search))
