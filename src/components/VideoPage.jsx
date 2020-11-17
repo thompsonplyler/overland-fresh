@@ -14,10 +14,11 @@ const videoJsOptions = {
     autoplay: true,
     controls: true,
     loop: true,
+    responsive: true,
     poster: "https://i.imgur.com/Aaog0bm.png",
     sources: [{
-      src: "https://i.imgur.com/8kDpUiB.mp4",
-      // src: awsvideoconfig.awsOutputLiveLL,
+      // src: "https://i.imgur.com/8kDpUiB.mp4",
+      src: awsvideoconfig.awsOutputLiveLL,
       poster: "https://i.imgur.com/Aaog0bm.png"
     }]
   }
@@ -29,12 +30,12 @@ const videoJsOptions = {
 
   function VideoPage(props) {
 
-    useEffect(() => {
-      const user = checkUserCreds(props.user);
-      if (!user) {
-        props.history.push('/login');
-      }
-    }, [])
+    // useEffect(() => {
+    //   const user = checkUserCreds(props.user);
+    //   if (!user) {
+    //     props.history.push('/login');
+    //   }
+    // }, [])
 
     class VideoPlayer extends React.Component {
 
@@ -72,15 +73,10 @@ const videoJsOptions = {
         }
       }
 
-    // let windowSize = {}
     let [stateWidth, setWidth] = useState(window.innerWidth)
     let [stateHeight, setHeight] = useState(window.innerHeight)
 
-    window.addEventListener('resize',()=>{
-      setHeight(window.innerHeight)
-      setWidth(window.innerWidth)
-      console.log(stateWidth, stateHeight)
-    })
+
 
     return (
               <div className="grid-container">
@@ -91,11 +87,12 @@ const videoJsOptions = {
             <div className="video-row" style={{padding: "3vh"}}>
               {/* <div className="chat-area">Test</div> */}
               <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{ ...videoJsOptions }/>
-              <FakeChat windowHeight={stateHeight} windowWidth={stateWidth}/>
             
             </div>
+              <FakeChat windowHeight={stateHeight} windowWidth={stateWidth}/>
             <img className="grid-heading" style={{width: "6vw"}} src={freshLogo}/>
             {/* <ClientPendingBanner subject="event"/> */}
+            <div className="heads-up">This is a staging page for testing purposes only.</div>
         </div>
 
 

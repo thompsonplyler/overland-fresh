@@ -17,7 +17,7 @@
 
 // The color of icons, text, and the big play button border.
 // Try changing to #0f0
-$primary-foreground-color: rgba(0, 135, 245, 0.801); // #fff default
+// $primary-foreground-color: rgba(0, 135, 245, 0.801); // #fff default
 
 // The default color of control backgrounds is mostly black but with a little
 // bit of blue so it can still be seen on all-black video frames, which are common.
@@ -28,12 +28,7 @@ $primary-background-color: #2B333F;  // #2B333F default
 $center-big-play-button: true default; // true default
 
 .video-js {
-  /* The base font size controls the size of everything, not just text.
-     All dimensions use em-based sizes so that the scale along with the font size.
-     Try increasing it to 15px and see what happens. */
-  font-size: 15px;
-
-  /* The main font color changes the ICON COLORS as well as the text */
+  /* The base font size controls the size of everythingmessagell as the text */
   color: $primary-foreground-color;
 }
 
