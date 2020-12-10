@@ -1,5 +1,5 @@
 
-import {Component} from 'react'
+import { Component } from 'react'
 
 import {
   BrowserRouter as Router,
@@ -7,13 +7,13 @@ import {
   Route,
   withRouter
 } from "react-router-dom";
-import {createBrowserHistory} from 'history'
+import { createBrowserHistory } from 'history'
 import VideoPage from "./components/VideoPage"
 import PreEvent from "./components/PreEvent"
 import PostEvent from "./components/PostEvent"
 import Login from "./components/Login"
 import LoginFailed from "./components/LoginFailed"
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL} from './urls'
+import { LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL } from './urls'
 import ReactGA from 'react-ga';
 
 // const trackingId = ""
@@ -25,10 +25,10 @@ import ReactGA from 'react-ga';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       isLoggedIn: false,
       user: {}
-     };
+    };
   }
 
   componentDidMount() {
@@ -36,9 +36,9 @@ class App extends Component {
     ReactGA.pageview(window.location.pathname);
     let localUser = localStorage.getItem('user');
     if (localUser) {
-      const user = JSON.parse(localUser); 
+      const user = JSON.parse(localUser);
       this.setState({
-        isLoggedIn: true, 
+        isLoggedIn: true,
         user
       });
       // console.log('USER PRESENT', user);
@@ -55,12 +55,12 @@ class App extends Component {
 
   handleLogout = () => {
     this.setState({
-    isLoggedIn: true,
-    user: {}
+      isLoggedIn: true,
+      user: {}
     })
   }
 
-  render(){
+  render() {
     const history = createBrowserHistory();
 
     // Initialize google analytics page view tracking
@@ -69,10 +69,10 @@ class App extends Component {
       ReactGA.set({ page: location.pathname }); // Update the user's current page
       ReactGA.pageview(location.pathname); // Record a pageview for the given page
     });
-    
+
     return (
-      
-      
+
+
       <Router>
         <Switch>
           <Route
@@ -88,7 +88,7 @@ class App extends Component {
               />
             )}
           />
-          
+
           <Route
             exact
             path={CONFIRMATION_URL}
@@ -98,13 +98,13 @@ class App extends Component {
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
-                
-                
+
+
               />
             )}
           />
 
-        <Route
+          <Route
             exact
             path={EVENT_URL}
             params={this.props.match}
@@ -115,16 +115,16 @@ class App extends Component {
                 user={this.state.user}
                 handleLogin={this.handleLogin}
               />
-              )}
-              />
-    
+            )}
+          />
+
 
           <Route
             exact
             path="/"
             history={history}
             render={(props) => (
-              <Login
+              <VideoPage
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
@@ -145,7 +145,7 @@ class App extends Component {
             )}
           />
 
-<Route
+          <Route
             exact
             path={LOGIN_FAILED_URL}
             history={history}
@@ -157,11 +157,11 @@ class App extends Component {
               />
             )}
           />
-          
+
         </Switch>
       </Router>
     );
-    }
   }
+}
 
 export default withRouter(App);
