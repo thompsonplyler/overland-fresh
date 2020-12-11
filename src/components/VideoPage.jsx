@@ -8,6 +8,7 @@ import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import FakeChat from './FakeChat'
 import { checkUserCreds } from '../components/checkUserCreds'
+import tempVideo from '../assets/videos/temp_video.mp4'
 
 
 const videoJsOptions = {
@@ -15,9 +16,10 @@ const videoJsOptions = {
   controls: true,
   loop: true,
   responsive: true,
+  mute: true,
   poster: "https://i.imgur.com/Aaog0bm.png",
   sources: [{
-    src: "https://i.imgur.com/8kDpUiB.mp4",
+    src: tempVideo,
     // src: awsvideoconfig.awsOutputLiveLL,
     poster: "https://i.imgur.com/Aaog0bm.png"
   }]
