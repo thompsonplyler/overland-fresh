@@ -12,7 +12,7 @@ import LoginSubmitButton from '../components/LoginSubmitButton'
 // import StyledButton from './buttons/StyledButton';
 import styled from 'styled-components';
 
-class LoginInputBox extends Component{
+class RealLoginInputBox extends Component{
 
     constructor(props) {
         super(props);
@@ -73,13 +73,11 @@ this.props.handleLogin(email)
           <div className="form-grid-registration">
             <div className="login-heading">
               
-                <h3 data-name="login">Register</h3>
+                <h3 data-name="login">Login</h3>
             </div>
             <form className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>
-            <input onChange={this.handleChange} type="text" name="emailConfirm" value={emailConfirm} placeholder="Confirm E-mail"></input>
             <input onChange={this.handleChange} type="text" name="password" value={password} placeholder="Password"></input>
-            <input onChange={this.handleChange} type="text" name="passwordConfirm" value={passwordConfirm} placeholder="Password Confirm"></input>
             <LoginSubmitButton placeholder="submit" type="submit" handleSubmit={this.handleSubmit} className="login-submit-button"/>
             <div>
           {
@@ -91,4 +89,4 @@ this.props.handleLogin(email)
     )}
 }
 
-export default withRouter(LoginInputBox);
+export default withRouter(RealLoginInputBox);

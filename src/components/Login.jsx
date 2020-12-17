@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import LoginInputBox from '../components/LoginInputBox'
+import RealLoginInputBox from '../components/RealLoginInputBox'
 import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL} from '../urls'
 
 import axios from 'axios'
@@ -80,7 +81,8 @@ return(
           <p className="para1">November 17, 2020</p>
           
           <div className="login-grid-row">
-            <LoginInputBox handleLogin={handleLogin} />          
+            <LoginInputBox handleLogin={handleLogin} />    
+            <RealLoginInputBox handleLogin={handleLogin} />      
           </div>
     </div>
     </Fragment>
