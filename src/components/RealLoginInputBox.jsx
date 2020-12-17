@@ -44,13 +44,13 @@ class RealLoginInputBox extends Component{
 
 handleSubmit = (event) => {
   event.preventDefault()
-  const {email} = this.state
+//   const {email} = this.state
   
-  let user = {
-    email: email
-    }
+//   let user = {
+//     email: email
+//     }
 
-this.props.handleLogin(email)
+// this.props.handleLogin(email)
 
 };
 
