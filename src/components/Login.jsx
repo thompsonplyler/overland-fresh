@@ -78,7 +78,7 @@ return(
           
           <h2 className="registration-heading-1">under one sky</h2>
           
-          <p className="para1">January 27, 2020</p>
+          <p className="para1">January 27, 2021</p>
           
           <div className="login-grid-row">
             <LoginInputBox handleLogin={handleLogin} />    
