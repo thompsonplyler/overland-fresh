@@ -10,7 +10,7 @@ import {
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import LoginInputBox from '../components/LoginInputBox'
 import RealLoginInputBox from '../components/RealLoginInputBox'
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL} from '../urls'
+import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED} from '../urls'
 
 import axios from 'axios'
 import styled from 'styled-components';
@@ -39,6 +39,12 @@ function Login(props) {
     let email = userData.email.toLowerCase()
     let password = userData.password
     const user = await request(userData)
+    console.log(user.error_code)
+
+    if (user.error_code == "009"){
+      props.history.push(ALREADY_REGISTERED)
+      return
+    }
     
 
     if (user.email) {

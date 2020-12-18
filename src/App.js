@@ -11,10 +11,12 @@ import { createBrowserHistory } from 'history'
 import VideoPage from "./components/VideoPage"
 import PreEvent from "./components/PreEvent"
 import PostEvent from "./components/PostEvent"
+import UserExists from "./components/UserExists"
 import Login from "./components/Login"
 import LoginFailed from "./components/LoginFailed"
-import { LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL } from './urls'
+import { LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL,ALREADY_REGISTERED } from './urls'
 import ReactGA from 'react-ga';
+
 
 // const trackingId = ""
 // ReactGA.initialize()
@@ -160,6 +162,27 @@ class App extends Component {
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
               />
+
+              
+
+
+            )}
+          />
+
+<Route
+            exact
+            path={ALREADY_REGISTERED}
+            history={history}
+            render={(props) => (
+              <UserExists
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                user={this.state.user}
+              />
+
+              
+
+
             )}
           />
 
