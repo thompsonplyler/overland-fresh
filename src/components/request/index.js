@@ -1,5 +1,5 @@
 export const request = async(event) => {
-    console.log(event)
+    // console.log(event)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     
