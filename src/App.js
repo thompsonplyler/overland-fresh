@@ -46,6 +46,7 @@ class App extends Component {
   }
 
   handleLogin = (user) => {
+    console.log("User login info:",user)
     localStorage.setItem("user", JSON.stringify(user));
     this.setState({
       isLoggedIn: true,

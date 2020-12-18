@@ -29,22 +29,20 @@ function Login(props) {
       props.history.push('/login');
     }
     if (user || localStorage.user) {
-      props.history.push(POST_EVENT_URL)
+      props.history.push(CONFIRMATION_URL)
     }
   }, [])
   // console.log(queryString.parse(props.location.search))
 
-  const handleLogin = async (email) => {
+  const handleLogin = async (userData) => {
     // console.log("Data returned from the Rails server to parse: ", email);
-    email = email.toLowerCase()
-    console.log(email)
-    
-    const user = await request(email)
-    console.log(user)
+    let email = userData.email.toLowerCase()
+    let password = userData.password
+    const user = await request(userData)
     
 
     if (user.email) {
-      const emailConfirm = await emailConfirmSend(user)
+      // const emailConfirm = await emailConfirmSend(user)
 
       // if (emailConfirm) console.log("This is what was sent back from Customer.io", emailConfirm)
       // if (!emailConfirm) console.log("Nothing sent to customer.io because user.registered ==", user.registered)
@@ -58,7 +56,7 @@ function Login(props) {
       props.handleLogin(userInfo);
 
       props.history.push({
-        pathname: EVENT_URL,
+        pathname: CONFIRMATION_URL,
         state: { loggedIn: true },
       });
     } else {
@@ -78,7 +76,7 @@ return(
           
           <h2 className="registration-heading-1">under one sky</h2>
           
-          <p className="para1">November 17, 2020</p>
+          <p className="para1">January 27, 2020</p>
           
           <div className="login-grid-row">
             <LoginInputBox handleLogin={handleLogin} />    

@@ -186,6 +186,7 @@ input  {
   border-style: solid;
   line-height: 1px;
   padding: .4rem;
+  margin-top: .2rem;
   /* margin: .2rem; */
   display: block;
   width:100%;

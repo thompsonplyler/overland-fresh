@@ -1,10 +1,9 @@
 export const request = async(event) => {
-  console.log(event)
-
+    console.log(event)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     
-    var raw = JSON.stringify({"user":{"email":`${event}`}});
+    var raw = JSON.stringify({"user":{"email":`${event.email}`,"registration":`${event.registration}`,"password":`${event.password}`}});
     
     var requestOptions = {
       method: 'POST',
@@ -16,9 +15,9 @@ export const request = async(event) => {
   
   try { 
     // call to test server. remove after testing registration system
-    // const response = await fetch("http://localhost:3001/api/v1/login", requestOptions)
+    const response = await fetch("http://localhost:3001/api/v1/login", requestOptions)
     // the real call. restore after testing registration system. 
-    const response = await fetch("https://fresh-under-one-sky-email-api.herokuapp.com/api/v1/login", requestOptions)
+    // const response = await fetch("https://fresh-under-one-sky-email-api.herokuapp.com/api/v1/login", requestOptions)
 
   const json = await response.json()
     console.log(json)

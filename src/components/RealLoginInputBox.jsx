@@ -19,8 +19,6 @@ class RealLoginInputBox extends Component{
         this.state = { 
           email: '',
           password: '',
-          emailConfirm: '',
-          passwordConfirm: '',
           errors: ''
          };
       }
@@ -44,13 +42,15 @@ class RealLoginInputBox extends Component{
 
 handleSubmit = (event) => {
   event.preventDefault()
-  const {email} = this.state
+  const {email, password} = this.state
   
-  let user = {
-    email: email
-    }
+    let user = {
+      email: email,
+      password: password,
+      registration: false
+      }
 
-this.props.handleLogin(email)
+this.props.handleLogin(user)
 
 };
 
