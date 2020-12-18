@@ -56,9 +56,10 @@ class App extends Component {
 
   handleLogout = () => {
     this.setState({
-      isLoggedIn: true,
+      isLoggedIn: false,
       user: {}
     })
+    localStorage.clear()
   }
 
   render() {
@@ -86,6 +87,7 @@ class App extends Component {
                 {...props}
                 user={this.state.user}
                 handleLogin={this.handleLogin}
+                handleLogout={this.handleLogout}
               />
             )}
           />
@@ -99,6 +101,7 @@ class App extends Component {
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
+                handleLogout={this.handleLogout}
 
 
               />
@@ -130,6 +133,7 @@ class App extends Component {
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
                 handleLogin={this.handleLogin}
+                handleLogout={this.handleLogout}
               />
             )}
           />

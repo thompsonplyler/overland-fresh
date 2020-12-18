@@ -28,6 +28,13 @@ li {
   /* color: red; } */
 }
 
+.test-logout-button {
+  background-color: red;
+  color: white;
+  position: absolute;
+  bottom: 20px;
+}
+
 a {
   color: #660000;
   text-decoration: none; }
@@ -330,6 +337,8 @@ width: 100%;
 } */
 .video-player {
   /* right: 20%; */ }
+
+
 
 .timer-component {
   color: white;

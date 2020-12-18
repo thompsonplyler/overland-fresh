@@ -82,6 +82,7 @@ return(
             <LoginInputBox handleLogin={handleLogin} />    
             <RealLoginInputBox handleLogin={handleLogin} />      
           </div>
+          <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div>
     </div>
     </Fragment>
     )
