@@ -463,18 +463,6 @@ button:active{
   box-shadow: 2px 2px rgba(0,0,244,.5)
 }
 
-button: 
-
-
-    /* button:focus{
-      background-color: rgba(0,0,255,1)
-    } */
-
-    /* button:hover{
-      background-color: rgb(84, 122, 230);
-      color: white;
-    } */
-
     .heads-up {
       color: red;
       font-family: Roboto;
