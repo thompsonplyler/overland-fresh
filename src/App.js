@@ -14,8 +14,9 @@ import PostEvent from "./components/PostEvent"
 import UserExists from "./components/UserExists"
 import Login from "./components/Login"
 import LoginFailed from "./components/LoginFailed"
-import { LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL,ALREADY_REGISTERED } from './urls'
+import { LOST_PASSWORD_URL,LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL,ALREADY_REGISTERED } from './urls'
 import ReactGA from 'react-ga';
+import LostPassword from './components/LostPassword';
 
 
 // const trackingId = ""
@@ -158,6 +159,23 @@ class App extends Component {
             history={history}
             render={(props) => (
               <LoginFailed
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                user={this.state.user}
+              />
+
+              
+
+
+            )}
+          />
+
+<Route
+            exact
+            path={LOST_PASSWORD_URL}
+            history={history}
+            render={(props) => (
+              <LostPassword
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
