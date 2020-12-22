@@ -44,29 +44,44 @@ body {
   background-size: cover;
 font-family: Sabon }
 
+input  {
+  border-width: 1px;
+  border-radius: 5px;
+  border-style: solid;
+  line-height: 1px;
+  padding: .4rem;
+  margin-top: .2rem;
+  /* margin: .2rem; */
+  display: block;
+  width:100%;
+  /* max-width: 300px; */
+  box-sizing:border-box;
+  overflow-x: hidden;
+  font-size: 14px;
+  outline: none;
+  font-family: Sabon; }
+
+  form {
+    width: 100%
+  }
+
+  
 .form-grid-registration{
-  display:-ms-grid;
-  display:grid;
-  grid-row: 3;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-grid-rows: 5% 1fr;
-  grid-template-rows: 5% 1fr;
-  justify-items: center;
-  width: 30vw;
+  display: flex;
+  flex-direction: column;
+          align-items: center;
+          justify-content: start;
+
 }
 
 .login-heading {
   color: white;
   border-right: red;
+  justify-items: center;
   -ms-grid-row-align: start;
-      align-self: start;
+      /* align-self: start; */
   -ms-grid-column-align: center;
-      justify-self: center;
+      /* justify-self: center; */
   -ms-grid-row: 1;
   grid-row: 1;
   }
@@ -124,21 +139,25 @@ font-family: Sabon }
 .login-grid-row {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 100px 1fr;
+  /* -ms-grid-columns: 1fr 100px 1fr; */
   grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  -webkit-column-gap: 100px;
-     -moz-column-gap: 100px;
-          column-gap: 100px;
-  justify-items: center;
+  /* justify-items: center; */
+  justify-content: center;
+  width: 45vw;
+  /* -webkit-column-gap: 100px; */
+     /* -moz-column-gap: 100px; */
+          /* column-gap: 50px; */
+  /* justify-items: center; */
   -webkit-box-align: start;
       -ms-flex-align: start;
-          align-items: start; 
+          /* align-items: start;  */
   }
 
 .submit-button {
   -ms-grid-column-align: center;
       justify-self: center; }
+
+
 
 .form-flex {
   display: -webkit-box;
@@ -187,20 +206,7 @@ font-family: Sabon }
   display: hidden;
   background-color: #dc3246; }
 
-input  {
-  border-width: 1px;
-  border-radius: 5px;
-  border-style: solid;
-  line-height: 1px;
-  padding: .4rem;
-  margin-top: .2rem;
-  /* margin: .2rem; */
-  display: block;
-  width:100%;
-  box-sizing:border-box;
-  overflow-x: hidden;
-  font-size: 14px;
-  font-family: Sabon; }
+
 
   textarea {
     box-sizing: border-box;
@@ -358,7 +364,7 @@ form {
 h2.registration-heading-1 {
   font-family: Amalina;
   color: white;
-  font-size: 8vh; }
+white-space: nowrap;  font-size: 8vh; }
 
 h2.registration-heading-2 {
   font-family: Amalina;
@@ -431,6 +437,32 @@ h2.heading-post {
   display: -ms-grid;
   display: grid; }
 
+button {
+  height: 3vh;
+  width: 100%;
+  justify-self: center;
+  border-radius: 5px;
+  border-width: 0px;
+  background-size: 200%;
+  color: white;
+  transition: 0.5s;
+  outline: none;
+  background-image: linear-gradient(to right, #114df0 0%, #85b9fd 51%, #658cf6 100%);
+  box-shadow: .5px 1px rgba(0,0,255,.25)
+}
+
+button:hover {
+  background-position: right center;
+  outline: none;
+}
+
+button:active{
+  transition: .1s;
+  outline: none;
+  box-shadow: 2px 2px rgba(0,0,244,.5)
+}
+
+button: 
 
 
     /* button:focus{

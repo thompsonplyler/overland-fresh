@@ -74,6 +74,9 @@ function Login(props) {
     }
   };
 
+const padding = 2
+const border = 1
+
 return(
 <Fragment>
     <div className="container">
@@ -82,11 +85,11 @@ return(
           
           <h2 className="registration-heading-1">under one sky</h2>
           
-          <p className="para1">January 27, 2020</p>
+          <p className="para1">January 27, 2021</p>
           
           <div className="login-grid-row">
-            <LoginInputBox handleLogin={handleLogin} />    
-            <RealLoginInputBox handleLogin={handleLogin} />      
+            <LoginInputBox padding={padding} border={border} handleLogin={handleLogin} />    
+            <RealLoginInputBox border={border} padding={padding} handleLogin={handleLogin} />      
           </div>
           <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div>
     </div>

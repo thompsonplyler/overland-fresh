@@ -1,1 +1,0 @@
-// might not need this proper. Placeholder to place message in pre-post event page.

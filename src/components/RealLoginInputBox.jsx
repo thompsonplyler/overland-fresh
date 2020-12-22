@@ -22,6 +22,12 @@ class RealLoginInputBox extends Component{
           errors: ''
          };
       }
+  onKeyPress=(event)=> {
+        if (event.keyCode === 13) {
+            console.log('enter')
+            this.handleSubmit(event)
+        }
+  }
 
 
 
@@ -70,15 +76,15 @@ this.props.handleLogin(user)
     const {email, password, emailConfirm, passwordConfirm} = this.state
    
     return(
-          <div className="form-grid-registration">
+      <div className="form-grid-registration" style={{border: "0px",borderLeft: `${this.props.border}px`, borderColor: "white",paddingLeft: `${this.props.padding}vw`, borderStyle: "solid"}} >
             <div className="login-heading">
               
                 <h3 data-name="login">Login</h3>
             </div>
             <form className="form-grid" onSubmit={this.handleSubmit}>
-            <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail"></input>
-            <input onChange={this.handleChange} type="password" name="password" value={password} placeholder="Password"></input>
-            <LoginSubmitButton placeholder="submit" type="submit" handleSubmit={this.handleSubmit} className="login-submit-button"/>
+            <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail" onKeyDown={(e) => this.onKeyPress(e) }></input>
+            <input onChange={this.handleChange} type="password" name="password" value={password} placeholder="Password" onKeyDown={(e) => this.onKeyPress(e) }></input>
+            <button placeholder="submit" type="submit" handleSubmit={this.handleSubmit} className="login-submit-button">Submit</button>
             <div>
           {
             this.state.errors ? this.handleErrors() : null
