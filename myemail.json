@@ -1,0 +1,10 @@
+{
+    "Source":"Mary Major <mary.major@example.com>",
+    "Template": "MyTemplate",
+    "ConfigurationSetName": "fresh-email-destination",
+    "Destination": {
+      "ToAddresses": [ "alejandro.rosalez@example.com"
+      ]
+    },
+    "TemplateData": "{ \"name\":\"Alejandro\", \"favoriteanimal\": \"alligator\" }"
+  }

@@ -79,13 +79,13 @@ this.props.handleLogin(user)
       <div className="form-grid-registration" style={{border: "0px",borderLeft: `${this.props.border}px`, borderColor: "white",paddingLeft: `${this.props.padding}vw`, borderStyle: "solid"}} >
             <div className="login-heading">
               
-                <h3 data-name="login">Login</h3>
+                <h3 data-name="login">LOGIN ON JAN 27 2021</h3>
             </div>
             <form className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail" onKeyDown={(e) => this.onKeyPress(e) }></input>
             <input onChange={this.handleChange} type="password" name="password" value={password} placeholder="Password" onKeyDown={(e) => this.onKeyPress(e) }></input>
             <button placeholder="submit" type="submit" handleSubmit={this.handleSubmit} className="login-submit-button">Submit</button>
-            <p><Link to="/lostpassword">I forgot my password.</Link></p>
+            <p className="basic-link"><Link to="/lostpassword">forgot password?</Link></p>
             <div>
           {
             this.state.errors ? this.handleErrors() : null

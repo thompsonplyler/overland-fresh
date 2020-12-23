@@ -87,9 +87,9 @@ return(
           
           <p className="para1">January 27, 2021</p>
           
-          <div className="login-grid-row">
-            <LoginInputBox padding={padding} border={border} handleLogin={handleLogin} />    
-            <RealLoginInputBox border={border} padding={padding} handleLogin={handleLogin} />      
+          <div className="login-heading">
+              
+              <h3 data-name="login">Please Enter a New Password</h3>
           </div>
           <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div>
     </div>

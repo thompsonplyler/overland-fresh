@@ -20,18 +20,18 @@ import {checkUserCreds} from '../components/checkUserCreds'
 
 
 
-function Login(props) {
+function Agenda(props) {
 
-  useEffect(() => {
-    const user = checkUserCreds(props.user);
-    console.log(localStorage.user)
-    if (!user) {
-      props.history.push('/login');
-    }
-    if (user || localStorage.user) {
-      props.history.push(CONFIRMATION_URL)
-    }
-  }, [])
+//   useEffect(() => {
+//     const user = checkUserCreds(props.user);
+//     console.log(localStorage.user)
+//     if (!user) {
+//       props.history.push('/login');
+//     }
+//     if (user || localStorage.user) {
+//       props.history.push(CONFIRMATION_URL)
+//     }
+//   }, [])
   // console.log(queryString.parse(props.location.search))
 
   const handleLogin = async (userData) => {
@@ -84,15 +84,28 @@ return(
           <img className="img-fresh-logo" src={freshLogo}/>
           
           <h2 className="registration-heading-1">under one sky</h2>
-          
-          <div className="login-grid-row">
-            <LoginInputBox padding={padding} border={border} handleLogin={handleLogin} />    
-            <RealLoginInputBox border={border} padding={padding} handleLogin={handleLogin} />      
+          <div className="agenda-grid">
+          <div className="agenda-grid-item">
+              <h3>PART 1: INTERACTIVE INTRO SESSION</h3>
+              <h3>7:30AM - 8:00 AM ET</h3>
+                  <a href="https://www.google.com" target="_blank"><button>CLICK TO ENTER</button></a>
           </div>
+          <div className="agenda-grid-item">
+          <h3>PART 1: INTERACTIVE INTRO SESSION</h3>
+              <h3>7:30AM - 8:00 AM ET</h3>
+                  <Link to="/event"><button>CLICK TO WATCH</button></Link>
+          </div>
+          <div className="agenda-grid-item">
+          <h3>PART 1: INTERACTIVE INTRO SESSION</h3>
+              <h3>7:30AM - 8:00 AM ET</h3>
+                  <a href="https://www.google.com" target="_blank"><button>CLICK TO WATCH</button></a>
+          </div>
+          </div>
+          
           <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div>
     </div>
     </Fragment>
     )
 }
 
-export default withRouter(Login);
+export default withRouter(Agenda);

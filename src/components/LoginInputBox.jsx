@@ -122,7 +122,7 @@ class LoginInputBox extends Component {
     let errorArray = []
 
     if (this.state.userRegistered == true){
-      errorArray.push("This e-mail address has already registered.")
+      errorArray.push("This e-mail address has already been registered.")
     }
     // const entrySuccess  = this.confirmInput(event)
     if (password !== passwordConfirm){
@@ -191,17 +191,18 @@ class LoginInputBox extends Component {
   render(props) {
     console.log(this.props)
     const { email, password, emailConfirm, passwordConfirm } = this.state
+    const junk = `Password`
     return (
       <div className="form-grid-registration" style={{border: "0px",borderRight: `${this.props.border}px`, borderColor: "white",paddingRight: `${this.props.padding}vw`, borderStyle: "solid"}} >
         <div className="login-heading">
 
-          <h3 data-name="login">Register</h3>
+          <h3 data-name="login">REGISTER FOR JAN 27 2021</h3>
         </div>
         <form className="form-grid" onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} onKeyDown={(e) => this.onKeyPress(e)} type="text" name="email" value={email} placeholder="E-mail"></input>
           <input onBlur={(e)=>this.onEmailBlur(e)} onChange={this.handleChange} onKeyDown={(e) => this.onKeyPress(e)} type="text" name="emailConfirm" value={emailConfirm} placeholder="Confirm E-mail" ></input>
-          <input onChange={this.handleChange} onKeyDown={(e) => this.onKeyPress(e)} type="password" name="password" value={password} placeholder="Password"></input>
-          <input onChange={this.handleChange} onKeyDown={(e) => this.onKeyPress(e)} type="password" name="passwordConfirm" value={passwordConfirm} placeholder="Password Confirm"></input>
+          <input onChange={this.handleChange} onKeyDown={(e) => this.onKeyPress(e)} type="password" name="password" value={password} placeholder={junk}/>
+          <input onChange={this.handleChange} onKeyDown={(e) => this.onKeyPress(e)} type="password" name="passwordConfirm" value={passwordConfirm} placeholder="Confirm Password"></input>
           <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
           <div>
             {

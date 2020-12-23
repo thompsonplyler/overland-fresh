@@ -14,9 +14,10 @@ import PostEvent from "./components/PostEvent"
 import UserExists from "./components/UserExists"
 import Login from "./components/Login"
 import LoginFailed from "./components/LoginFailed"
-import { LOST_PASSWORD_URL,LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL,ALREADY_REGISTERED } from './urls'
+import { LOST_PASSWORD_URL,AGENDA_URL, LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL,ALREADY_REGISTERED } from './urls'
 import ReactGA from 'react-ga';
 import LostPassword from './components/LostPassword';
+import Agenda from './components/Agenda';
 
 
 // const trackingId = ""
@@ -118,6 +119,20 @@ class App extends Component {
             history={history}
             render={(props) => (
               <VideoPage
+                {...props}
+                user={this.state.user}
+                handleLogin={this.handleLogin}
+              />
+            )}
+          />
+
+<Route
+            exact
+            path={AGENDA_URL}
+            params={this.props.match}
+            history={history}
+            render={(props) => (
+              <Agenda
                 {...props}
                 user={this.state.user}
                 handleLogin={this.handleLogin}

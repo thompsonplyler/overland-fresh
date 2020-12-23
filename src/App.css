@@ -35,9 +35,12 @@ li {
   bottom: 20px;
 }
 
-a {
-  color: #660000;
-  text-decoration: none; }
+::placeholder {
+  text-transform: uppercase;
+  /* color: black; */
+  /* opacity: 1; */
+  font-size: 20px;
+}
 
 body {
   background-image: url("https://i.imgur.com/zfBPXIZ.jpg");
@@ -59,7 +62,8 @@ input  {
   overflow-x: hidden;
   font-size: 14px;
   outline: none;
-  font-family: Sabon; }
+  font-family: Sabon;
+  color: black }
 
   form {
     width: 100%
@@ -74,7 +78,26 @@ input  {
 
 }
 
+a {
+  color: white;
+  text-decoration: none;
+  transition: .5s;
+}
+
+a:hover {
+  color: rgb(230, 230, 230);
+  transition: .5s;
+  font-size: 1.05rem;
+  text-decoration: underline white;
+}
+
+
+.basic-link{
+  text-align: center;
+}
+
 .login-heading {
+
   color: white;
   border-right: red;
   justify-items: center;
@@ -84,7 +107,9 @@ input  {
       /* justify-self: center; */
   -ms-grid-row: 1;
   grid-row: 1;
+
   }
+
 
 
 .login-heading-register {
@@ -152,6 +177,24 @@ input  {
   -webkit-box-align: start;
       -ms-flex-align: start;
           /* align-items: start;  */
+  }
+
+  .login-grid-row-single-column {
+    display: -ms-grid;
+    display: grid;
+    /* -ms-grid-columns: 1fr 100px 1fr; */
+    grid-template-columns: 1fr;
+    /* justify-items: center; */
+    justify-content: center;
+    width: 60vw;
+    max-width: 600px;
+    /* -webkit-column-gap: 100px; */
+       /* -moz-column-gap: 100px; */
+            /* column-gap: 50px; */
+    /* justify-items: center; */
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            /* align-items: start;  */
   }
 
 .submit-button {
@@ -365,17 +408,49 @@ form {
 h2.registration-heading-1 {
   font-family: Amalina;
   color: white;
-white-space: nowrap;  font-size: 8vh; }
+  white-space: nowrap;  
+  font-size: 9vh;
+  padding-bottom: 0px; margin-top: 7vh; margin-bottom: 4vh }
 
 h2.registration-heading-2 {
   font-family: Amalina;
   color: white;
   font-size: 7vh; }
 
+h3 {
+  font-size: 16px;
+  color: white;
+}
+
+.agenda-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 35vw;
+  /* justify-items: center; */
+  /* width: 100% */
+}
+
+.agenda-grid-item{
+  border-bottom: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1vh;
+  width: 35vw;
+  padding-bottom: 20px;
+}
+
+.agenda-grid-item>button{
+margin-top: 5px;
+  
+}
+
 .para1 {
   color: white;
   font-size: 3vh;
-  line-height: auto;
+  line-height: 35px;
+  margin-bottom: 0px;
   font-family: Sabon;
   text-align: center;
   text-justify: auto;
@@ -402,8 +477,8 @@ h2.heading-post {
   max-width: 60%; }
 
 .img-fresh-logo {
-  padding-top: 2.5%;
-  width: 20vw; }
+  padding-top: 8%;
+  width: 15vw; }
 
 .img-fresh-conference {
   width: 10vw; }
@@ -478,6 +553,8 @@ button:active{
     }
 
     @media only screen and (max-width: 1280px) {
+
+      
   
       h2.registration-heading-1 {
         font-size: 5vh;
@@ -534,6 +611,9 @@ button:active{
 
   body {background-size: 250vh;}
   
+  h3 {
+    font-size: 14px;
+  }
 
   .para1 {
     color: white;
@@ -544,6 +624,8 @@ button:active{
     padding-right: 5%;
     padding-left: 5%;
   }
+
+  
 
   .container {display: -webkit-box;display: -ms-flexbox;display: flex;
   -webkit-box-orient: vertical;
@@ -566,6 +648,15 @@ button:active{
     font-size: 4vh;
     
   }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  ::placeholder {
+    font-size: 14px
+  }
+  
 
   .img-fresh-logo {
     width: 20vw;
@@ -602,6 +693,154 @@ button:active{
   }
 }
 
+@media only screen and (max-width: 414px) {
+  .img-fresh-logo {
+    width: 30vw;
+  }
+
+
+  h2.registration-heading-1 {
+    font-size: 5vh;
+    
+  }
+
+  .login-grid-row {
+    display: -ms-grid;
+    display: grid;
+    /* -ms-grid-columns: 1fr 100px 1fr; */
+    grid-template-columns: 1fr 1fr;
+    /* justify-items: center; */
+    justify-content: center;
+    width: 90vw;
+    max-width: 600px;
+    /* -webkit-column-gap: 100px; */
+       /* -moz-column-gap: 100px; */
+            /* column-gap: 50px; */
+    /* justify-items: center; */
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            /* align-items: start;  */
+    }
+
+h3{
+  font-size: 10px;
+}
+
+
+  ::placeholder {
+    font-size: 10px
+  }
+
+  body {background-size: 250vh;}
+  
+
+  .para1 {
+    color: white;
+    font-size: 2.3vh;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    padding-bottom: 1rem; 
+    padding-right: 5%;
+    padding-left: 5%;
+    text-align: center;
+    text-justify: auto;
+  }
+
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 15vh;
+  /* width: 100%; */
+    line-height: 30px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .img-fresh-logo {
+    width: 30vw;
+  }
+
+
+  h2.registration-heading-1 {
+    font-size: 5vh;
+    
+  }
+
+  .login-grid-row {
+    display: -ms-grid;
+    display: grid;
+    /* -ms-grid-columns: 1fr 100px 1fr; */
+    grid-template-columns: 1fr 1fr;
+    /* justify-items: center; */
+    justify-content: center;
+    width: 90vw;
+    max-width: 600px;
+    /* -webkit-column-gap: 100px; */
+       /* -moz-column-gap: 100px; */
+            /* column-gap: 50px; */
+    /* justify-items: center; */
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            /* align-items: start;  */
+    }
+
+h3{
+  font-size: 10px;
+}
+
+
+  ::placeholder {
+    font-size: 10px
+  }
+
+  body {background-size: 250vh;}
+  
+
+  .para1 {
+    color: white;
+    font-size: 2.3vh;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    padding-bottom: 1rem; 
+    padding-right: 5%;
+    padding-left: 5%;
+    text-align: center;
+    text-justify: auto;
+  }
+
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 15vh;
+  /* width: 100%; */
+    line-height: 30px;
+  }
+}
+
 @media only screen and (max-width: 360px) {
   .img-fresh-logo {
     width: 30vw;
@@ -611,6 +850,33 @@ button:active{
   h2.registration-heading-1 {
     font-size: 5vh;
     
+  }
+
+  .login-grid-row {
+    display: -ms-grid;
+    display: grid;
+    /* -ms-grid-columns: 1fr 100px 1fr; */
+    grid-template-columns: 1fr 1fr;
+    /* justify-items: center; */
+    justify-content: center;
+    width: 90vw;
+    max-width: 600px;
+    /* -webkit-column-gap: 100px; */
+       /* -moz-column-gap: 100px; */
+            /* column-gap: 50px; */
+    /* justify-items: center; */
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            /* align-items: start;  */
+    }
+
+h3{
+  font-size: 10px;
+}
+
+
+  ::placeholder {
+    font-size: 10px
   }
 
   body {background-size: 250vh;}
