@@ -169,9 +169,9 @@ class LoginInputBox extends Component {
     console.log(this.state.errors)
     return (
       <div className="error-div">
-        <ul>
+        <ul className="ul-error">
           {this.state.errors.map(error => {
-            return <li key={error}>{error}</li>
+            return <li className="li-error" key={error}>{error}</li>
           })}
         </ul>
       </div>
