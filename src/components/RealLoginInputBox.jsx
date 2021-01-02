@@ -8,8 +8,6 @@ import {
     Redirect,
     withRouter
   } from "react-router-dom";
-import LoginSubmitButton from '../components/LoginSubmitButton'
-// import StyledButton from './buttons/StyledButton';
 import styled from 'styled-components';
 
 class RealLoginInputBox extends Component{

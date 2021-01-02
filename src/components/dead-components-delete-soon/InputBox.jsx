@@ -6,7 +6,7 @@ import {
     Link,
     Redirect
   } from "react-router-dom";
-  import Button from './SubmitButton'
+  import Button from '../SubmitButton'
 
 function InputBox(props) {
     

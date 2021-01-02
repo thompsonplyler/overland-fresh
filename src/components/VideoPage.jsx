@@ -6,7 +6,7 @@ import 'video.js/dist/video-js.css'
 import '../App.css';
 import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
-import FakeChat from './FakeChat'
+import Chat from './Chat'
 import { checkUserCreds } from '../components/checkUserCreds'
 import tempVideo from '../assets/videos/temp_video.mp4'
 
@@ -19,8 +19,8 @@ const videoJsOptions = {
   mute: true,
   poster: "https://i.imgur.com/Aaog0bm.png",
   sources: [{
-    // src: tempVideo,
-    src: "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.rXLMiU83NvaX.m3u8",
+    src: tempVideo,
+    // src: "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.rXLMiU83NvaX.m3u8",
     poster: "https://i.imgur.com/Aaog0bm.png"
   }]
 }
@@ -91,7 +91,7 @@ function VideoPage(props) {
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
 
       </div>
-      <FakeChat windowHeight={stateHeight} windowWidth={stateWidth} />
+      <Chat windowHeight={stateHeight} windowWidth={stateWidth} />
       <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
       {/* <ClientPendingBanner subject="event"/> */}
       {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}

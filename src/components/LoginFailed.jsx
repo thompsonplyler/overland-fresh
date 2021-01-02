@@ -6,8 +6,7 @@ import {
 } from "react-router-dom";
 import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
-import AddToCalendar from '../components/AddToCalendar'
-import BackToLogin from '../components/BackToLogin'
+import BackToLogin from './dead-components-delete-soon/BackToLogin'
 // import {checkUserCreds} from '../components/checkUserCreds'
 
 

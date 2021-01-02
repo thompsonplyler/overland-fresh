@@ -6,8 +6,7 @@ import {
 } from "react-router-dom";
 import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
-import AddToCalendar from '../components/AddToCalendar'
-import BackToLogin from '../components/BackToLogin'
+import BackToLogin from './dead-components-delete-soon/BackToLogin'
 import {checkUserCreds} from '../components/checkUserCreds'
 
 const logout = (props) =>{
@@ -41,8 +40,6 @@ function PreEvent(props) {
           <p className="para1">Please be sure to tune in via your laptop for optimal viewing, using Chrome where possible.</p>
           </Fragment>
           :<Fragment></Fragment>}
-          {/* <div style={{paddingTop: "2vh"}}></div>
-          <div style={{display: hidden}}><AddToCalendar /></div> */}
       
             <div>
           {/* <ClientPendingBanner subject="confirmation"/> */}

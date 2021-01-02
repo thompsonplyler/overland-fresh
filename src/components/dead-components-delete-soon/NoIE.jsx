@@ -2,9 +2,9 @@ import React from 'react'
 import 'video.js/dist/video-js.css'
 import '../App.css';
 import freshLogo from '../assets/images/frshlogo.svg'
-import ClientPendingBanner from '../components/ClientPendingBanner'
+import ClientPendingBanner from '../ClientPendingBanner'
 import commentBox from 'commentbox.io';
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL} from '../urls'
+import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL} from '../../urls'
 
 class PageWithComments extends React.Component {
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button } from 'react-desktop/macOs';
-import freshLogo from '../assets/images/frshlogo.svg'
 import {
     withRouter,
     Link

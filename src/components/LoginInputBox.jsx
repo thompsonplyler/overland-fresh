@@ -8,8 +8,6 @@ import {
   Redirect,
   withRouter
 } from "react-router-dom";
-import LoginSubmitButton from '../components/LoginSubmitButton'
-// import StyledButton from './buttons/StyledButton';
 import styled, { ThemeConsumer } from 'styled-components';
 import {emailRegCheck} from '../components/emailRegCheck'
 
