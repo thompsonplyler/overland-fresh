@@ -1,26 +1,30 @@
 import '../App.css';
 import { useEffect, useState, Fragment } from 'react'
 import freshLogo from '../assets/images/frshlogo.svg'
+
 import {
   BrowserRouter as Router,
   Link, 
   Redirect,
   withRouter
 } from "react-router-dom";
-import ClientPendingBanner from '../components/ClientPendingBanner'
-import LoginInputBox from '../components/LoginInputBox'
-import RealLoginInputBox from '../components/RealLoginInputBox'
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED} from '../urls'
 
-import axios from 'axios'
-import styled from 'styled-components';
+import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED} from '../urls'
 import {request} from '../components/request'
 import {emailConfirmSend} from '../components/emailConfirmSend'
 import {checkUserCreds} from '../components/checkUserCreds'
-
-
+import {emailPasswordChallenge} from '../components/emailPasswordChallenge'
+import {sendChallengeCode} from '../components/sendChallengeCode'
+import {sendNewPassword} from '../components/sendNewPassword'
 
 function LostPassword(props) {
+
+  const [email, setEmail] = useState('')
+  const [code, setCode] = useState('')
+  const [challengeState,setChallengeState] = useState('initial')
+  const [password,setPassword] = useState('')
+  const [passwordConfirm,setPasswordConfirm] = useState('')
+  const [errors,setErrors] = useState([])
 
   useEffect(() => {
     const user = checkUserCreds(props.user);
@@ -34,64 +38,178 @@ function LostPassword(props) {
   }, [])
   // console.log(queryString.parse(props.location.search))
 
-  const handleLogin = async (userData) => {
-    // console.log("Data returned from the Rails server to parse: ", email);
-    let email = userData.email.toLowerCase()
-    let password = userData.password
-    const user = await request(userData)
-    console.log(user.error_code)
+const handleSubmit = async(event) => {
+  event.preventDefault()
+  console.log("Information passed to submission:", email)
+  localStorage.setItem("challenge_email", email)
 
-    if (user.error_code == "009"){
-      props.history.push(ALREADY_REGISTERED)
-      return
-    }
-    
+  const challengeSent = await emailPasswordChallenge(email)
 
-    if (user.email) {
-      // const emailConfirm = await emailConfirmSend(user)
+  if (challengeSent.reply.challenge_sent==true) {
+   setChallengeState("challenged")
+  }
 
-      // if (emailConfirm) console.log("This is what was sent back from Customer.io", emailConfirm)
-      // if (!emailConfirm) console.log("Nothing sent to customer.io because user.registered ==", user.registered)
-      // console.log("we got a match IN LOGIN");
-      let userInfo = {
-        firstname: user.firstname,
-        lastname: user.lastname,
-        email: user.email,
-        company: user.company,
-      }
-      props.handleLogin(userInfo);
 
-      props.history.push({
-        pathname: CONFIRMATION_URL,
-        state: { loggedIn: true },
-      });
-    } else {
-      props.history.push({
-        pathname: "/loginfailed",
-        state: {loggedIn: false}
-      })
-      localStorage.clear()
-    }
+
+}
+
+const onKeyPress = (event) => {
+  if (event.keyCode === 13) {
+    console.log('enter')
+    handleSubmit(event)
+  }
+}
+
+const onKeyPressCode = (event) => {
+  if (event.keyCode === 13) {
+    console.log('enter')
+    sendCode(code)
+  }
+}
+
+const onKeyPressPassword = (event) => {
+  if (event.keyCode === 13) {
+    console.log('enter')
+    sendPassword(event)
+  }
+}
+
+const emailChange = (event) => {
+setEmail(event.target.value)
+};
+
+const codeChange = (event) => {
+  setCode(event.target.value)
   };
 
-const padding = 2
-const border = 1
+const passwordChange = (event) => {
+  setPassword(event.target.value)
+  };
+
+const passwordConfirmChange = (event) => {
+  setPasswordConfirm(event.target.value)
+  };
+
+const lostPasswordInitial = () => {
+  return(
+    <div className="login-heading">
+              
+      <h3 data-name="login">Please enter your e-mail</h3>
+      <form className="form-grid" onSubmit={handleSubmit}>
+        <input onKeyDown={(e)=>onKeyPress(e)} onChange={emailChange} type="text" name="email" value={email} placeholder="E-MAIL"></input>
+        <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
+      </form>
+    </div>
+  )
+}
+
+const sendCode = async(event) => {
+  event.preventDefault()
+  console.log("Challenge code sent to Rails server:", code)
+  let data = {"email": localStorage.challenge_email, "code": code}
+  const sendingCode = await sendChallengeCode(data)
+  console.log(sendingCode)
+  if (sendingCode.reply.challenge_accepted == true) {
+    setChallengeState("challenge_accepted")
+  }
+  if (sendingCode.reply.challenge_accepted == false) {
+    setChallengeState("challenge_refused")
+  }
+  
+
+}
+
+const sendPassword = async(event) => {
+  event.preventDefault()
+  console.log("Password sent to Rails server:", password)
+  if (password === passwordConfirm){
+    setErrors([])
+  let data = {"email": localStorage.challenge_email, "password": password}
+  const passwordSuccess = await sendNewPassword(data)
+  console.log(passwordSuccess)
+  if (passwordSuccess.status === "password changed") {
+    props.history.push('/login')
+  }
+  
+}
+
+  if (password !== passwordConfirm){
+    setErrors(["Your passwords do not match."])
+  }
+  
+
+}
+
+const handleErrors = () => {
+  return (
+    <div className="error-div">
+      <ul className="ul-error">
+        {errors.map(error => {
+          return <li className="li-error" key={error}>{error}</li>
+        })}
+      </ul>
+    </div>
+  )
+}
+
+const emailChallenged = () => {
+  return(
+    <div className="login-heading">
+              
+      <h3 data-name="login">Please enter the code from your e-mail:</h3>
+      <form className="form-grid" onSubmit={sendCode}>
+        <input onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code here."></input>
+        <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
+      </form>
+    </div>
+  )
+}
+
+const challengeAccepted = () =>{
+return (  <div className="login-heading">
+              
+  <p className="para2">E-mail Verified</p>
+  <p className="para2">Please enter a password to access the event:</p>
+  <form className="form-grid" onSubmit={sendPassword}>
+    <input onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordChange} type="text" name="password" value={password} placeholder="ENTER NEW PASSWORD"></input>
+    <input onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordConfirmChange} type="text" name="passwordConfirm" value={passwordConfirm} placeholder="CONFIRM NEW PASSWORD"></input>
+    <button placeholder="submit" type="submit" className="login-submit-button">Submit and Return to Login</button>
+    <div>
+            {
+              (errors.length > 0) ? handleErrors() : null
+            }
+          </div>
+  </form>
+</div>)
+}
+
+const challengeRefused = ()=>{
+  return (<div className="login-heading">
+              
+  <h3 data-name="login">Challenge Refused.</h3>
+  <form className="form-grid" onSubmit={sendCode}>
+    <input onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code here."></input>
+    <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
+  </form>
+</div>)
+}
 
 return(
 <Fragment>
     <div className="container">
           
-          <img className="img-fresh-logo" src={freshLogo}/>
+          <Link to="/"><img className="img-fresh-logo" src={freshLogo}/></Link>
           
           <h2 className="registration-heading-1">under one sky</h2>
           
           <p className="para1">January 27, 2021</p>
-          
-          <div className="login-heading">
-              
-              <h3 data-name="login">Please Enter a New Password</h3>
-          </div>
+          {challengeState == "initial"? lostPasswordInitial():null}
+          {challengeState == "challenged"? emailChallenged():null}
+          {challengeState == "challenge_accepted"? challengeAccepted():null}
+          {challengeState == "challenge_refused"? challengeRefused():null}
+
           <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div>
+         
     </div>
     </Fragment>
     )

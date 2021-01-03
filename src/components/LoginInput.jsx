@@ -10,7 +10,7 @@ import {
   } from "react-router-dom";
 import styled from 'styled-components';
 
-class RealLoginInputBox extends Component{
+class LoginInput extends Component{
 
     constructor(props) {
         super(props);
@@ -94,4 +94,4 @@ this.props.handleLogin(user)
     )}
 }
 
-export default withRouter(RealLoginInputBox);
+export default withRouter(LoginInput);

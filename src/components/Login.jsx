@@ -8,9 +8,9 @@ import {
   withRouter
 } from "react-router-dom";
 import ClientPendingBanner from '../components/ClientPendingBanner'
-import LoginInputBox from '../components/LoginInputBox'
-import RealLoginInputBox from '../components/RealLoginInputBox'
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED} from '../urls'
+import RegistrationInput from '../components/RegistrationInput'
+import LoginInput from '../components/LoginInput'
+import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED, WRONG_PASSWORD_URL} from '../urls'
 
 import axios from 'axios'
 import styled from 'styled-components';
@@ -35,14 +35,19 @@ function Login(props) {
   // console.log(queryString.parse(props.location.search))
 
   const handleLogin = async (userData) => {
-    // console.log("Data returned from the Rails server to parse: ", email);
     let email = userData.email.toLowerCase()
+    console.log("Data returned from the Rails server to parse: ", email);
     let password = userData.password
     const user = await request(userData)
     console.log(user.error_code)
 
     if (user.error_code == "009"){
       props.history.push(ALREADY_REGISTERED)
+      return
+    }
+
+    if (user.error_code == "008"){
+      props.history.push(WRONG_PASSWORD_URL)
       return
     }
     
@@ -68,7 +73,7 @@ function Login(props) {
     } else {
       props.history.push({
         pathname: "/loginfailed",
-        state: {loggedIn: false}
+        state: {loggedIn: false, reason: "password"}
       })
       localStorage.clear()
     }
@@ -86,8 +91,8 @@ return(
           <h2 className="registration-heading-1">under one sky</h2>
           
           <div className="login-grid-row">
-            <LoginInputBox padding={padding} border={border} handleLogin={handleLogin} />    
-            <RealLoginInputBox border={border} padding={padding} handleLogin={handleLogin} />      
+            <RegistrationInput padding={padding} border={border} handleLogin={handleLogin} />    
+            <LoginInput border={border} padding={padding} handleLogin={handleLogin} />      
           </div>
           <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div>
     </div>

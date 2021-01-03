@@ -11,7 +11,7 @@ import BackToLogin from './dead-components-delete-soon/BackToLogin'
 
 
 
-function UserExists(props) {
+function LoginFailed(props) {
 
     return(
 
@@ -19,8 +19,8 @@ function UserExists(props) {
     <div className="container">
           <img className="img-fresh-logo" src={freshLogo}/>
           <h2 className="registration-heading-1">under one sky</h2>
-          <Fragment><p className="para1">This e-mail has already registered.</p>
-          <p className="para1">Please return to the login page and use your password to access the event.</p>
+          <Fragment><p className="para1">Uh-oh, That password doesn't match our records.</p>
+          <p className="para1">Please return to the login page and try again.</p>
           <div style={{paddingTop: "3vh"}}></div>
           <BackToLogin />
           </Fragment>
@@ -29,4 +29,4 @@ function UserExists(props) {
     )
   }
   
-  export default withRouter(UserExists);
+  export default withRouter(LoginFailed);

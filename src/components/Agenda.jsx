@@ -7,13 +7,10 @@ import {
   Redirect,
   withRouter
 } from "react-router-dom";
-import ClientPendingBanner from '../components/ClientPendingBanner'
-import LoginInputBox from '../components/LoginInputBox'
-import RealLoginInputBox from '../components/RealLoginInputBox'
+
 import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED} from '../urls'
 
-import axios from 'axios'
-import styled from 'styled-components';
+
 import {request} from '../components/request'
 import {emailConfirmSend} from '../components/emailConfirmSend'
 import {checkUserCreds} from '../components/checkUserCreds'

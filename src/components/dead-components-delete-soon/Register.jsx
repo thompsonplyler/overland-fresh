@@ -8,7 +8,7 @@ import freshLogo from '../assets/images/frshlogo.svg'
 //   Link
 // } from "react-router-dom";
 import ClientPendingBanner from '../ClientPendingBanner'
-import RegisterInputBox from '../RegisterInputBox'
+import RegisterInputBox from './RegisterInputBox'
 
 
 

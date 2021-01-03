@@ -9,9 +9,7 @@ export default class extends Component {
   render() {
     return (
       <Link to="/">
-          <Button color="blue" onClick={this.props.handleSubmit}>
-        Return
-      </Button>
+          <button placeholder="submit" type="submit" className="login-submit-button">Return</button>
       </Link>
     );
   }

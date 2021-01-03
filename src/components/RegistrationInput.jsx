@@ -11,7 +11,7 @@ import {
 import styled, { ThemeConsumer } from 'styled-components';
 import {emailRegCheck} from '../components/emailRegCheck'
 
-class LoginInputBox extends Component {
+class RegistrationInput extends Component {
 
   constructor(props) {
     super(props);
@@ -31,10 +31,6 @@ class LoginInputBox extends Component {
       this.handleSubmit(event)
     }
   }
-
-
-
-
 
   inputDetermine = () => {
 
@@ -72,45 +68,6 @@ class LoginInputBox extends Component {
       this.setState({ errors: [...errors, "You must enter a password."] })
     }
 
-    // if (this.state.passwordConfirm == '') {
-    //   this.setState({ errors: [...errors, "You must confirm your password by re-entering it."] })
-    // }
-
-    // if (this.state.password != this.state.passwordConfirm) {
-    //   this.setState({ errors: [...errors, "Your password entries do not match. Please confirm your password."] })
-    // }
-
-    // if (this.state.email != '' && name=='emailConfirm' && value != this.state.email){
-    //   console.log("They have to match.")
-    //   this.state.errors=[]
-    //   this.state.errors.push(["Verify you have typed your e-mail address correctly."])
-    // }
-
-    // if (this.state.email != '' && name=='emailConfirm' && value == this.state.email){
-    //   console.log("They match!")
-    //   this.state.errors = ''
-    // }
-
-    // if (this.state.email != '' && name=='emailConfirm' && value == '' && this.state.errors.length < 1){
-    //   this.state.errors = ''
-    // }
-
-
-    // if (this.state.email == '' && this.state.emailConfirm == ''){
-    //   this.state.errors = ''
-    // }
-
-    // if (this.state.password != '' && name=='passwordConfirm' && value != this.state.password){
-    //   this.state.errors = []
-    //   console.log("They have to match.")
-    //   this.state.errors.push("Passwords do not match.")
-    // }
-
-    // if (this.state.password != '' && name=='passwordConfirm' && value == this.state.password){
-    //   console.log("They match!")
-    //   this.state.errors = ''
-    // }
-
   }
 
   handleSubmit = (event) => {
@@ -143,12 +100,14 @@ class LoginInputBox extends Component {
       this.setState({errors:errorArray})
     }
 
-    console.log(`
-  Email: ${email}
-  Email Confirm:${emailConfirm}
-  Password: ${password}
-  Password Confirm: ${passwordConfirm}
-  `)
+                          console.log(
+                            `
+                        Email: ${email}
+                        Email Confirm:${emailConfirm}
+                        Password: ${password}
+                        Password Confirm: ${passwordConfirm}
+                        `
+                        )
 
   if (errorArray.length == 0) {
 
@@ -178,11 +137,13 @@ class LoginInputBox extends Component {
 
   onEmailBlur = async(e) => {
     const registered = await emailRegCheck(e)
+    
     if (registered.registration == true){
       this.setState({userRegistered:true})
     }
+
     else{
-    this.setState({userRegistered:true})
+      this.setState({userRegistered:true})
     }
   }
 
@@ -213,4 +174,4 @@ class LoginInputBox extends Component {
   }
 }
 
-export default withRouter(LoginInputBox);
+export default withRouter(RegistrationInput);

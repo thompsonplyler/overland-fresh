@@ -10,7 +10,7 @@ import '../App.css';
 //   import Button from './SubmitButton'
 // import { isCompositeComponent } from 'react-dom/test-utils';
 import axios from 'axios'
-import RegisterSubmitButton from './dead-components-delete-soon/RegisterSubmitButton'
+import RegisterSubmitButton from './RegisterSubmitButton'
 
 
 class RegisterInputBox extends Component{

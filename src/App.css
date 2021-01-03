@@ -463,6 +463,17 @@ margin-top: 5px;
   /* padding-bottom: 1.5rem; */
  }
 
+ .para2 {
+  color: white;
+  font-size: 2vh;
+  line-height: 20px;
+  margin-bottom: 20px;
+  font-family: Sabon;
+  text-align: center;
+  text-justify: auto;
+
+ }
+
  .para3 {
   color: white;
   font-size: 5vh;
