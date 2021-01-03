@@ -15,9 +15,9 @@ export const emailPasswordChallenge = async(event) => {
   
   try { 
     // call to test server. remove after testing registration system
-    const response = await fetch("http://localhost:3001/api/v1/challenge_make", requestOptions)
+    // const response = await fetch("http://localhost:3001/api/v1/challenge_make", requestOptions)
     // the real call. restore after testing registration system. 
-    // const response = await fetch("https://fresh-under-one-sky-email-api.herokuapp.com/api/v1/registered", requestOptions)
+    const response = await fetch("https://fresh-under-one-sky-email-api.herokuapp.com/api/v1/challenge_make", requestOptions)
 
   const json = await response.json()
     console.log(json)
