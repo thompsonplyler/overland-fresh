@@ -810,6 +810,10 @@ h3{
     font-size: 1.5vh
   }
 
+  button.agenda-button {
+    font-size: 1vh;
+  }
+
   .login-grid-row {
     display: -ms-grid;
     display: grid;
