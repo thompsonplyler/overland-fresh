@@ -311,7 +311,7 @@ width: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 5vh;
+  margin-top: 2vh;
   padding-left: 30%;
   padding-right: 30%;
   line-height: 40px; }
@@ -535,16 +535,17 @@ button {
   width: 100%;
   justify-self: center;
   border-radius: 5px;
-  border-width: 0px;
+  border-width: 1px black;
   background-size: 200%;
-  color: white;
+  color: black;
   transition: 0.5s;
   outline: none;
-  background-image: linear-gradient(to right, #114df0 0%, #85b9fd 51%, #658cf6 100%);
-  box-shadow: .5px 1px rgba(0,0,255,.25)
+  /* background-image: linear-gradient(to right, #114df0 0%, #85b9fd 51%, #658cf6 100%); */
+  /* box-shadow: .5px 1px rgba(0,0,255,.25) */
+  background-color: white;
 }
 
-button:hover {
+/* button:hover {
   background-position: right center;
   outline: none;
 }
@@ -553,7 +554,7 @@ button:active{
   transition: .1s;
   outline: none;
   box-shadow: 2px 2px rgba(0,0,244,.5)
-}
+} */
 
     .heads-up {
       color: red;
@@ -570,11 +571,13 @@ button:active{
     }
 
     @media only screen and (max-width: 1280px) {
-
+      .img-fresh-logo {
+        width: 20vw;
+      }
       
   
       h2.registration-heading-1 {
-        font-size: 5vh;
+        font-size: 8vh;
         max-width: 100%;  
       }
     
@@ -609,7 +612,7 @@ button:active{
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center;
-      margin-top: 8vh;
+      margin-top: 0vh;
       padding-left: 5%;
       padding-right: 5%;
       /* width: 100%; */
@@ -622,7 +625,7 @@ button:active{
 
 @media only screen and (max-width: 800px) {
   h2.registration-heading-1 {
-    font-size: 5vh;
+    font-size: 6vh;
     
   }
 
@@ -653,7 +656,7 @@ button:active{
       -ms-flex-align: center;
           align-items: center;
   align-items: center;
-  margin-top: 15vh;
+  margin-top: 2vh;
   /* width: 100%; */
   line-height: 35px;
   }
@@ -704,7 +707,7 @@ button:active{
       -ms-flex-pack: center;
           justify-content: center;
   justify-items: center;
-  margin-top: 15vh;
+  margin-top: 0vh;
   /* width: 100%; */
   line-height: 33px;
   }
@@ -778,7 +781,7 @@ h3{
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin-top: 15vh;
+    margin-top: 5vh;
   /* width: 100%; */
     line-height: 30px;
   }
@@ -926,7 +929,7 @@ h3{
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin-top: 15vh;
+    margin-top: 5vh;
   /* width: 100%; */
     line-height: 30px;
   }
