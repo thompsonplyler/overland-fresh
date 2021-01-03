@@ -88,13 +88,13 @@ return(
                   <a href=" https://spatial.chat/s/freshunderonesky?password=fresh007" target="_blank"><button className="agenda-button">CLICK TO ENTER</button></a>
           </div>
           <div className="agenda-grid-item">
-          <h3>PART 1: INTERACTIVE INTRO SESSION</h3>
-              <h3>7:30AM - 8:00 AM ET</h3>
+          <h3>PART 2: 30th ANNIVERSARY</h3>
+              <h3>8:00AM - 9:00 AM ET</h3>
                   <Link to="/event"><button className="agenda-button">CLICK TO WATCH</button></Link>
           </div>
           <div className="agenda-grid-item">
-          <h3>PART 1: INTERACTIVE INTRO SESSION</h3>
-              <h3>7:30AM - 8:00 AM ET</h3>
+          <h3>PART 3: fresh PURPOSE EXPERIENCE</h3>
+              <h3>9:15AM - 10:00 AM ET</h3>
                   <a href="https://www.google.com" target="_blank"><button className="agenda-button">CLICK TO WATCH</button></a>
           </div>
           </div>
