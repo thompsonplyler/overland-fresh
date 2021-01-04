@@ -92,7 +92,10 @@ function VideoPage(props) {
 
       </div>
       <FakeChat windowHeight={stateHeight} windowWidth={stateWidth} />
-      <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
+      <div className="grid-heading">
+      <a href="https://password-auth-implement-2021.d7dec7pht4w7d.amplifyapp.com/agenda"><button style={{marginBottom: "40px"}}className="button-back-to-agenda">Return to Main Page</button></a>
+      <img style={{ width: "6vw" }} src={freshLogo} />
+      </div>
       {/* <ClientPendingBanner subject="event"/> */}
       {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
     </div>
