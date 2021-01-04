@@ -50,6 +50,8 @@ function Login(props) {
       props.history.push(WRONG_PASSWORD_URL)
       return
     }
+
+    console.log("User from registration: ",user)
     
 
     if (user.email) {

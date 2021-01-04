@@ -36,7 +36,7 @@ li {
 }
 
 ::placeholder {
-  text-transform: uppercase;
+  /* text-transform: uppercase;  */
   /* color: black; */
   /* opacity: 1; */
   font-size: 20px;
@@ -51,8 +51,9 @@ input  {
   border-width: 1px;
   border-radius: 5px;
   border-style: solid;
-  line-height: 1px;
+  line-height: 12px;
   padding: .4rem;
+  padding-bottom: 5px;
   margin-top: .2rem;
   /* margin: .2rem; */
   display: block;
@@ -61,14 +62,23 @@ input  {
   box-sizing:border-box;
   overflow-x: hidden;
   font-size: 14px;
+
   outline: none;
   font-family: Sabon;
   color: black }
+
+  input:last-of-type {
+    margin-bottom: 5px;
+  }
   
   input::placeholder{
     font-size: 14px;
   }
   form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
     width: 100%
   }
 
@@ -383,7 +393,16 @@ width: 100%;
   display: grid;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
+  
 
+}
+
+.button-video-return{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin: 15px;
+  justify-self: center;
 }
 
 /* .inputbox {
@@ -536,7 +555,7 @@ h2.heading-post {
 
 button {
   height: 3vh;
-  width: 100%;
+  width: 125px;
   justify-self: center;
   border-radius: 5px;
   border-width: 1px black;

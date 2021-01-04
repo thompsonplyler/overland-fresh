@@ -35,9 +35,9 @@ function PreEvent(props) {
           <h2 className="registration-heading-1">under one sky</h2>
           {props.user.firstname || localStorage.email?
           <Fragment><p className="para1">Congratulations {props.user.firstname.charAt(0).toUpperCase()+props.user.firstname.slice(1) || localStorage.firstname.charAt(0).toUpperCase()+localStorage.firstname.slice(1)}, you have successfully registered.</p>
-          <p className="para1">We look forward to coming together for this special event.</p>
+          <p className="para1">We look forward to coming together again.</p>
           <p className="para1">Please return to freshunderonesky.com on January 27, 8am ET, and login using the email/password you just created.</p>
-          <p className="para1">Please be sure to tune in via your laptop for optimal viewing, using Chrome where possible.</p>
+          <p className="para1">Please be sure to tune in via your laptop for optimal viewing, using Google Chrome.</p>
           </Fragment>
           :<Fragment></Fragment>}
       

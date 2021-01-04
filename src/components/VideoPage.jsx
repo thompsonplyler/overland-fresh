@@ -9,6 +9,10 @@ import ClientPendingBanner from '../components/ClientPendingBanner'
 import Chat from './Chat'
 import { checkUserCreds } from '../components/checkUserCreds'
 import tempVideo from '../assets/videos/temp_video.mp4'
+import {
+  BrowserRouter as Router,
+  Link, 
+} from "react-router-dom";
 
 
 const videoJsOptions = {
@@ -89,6 +93,9 @@ function VideoPage(props) {
       <div className="video-row" style={{ padding: "3vh" }}>
         {/* <div className="chat-area">Test</div> */}
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
+        <div className="button-video-return">
+        <a href="/agenda"><button style={{width: "200px"}}>Return to Main Page</button></a>
+        </div>
 
       </div>
       <Chat windowHeight={stateHeight} windowWidth={stateWidth} />

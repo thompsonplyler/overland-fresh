@@ -9,7 +9,7 @@ export default class extends Component {
   render() {
     return (
       <Link to="/">
-          <button placeholder="submit" type="submit" className="login-submit-button">Return</button>
+          <button style={{width: "100px"}} placeholder="submit" type="submit">Return</button>
       </Link>
     );
   }

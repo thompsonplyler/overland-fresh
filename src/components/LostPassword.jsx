@@ -9,9 +9,6 @@ import {
   withRouter
 } from "react-router-dom";
 
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED} from '../urls'
-import {request} from '../components/request'
-import {emailConfirmSend} from '../components/emailConfirmSend'
 import {checkUserCreds} from '../components/checkUserCreds'
 import {emailPasswordChallenge} from '../components/emailPasswordChallenge'
 import {sendChallengeCode} from '../components/sendChallengeCode'
@@ -202,7 +199,6 @@ return(
           
           <h2 className="registration-heading-1">under one sky</h2>
           
-          <p className="para1">January 27, 2021</p>
           {challengeState == "initial"? lostPasswordInitial():null}
           {challengeState == "challenged"? emailChallenged():null}
           {challengeState == "challenge_accepted"? challengeAccepted():null}

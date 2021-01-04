@@ -137,13 +137,14 @@ class RegistrationInput extends Component {
 
   onEmailBlur = async(e) => {
     const registered = await emailRegCheck(e)
+    console.log(registered)
     
     if (registered.registration == true){
       this.setState({userRegistered:true})
     }
 
     else{
-      this.setState({userRegistered:true})
+      this.setState({userRegistered:false})
     }
   }
 
