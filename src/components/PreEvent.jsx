@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
-import BackToLogin from './dead-components-delete-soon/BackToLogin'
+import BackToLogin from './BackToLogin'
 import {checkUserCreds} from '../components/checkUserCreds'
 
 const logout = (props) =>{
@@ -36,7 +36,7 @@ function PreEvent(props) {
           {props.user.firstname || localStorage.email?
           <Fragment><p className="para1">Congratulations {props.user.firstname.charAt(0).toUpperCase()+props.user.firstname.slice(1) || localStorage.firstname.charAt(0).toUpperCase()+localStorage.firstname.slice(1)}, you have successfully registered.</p>
           <p className="para1">We look forward to coming together again.</p>
-          <p className="para1">Please return to freshunderonesky.com on January 27, 8am ET, and login using the email/password you just created.</p>
+          <p className="para1">Please return to freshunderonesky.com on January 27th, 7:30am ET, and login using the email/password combination you just created.</p>
           <p className="para1">Please be sure to tune in via your laptop for optimal viewing, using Google Chrome.</p>
           </Fragment>
           :<Fragment></Fragment>}

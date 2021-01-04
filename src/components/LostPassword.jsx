@@ -89,11 +89,11 @@ const passwordConfirmChange = (event) => {
 
 const lostPasswordInitial = () => {
   return(
-    <div className="login-heading">
+    <div className="login-heading login-heading-password">
               
       <h3 data-name="login">Please enter your e-mail</h3>
       <form className="form-grid" onSubmit={handleSubmit}>
-        <input onKeyDown={(e)=>onKeyPress(e)} onChange={emailChange} type="text" name="email" value={email} placeholder="E-MAIL"></input>
+        <input style={{width: "300px"}}onKeyDown={(e)=>onKeyPress(e)} onChange={emailChange} type="text" name="email" value={email} placeholder="E-MAIL"></input>
         <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
       </form>
     </div>
@@ -165,12 +165,12 @@ const emailChallenged = () => {
 const challengeAccepted = () =>{
 return (  <div className="login-heading">
               
-  <p className="para2">E-mail Verified</p>
+  <p className="para1">E-mail Verified</p>
   <p className="para2">Please enter a password to access the event:</p>
   <form className="form-grid" onSubmit={sendPassword}>
-    <input onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordChange} type="text" name="password" value={password} placeholder="ENTER NEW PASSWORD"></input>
-    <input onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordConfirmChange} type="text" name="passwordConfirm" value={passwordConfirm} placeholder="CONFIRM NEW PASSWORD"></input>
-    <button placeholder="submit" type="submit" className="login-submit-button">Submit and Return to Login</button>
+    <input onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordChange} type="text" name="password" value={password} placeholder="Enter New Password"></input>
+    <input onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordConfirmChange} type="text" name="passwordConfirm" value={passwordConfirm} placeholder="Confirm New Password"></input>
+    <button style={{width: "200px"}}placeholder="submit" type="submit" className="login-submit-button">Submit and Return to Login</button>
     <div>
             {
               (errors.length > 0) ? handleErrors() : null

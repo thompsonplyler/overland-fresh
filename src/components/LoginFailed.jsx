@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
-import BackToLogin from './dead-components-delete-soon/BackToLogin'
+import BackToLogin from './BackToLogin'
 // import {checkUserCreds} from '../components/checkUserCreds'
 
 
@@ -20,7 +20,7 @@ function LoginFailed(props) {
     <div className="container">
           <img className="img-fresh-logo" src={freshLogo}/>
           <h2 className="registration-heading-1">under one sky</h2>
-          <Fragment><p className="para1">Oops, we did not recognize your e-mail. </p>
+          <Fragment><p className="para1">Oops! We did not recognize your e-mail. </p>
           <p className="para1">Please contact <a className="pretty-link" href="mailto:knewton@fresh.com">knewton@fresh.com</a> for help.</p>
           <div style={{paddingTop: "3vh"}}></div>
           <BackToLogin />
