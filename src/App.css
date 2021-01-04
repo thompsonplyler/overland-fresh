@@ -44,7 +44,11 @@ li {
 
 body {
   background-image: url("https://i.imgur.com/zfBPXIZ.jpg");
+  /* background-color: black; */
   background-size: cover;
+  font-smooth: always;
+  font-kerning: normal;
+  /* color: black; */
   letter-spacing: .06vh;
 font-family: Sabon }
 
