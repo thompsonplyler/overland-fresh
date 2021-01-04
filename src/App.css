@@ -45,6 +45,7 @@ li {
 body {
   background-image: url("https://i.imgur.com/zfBPXIZ.jpg");
   background-size: cover;
+  letter-spacing: .06vh;
 font-family: Sabon }
 
 input  {
