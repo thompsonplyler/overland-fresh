@@ -42,7 +42,14 @@ function VideoPage(props) {
   //     props.history.push('/login');
   //   }
   // }, [])
+  useEffect(()=>{
+    window.addEventListener('onfullscreenchange',()=>{
+      console.log("I've been resized!")
+      console.log(window)
+    })
+  }
 
+  )
   class VideoPlayer extends React.Component {
 
 
@@ -58,15 +65,21 @@ function VideoPage(props) {
       }
     }
 
+
+    handleFullScreen =(thing)=>{
+      console.log("Finding thing",thing)
+      }
+    
     render() {
+
       let { windowHeight, windowWidth } = this.props
       let newWidth = windowWidth * .60
       let newHeight = newWidth * .5625
       // console.log("rendering:", this)
-
+      
       return (
         <div className="video-player">
-
+          
           <div data-vjs-player style={{
             width: newWidth,
             height: newHeight
@@ -88,9 +101,7 @@ function VideoPage(props) {
     <div className="grid-container">
       {/* <img className="img-fresh-logo" src={freshLogo}/> */}
 
-      <h2 className="registration-heading-grid">under one sky</h2>
-
-      <div className="video-row" style={{ padding: "3vh" }}>
+      <div className="video-row">
         {/* <div className="chat-area">Test</div> */}
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
         <div className="button-video-return">

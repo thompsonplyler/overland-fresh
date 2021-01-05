@@ -93,7 +93,7 @@ const lostPasswordInitial = () => {
               
       <h3 data-name="login">Please enter your e-mail</h3>
       <form className="form-grid" onSubmit={handleSubmit}>
-        <input style={{width: "300px"}}onKeyDown={(e)=>onKeyPress(e)} onChange={emailChange} type="text" name="email" value={email} placeholder="E-MAIL"></input>
+        <input style={{width: "350px"}}onKeyDown={(e)=>onKeyPress(e)} onChange={emailChange} type="text" name="email" value={email} placeholder="E-mail"></input>
         <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
       </form>
     </div>
@@ -155,7 +155,7 @@ const emailChallenged = () => {
               
       <h3 data-name="login">Please enter the code from your e-mail:</h3>
       <form className="form-grid" onSubmit={sendCode}>
-        <input onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code here."></input>
+        <input style={{width: "175px"}}onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code here"></input>
         <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
       </form>
     </div>
@@ -166,10 +166,10 @@ const challengeAccepted = () =>{
 return (  <div className="login-heading">
               
   <p className="para1">E-mail Verified</p>
-  <p className="para2">Please enter a password to access the event:</p>
+  <p className="para2">Enter new password below</p>
   <form className="form-grid" onSubmit={sendPassword}>
-    <input onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordChange} type="text" name="password" value={password} placeholder="Enter New Password"></input>
-    <input onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordConfirmChange} type="text" name="passwordConfirm" value={passwordConfirm} placeholder="Confirm New Password"></input>
+    <input style={{width: "200px"}} onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordChange} type="text" name="password" value={password} placeholder="Enter New Password"></input>
+    <input style={{width: "200px"}} onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordConfirmChange} type="text" name="passwordConfirm" value={passwordConfirm} placeholder="Confirm New Password"></input>
     <button style={{width: "200px"}}placeholder="submit" type="submit" className="login-submit-button">Submit and Return to Login</button>
     <div>
             {
@@ -183,7 +183,7 @@ return (  <div className="login-heading">
 const challengeRefused = ()=>{
   return (<div className="login-heading">
               
-  <h3 data-name="login">Challenge Refused.</h3>
+  <h3 data-name="login">Incorrect code entered</h3>
   <form className="form-grid" onSubmit={sendCode}>
     <input onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code here."></input>
     <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>

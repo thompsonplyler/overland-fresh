@@ -90,8 +90,7 @@ return(
           
           <img className="img-fresh-logo" src={freshLogo}/>
           
-          <h2 className="registration-heading-1">under one sky</h2>
-          
+          <h2 className="registration-heading-1">under one sky</h2>          
           <div className="login-grid-row">
             <RegistrationInput padding={padding} border={border} handleLogin={handleLogin} />    
             <LoginInput border={border} padding={padding} handleLogin={handleLogin} />      
