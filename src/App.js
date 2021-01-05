@@ -142,20 +142,8 @@ class App extends Component {
           />
 
 
-          <Route
-            exact
-            path="/"
-            history={history}
-            render={(props) => (
-              <Agenda
-                {...props}
-                isLoggedIn={this.state.isLoggedIn}
-                user={this.state.user}
-                handleLogin={this.handleLogin}
-                handleLogout={this.handleLogout}
-              />
-            )}
-          />
+   
+
           <Route
             exact
             path={POST_EVENT_URL}
@@ -217,6 +205,21 @@ class App extends Component {
               
 
 
+            )}
+          />
+
+<Route
+            exact
+            path="/"
+            history={history}
+            render={(props) => (
+              <Agenda
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                user={this.state.user}
+                handleLogin={this.handleLogin}
+                handleLogout={this.handleLogout}
+              />
             )}
           />
 

@@ -90,7 +90,7 @@ return(
           <div className="agenda-grid-item">
           <h3>PART 2: 30th ANNIVERSARY</h3>
               <h3>8:00AM - 9:00 AM ET</h3>
-                  <a to="/event"><button className="agenda-button">CLICK TO WATCH</button></a>
+                  <a href="/event"><button className="agenda-button">CLICK TO WATCH</button></a>
           </div>
           <div className="agenda-grid-item">
           <h3>PART 3: <em>fresh</em> PURPOSE EXPERIENCE</h3>
