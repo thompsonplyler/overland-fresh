@@ -1,8 +1,8 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, Fragment, useEffect } from 'react'
 import videojs from 'video.js'
 import awsvideoconfig from '../aws-video-exports'
-import 'video.js/dist/video-js.css'
+// import 'video.js/dist/video-js.css'
 import '../App.css';
 import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
@@ -13,10 +13,11 @@ import {
   BrowserRouter as Router,
   Link, 
 } from "react-router-dom";
+// import TestButton from "./TestButton"
 
 
 const videoJsOptions = {
-  autoplay: true,
+  autoplay: false,
   controls: true,
   loop: true,
   responsive: true,
@@ -74,6 +75,7 @@ function VideoPage(props) {
 
       let { windowHeight, windowWidth } = this.props
       let newWidth = windowWidth * .60
+      // let newWidth = windowWidth * .40
       let newHeight = newWidth * .5625
       // console.log("rendering:", this)
       
@@ -98,22 +100,26 @@ function VideoPage(props) {
 
 
   return (
-    <div className="grid-container">
+    <div className="flex-container-video">
       {/* <img className="img-fresh-logo" src={freshLogo}/> */}
 
       <div className="video-row">
         {/* <div className="chat-area">Test</div> */}
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
         <div className="button-video-return">
-        <a href="/agenda"><button style={{width: "200px"}}>Return to Main Page</button></a>
+          <a href="/agenda"><button style={{width: "200px"}}>Return to Main Page</button></a>
         </div>
-
       </div>
-      <Chat windowHeight={stateHeight} windowWidth={stateWidth} />
-      <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
-      {/* <ClientPendingBanner subject="event"/> */}
-      {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
+      <div className="grid-heading">
+      <img style={{ width: "6vw" }} src={freshLogo} />
+      </div>
+    
+    <Chat windowHeight={stateHeight} windowWidth={stateWidth} />
+    {/* <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/> */}
+    {/* <ClientPendingBanner subject="event"/> */}
+    {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
     </div>
+
 
 
   );

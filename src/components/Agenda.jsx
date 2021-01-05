@@ -99,7 +99,7 @@ return(
           </div>
           </div>
           
-          <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div>
+          <div className="test-logout-button" onClick={props.handleLogout}> <a href="/login">LOG OUT (FOR TESTING ONLY)</a></div>
     </div>
     </Fragment>
     )

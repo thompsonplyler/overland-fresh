@@ -204,7 +204,7 @@ return(
           {challengeState == "challenge_accepted"? challengeAccepted():null}
           {challengeState == "challenge_refused"? challengeRefused():null}
 
-          <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div>
+          <div className="test-logout-button" onClick={props.handleLogout}> <a href="/login">LOG OUT (FOR TESTING ONLY)</a></div>
          
     </div>
     </Fragment>
