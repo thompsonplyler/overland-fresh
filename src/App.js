@@ -59,15 +59,16 @@ class App extends Component {
     })
   }
 
-  handleLogout = () => {
+  handleLogout = (props) => {
     this.setState({
       isLoggedIn: false,
       user: {}
     })
-    localStorage.clear()
+
+    localStorage.clear() 
   }
 
-  render() {
+  render(props) {
     const history = createBrowserHistory();
 
     // Initialize google analytics page view tracking
@@ -123,6 +124,7 @@ class App extends Component {
                 {...props}
                 user={this.state.user}
                 handleLogin={this.handleLogin}
+                handleLogout={this.handleLogout}
               />
             )}
           />
@@ -137,6 +139,7 @@ class App extends Component {
                 {...props}
                 user={this.state.user}
                 handleLogin={this.handleLogin}
+                handleLogout={this.handleLogout}
               />
             )}
           />
@@ -153,6 +156,7 @@ class App extends Component {
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
+                handleLogout={this.handleLogout}
               />
             )}
           />
@@ -166,6 +170,7 @@ class App extends Component {
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
+                handleLogout={this.handleLogout}
               />
 
               
@@ -183,6 +188,7 @@ class App extends Component {
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
+                handleLogout={this.handleLogout}
               />
 
               
@@ -200,6 +206,7 @@ class App extends Component {
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
+                handleLogout={this.handleLogout}
               />
 
               
@@ -213,7 +220,7 @@ class App extends Component {
             path="/"
             history={history}
             render={(props) => (
-              <Agenda
+              <Login
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}

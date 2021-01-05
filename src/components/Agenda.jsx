@@ -14,6 +14,7 @@ import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL
 import {request} from '../components/request'
 import {emailConfirmSend} from '../components/emailConfirmSend'
 import {checkUserCreds} from '../components/checkUserCreds'
+import TestButton from "./TestButton"
 
 
 
@@ -101,6 +102,8 @@ return(
           
           {/* <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div> */}
     </div>
+    
+  <TestButton handleLogout={props.handleLogout}/>
     </Fragment>
     )
 }

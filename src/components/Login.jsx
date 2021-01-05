@@ -17,6 +17,7 @@ import styled from 'styled-components';
 import {request} from '../components/request'
 import {emailConfirmSend} from '../components/emailConfirmSend'
 import {checkUserCreds} from '../components/checkUserCreds'
+import TestButton from "./TestButton"
 
 
 
@@ -95,6 +96,8 @@ return(
             <RegistrationInput padding={padding} border={border} handleLogin={handleLogin} />    
             <LoginInput border={border} padding={padding} handleLogin={handleLogin} />      
           </div>
+          
+  <TestButton handleLogout={props.handleLogout}/>
           {/* <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div> */}
     </div>
     </Fragment>

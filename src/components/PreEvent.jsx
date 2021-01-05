@@ -8,6 +8,7 @@ import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import BackToLogin from './BackToLogin'
 import {checkUserCreds} from '../components/checkUserCreds'
+import TestButton from "./TestButton"
 
 const logout = (props) =>{
   localStorage.clear()
@@ -15,6 +16,7 @@ const logout = (props) =>{
 }
 
 function PreEvent(props) {
+const {handleLogout} = props
 
   useEffect(() => {
     const user = checkUserCreds(props.user);
@@ -44,6 +46,7 @@ function PreEvent(props) {
             <div>
           {/* <ClientPendingBanner subject="confirmation"/> */}
             </div> 
+            <TestButton handleLogout={props.handleLogout}/>
             {/* <div className="test-logout-button" onClick={props.handleLogout}><Link to="/">LOG OUT (FOR TESTING ONLY)</Link></div> */}
     </div>
     )

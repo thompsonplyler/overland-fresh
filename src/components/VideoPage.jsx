@@ -13,6 +13,7 @@ import {
   BrowserRouter as Router,
   Link, 
 } from "react-router-dom";
+import TestButton from "./TestButton"
 
 
 const videoJsOptions = {
@@ -113,6 +114,8 @@ function VideoPage(props) {
       <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
       {/* <ClientPendingBanner subject="event"/> */}
       {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
+      
+  <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/>
     </div>
 
 
