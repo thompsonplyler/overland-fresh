@@ -95,7 +95,7 @@ return(
             <RegistrationInput padding={padding} border={border} handleLogin={handleLogin} />    
             <LoginInput border={border} padding={padding} handleLogin={handleLogin} />      
           </div>
-          <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div>
+          {/* <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div> */}
     </div>
     </Fragment>
     )

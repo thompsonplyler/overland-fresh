@@ -90,7 +90,7 @@ return(
           <div className="agenda-grid-item">
           <h3>PART 2: 30th ANNIVERSARY</h3>
               <h3>8:00AM - 9:00 AM ET</h3>
-                  <Link to="/event"><button className="agenda-button">CLICK TO WATCH</button></Link>
+                  <a to="/event"><button className="agenda-button">CLICK TO WATCH</button></a>
           </div>
           <div className="agenda-grid-item">
           <h3>PART 3: <em>fresh</em> PURPOSE EXPERIENCE</h3>
@@ -99,7 +99,7 @@ return(
           </div>
           </div>
           
-          <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div>
+          {/* <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div> */}
     </div>
     </Fragment>
     )

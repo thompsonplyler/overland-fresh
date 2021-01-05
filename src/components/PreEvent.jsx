@@ -44,7 +44,7 @@ function PreEvent(props) {
             <div>
           {/* <ClientPendingBanner subject="confirmation"/> */}
             </div> 
-            <div className="test-logout-button" onClick={props.handleLogout}><Link to="/">LOG OUT (FOR TESTING ONLY)</Link></div>
+            {/* <div className="test-logout-button" onClick={props.handleLogout}><Link to="/">LOG OUT (FOR TESTING ONLY)</Link></div> */}
     </div>
     )
   }
