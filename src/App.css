@@ -62,7 +62,7 @@ div.test-section {
   width: 75%;
   position: absolute;
   bottom: 5px;
-  left: 600px;
+  left: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
