@@ -13,7 +13,7 @@ import {
   BrowserRouter as Router,
   Link, 
 } from "react-router-dom";
-// import TestButton from "./TestButton"
+// import Dat from './Dat'
 
 
 const videoJsOptions = {
@@ -74,13 +74,14 @@ function VideoPage(props) {
     render() {
 
       let { windowHeight, windowWidth } = this.props
-      let newWidth = windowWidth * .60
+      let newWidth = windowWidth * .55
       // let newWidth = windowWidth * .40
       let newHeight = newWidth * .5625
       // console.log("rendering:", this)
       
       return (
         <div className="video-player">
+          
           
           <div data-vjs-player style={{
             width: newWidth,
@@ -100,9 +101,11 @@ function VideoPage(props) {
 
 
   return (
+    <div>
     <div className="flex-container-video">
       {/* <img className="img-fresh-logo" src={freshLogo}/> */}
-
+      <h2 className="event-heading-1">under one sky</h2>  
+      <h3 className="event-video-title">PART 2: INTRODUCTION & 30th ANNIVERSARY</h3>
       <div className="video-row">
         {/* <div className="chat-area">Test</div> */}
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
@@ -110,9 +113,9 @@ function VideoPage(props) {
           <a href="/agenda"><button style={{width: "200px"}}>Return to Main Page</button></a>
         </div>
       </div>
-      <div className="grid-heading">
-      <img style={{ width: "6vw" }} src={freshLogo} />
-      </div>
+      
+        <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
+    </div>
     
     <Chat windowHeight={stateHeight} windowWidth={stateWidth} />
     {/* <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/> */}

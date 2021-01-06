@@ -12,6 +12,13 @@
 * Browsers: last 4 version
 */
 
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @font-face {
   font-family: Amalina;
   src: url("./assets/fonts/Amalina.ttf"); }
@@ -36,11 +43,20 @@ li {
 }
 
 button.test-logout-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(38%, hsla(1, 92%, 47%, 1)), to(hsla(52, 82%, 52%, 1)));
+    background-image: -o-linear-gradient(left, hsla(1, 92%, 47%, 1) 38%, hsla(52, 82%, 52%, 1) 100%);
     background-image: linear-gradient(90deg, hsla(1, 92%, 47%, 1) 38%, hsla(52, 82%, 52%, 1) 100%);
-  box-shadow: .5px 1px rgba(0,0,255,.25);
+  -webkit-box-shadow: .5px 1px rgba(0,0,255,.25);
+          box-shadow: .5px 1px rgba(0,0,255,.25);
 color: white;
 background-size: 200%;
 padding: 12px;
@@ -56,7 +72,8 @@ div.test-logout-button {
   padding: 12px;
   border-width: 2px;
   border-style: solid;
-  box-shadow: 2px 2px rgba(0,0,0,.5)
+  -webkit-box-shadow: 2px 2px rgba(0,0,0,.5);
+          box-shadow: 2px 2px rgba(0,0,0,.5)
 }
 
   button.test-logout-button:hover {
@@ -65,9 +82,12 @@ div.test-logout-button {
 }
 
 button.test-logout-button:active{
+  -webkit-transition: .1s;
+  -o-transition: .1s;
   transition: .1s;
   outline: none;
-  box-shadow: 2px 2px rgba(0,0,244,.5)
+  -webkit-box-shadow: 2px 2px rgba(0,0,244,.5);
+          box-shadow: 2px 2px rgba(0,0,244,.5)
 } 
 
 div.test-section {
@@ -75,10 +95,19 @@ div.test-section {
   position: absolute;
   bottom: 5px;
   left: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 a {
@@ -479,30 +508,60 @@ width: 100%;
   padding: 0; } */
 
 .flex-container-video {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  padding-top: 2%;
   width: 100vw;
-  height: 93vh;
-  flex-direction: column;
-  align-items: center;
-flex-wrap: wrap;
-  justify-content: flex-start;
+  height: 95vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+/* flex-wrap: wrap; */
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
+
+h2.event-heading-1 {
+  margin-top: 1%;
+  margin-bottom: 0%;
+  font-family: Amalina;
+  color: white;
+  white-space: nowrap;  
+  font-size: 7vh;
+  padding-bottom: 0px;}
 
   .video-row {
 
+ display: -webkit-box;
+
+ display: -ms-flexbox;
+
  display: flex;
  width: 100vw;
- justify-content: center;
- flex-direction: column;
- align-items: center;
+ -webkit-box-pack: center;
+     -ms-flex-pack: center;
+         justify-content: center;
+ -webkit-box-orient: vertical;
+ -webkit-box-direction: normal;
+     -ms-flex-direction: column;
+         flex-direction: column;
+ -webkit-box-align: center;
+     -ms-flex-align: center;
+         align-items: center;
     
   
   }
 
 .grid-heading {
   margin-top: auto;
- justify-items: flex-end;
+ -webkit-box-align: end;
+     -ms-flex-align: end;
+         align-items: flex-end;
   /* grid-row: -2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 11;
