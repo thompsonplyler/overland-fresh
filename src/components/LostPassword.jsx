@@ -201,7 +201,7 @@ const challengeRefused = ()=>{
               
   <h3 data-name="login">Incorrect code entered</h3>
   <form className="form-grid" onSubmit={sendCode}>
-    <input onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code here."></input>
+    <input onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code"></input>
     <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
   </form>
 </div>)
