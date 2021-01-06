@@ -24,8 +24,8 @@ const videoJsOptions = {
   mute: true,
   poster: "https://i.imgur.com/Aaog0bm.png",
   sources: [{
-    src: tempVideo,
-    // src: "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.rXLMiU83NvaX.m3u8",
+    // src: tempVideo,
+    src: "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.rXLMiU83NvaX.m3u8",
     poster: "https://i.imgur.com/Aaog0bm.png"
   }]
 }
