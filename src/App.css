@@ -526,6 +526,9 @@ width: 100%;
           justify-content: flex-start;
 }
 
+h3.event-video-title{
+  margin-bottom: 2%;
+}
 h2.event-heading-1 {
   margin-top: 1%;
   margin-bottom: 0%;

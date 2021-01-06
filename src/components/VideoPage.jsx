@@ -90,7 +90,7 @@ function VideoPage(props) {
         {/* <div className="chat-area">Test</div> */}
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
         <div className="button-video-return">
-          <a href="/agenda"><button style={{width: "200px"}}>Return to Main Page</button></a>
+          <a href="https://password-auth-implement-2021.d7dec7pht4w7d.amplifyapp.com/agenda"><button style={{width: "200px"}}>Return to Main Page</button></a>
         </div>
       </div>
       
