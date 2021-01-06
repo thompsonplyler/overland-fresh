@@ -84,17 +84,17 @@ return(
           <div className="agenda-grid">
           <div className="agenda-grid-item">
               <h3>PART 1: INTERACTIVE INTRO SESSION</h3>
-              <h3>8:00AM - 8:15 AM ET</h3>
+              <h3>8:00 AM - 8:15 AM ET</h3>
                   <a href="https://spatial.chat/s/freshunderonesky?sp=fresh007" target="_blank"><button className="agenda-button">CLICK TO ENTER</button></a>
           </div>
           <div className="agenda-grid-item">
           <h3>PART 2: INTRODUCTION & 30th ANNIVERSARY</h3>
-              <h3>8:20AM - 9:05 AM ET</h3>
+              <h3>8:20 AM - 9:05 AM ET</h3>
                   <Link to="/event"><button className="agenda-button">CLICK TO WATCH</button></Link>
           </div>
           <div className="agenda-grid-item">
           <h3>PART 3: <em>fresh</em> PURPOSE EXPERIENCE</h3>
-              <h3>9:20AM - 10:05 AM ET</h3>
+              <h3>9:20 AM - 10:05 AM ET</h3>
                   <a href="https://sawdust-staging.d7dec7pht4w7d.amplifyapp.com/"><button className="agenda-button">CLICK TO WATCH</button></a>
           </div>
           </div>

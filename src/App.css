@@ -313,9 +313,11 @@ ul.ul-error {
   border-width: 0.1px;
 }
 
-.error-div {
 
+h3.event-video-title{
+  margin-bottom: 2%;
 }
+
 
 .gotoconfirm-button {
   position: absolute;
