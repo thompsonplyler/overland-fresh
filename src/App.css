@@ -687,6 +687,10 @@ margin-top: 5px;
   /* padding-bottom: 1.5rem; */
  }
 
+ .para4{
+   line-height: 0px;
+ }
+
 h2.heading-post {
   color: white;
   max-width: 60%; }

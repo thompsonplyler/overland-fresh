@@ -81,11 +81,11 @@ class RegistrationInput extends Component {
     }
     // const entrySuccess  = this.confirmInput(event)
     if (password !== passwordConfirm){
-      errorArray.push("Passwords don't match.")
+      errorArray.push("Passwords do not match.")
     }
 
     if (email !== emailConfirm) {
-      errorArray.push("Emails don't match.")
+      errorArray.push("Emails do not match.")
     }
     
     if (!email){

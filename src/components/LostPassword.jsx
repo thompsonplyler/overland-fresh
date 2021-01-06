@@ -171,7 +171,7 @@ const emailChallenged = () => {
               
       <h3 data-name="login">Please enter the code from your e-mail:</h3>
       <form className="form-grid" onSubmit={sendCode}>
-        <input style={{width: "175px"}}onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code here"></input>
+        <input style={{width: "175px"}}onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code"></input>
         <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
       </form>
     </div>
@@ -181,8 +181,8 @@ const emailChallenged = () => {
 const challengeAccepted = () =>{
 return (  <div className="login-heading">
               
-  <p className="para1">E-mail Verified</p>
-  <p className="para2">Enter new password below</p>
+  <p style={{marginTop: "50px"}}className="para4">E-mail Verified</p>
+  <p className="para4">Enter new password below:</p>
   <form className="form-grid" onSubmit={sendPassword}>
     <input style={{width: "200px"}} onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordChange} type="text" name="password" value={password} placeholder="Enter New Password"></input>
     <input style={{width: "200px"}} onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordConfirmChange} type="text" name="passwordConfirm" value={passwordConfirm} placeholder="Confirm New Password"></input>
