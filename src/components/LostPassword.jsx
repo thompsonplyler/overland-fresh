@@ -41,10 +41,20 @@ const handleSubmit = async(event) => {
   localStorage.setItem("challenge_email", email)
 
   const challengeSent = await emailPasswordChallenge(email)
+  console.log(challengeSent)
+
+  if (challengeSent.emptyEvent){
+    console.log("Nothing here.")
+    setErrors(["No e-mail entered."])
+    console.log(errors)
+    return
+  }
 
   if (challengeSent.reply.challenge_sent==true) {
    setChallengeState("challenged")
   }
+
+
 
 
 
@@ -95,12 +105,18 @@ const lostPasswordInitial = () => {
       <form className="form-grid" onSubmit={handleSubmit}>
         <input style={{width: "350px"}}onKeyDown={(e)=>onKeyPress(e)} onChange={emailChange} type="text" name="email" value={email} placeholder="E-mail"></input>
         <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
+        <div>
+            {
+              (errors.length > 0) ? handleErrors() : null
+            }
+          </div>
       </form>
     </div>
   )
 }
 
 const sendCode = async(event) => {
+  console.log(event)
   event.preventDefault()
   console.log("Challenge code sent to Rails server:", code)
   let data = {"email": localStorage.challenge_email, "code": code}
@@ -118,7 +134,7 @@ const sendCode = async(event) => {
 
 const sendPassword = async(event) => {
   event.preventDefault()
-  console.log("Password sent to Rails server:", password)
+  // console.log("Password sent to Rails server:", password)
   if (password === passwordConfirm){
     setErrors([])
   let data = {"email": localStorage.challenge_email, "password": password}
