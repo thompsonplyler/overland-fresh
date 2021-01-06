@@ -86,7 +86,9 @@ return(
           <div className="agenda-grid-item">
               <h3>PART 1: INTERACTIVE INTRO SESSION</h3>
               <h3>7:30AM - 8:00 AM ET</h3>
-                  <a href=" https://spatial.chat/s/freshunderonesky?password=fresh007" target="_blank"><button className="agenda-button">CLICK TO ENTER</button></a>
+                  {/* <a href=" https://spatial.chat/s/freshunderonesky?password=fresh007" target="_blank"> */}
+                    <button className="agenda-button">CLICK TO ENTER</button>
+                    {/* </a> */}
           </div>
           <div className="agenda-grid-item">
           <h3>PART 2: 30th ANNIVERSARY</h3>
@@ -96,7 +98,9 @@ return(
           <div className="agenda-grid-item">
           <h3>PART 3: <em>fresh</em> PURPOSE EXPERIENCE</h3>
               <h3>9:15AM - 10:00 AM ET</h3>
-                  <a href="https://sawdust-staging.d7dec7pht4w7d.amplifyapp.com/" target="_blank"><button className="agenda-button">CLICK TO WATCH</button></a>
+                  {/* <a href="https://sawdust-staging.d7dec7pht4w7d.amplifyapp.com/" target="_blank"> */}
+                    <button className="agenda-button">CLICK TO WATCH</button>
+                    {/* </a> */}
           </div>
           </div>
           
