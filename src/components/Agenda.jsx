@@ -91,7 +91,7 @@ return(
                     {/* </a> */}
           </div>
           <div className="agenda-grid-item">
-          <h3>PART 2: 30th ANNIVERSARY</h3>
+          <h3>PART 2: INTRODUCTION & 30th ANNIVERSARY</h3>
               <h3>8:00AM - 9:00 AM ET</h3>
                   <a href="/event"><button className="agenda-button">CLICK TO WATCH</button></a>
           </div>
