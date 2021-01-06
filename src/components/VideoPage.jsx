@@ -81,24 +81,28 @@ function VideoPage(props) {
 
 
   return (
-    <div className="grid-container">
+    <div>
+    <div className="flex-container-video">
       {/* <img className="img-fresh-logo" src={freshLogo}/> */}
-
-      <h2 className="registration-heading-grid">under one sky</h2>
-
-      <div className="video-row" style={{ padding: "3vh" }}>
+      <h2 className="event-heading-1">under one sky</h2>  
+      {/* <h3 className="event-video-title">PART 2: INTRODUCTION & 30th ANNIVERSARY</h3> */}
+      <div className="video-row">
         {/* <div className="chat-area">Test</div> */}
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
-
+        <div className="button-video-return">
+          <a href="/agenda"><button style={{width: "200px"}}>Return to Main Page</button></a>
+        </div>
       </div>
-      <FakeChat windowHeight={stateHeight} windowWidth={stateWidth} />
-      <div className="grid-heading">
-      <a href="https://password-auth-implement-2021.d7dec7pht4w7d.amplifyapp.com/agenda"><button style={{marginBottom: "40px"}}className="button-back-to-agenda">Return to Main Page</button></a>
-      <img style={{ width: "6vw" }} src={freshLogo} />
-      </div>
-      {/* <ClientPendingBanner subject="event"/> */}
-      {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
+      
+        <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
     </div>
+    
+    {/* <Chat windowHeight={stateHeight} windowWidth={stateWidth} /> */}
+    {/* <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/> */}
+    {/* <ClientPendingBanner subject="event"/> */}
+    {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
+    </div>
+
 
 
   );
