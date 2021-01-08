@@ -85,7 +85,7 @@ function VideoPage(props) {
     <div className="flex-container-video">
       {/* <img className="img-fresh-logo" src={freshLogo}/> */}
       <h2 className="event-heading-1">under one sky</h2>  
-      <h3 className="event-video-title">PART 3: <em>fresh</em> PURPOSE EXPERIENCE</h3>
+      <h3 className="event-video-title">Part 3: Purpose Experience</h3>
       <div className="video-row">
         {/* <div className="chat-area">Test</div> */}
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
