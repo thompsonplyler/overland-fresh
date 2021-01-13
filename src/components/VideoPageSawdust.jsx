@@ -25,7 +25,7 @@ const videoJsOptions = {
   poster: "https://i.imgur.com/Aaog0bm.png",
   sources: [{
     // src: tempVideo,
-    src: "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.rXLMiU83NvaX.m3u8",
+    src: "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.k2VuaaM6o9yb.m3u8",
     poster: "https://i.imgur.com/Aaog0bm.png"
   }]
 }
@@ -35,14 +35,12 @@ const videoJsOptions = {
 
 
 
-function VideoPage(props) {
+function VideoPageSawdust(props) {
 
-  // useEffect(() => {
-  //   const user = checkUserCreds(props.user);
-  //   if (!user) {
-  //     props.history.push('/login');
-  //   }
-  // }, [])
+useEffect (()=>{
+document.body.classList.add('sawdust-body')
+},[])
+
   useEffect(()=>{
     window.addEventListener('onfullscreenchange',()=>{
       console.log("I've been resized!")
@@ -52,9 +50,6 @@ function VideoPage(props) {
 
   )
   class VideoPlayer extends React.Component {
-
-
-    // console.log(props)
 
     componentDidMount(props) {
       this.player = videojs(this.videoNode, this.props)
@@ -101,11 +96,11 @@ function VideoPage(props) {
 
 
   return (
-    <div>
+    <div className="sawdust-div">
     <div className="flex-container-video">
       {/* <img className="img-fresh-logo" src={freshLogo}/> */}
       <h2 className="event-heading-1">under one sky</h2>  
-      <h3 className="event-video-title">Part 2: Under One Sky Meeting</h3>
+      <h3 className="event-video-title">Part 3: Purpose Experience</h3>
       <div className="video-row">
         {/* <div className="chat-area">Test</div> */}
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
@@ -117,7 +112,7 @@ function VideoPage(props) {
         <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
     </div>
     
-    <Chat windowHeight={stateHeight} windowWidth={stateWidth} />
+    {/* <Chat windowHeight={stateHeight} windowWidth={stateWidth} /> */}
     {/* <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/> */}
     {/* <ClientPendingBanner subject="event"/> */}
     {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
@@ -129,4 +124,4 @@ function VideoPage(props) {
 }
 
 
-export default VideoPage
+export default VideoPageSawdust

@@ -8,16 +8,19 @@ import {
   withRouter
 } from "react-router-dom";
 
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED} from '../urls'
+import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, NS_EVENT_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED} from '../urls'
 
 
 import {request} from '../components/request'
 import {emailConfirmSend} from '../components/emailConfirmSend'
 import {checkUserCreds} from '../components/checkUserCreds'
+import Tooltip from '../components/Tooltip'
 
 
 
 function Agenda(props) {
+
+
 
 //   useEffect(() => {
 //     const user = checkUserCreds(props.user);
@@ -74,6 +77,8 @@ function Agenda(props) {
 const padding = 3
 const border = 1
 
+const tooltip_data ={"name":"test1","buttonText": "Click to Watch", "tooltip":"This button has been deactivated for testing purposes."}
+
 return(
 <Fragment>
     <div className="container">
@@ -85,7 +90,9 @@ return(
           <div className="agenda-grid-item">
               <h3>Part 1: Interactive Welcome Session</h3>
               <h3>8:00 AM - 8:15 AM EST</h3>
-                  <a href="https://spatial.chat/s/freshunderonesky?sp=fresh007" target="_blank"><button className="agenda-button">Click To Enter</button></a>
+                  {/* <a href="https://spatial.chat/s/freshunderonesky?sp=fresh007" target="_blank"> */}
+                    <button className="agenda-button"><Tooltip message={tooltip_data.tooltip} position={'right'}>{tooltip_data.buttonText}</Tooltip></button>
+                    {/* </a> */}
           </div>
           <div className="agenda-grid-item">
           <h3>Part 2: Under One Sky Meeting</h3>
@@ -95,7 +102,7 @@ return(
           <div className="agenda-grid-item">
           <h3>Part 3: Purpose Experience</h3>
               <h3>9:20 AM - 10:05 AM EST</h3>
-                  <a href="https://sawdust-staging.d7dec7pht4w7d.amplifyapp.com/"><button className="agenda-button">Click To Watch</button></a>
+                  <a href={NS_EVENT_URL}><button className="agenda-button">Click To Watch</button></a>
           </div>
           </div>
           
