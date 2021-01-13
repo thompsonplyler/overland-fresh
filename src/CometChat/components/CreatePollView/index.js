@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
+/** @jsxRuntime classic */
+/** @jsx jsx */import { jsx } from '@emotion/core';
 import PropTypes from 'prop-types';
 
 import { iconWrapperStyle } from "../CometChatCreatePoll/style";

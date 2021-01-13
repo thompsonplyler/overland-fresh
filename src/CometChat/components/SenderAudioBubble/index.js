@@ -1,6 +1,6 @@
 import React from "react";
-/** @jsx jsx */
-import { jsx } from '@emotion/core'
+/** @jsxRuntime classic */
+/** @jsx jsx */import { jsx } from '@emotion/core'
 
 import { checkMessageForExtensionsData } from "../../util/common";
 

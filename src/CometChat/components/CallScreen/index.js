@@ -1,7 +1,7 @@
 import React from "react";
 
-/** @jsx jsx */
-import { jsx, keyframes } from "@emotion/core";
+/** @jsxRuntime classic */
+/** @jsx jsx */import { jsx, keyframes } from "@emotion/core";
 import PropTypes from 'prop-types';
 
 import { CometChat } from "@cometchat-pro/chat";
