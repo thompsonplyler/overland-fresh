@@ -19,6 +19,7 @@ import ReactGA from 'react-ga';
 import LostPassword from './components/LostPassword';
 import Agenda from './components/Agenda';
 import WrongPassword from './components/WrongPassword';
+import CometChatTest from './components/CometChatTest';
 
 
 // const trackingId = ""
@@ -209,6 +210,23 @@ class App extends Component {
             history={history}
             render={(props) => (
               <WrongPassword  
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                user={this.state.user}
+              />
+
+              
+
+
+            )}
+          />
+
+<Route
+            exact
+            path="/chat-test"
+            history={history}
+            render={(props) => (
+              <CometChatTest  
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
