@@ -183,7 +183,7 @@ div.test-section {
 }
 
 body {
-  background-image: url("https://i.imgur.com/zfBPXIZ.jpg");
+  background-image: url(./cloud_image.jpg);
   /* background-color: black; */
   background-size: cover;
   font-smooth: always;
