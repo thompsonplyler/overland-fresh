@@ -77,7 +77,7 @@ this.props.handleLogin(user)
       <div className="form-grid-registration" style={{border: "0px",borderLeft: `${this.props.border}px`, borderColor: "white",paddingLeft: `${this.props.padding}vw`, borderStyle: "solid"}} >
             <div className="login-heading">
               
-                <h3 data-name="login">LOG IN ON JAN, 27 2021</h3>
+                <h3 data-name="login">Log In on Jan 27, 2021</h3>
             </div>
             <form className="form-grid" onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type="text" name="email" value={email} placeholder="E-mail" onKeyDown={(e) => this.onKeyPress(e) }></input>

@@ -8,17 +8,22 @@ import {
   withRouter
 } from "react-router-dom";
 
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED} from '../urls'
+import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, NS_EVENT_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED} from '../urls'
 
 
 import {request} from '../components/request'
 import {emailConfirmSend} from '../components/emailConfirmSend'
 import {checkUserCreds} from '../components/checkUserCreds'
-import TestButton from "./TestButton"
+import Tooltip from '../components/Tooltip'
+import TestButton from '../components/TestButton'
 
 
 
 function Agenda(props) {
+useEffect(()=>{
+  document.body.classList.remove('sawdust-body')
+},[])
+
 
 //   useEffect(() => {
 //     const user = checkUserCreds(props.user);
@@ -75,6 +80,8 @@ function Agenda(props) {
 const padding = 3
 const border = 1
 
+const tooltip_data ={"name":"test1","buttonText": "Click to Watch", "tooltip":"This button has been deactivated for testing purposes."}
+
 return(
 <Fragment>
     <div className="container">
@@ -84,30 +91,25 @@ return(
           <h2 className="registration-heading-1">under one sky</h2>
           <div className="agenda-grid">
           <div className="agenda-grid-item">
-              <h3>PART 1: INTERACTIVE INTRO SESSION</h3>
-              <h3>7:30AM - 8:00 AM ET</h3>
-                  {/* <a href=" https://spatial.chat/s/freshunderonesky?password=fresh007" target="_blank"> */}
-                    <button className="agenda-button">CLICK TO ENTER</button>
+              <h3>Part 1: Interactive Welcome Session</h3>
+              <h3>8:00 AM - 8:15 AM EST</h3>
+                  {/* <a href="https://spatial.chat/s/freshunderonesky?sp=fresh007" target="_blank"> */}
+                    <button className="agenda-button"><Tooltip message={tooltip_data.tooltip} position={'right'}>{tooltip_data.buttonText}</Tooltip></button>
                     {/* </a> */}
           </div>
           <div className="agenda-grid-item">
-          <h3>PART 2: INTRODUCTION & 30th ANNIVERSARY</h3>
-              <h3>8:00AM - 9:00 AM ET</h3>
-                  <a href="/event"><button className="agenda-button">CLICK TO WATCH</button></a>
+          <h3>Part 2: Under One Sky Meeting</h3>
+              <h3>8:20 AM - 9:05 AM EST</h3>
+                  <Link to="/event"><button className="agenda-button">Click To Watch</button></Link>
           </div>
           <div className="agenda-grid-item">
-          <h3>PART 3: <em>fresh</em> PURPOSE EXPERIENCE</h3>
-              <h3>9:15AM - 10:00 AM ET</h3>
-                  {/* <a href="https://sawdust-staging.d7dec7pht4w7d.amplifyapp.com/" target="_blank"> */}
-                    <button className="agenda-button">CLICK TO WATCH</button>
-                    {/* </a> */}
+          <h3>Part 3: Purpose Experience</h3>
+              <h3>9:20 AM - 10:05 AM EST</h3>
+                  <a href={NS_EVENT_URL}><button className="agenda-button">Click To Watch</button></a>
           </div>
           </div>
-          
-          {/* <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div> */}
     </div>
-    
-  <TestButton handleLogout={props.handleLogout}/>
+    <TestButton/>
     </Fragment>
     )
 }

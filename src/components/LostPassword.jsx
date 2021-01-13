@@ -13,8 +13,12 @@ import {checkUserCreds} from '../components/checkUserCreds'
 import {emailPasswordChallenge} from '../components/emailPasswordChallenge'
 import {sendChallengeCode} from '../components/sendChallengeCode'
 import {sendNewPassword} from '../components/sendNewPassword'
+<<<<<<< HEAD
 import TestButton from "./TestButton"
 
+=======
+import TestButton from '../components/TestButton'
+>>>>>>> password-auth-implement-2021
 
 function LostPassword(props) {
 
@@ -43,10 +47,20 @@ const handleSubmit = async(event) => {
   localStorage.setItem("challenge_email", email)
 
   const challengeSent = await emailPasswordChallenge(email)
+  console.log(challengeSent)
+
+  if (challengeSent.emptyEvent){
+    console.log("Nothing here.")
+    setErrors(["No e-mail entered."])
+    console.log(errors)
+    return
+  }
 
   if (challengeSent.reply.challenge_sent==true) {
    setChallengeState("challenged")
   }
+
+
 
 
 
@@ -97,12 +111,18 @@ const lostPasswordInitial = () => {
       <form className="form-grid" onSubmit={handleSubmit}>
         <input style={{width: "350px"}}onKeyDown={(e)=>onKeyPress(e)} onChange={emailChange} type="text" name="email" value={email} placeholder="E-mail"></input>
         <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
+        <div>
+            {
+              (errors.length > 0) ? handleErrors() : null
+            }
+          </div>
       </form>
     </div>
   )
 }
 
 const sendCode = async(event) => {
+  console.log(event)
   event.preventDefault()
   console.log("Challenge code sent to Rails server:", code)
   let data = {"email": localStorage.challenge_email, "code": code}
@@ -120,7 +140,7 @@ const sendCode = async(event) => {
 
 const sendPassword = async(event) => {
   event.preventDefault()
-  console.log("Password sent to Rails server:", password)
+  // console.log("Password sent to Rails server:", password)
   if (password === passwordConfirm){
     setErrors([])
   let data = {"email": localStorage.challenge_email, "password": password}
@@ -157,7 +177,7 @@ const emailChallenged = () => {
               
       <h3 data-name="login">Please enter the code from your e-mail:</h3>
       <form className="form-grid" onSubmit={sendCode}>
-        <input style={{width: "175px"}}onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code here"></input>
+        <input style={{width: "175px"}}onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code"></input>
         <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
       </form>
     </div>
@@ -167,8 +187,8 @@ const emailChallenged = () => {
 const challengeAccepted = () =>{
 return (  <div className="login-heading">
               
-  <p className="para1">E-mail Verified</p>
-  <p className="para2">Enter new password below</p>
+  <p style={{marginTop: "50px"}}className="para4">E-mail Verified</p>
+  <p className="para4">Enter new password below:</p>
   <form className="form-grid" onSubmit={sendPassword}>
     <input style={{width: "200px"}} onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordChange} type="text" name="password" value={password} placeholder="Enter New Password"></input>
     <input style={{width: "200px"}} onKeyDown={(e)=>onKeyPressPassword(e)} onChange={passwordConfirmChange} type="text" name="passwordConfirm" value={passwordConfirm} placeholder="Confirm New Password"></input>
@@ -187,7 +207,7 @@ const challengeRefused = ()=>{
               
   <h3 data-name="login">Incorrect code entered</h3>
   <form className="form-grid" onSubmit={sendCode}>
-    <input onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code here."></input>
+    <input onKeyDown={(e)=>onKeyPressCode(e)} onChange={codeChange} type="text" name="code" value={code} placeholder="Enter Code"></input>
     <button placeholder="submit" type="submit" className="login-submit-button">Submit</button>
   </form>
 </div>)
@@ -206,9 +226,10 @@ return(
           {challengeState == "challenge_accepted"? challengeAccepted():null}
           {challengeState == "challenge_refused"? challengeRefused():null}
 
-          {/* <div className="test-logout-button" onClick={props.handleLogout}> LOG OUT (FOR TESTING ONLY)</div> */}
-  <TestButton handleLogout={props.handleLogout}/>
+          
+         
     </div>
+    <TestButton handleLogout={props.handleLogout}/>
     </Fragment>
     )
 }

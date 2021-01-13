@@ -14,11 +14,12 @@ import PostEvent from "./components/PostEvent"
 
 import Login from "./components/Login"
 import LoginFailed from "./components/LoginFailed"
-import { LOST_PASSWORD_URL,AGENDA_URL, LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL,ALREADY_REGISTERED, WRONG_PASSWORD_URL } from './urls'
+import { LOST_PASSWORD_URL,AGENDA_URL, NS_EVENT_URL, LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL,ALREADY_REGISTERED, WRONG_PASSWORD_URL } from './urls'
 import ReactGA from 'react-ga';
 import LostPassword from './components/LostPassword';
 import Agenda from './components/Agenda';
 import WrongPassword from './components/WrongPassword';
+import VideoPageSawDust from './components/VideoPageSawdust';
 
 
 // const trackingId = ""
@@ -217,6 +218,7 @@ class App extends Component {
 
 <Route
             exact
+<<<<<<< HEAD
             path="/"
             history={history}
             render={(props) => (
@@ -227,6 +229,20 @@ class App extends Component {
                 handleLogin={this.handleLogin}
                 handleLogout={this.handleLogout}
               />
+=======
+            path={NS_EVENT_URL}
+            history={history}
+            render={(props) => (
+              <VideoPageSawDust  
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                user={this.state.user}
+              />
+
+              
+
+
+>>>>>>> password-auth-implement-2021
             )}
           />
 

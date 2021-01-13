@@ -8,25 +8,29 @@ import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import BackToLogin from './BackToLogin'
 import {checkUserCreds} from '../components/checkUserCreds'
+<<<<<<< HEAD
 import TestButton from "./TestButton"
+=======
+import TestButton from '../components/TestButton'
+>>>>>>> password-auth-implement-2021
 
-const logout = (props) =>{
-  localStorage.clear()
-  props.handleLogout()
-}
+// const logout = (props) =>{
+//   localStorage.clear()
+//   props.handleLogout()
+// }
 
 function PreEvent(props) {
 const {handleLogout} = props
 
-  useEffect(() => {
-    const user = checkUserCreds(props.user);
-    if (!user) {
-      props.history.push('/login');
-    }
-  }, [])
+  // useEffect(() => {
+  //   const user = checkUserCreds(props.user);
+  //   if (!user) {
+  //     props.history.push('/login');
+  //   }
+  // }, [])
   
-  let loggedIn = props?.location?.state?.loggedIn;
-  const hidden = loggedIn? "auto" : "none"
+  // let loggedIn = props?.location?.state?.loggedIn;
+  // const hidden = loggedIn? "auto" : "none"
 
     return(
 
@@ -36,18 +40,18 @@ const {handleLogout} = props
           
           <h2 className="registration-heading-1">under one sky</h2>
           {props.user.firstname || localStorage.email?
-          <Fragment><p className="para1">Congratulations {props.user.firstname.charAt(0).toUpperCase()+props.user.firstname.slice(1) || localStorage.firstname.charAt(0).toUpperCase()+localStorage.firstname.slice(1)}, you have successfully registered.</p>
+          <Fragment><p className="para1">Congratulations {props.user.firstname.charAt(0).toUpperCase()+props.user.firstname.slice(1) 
+          || localStorage.firstname.charAt(0).toUpperCase()+localStorage.firstname.slice(1)}, you have successfully registered.</p>
           <p className="para1">We look forward to coming together again.</p>
-          <p className="para1">Please return to freshunderonesky.com on January 27th, 7:30am ET, and login using the email/password combination you just created.</p>
-          <p className="para1">Please be sure to tune in via your laptop for optimal viewing, using Google Chrome.</p>
+          <p className="para1">Please return to freshunderonesky.com on January 27th, 7:45am ET, and login using the email/password combination you just created.</p>
+          <p className="para1">Please be sure to tune in via your <strong>laptop</strong> for optimal viewing using <strong>Google Chrome</strong>.</p>
           </Fragment>
           :<Fragment></Fragment>}
       
             <div>
           {/* <ClientPendingBanner subject="confirmation"/> */}
             </div> 
-            <TestButton handleLogout={props.handleLogout}/>
-            {/* <div className="test-logout-button" onClick={props.handleLogout}><Link to="/">LOG OUT (FOR TESTING ONLY)</Link></div> */}
+          <TestButton handleLogout={props.handleLogout}/>
     </div>
     )
   }

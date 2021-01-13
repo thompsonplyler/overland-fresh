@@ -25,6 +25,7 @@
     "npm-run-all": "^4.1.5",
     "query-string": "^6.13.7",
     "react": "^17.0.1",
+    "react-dat-gui": "^4.0.3",
     "react-desktop": "^0.3.9",
     "react-device-detect": "^1.14.0",
     "react-dom": "^17.0.1",

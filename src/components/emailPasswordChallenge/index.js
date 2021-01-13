@@ -1,4 +1,5 @@
 export const emailPasswordChallenge = async(event) => {
+  if (event){
     console.log("Sending to Password Challenge:", event)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -26,4 +27,8 @@ export const emailPasswordChallenge = async(event) => {
   } catch (error) {
       console.log(error)
   }
-  };
+  }
+  else {
+    return {"emptyEvent": true}
+  }
+};
