@@ -71,7 +71,7 @@ function Login(props) {
       props.handleLogin(userInfo);
 
       props.history.push({
-        pathname: AGENDA_URL,
+        pathname: CONFIRMATION_URL,
         state: { loggedIn: true },
       });
     } else {
