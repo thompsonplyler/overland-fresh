@@ -17,12 +17,14 @@ import styled from 'styled-components';
 import {request} from '../components/request'
 import {emailConfirmSend} from '../components/emailConfirmSend'
 import {checkUserCreds} from '../components/checkUserCreds'
+import TestButton from "../components/TestButton"
 
 
 
 function Login(props) {
 
   useEffect(() => {
+    document.body.classList.remove('sawdust-body')
     const user = checkUserCreds(props.user);
     console.log(localStorage.user)
     if (!user) {
@@ -95,8 +97,9 @@ return(
             <RegistrationInput padding={padding} border={border} handleLogin={handleLogin} />    
             <LoginInput border={border} padding={padding} handleLogin={handleLogin} />      
           </div>
-          <div className="test-logout-button" onClick={props.handleLogout}> <a href="/login">LOG OUT (FOR TESTING ONLY)</a></div>
+          
     </div>
+    <TestButton />
     </Fragment>
     )
 }

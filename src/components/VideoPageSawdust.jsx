@@ -14,6 +14,7 @@ import {
   Link, 
 } from "react-router-dom";
 // import Dat from './Dat'
+import TestButton from '../components/TestButton'
 
 
 const videoJsOptions = {
@@ -104,12 +105,15 @@ document.body.classList.add('sawdust-body')
       <div className="video-row">
         {/* <div className="chat-area">Test</div> */}
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
-        <div className="button-video-return">
-          <a href="/agenda"><button style={{width: "200px"}}>Return to Main Page</button></a>
-        </div>
+        <Link to="/agenda"><div className="button-video-return">
+          <button style={{width: "200px"}}>Return to Main Page</button>
+        </div></Link>
       </div>
       
         <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
+    </div>
+    <div>
+        <TestButton />
     </div>
     
     {/* <Chat windowHeight={stateHeight} windowWidth={stateWidth} /> */}

@@ -13,6 +13,7 @@ import {checkUserCreds} from '../components/checkUserCreds'
 import {emailPasswordChallenge} from '../components/emailPasswordChallenge'
 import {sendChallengeCode} from '../components/sendChallengeCode'
 import {sendNewPassword} from '../components/sendNewPassword'
+import TestButton from '../components/TestButton'
 
 function LostPassword(props) {
 
@@ -220,9 +221,10 @@ return(
           {challengeState == "challenge_accepted"? challengeAccepted():null}
           {challengeState == "challenge_refused"? challengeRefused():null}
 
-          <div className="test-logout-button" onClick={props.handleLogout}> <a href="/login">LOG OUT (FOR TESTING ONLY)</a></div>
+          
          
     </div>
+    <TestButton handleLogout={props.handleLogout}/>
     </Fragment>
     )
 }

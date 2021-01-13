@@ -13,6 +13,7 @@ import {
   BrowserRouter as Router,
   Link, 
 } from "react-router-dom";
+import TestButton from '../components/TestButton'
 // import Dat from './Dat'
 
 
@@ -116,7 +117,7 @@ function VideoPage(props) {
       
         <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
     </div>
-    
+    <TestButton/>
     <Chat windowHeight={stateHeight} windowWidth={stateWidth} />
     {/* <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/> */}
     {/* <ClientPendingBanner subject="event"/> */}

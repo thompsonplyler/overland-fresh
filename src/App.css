@@ -92,8 +92,6 @@ button.test-logout-button:active {
 div.test-section {
   width: 75%;
   position: absolute;
-  bottom: 5px;
-  left: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -112,6 +110,41 @@ div.test-section {
 a {
   color: white;
   text-decoration: none;
+}
+
+button.test-logout-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    background-image: linear-gradient(90deg, hsla(1, 92%, 47%, 1) 38%, hsla(52, 82%, 52%, 1) 100%);
+  box-shadow: .5px 1px rgba(0,0,255,.25);
+color: white;
+background-size: 200%;
+padding: 12px;
+margin-bottom: 5px;
+width: 200px;}
+
+  button.test-logout-button:hover {
+  background-position: right center;
+  outline: none;
+}
+
+button.test-logout-button:active{
+  transition: .1s;
+  outline: none;
+  box-shadow: 2px 2px rgba(0,0,244,.5)
+} 
+
+div.test-section {
+  width: 75%;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 2;
 }
 
 ::-webkit-input-placeholder {
@@ -876,6 +909,11 @@ button {
     line-height: 35px;
   }
 }
+
+.regular-body {
+  background-image: url("https://i.imgur.com/zfBPXIZ.jpg");
+}
+
 .sawdust-body {
   background-image: linear-gradient(black, black);
   background-color: black;

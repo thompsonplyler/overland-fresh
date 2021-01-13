@@ -15,11 +15,14 @@ import {request} from '../components/request'
 import {emailConfirmSend} from '../components/emailConfirmSend'
 import {checkUserCreds} from '../components/checkUserCreds'
 import Tooltip from '../components/Tooltip'
+import TestButton from '../components/TestButton'
 
 
 
 function Agenda(props) {
-
+useEffect(()=>{
+  document.body.classList.remove('sawdust-body')
+},[])
 
 
 //   useEffect(() => {
@@ -105,9 +108,8 @@ return(
                   <a href={NS_EVENT_URL}><button className="agenda-button">Click To Watch</button></a>
           </div>
           </div>
-          
-          <div className="test-logout-button" onClick={props.handleLogout}> <a href="/login">LOG OUT (FOR TESTING ONLY)</a></div>
     </div>
+    <TestButton/>
     </Fragment>
     )
 }
