@@ -8,11 +8,7 @@ import freshLogo from '../assets/images/frshlogo.svg'
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import BackToLogin from './BackToLogin'
 import {checkUserCreds} from '../components/checkUserCreds'
-<<<<<<< HEAD
-import TestButton from "./TestButton"
-=======
 import TestButton from '../components/TestButton'
->>>>>>> password-auth-implement-2021
 
 // const logout = (props) =>{
 //   localStorage.clear()

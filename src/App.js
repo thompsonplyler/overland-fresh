@@ -218,18 +218,6 @@ class App extends Component {
 
 <Route
             exact
-<<<<<<< HEAD
-            path="/"
-            history={history}
-            render={(props) => (
-              <Login
-                {...props}
-                isLoggedIn={this.state.isLoggedIn}
-                user={this.state.user}
-                handleLogin={this.handleLogin}
-                handleLogout={this.handleLogout}
-              />
-=======
             path={NS_EVENT_URL}
             history={history}
             render={(props) => (
@@ -242,7 +230,23 @@ class App extends Component {
               
 
 
->>>>>>> password-auth-implement-2021
+            )}
+          />
+
+<Route
+            exact
+            path="/"
+            history={history}
+            render={(props) => (
+              <Login  
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                user={this.state.user}
+              />
+
+              
+
+
             )}
           />
 

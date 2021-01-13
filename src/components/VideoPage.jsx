@@ -75,11 +75,7 @@ function VideoPage(props) {
     render() {
 
       let { windowHeight, windowWidth } = this.props
-<<<<<<< HEAD
-      let newWidth = windowWidth * .60
-=======
       let newWidth = windowWidth * .55
->>>>>>> password-auth-implement-2021
       // let newWidth = windowWidth * .40
       let newHeight = newWidth * .5625
       // console.log("rendering:", this)
@@ -106,10 +102,7 @@ function VideoPage(props) {
 
 
   return (
-<<<<<<< HEAD
-=======
     <div>
->>>>>>> password-auth-implement-2021
     <div className="flex-container-video">
       {/* <img className="img-fresh-logo" src={freshLogo}/> */}
       <h2 className="event-heading-1">under one sky</h2>  
@@ -121,21 +114,12 @@ function VideoPage(props) {
           <a href="/agenda"><button style={{width: "200px"}}>Return to Main Page</button></a>
         </div>
       </div>
-<<<<<<< HEAD
-      <div className="grid-heading">
-      <img style={{ width: "6vw" }} src={freshLogo} />
-      </div>
-    
-    <Chat windowHeight={stateHeight} windowWidth={stateWidth} />
-    <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/>
-=======
       
         <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
     </div>
     <TestButton/>
     <Chat windowHeight={stateHeight} windowWidth={stateWidth} />
     {/* <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/> */}
->>>>>>> password-auth-implement-2021
     {/* <ClientPendingBanner subject="event"/> */}
     {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
     </div>

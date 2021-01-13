@@ -13,12 +13,7 @@ import {checkUserCreds} from '../components/checkUserCreds'
 import {emailPasswordChallenge} from '../components/emailPasswordChallenge'
 import {sendChallengeCode} from '../components/sendChallengeCode'
 import {sendNewPassword} from '../components/sendNewPassword'
-<<<<<<< HEAD
-import TestButton from "./TestButton"
-
-=======
 import TestButton from '../components/TestButton'
->>>>>>> password-auth-implement-2021
 
 function LostPassword(props) {
 
