@@ -18,7 +18,7 @@ import TestButton from '../components/TestButton'
 
 
 const videoJsOptions = {
-  autoplay: false,
+  autoplay: true,
   controls: true,
   loop: true,
   responsive: true,
