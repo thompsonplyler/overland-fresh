@@ -10,7 +10,7 @@ import {
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import RegistrationInput from '../components/RegistrationInput'
 import LoginInput from '../components/LoginInput'
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED, WRONG_PASSWORD_URL, AGENDA_URL} from '../urls'
+import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, WRONG_PASSWORD_URL, AGENDA_URL} from '../urls'
 
 import axios from 'axios'
 import styled from 'styled-components';
@@ -28,7 +28,7 @@ function Login(props) {
     const user = checkUserCreds(props.user);
     console.log(localStorage.user)
     if (!user) {
-      props.history.push('/login');
+      props.history.push(LOGIN_URL);
     }
     if (user || localStorage.user) {
       props.history.push(CONFIRMATION_URL)
@@ -44,7 +44,7 @@ function Login(props) {
     console.log(user.error_code)
 
     if (user.error_code == "009"){
-      props.history.push(ALREADY_REGISTERED)
+      props.history.push(LOGIN_URL)
       return
     }
 
@@ -76,7 +76,7 @@ function Login(props) {
       });
     } else {
       props.history.push({
-        pathname: "/loginfailed",
+        pathname: LOGIN_FAILED_URL,
         state: {loggedIn: false, reason: "password"}
       })
       localStorage.clear()

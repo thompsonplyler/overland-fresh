@@ -8,7 +8,7 @@ import {
   withRouter
 } from "react-router-dom";
 
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, NS_EVENT_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED} from '../urls'
+import {LOGIN_URL, EVENT_URL, AGENDA, CONFIRMATION_URL, NS_EVENT_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED} from '../urls'
 
 
 import {request} from '../components/request'
@@ -45,7 +45,7 @@ useEffect(()=>{
     console.log(user.error_code)
 
     if (user.error_code == "009"){
-      props.history.push(ALREADY_REGISTERED)
+      props.history.push(LOGIN_URL)
       return
     }
     
@@ -70,7 +70,7 @@ useEffect(()=>{
       });
     } else {
       props.history.push({
-        pathname: "/loginfailed",
+        pathname: LOGIN_FAILED_URL,
         state: {loggedIn: false}
       })
       localStorage.clear()
@@ -93,14 +93,15 @@ return(
           <div className="agenda-grid-item">
               <h3>Part 1: Interactive Welcome Session</h3>
               <h3>8:00 AM - 8:15 AM EST</h3>
-                  {/* <a href="https://spatial.chat/s/freshunderonesky?sp=fresh007" target="_blank"> */}
-                    <button className="agenda-button"><Tooltip message={tooltip_data.tooltip} position={'right'}>{tooltip_data.buttonText}</Tooltip></button>
-                    {/* </a> */}
+                  <a href="https://spatial.chat/s/freshunderonesky?sp=fresh007" target="_blank">
+                    <button className="agenda-button"></button></a>
+                    {// <Tooltip message={tooltip_data.tooltip} position={'right'}>{tooltip_data.buttonText}</Tooltip>
+}
           </div>
           <div className="agenda-grid-item">
           <h3>Part 2: Under One Sky Meeting</h3>
               <h3>8:20 AM - 9:05 AM EST</h3>
-                  <Link to="/event"><button className="agenda-button">Click To Watch</button></Link>
+                  <Link to={EVENT_URL}><button className="agenda-button">Click To Watch</button></Link>
           </div>
           <div className="agenda-grid-item">
           <h3>Part 3: Purpose Experience</h3>
