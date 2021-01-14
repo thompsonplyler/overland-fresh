@@ -32,7 +32,7 @@ function Login(props) {
       props.history.push(LOGIN_URL);
     }
     if (user) {
-      props.history.push(AGENDA_URL)
+      props.history.push(CONFIRMATION_URL)
     }
   }, [])
   // console.log(queryString.parse(props.location.search))
