@@ -109,7 +109,7 @@ return(
           </div>
           </div>
     </div>
-    <TestButton handleLogout={props.handleLogout}/>
+    
     </Fragment>
     )
 }

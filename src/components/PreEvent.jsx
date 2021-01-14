@@ -47,7 +47,7 @@ const {handleLogout} = props
             <div>
           {/* <ClientPendingBanner subject="confirmation"/> */}
             </div> 
-          <TestButton handleLogout={props.handleLogout}/>
+          
     </div>
     )
   }

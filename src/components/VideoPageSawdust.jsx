@@ -112,9 +112,7 @@ document.body.classList.add('sawdust-body')
       
         <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
     </div>
-    <div>
-        <TestButton />
-    </div>
+
     
     {/* <Chat windowHeight={stateHeight} windowWidth={stateWidth} /> */}
     {/* <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/> */}
