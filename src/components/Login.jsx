@@ -25,13 +25,14 @@ function Login(props) {
 
   useEffect(() => {
     document.body.classList.remove('sawdust-body')
+    console.log("Props from Login: ", props)
     const user = checkUserCreds(props.user);
-    console.log(localStorage.user)
+    console.log("User result from checkUserCreds: ",user)
     if (!user) {
       props.history.push(LOGIN_URL);
     }
-    if (user || localStorage.user) {
-      props.history.push(CONFIRMATION_URL)
+    if (user) {
+      props.history.push(AGENDA_URL)
     }
   }, [])
   // console.log(queryString.parse(props.location.search))
@@ -39,9 +40,8 @@ function Login(props) {
   const handleLogin = async (userData) => {
     let email = userData.email.toLowerCase()
     console.log("Data returned from the Rails server to parse: ", email);
-    let password = userData.password
     const user = await request(userData)
-    console.log(user.error_code)
+    console.log("Received error code, if any: ", user.error_code)
 
     if (user.error_code == "009"){
       props.history.push(LOGIN_URL)
@@ -68,6 +68,7 @@ function Login(props) {
         email: user.email,
         company: user.company,
       }
+      console.log("User info sent to App#handleLogin: ",userInfo)
       props.handleLogin(userInfo);
 
       props.history.push({

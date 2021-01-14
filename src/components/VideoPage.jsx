@@ -14,6 +14,8 @@ import {
   Link, 
 } from "react-router-dom";
 import TestButton from '../components/TestButton'
+import Login from './Login';
+import { AGENDA_URL, LOGIN_URL } from '../urls';
 // import Dat from './Dat'
 
 
@@ -38,12 +40,13 @@ const videoJsOptions = {
 
 function VideoPage(props) {
 
-  // useEffect(() => {
-  //   const user = checkUserCreds(props.user);
-  //   if (!user) {
-  //     props.history.push('/login');
-  //   }
-  // }, [])
+  useEffect(() => {
+    const user = checkUserCreds(props.user);
+    if (!user) {
+      props.history.push(LOGIN_URL);
+    }
+  }, [])
+
   useEffect(()=>{
     window.addEventListener('onfullscreenchange',()=>{
       console.log("I've been resized!")
@@ -111,7 +114,7 @@ function VideoPage(props) {
         {/* <div className="chat-area">Test</div> */}
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
         <div className="button-video-return">
-          <a href="/agenda"><button style={{width: "200px"}}>Return to Main Page</button></a>
+          <a href={AGENDA_URL}><button style={{width: "200px"}}>Return to Main Page</button></a>
         </div>
       </div>
       

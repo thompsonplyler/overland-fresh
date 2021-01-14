@@ -25,16 +25,17 @@ useEffect(()=>{
 },[])
 
 
-//   useEffect(() => {
-//     const user = checkUserCreds(props.user);
-//     console.log(localStorage.user)
-//     if (!user) {
-//       props.history.push('/login');
-//     }
-//     if (user || localStorage.user) {
-//       props.history.push(CONFIRMATION_URL)
-//     }
-//   }, [])
+  useEffect(() => {
+    console.log("Agenda props: ",props)
+    const user = checkUserCreds(props.user);
+    // console.log(localStorage.user)
+    if (!user) {
+      props.history.push(LOGIN_URL);
+    }
+    // if (user || localStorage.user) {
+    //   props.history.push(CONFIRMATION_URL)
+    // }
+  }, [])
   // console.log(queryString.parse(props.location.search))
 
   const handleLogin = async (userData) => {
@@ -94,7 +95,7 @@ return(
               <h3>Part 1: Interactive Welcome Session</h3>
               <h3>8:00 AM - 8:15 AM EST</h3>
                   <a href="https://spatial.chat/s/freshunderonesky?sp=fresh007" target="_blank">
-                    <button className="agenda-button"></button></a>
+                    <button className="agenda-button">Click to Watch</button></a>
                     {// <Tooltip message={tooltip_data.tooltip} position={'right'}>{tooltip_data.buttonText}</Tooltip>
 }
           </div>

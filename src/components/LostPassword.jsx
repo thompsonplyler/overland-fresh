@@ -14,6 +14,7 @@ import {emailPasswordChallenge} from '../components/emailPasswordChallenge'
 import {sendChallengeCode} from '../components/sendChallengeCode'
 import {sendNewPassword} from '../components/sendNewPassword'
 import TestButton from '../components/TestButton'
+import { LOGIN_URL } from '../urls';
 
 function LostPassword(props) {
 
@@ -142,7 +143,7 @@ const sendPassword = async(event) => {
   const passwordSuccess = await sendNewPassword(data)
   console.log(passwordSuccess)
   if (passwordSuccess.status === "password changed") {
-    props.history.push('/login')
+    props.history.push(LOGIN_URL)
   }
   
 }

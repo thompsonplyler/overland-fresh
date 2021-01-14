@@ -149,7 +149,7 @@ class RegistrationInput extends Component {
   }
 
   render(props) {
-    console.log(this.props)
+    console.log("Registration input props: ",this.props)
     const { email, password, emailConfirm, passwordConfirm } = this.state
     const junk = `Password`
     return (

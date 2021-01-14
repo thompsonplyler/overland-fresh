@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 // import Dat from './Dat'
 import TestButton from '../components/TestButton'
+import { AGENDA_URL, LOGIN_URL } from '../urls';
 
 
 const videoJsOptions = {
@@ -41,6 +42,13 @@ function VideoPageSawdust(props) {
 useEffect (()=>{
 document.body.classList.add('sawdust-body')
 },[])
+
+useEffect(() => {
+  const user = checkUserCreds(props.user);
+  if (!user) {
+    props.history.push(LOGIN_URL);
+  }
+}, [])
 
   useEffect(()=>{
     window.addEventListener('onfullscreenchange',()=>{
@@ -105,9 +113,9 @@ document.body.classList.add('sawdust-body')
       <div className="video-row">
         {/* <div className="chat-area">Test</div> */}
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
-        <a to="/agenda"><div className="button-video-return">
-          <button style={{width: "200px"}}>Return to Main Page</button>
-        </div></a>
+        <div className="button-video-return">
+        <a href={AGENDA_URL}><button style={{width: "200px"}}>Return to Main Page</button></a>
+        </div>
       </div>
       
         <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
