@@ -148,7 +148,7 @@ class App extends Component {
             path="/"
             history={history}
             render={(props) => (
-              <Login
+              <CometChatTest
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
