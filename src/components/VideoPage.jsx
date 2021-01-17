@@ -17,6 +17,15 @@ import {
 
 // import Dat from './Dat'
 
+import Iframe from 'react-iframe'
+
+{/* <Iframe url="https://www.deadsimplechat.com/CHsOaJ9WD?username=Thompson%20Plyler"
+width="500px"
+height="500px"
+id="myId"
+className="chat-box"
+display="initial"
+position="absolute"/> */}
 
 const videoJsOptions = {
   autoplay: false,
