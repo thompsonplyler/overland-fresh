@@ -13,6 +13,8 @@ import {
   BrowserRouter as Router,
   Link, 
 } from "react-router-dom";
+
+
 // import Dat from './Dat'
 
 
@@ -97,6 +99,7 @@ function VideoPage(props) {
 
   let [stateWidth, setWidth] = useState(window.innerWidth)
   let [stateHeight, setHeight] = useState(window.innerHeight)
+  
 
 
 
@@ -116,8 +119,8 @@ function VideoPage(props) {
       
         <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
     </div>
-    
-    <Chat windowHeight={stateHeight} windowWidth={stateWidth} />
+
+    {/* <Chat windowHeight={stateHeight} windowWidth={stateWidth} /> */}
     {/* <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/> */}
     {/* <ClientPendingBanner subject="event"/> */}
     {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}

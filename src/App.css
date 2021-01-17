@@ -880,7 +880,10 @@ button {
       }
     }
 
-
+.chat-box {
+  right: 8px;
+  bottom: 8px;
+}
 
 
 @media only screen and (max-width: 800px) {
