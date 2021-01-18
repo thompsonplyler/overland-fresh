@@ -49,7 +49,7 @@ const videoJsOptions = {
 function VideoPage(props) {
   const [chatButtonPressed, setChatButtonPressed] = useState(false)
   let [stateWidth, setWidth] = useState(window.innerWidth)
-  let firstName = "Default"|| JSON.parse(localStorage.getItem('user')).firstname
+  let firstName = "Unknown"|| JSON.parse(localStorage.getItem('user')).firstname
   let lastName = "User" ||JSON.parse(localStorage.getItem('user')).lastname
 
   // useEffect(() => {
