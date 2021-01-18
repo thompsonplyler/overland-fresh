@@ -49,8 +49,8 @@ const videoJsOptions = {
 function VideoPage(props) {
   const [chatButtonPressed, setChatButtonPressed] = useState(false)
   let [stateWidth, setWidth] = useState(window.innerWidth)
-  let firstName = JSON.parse(localStorage.getItem('user')).firstname || "Default"
-  let lastName = JSON.parse(localStorage.getItem('user')).lastname || "User"
+  let firstName = "Default"|| JSON.parse(localStorage.getItem('user')).firstname
+  let lastName = "User" ||JSON.parse(localStorage.getItem('user')).lastname
 
   // useEffect(() => {
   //   const user = checkUserCreds(props.user);
