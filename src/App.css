@@ -649,7 +649,7 @@ h2.event-heading-1 {
     margin: 5px;
 } */
 .video-player {
-  /* right: 20%; */
+  z-index: 2;
 }
 
 .timer-component {
@@ -855,6 +855,27 @@ button {
 
 .iWdvNy {
   right: 2px;
+}
+
+.chat-box {
+  right: 8px;
+  bottom: 8px;
+}
+
+.chat-icon-inactive {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  transform: scale(.8);
+  filter: drop-shadow(2px 2px 2px #222);
+}
+
+.chat-icon-active {
+  position: absolute;
+  right: 8px;
+  bottom: 508px;
+  transform: scale(.8);
+  filter: drop-shadow(2px 2px 2px #222);
 }
 
 @media only screen and (max-width: 1280px) {

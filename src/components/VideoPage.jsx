@@ -17,6 +17,10 @@ import TestButton from '../components/TestButton'
 import Login from './Login';
 import { AGENDA_URL, LOGIN_URL } from '../urls';
 // import Dat from './Dat'
+import Iframe from 'react-iframe'
+
+
+
 
 
 const videoJsOptions = {
@@ -27,8 +31,8 @@ const videoJsOptions = {
   mute: true,
   poster: "https://i.imgur.com/Aaog0bm.png",
   sources: [{
-    // src: tempVideo,
-    src: "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.rXLMiU83NvaX.m3u8",
+    src: tempVideo,
+    // src: "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.rXLMiU83NvaX.m3u8",
     poster: "https://i.imgur.com/Aaog0bm.png"
   }]
 }
@@ -39,6 +43,7 @@ const videoJsOptions = {
 
 
 function VideoPage(props) {
+  const [chatButtonPressed, setChatButtonPressed] = useState(false)
 
   useEffect(() => {
     const user = checkUserCreds(props.user);
@@ -52,9 +57,15 @@ function VideoPage(props) {
       console.log("I've been resized!")
       console.log(window)
     })
+  })
+
+  const chatToggle = (e) => {
+    e.preventDefault()
+    setChatButtonPressed(!chatButtonPressed)
+
   }
 
-  )
+
   class VideoPlayer extends React.Component {
 
 
@@ -81,6 +92,8 @@ function VideoPage(props) {
       let newWidth = windowWidth * .55
       // let newWidth = windowWidth * .40
       let newHeight = newWidth * .5625
+
+
       // console.log("rendering:", this)
       
       return (
@@ -103,7 +116,8 @@ function VideoPage(props) {
   let [stateHeight, setHeight] = useState(window.innerHeight)
 
 
-
+  let firstName = JSON.parse(localStorage.getItem('user')).firstname
+  let lastName = JSON.parse(localStorage.getItem('user')).lastname
   return (
     <div>
     <div className="flex-container-video">
@@ -120,8 +134,23 @@ function VideoPage(props) {
       
         <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
     </div>
-    
-    <Chat windowHeight={stateHeight} windowWidth={stateWidth} />
+    <img onClick={chatToggle} className={chatButtonPressed?'chat-icon-active':'chat-icon-inactive'} src='./chat_icon.png'></img>
+    {chatButtonPressed?<Iframe url={`https://www.deadsimplechat.com/CHsOaJ9WD?username=${firstName}%20${lastName}`}
+    width="21%"
+    height="500px"
+    id="myId"
+    className="chat-box"
+    display="initial"
+    position="absolute"/>
+    :<Iframe url={`https://www.deadsimplechat.com/CHsOaJ9WD?username=${firstName}%20${lastName}`}
+    width="21%"
+    height="500px"
+    id="myId"
+    className="chat-box"
+    display="none"
+    position="absolute"/>
+    }
+    {/* <Chat windowHeight={stateHeight} windowWidth={stateWidth} /> */}
     {/* <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/> */}
     {/* <ClientPendingBanner subject="event"/> */}
     {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
