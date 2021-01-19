@@ -225,8 +225,7 @@ return(
           
          
     </div>
-    
-    </Fragment>
+    <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/>    </Fragment>
     )
 }
 

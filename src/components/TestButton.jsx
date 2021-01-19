@@ -12,7 +12,7 @@ import {
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import RegistrationInput from '../components/RegistrationInput'
 import LoginInput from '../components/LoginInput'
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED, WRONG_PASSWORD_URL} from '../urls'
+import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, ALREADY_REGISTERED, WRONG_PASSWORD_URL, AGENDA_URL} from '../urls'
 
 import axios from 'axios'
 import styled from 'styled-components';
@@ -21,13 +21,13 @@ import {emailConfirmSend} from '../components/emailConfirmSend'
 import {checkUserCreds} from '../components/checkUserCreds'
 
 const TestButton = (props) => {
-  console.log(props)
+  console.log("Test button props: ",props)
     return(
       
         <div className="test-section">
             <h3 style={{fontFamily: "sans-serif", color: "red", marginBottom: "5px"}}>For Testing Purposes Only:</h3>
-        <Link to="/login"><button onClick={props.handleLogout} className="test-logout-button" >Logout and Return to Login</button></Link>
-        <Link to="/agenda"><button onClick={props.handleLogout} className="test-logout-button" >Proceed to Agenda</button></Link>
+        <Link to={LOGIN_URL}><button onClick={props.handleLogout} className="test-logout-button" >Logout and Return to Login</button></Link>
+        <Link to={AGENDA_URL}><button user={props.user} onClick={props.handleLogout} className="test-logout-button" >Proceed to Agenda</button></Link>
         {/* <a href="/agenda"><button className="test-logout-button">View Agenda Page</button></a> */}
         </div>
         

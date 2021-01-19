@@ -238,10 +238,12 @@ class App extends Component {
             path="/"
             history={history}
             render={(props) => (
-              <VideoPage  
+              <Login  
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
+                handleLogin={this.handleLogin}
+                handleLogout={this.handleLogout}
               />
 
               

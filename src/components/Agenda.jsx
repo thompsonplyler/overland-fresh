@@ -27,6 +27,7 @@ useEffect(()=>{
 
   useEffect(() => {
     console.log("Agenda props: ",props)
+    console.log("Agenda local storage: ", localStorage)
     const user = checkUserCreds(props.user);
     // console.log(localStorage.user)
     if (!user) {
@@ -111,8 +112,8 @@ return(
           </div>
           </div>
     </div>
-    
-    </Fragment>
+    <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/>
+        </Fragment>
     )
 }
 

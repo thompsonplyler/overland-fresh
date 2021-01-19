@@ -124,8 +124,7 @@ function VideoPage(props) {
     className="chat-box"
     display={chatButtonPressed?"initial":"none"}
     position="absolute"/>
-
-    </div>
+<TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/>    </div>
 
 
 

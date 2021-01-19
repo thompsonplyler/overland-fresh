@@ -16,7 +16,9 @@ import TestButton from '../components/TestButton'
 // }
 
 function PreEvent(props) {
-const {handleLogout} = props
+const {handleLogout, user} = props
+console.log("Pre-Event props: ", props)
+console.log("Pre-Event User prop: ",user)
 
   // useEffect(() => {
   //   const user = checkUserCreds(props.user);
@@ -47,8 +49,7 @@ const {handleLogout} = props
             <div>
           {/* <ClientPendingBanner subject="confirmation"/> */}
             </div> 
-          
-    </div>
+            <TestButton style={{paddingRight: "200px"}} user={user} handleLogout={props.handleLogout}/>    </div>
     )
   }
   

@@ -123,7 +123,7 @@ useEffect(() => {
 
     
     {/* <Chat windowHeight={stateHeight} windowWidth={stateWidth} /> */}
-    {/* <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/> */}
+    <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/>
     {/* <ClientPendingBanner subject="event"/> */}
     {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
     </div>
