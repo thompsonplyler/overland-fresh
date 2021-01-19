@@ -225,6 +225,7 @@ class App extends Component {
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
+                handleLogout={this.handleLogout}
               />
 
               
