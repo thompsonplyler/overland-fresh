@@ -23,34 +23,14 @@ import Iframe from 'react-iframe'
 import poster from '../assets/images/blue_sky.jpeg'
 import HLSSource from './HLSSource';
 
-
-
-
-
-const videoJsOptions = {
-  autoplay: false,
-  controls: true,
-  loop: true,
-  responsive: true,
-  mute: true,
-  poster: "https://i.imgur.com/Aaog0bm.png",
-  sources: [{
-    src: tempVideo,
-    // src: "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.rXLMiU83NvaX.m3u8",
-    poster: "https://i.imgur.com/Aaog0bm.png"
-  }]
-}
-
-
-
-
-
-
 function VideoPage(props) {
   const [chatButtonPressed, setChatButtonPressed] = useState(false)
   let [stateWidth, setWidth] = useState(window.innerWidth)
-  let firstName = "Unknown"|| JSON.parse(localStorage.getItem('user')).firstname
-  let lastName = "User" ||JSON.parse(localStorage.getItem('user')).lastname
+  let [firstName, setFirstName] = useState("Unknown")
+  let [lastName,setLastName] = useState("User")
+  console.log("Video Page props: ",props.user)
+
+
 
   // useEffect(() => {
   //   const user = checkUserCreds(props.user);
@@ -59,6 +39,7 @@ function VideoPage(props) {
   //   }
   // }, [])
 
+  //resize handling
   useEffect(()=>{
 
   function handleResize(){
@@ -72,11 +53,25 @@ function VideoPage(props) {
 
   })
 
+  //activate and deactivate chat 
   const chatToggle = (e) => {
     e.preventDefault()
     setChatButtonPressed(!chatButtonPressed)
 
   }
+
+  useEffect(()=>{
+    console.log("User props: ",props.user)
+    if (props.user.firstname) setFirstName(props.user.firstname)
+    if (props.user.lastname) setLastName(props.user.lastname)
+    if (localStorage.user) {
+      let parsed = JSON.parse(localStorage.user)
+      console.log("Parsed stuff: ",parsed)
+      setFirstName(parsed.firstname)
+      setLastName(parsed.lastname)
+    }
+
+  },[])
 
 
   return (

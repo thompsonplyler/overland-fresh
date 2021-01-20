@@ -91,6 +91,7 @@ function Login(props) {
 const padding = 3
 const border = 1
 
+console.log("Login page props: ", props)
 return(
 <Fragment>
     <div className="container">
@@ -104,7 +105,7 @@ return(
           </div>
           
     </div>
-    <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/>    </Fragment>
+    <TestButton style={{paddingRight: "200px"}} handleLogout={props.handleLogout}/>    </Fragment>
     )
 }
 

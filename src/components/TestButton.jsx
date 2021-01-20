@@ -27,7 +27,7 @@ const TestButton = (props) => {
         <div className="test-section">
             <h3 style={{fontFamily: "sans-serif", color: "red", marginBottom: "5px"}}>For Testing Purposes Only:</h3>
         <Link to={LOGIN_URL}><button onClick={props.handleLogout} className="test-logout-button" >Logout and Return to Login</button></Link>
-        <Link to={AGENDA_URL}><button user={props.user} onClick={props.handleLogout} className="test-logout-button" >Proceed to Agenda</button></Link>
+        <Link to={AGENDA_URL}><button user={props.user} className="test-logout-button" >Proceed to Agenda</button></Link>
         {/* <a href="/agenda"><button className="test-logout-button">View Agenda Page</button></a> */}
         </div>
         
