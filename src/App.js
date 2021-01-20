@@ -14,12 +14,13 @@ import PostEvent from "./components/PostEvent"
 
 import Login from "./components/Login"
 import LoginFailed from "./components/LoginFailed"
-import { LOST_PASSWORD_URL,AGENDA_URL, NS_EVENT_URL, LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL,ALREADY_REGISTERED, WRONG_PASSWORD_URL } from './urls'
+import { LOST_PASSWORD_URL,AGENDA_URL, NS_EVENT_URL, LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, UNREGISTERED_ERROR_URL,LOGIN_FAILED_URL,ALREADY_REGISTERED, WRONG_PASSWORD_URL } from './urls'
 import ReactGA from 'react-ga';
 import LostPassword from './components/LostPassword';
 import Agenda from './components/Agenda';
 import WrongPassword from './components/WrongPassword';
 import VideoPageSawDust from './components/VideoPageSawdust';
+import UnregisteredError from './components/UnregisteredError';
 
 
 // const trackingId = ""
@@ -233,6 +234,26 @@ class App extends Component {
 
             )}
           />
+
+<Route
+            exact
+            path={UNREGISTERED_ERROR_URL}
+            history={history}
+            render={(props) => (
+              <UnregisteredError  
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                user={this.state.user}
+                handleLogout={this.handleLogout}
+              />
+
+              
+
+
+            )}
+          />
+
+          
 
 <Route
             exact
