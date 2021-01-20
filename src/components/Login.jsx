@@ -26,16 +26,22 @@ function Login(props) {
   useEffect(() => {
     document.body.classList.remove('sawdust-body')
     console.log("Props from Login: ", props)
-    const user = checkUserCreds(props.user);
+    let user = checkUserCreds(props.user);
     console.log("User result from checkUserCreds: ",user)
-    if (!user) {
+    if (user != (true || false)){
+      user = Promise.resolve(user)
+      console.log(user)
+    }
+    if (user == false) {
+
       props.history.push(LOGIN_URL);
     }
     if (user) {
       props.history.push(CONFIRMATION_URL)
     }
   }, [])
-  // console.log(queryString.parse(props.location.search))
+  const {handleLogout} = props
+  // console.log("Verifying logout's existence: ", handleLogout)// console.log(queryString.parse(props.location.search))
 
   const handleLogin = async (userData) => {
     let email = userData.email.toLowerCase()
@@ -77,6 +83,7 @@ function Login(props) {
         lastname: user.lastname,
         email: user.email,
         company: user.company,
+        confirm_token: user.confirm_token
       }
       console.log("User info sent to App#handleLogin: ",userInfo)
       props.handleLogin(userInfo);
@@ -110,7 +117,7 @@ return(
           </div>
           
     </div>
-    
+    <TestButton handleLogout={props.handleLogout}/>
     </Fragment>
     )
 }

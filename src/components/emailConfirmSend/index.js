@@ -1,3 +1,4 @@
+import {ADDRESS} from '../../env_define'
 export const emailConfirmSend = async(event) => {
   console.log(event.registered)
 if (!event.registered)
@@ -18,7 +19,7 @@ var requestOptions = {
 };
 
   
-try { const response = await fetch("https://fresh-under-one-sky-email-api.herokuapp.com/api/v1/person", requestOptions)
+try { const response = await fetch(`${ADDRESS}/person`, requestOptions)
 
 const json = await response.json()
 
