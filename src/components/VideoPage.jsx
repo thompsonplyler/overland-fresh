@@ -82,14 +82,14 @@ function VideoPage(props) {
 
   },[])
 
-  useEffect(()=>{
-    if (location == ["China"]) {
-      setStreamURL(chinaURL)
-    }
-    if (location == ['United States']) {
-      setStreamURL(usURL)
-    }
-  },location)
+  // useEffect(()=>{
+  //   if (location == ["China"]) {
+  //     setStreamURL(chinaURL)
+  //   }
+  //   if (location == ['United States']) {
+  //     setStreamURL(usURL)
+  //   }
+  // },location)
 
   fetch('https://extreme-ip-lookup.com/json/')
 .then( res => res.json())
