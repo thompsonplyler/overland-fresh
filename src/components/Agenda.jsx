@@ -83,6 +83,7 @@ const padding = 3
 const border = 1
 
 const tooltip_data ={"name":"test1","buttonText": "Click to Watch", "tooltip":"This button has been deactivated for testing purposes."}
+const tooltip_data_2 ={"name":"test2","buttonText": "Click to Watch", "tooltip":"This button has been deactivated for testing purposes."}
 
 return(
 <Fragment>
@@ -95,9 +96,10 @@ return(
           <div className="agenda-grid-item">
               <h3>Part 1: Interactive Welcome Session</h3>
               <h3>8:00 AM - 8:15 AM EST</h3>
-                  <a href="https://spatial.chat/s/freshunderonesky?sp=fresh007" target="_blank">
-                    <button className="agenda-button">Click to Watch</button></a>
-                    {// <Tooltip message={tooltip_data.tooltip} position={'right'}>{tooltip_data.buttonText}</Tooltip>
+                  {/* <a href="https://spatial.chat/s/freshunderonesky?sp=fresh007" target="_blank"> */}
+                    <button className="agenda-button"><Tooltip message={tooltip_data.tooltip} position={'right'}>{tooltip_data.buttonText}</Tooltip></button>
+                    {/* </a> */}
+                    {// 
 }
           </div>
           <div className="agenda-grid-item">
@@ -108,12 +110,15 @@ return(
           <div className="agenda-grid-item">
           <h3>Part 3: Purpose Experience</h3>
               <h3>9:20 AM - 10:05 AM EST</h3>
-                  <a href={NS_EVENT_URL}><button className="agenda-button">Click To Watch</button></a>
+                  {/* <a href={NS_EVENT_URL}> */}
+                    <button className="agenda-button"><Tooltip message={tooltip_data.tooltip} position={'right'}>{tooltip_data.buttonText}</Tooltip></button>
+                    {/* </a> */}
           </div>
           </div>
     </div>
-    <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/>
-        </Fragment>
+    {//* <TestButton style={{paddingRight: "200px"}} handleLogout={props.handleLogout}/>    
+  }
+    </Fragment>
     )
 }
 
