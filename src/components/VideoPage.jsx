@@ -136,7 +136,7 @@ console.log(location)
 
     {// button to activate chat; clicking goes to chatToggle}
 }
-    <img onClick={chatToggle} className={chatButtonPressed?'chat-icon-active':'chat-icon-inactive'} src='./chat_icon.png'></img>
+    {/* <img onClick={chatToggle} className={chatButtonPressed?'chat-icon-active':'chat-icon-inactive'} src='./chat_icon.png'></img>
     
     {// checks state and renders deadsimple chat widget accordingingly in iFrame}
 }
@@ -146,7 +146,7 @@ console.log(location)
     id="myId"
     className="chat-box"
     display={chatButtonPressed?"initial":"none"}
-    position="absolute"/>
+    position="absolute"/> */}
  </div>
 
 
