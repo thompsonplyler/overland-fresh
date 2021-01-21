@@ -29,10 +29,6 @@ function Login(props) {
     console.log("Props from Login: ", props)
     let user = await checkUserCreds(props.user);
     console.log("User result from checkUserCreds: ",user)
-    if (user != (true || false)){
-      // user = Promise.resolve(user)
-      console.log("User result on Login, #1: ",user)
-    }
     if (user == false) {
 
       props.history.push(LOGIN_URL);
@@ -40,7 +36,7 @@ function Login(props) {
     if (user) {
       props.history.push(CONFIRMATION_URL)
     }
-    props.history.push(LOGIN_URL)
+
   }
   checkLogin()
 }

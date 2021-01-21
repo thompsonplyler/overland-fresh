@@ -21,7 +21,7 @@ import {emailConfirmSend} from '../components/emailConfirmSend'
 import {checkUserCreds} from '../components/checkUserCreds'
 
 const TestButton = (props) => {
-  console.log(props)
+  // console.log(props)
     return(
       
         <div className="test-section">

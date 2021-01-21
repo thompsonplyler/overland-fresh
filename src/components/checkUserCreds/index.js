@@ -1,7 +1,9 @@
 import {ADDRESS} from '../../env_define'
 import { confirmationCodeChallenge } from '../confirmationCodeChallenge'
 
-export const checkUserCreds = async (user) => {
+export const checkUserCreds = async (data) => {
+
+  console.log("User data passed to checkUserCreds, if any:", data)
 
   try {
   let loggedIn = false; 

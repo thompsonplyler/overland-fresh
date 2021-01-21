@@ -17,7 +17,8 @@ import TestButton from '../components/TestButton'
 
 function PreEvent(props) {
 const {handleLogout} = props
-console.log("Verifying logout's existence: ", handleLogout)
+console.log("Props from PreEvent page: ", props)
+// console.log("Verifying logout's existence: ", handleLogout)
 
   // useEffect(() => {
   //   const user = checkUserCreds(props.user);

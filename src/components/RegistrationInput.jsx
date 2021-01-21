@@ -27,7 +27,7 @@ class RegistrationInput extends Component {
 
   onKeyPress = (event) => {
     if (event.keyCode === 13) {
-      console.log('enter')
+      // console.log('enter')
       this.handleSubmit(event)
     }
   }
@@ -48,7 +48,7 @@ class RegistrationInput extends Component {
   confirmInput = (event) => {
     const { name, value } = event.target
     let { errors } = this.state
-    console.log("Errors at start of event input:",errors)
+    // console.log("Errors at start of event input:",errors)
 
     if (this.state.email=='') {
       this.setState({ errors: [...this.state.errors, "You must include a valid e-mail address."] })
@@ -123,7 +123,7 @@ class RegistrationInput extends Component {
   };
 
   handleErrors = () => {
-    console.log(this.state.errors)
+    // console.log(this.state.errors)
     return (
       <div className="error-div">
         <ul className="ul-error">
@@ -137,7 +137,7 @@ class RegistrationInput extends Component {
 
   onEmailBlur = async(e) => {
     const registered = await emailRegCheck(e)
-    console.log(registered)
+    // console.log(registered)
     
     if (registered.registration == true){
       this.setState({userRegistered:true})
@@ -149,7 +149,7 @@ class RegistrationInput extends Component {
   }
 
   render(props) {
-    console.log("Registration input props: ",this.props)
+    // console.log("Registration input props: ",this.props)
     const { email, password, emailConfirm, passwordConfirm } = this.state
     const junk = `Password`
     return (
