@@ -36,6 +36,8 @@ function VideoPage(props) {
   let [lastName,setLastName] = useState("User")
   let [location,setLocation] = useState(["elsewhere"])
   let [streamURL, setStreamURL] = useState(normalStreamURL)
+  let [isChina,setChina] = useState(false)
+  let [isUS, setUS] = useState(false)
 
   console.log("Video Page props: ",props.user)
 
@@ -82,20 +84,16 @@ function VideoPage(props) {
 
   },[])
 
-  const setStream = ()=>{
-
-  }
-
 useEffect(()=>{
     fetch('https://extreme-ip-lookup.com/json/')
 .then( res => res.json())
 .then(response => {
     console.log("Country: ", response.country);
     if (response.country == "China"){
-      setLocation(['China'])
+      setChina(true)
     }
     if (response.country == "United States"){
-      setLocation(['United States'])
+      setUS(true)
     }
  })
  .catch((data, status) => {
@@ -115,15 +113,14 @@ console.log(location)
 
         
         
-        
-        
-        <Player fluid={false} width={stateWidth*.55} playsInline poster={poster} autoplay={true}>
-          <HLSSource
-          isVideoChild
-          src={streamURL}
-          />
-          <BigPlayButton position="center"></BigPlayButton>
-        </Player>
+      <Player fluid={false} width={stateWidth*.55} playsInline poster={poster} autoplay={true}>
+      <HLSSource
+      isVideoChild
+      src={isChina?chinaURL:normalStreamURL}
+      />
+      <BigPlayButton position="center"></BigPlayButton>
+    </Player>
+
         
         
         
