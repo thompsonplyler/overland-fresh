@@ -86,7 +86,7 @@ function VideoPage(props) {
     if (location == ["China"]) {
       setStreamURL(chinaURL)
     }
-    if location == ['United States'] {
+    if (location == ['United States']) {
       setStreamURL(usURL)
     }
   },location)
