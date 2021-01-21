@@ -24,13 +24,14 @@ import TestButton from "../components/TestButton"
 function Login(props) {
 
   useEffect(() => {
+    const checkLogin = async () => {
     document.body.classList.remove('sawdust-body')
     console.log("Props from Login: ", props)
-    let user = checkUserCreds(props.user);
+    let user = await checkUserCreds(props.user);
     console.log("User result from checkUserCreds: ",user)
     if (user != (true || false)){
-      user = Promise.resolve(user)
-      console.log(user)
+      // user = Promise.resolve(user)
+      console.log("User result on Login, #1: ",user)
     }
     if (user == false) {
 
@@ -39,7 +40,12 @@ function Login(props) {
     if (user) {
       props.history.push(CONFIRMATION_URL)
     }
-  }, [])
+    props.history.push(LOGIN_URL)
+  }
+  checkLogin()
+}
+
+, [])
   const {handleLogout} = props
   // console.log("Verifying logout's existence: ", handleLogout)// console.log(queryString.parse(props.location.search))
 
@@ -100,7 +106,7 @@ function Login(props) {
       localStorage.clear()
     }
   };
-
+// const [user,setUser]=useState({})
 const padding = 3
 const border = 1
 
