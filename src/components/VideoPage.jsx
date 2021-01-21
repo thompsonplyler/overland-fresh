@@ -82,16 +82,12 @@ function VideoPage(props) {
 
   },[])
 
-  // useEffect(()=>{
-  //   if (location == ["China"]) {
-  //     setStreamURL(chinaURL)
-  //   }
-  //   if (location == ['United States']) {
-  //     setStreamURL(usURL)
-  //   }
-  // },location)
+  const setStream = ()=>{
 
-  fetch('https://extreme-ip-lookup.com/json/')
+  }
+
+useEffect(()=>{
+    fetch('https://extreme-ip-lookup.com/json/')
 .then( res => res.json())
 .then(response => {
     console.log("Country: ", response.country);
@@ -105,7 +101,9 @@ function VideoPage(props) {
  .catch((data, status) => {
     console.log('Request failed');
  })
+},[])
 
+console.log(location)
 
   return (
     <div>
@@ -152,7 +150,7 @@ function VideoPage(props) {
     className="chat-box"
     display={chatButtonPressed?"initial":"none"}
     position="absolute"/>
-<TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/>    </div>
+ </div>
 
 
 
