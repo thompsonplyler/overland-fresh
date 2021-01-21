@@ -238,7 +238,7 @@ class App extends Component {
             path="/"
             history={history}
             render={(props) => (
-              <Login  
+              <Agenda  
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}

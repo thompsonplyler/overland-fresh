@@ -136,19 +136,20 @@ console.log(location)
 
     {// button to activate chat; clicking goes to chatToggle}
 }
-    <img onClick={chatToggle} className={chatButtonPressed?'chat-icon-active':'chat-icon-inactive'} src='./chat_icon.png'></img>
+    {/* <img onClick={chatToggle} className={chatButtonPressed?'chat-icon-active':'chat-icon-inactive'} src='./chat_icon.png'></img> */}
     
     {// checks state and renders deadsimple chat widget accordingingly in iFrame}
 }
-    <Iframe url={`https://www.deadsimplechat.com/CHsOaJ9WD?username=${firstName}%20${lastName}`}
+    {/* <Iframe url={`https://www.deadsimplechat.com/CHsOaJ9WD?username=${firstName}%20${lastName}`}
     width="21%"
     height="500px"
     id="myId"
     className="chat-box"
     display={chatButtonPressed?"initial":"none"}
     position="absolute"/>
- </div>
 
+*/}
+ </div>
 
 
   );

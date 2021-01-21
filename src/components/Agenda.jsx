@@ -25,18 +25,18 @@ useEffect(()=>{
 },[])
 
 
-  useEffect(() => {
-    console.log("Agenda props: ",props)
-    console.log("Agenda local storage: ", localStorage)
-    const user = checkUserCreds(props.user);
-    // console.log(localStorage.user)
-    if (!user) {
-      props.history.push(LOGIN_URL);
-    }
-    // if (user || localStorage.user) {
-    //   props.history.push(CONFIRMATION_URL)
-    // }
-  }, [])
+  // useEffect(() => {
+  //   console.log("Agenda props: ",props)
+  //   console.log("Agenda local storage: ", localStorage)
+  //   const user = checkUserCreds(props.user);
+  //   // console.log(localStorage.user)
+  //   if (!user) {
+  //     props.history.push(LOGIN_URL);
+  //   }
+  //   // if (user || localStorage.user) {
+  //   //   props.history.push(CONFIRMATION_URL)
+  //   // }
+  // }, [])
   // console.log(queryString.parse(props.location.search))
 
   const handleLogin = async (userData) => {
