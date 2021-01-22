@@ -16,7 +16,7 @@ import TestButton from '../components/TestButton'
 // }
 
 function PreEvent(props) {
-const {handleLogout} = props
+const {handleLogout, user} = props
 console.log("Props from PreEvent page: ", props)
 // console.log("Verifying logout's existence: ", handleLogout)
 
@@ -47,7 +47,7 @@ console.log("Props from PreEvent page: ", props)
           :<Fragment></Fragment>}
       
             <div>
-              <TestButton handleLogout={handleLogout} />
+              <TestButton user={user} handleLogout={handleLogout} />
           {/* <ClientPendingBanner subject="confirmation"/> */}
             </div> 
           

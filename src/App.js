@@ -262,6 +262,7 @@ class App extends Component {
             render={(props) => (
               <Login  
                 {...props}
+                handleLogin={this.handleLogin}
                 isLoggedIn={this.state.isLoggedIn}
                 user={this.state.user}
               />

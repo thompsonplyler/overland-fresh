@@ -1,7 +1,7 @@
 import {ADDRESS} from '../../env_define'
 
 export const request = async(event) => {
-    console.log("Request being sent to Rails server: ",event)
+    console.log("Request being sent to Rails server for login request: ",event)
     // console.log(event)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");

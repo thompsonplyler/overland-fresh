@@ -21,13 +21,13 @@ import {emailConfirmSend} from '../components/emailConfirmSend'
 import {checkUserCreds} from '../components/checkUserCreds'
 
 const TestButton = (props) => {
-  // console.log(props)
+  console.log("Props from Test Button: ",props)
     return(
       
         <div className="test-section">
             <h3 style={{fontFamily: "sans-serif", color: "red", marginBottom: "5px"}}>For Testing Purposes Only:</h3>
         <Link to={LOGIN_URL}><button onClick={props.handleLogout} className="test-logout-button" >Logout and Return to Login</button></Link>
-        <Link to={AGENDA_URL}><button onClick={props.handleLogout} className="test-logout-button" >Proceed to Agenda</button></Link>
+        <Link to={AGENDA_URL}><button user={props.user} className="test-logout-button" >Proceed to Agenda</button></Link>
         {/* <a href="/agenda"><button className="test-logout-button">View Agenda Page</button></a> */}
         </div>
         

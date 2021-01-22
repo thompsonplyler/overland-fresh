@@ -46,11 +46,20 @@ function VideoPage(props) {
   const [chatButtonPressed, setChatButtonPressed] = useState(false)
 
   useEffect(() => {
-    const user = checkUserCreds(props.user);
-    if (!user) {
+    const checkLogin = async () => {
+    document.body.classList.remove('sawdust-body')
+    console.log("Props from Login: ", props)
+    let user = await checkUserCreds(props.user);
+    console.log("User result from checkUserCreds: ",user)
+    if (user == false) {
+  
       props.history.push(LOGIN_URL);
     }
-  }, [])
+  }
+  checkLogin()
+  }
+  
+  , [])
 
   useEffect(()=>{
     window.addEventListener('onfullscreenchange',()=>{
@@ -128,7 +137,7 @@ function VideoPage(props) {
         {/* <div className="chat-area">Test</div> */}
         <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
         <div className="button-video-return">
-          <a href={AGENDA_URL}><button style={{width: "200px"}}>Return to Main Page</button></a>
+          <Link to={AGENDA_URL}><button style={{width: "200px"}}>Return to Main Page</button></Link>
         </div>
       </div>
       
@@ -151,7 +160,7 @@ function VideoPage(props) {
     position="absolute"/>
     }
     {/* <Chat windowHeight={stateHeight} windowWidth={stateWidth} /> */}
-    {/* <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/> */}
+    <TestButton style={{paddingRight: "200px"}} handleLogout={props.handleLogout}/>
     {/* <ClientPendingBanner subject="event"/> */}
     {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
     </div>
