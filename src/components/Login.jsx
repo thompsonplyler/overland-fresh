@@ -71,7 +71,7 @@ function Login(props) {
       return
     }
 
-    console.log("User from registration: ",user)
+    // console.log("User from registration: ",user)
     
 
     if (user.email) {
