@@ -9,6 +9,8 @@ import ClientPendingBanner from '../components/ClientPendingBanner'
 import BackToLogin from './BackToLogin'
 import {checkUserCreds} from '../components/checkUserCreds'
 import TestButton from '../components/TestButton'
+import { AGENDA_URL, LOGIN_URL } from '../urls';
+
 
 // const logout = (props) =>{
 //   localStorage.clear()
@@ -16,17 +18,22 @@ import TestButton from '../components/TestButton'
 // }
 
 function PreEvent(props) {
-const {handleLogout} = props
+const {handleLogout, user} = props
+// console.log("Props from PreEvent page: ", props)
 
-  // useEffect(() => {
-  //   const user = checkUserCreds(props.user);
-  //   if (!user) {
-  //     props.history.push('/login');
-  //   }
-  // }, [])
-  
-  // let loggedIn = props?.location?.state?.loggedIn;
-  // const hidden = loggedIn? "auto" : "none"
+useEffect(() => {
+  const checkLogin = async () => {
+  document.body.classList.remove('sawdust-body')
+  // console.log("Props from Login: ", props)
+  let user = await checkUserCreds(props.user);
+  // console.log("User result from checkUserCreds: ",user)
+  if (user == false) {
+
+    props.history.push(LOGIN_URL);
+  }
+}
+checkLogin()
+}, [])
 
     return(
 
@@ -45,6 +52,7 @@ const {handleLogout} = props
           :<Fragment></Fragment>}
       
             <div>
+              <TestButton user={user} handleLogout={handleLogout} />
           {/* <ClientPendingBanner subject="confirmation"/> */}
             </div> 
           

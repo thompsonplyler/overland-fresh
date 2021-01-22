@@ -1,57 +1,40 @@
-export const checkUserCreds = (user) => {
+import {ADDRESS} from '../../env_define'
+import { confirmationCodeChallenge } from '../confirmationCodeChallenge'
 
+export const checkUserCreds = async (data) => {
+
+  // console.log("User data passed to checkUserCreds, if any:", data)
+
+  try {
+  let loggedIn = false; 
+    if (data.user) {
+      loggedIn = true
+      return loggedIn
+    }
   if (localStorage.length > 0) {
-    console.log(`
-    
-    Local storage is not empty.
-    
-    `)
-    console.log(`
-
-    Checking to see if the user has been cleared to return for 2021...
-    
-    `)
-    if (window.localStorage.getItem('cleared')=='true'){
-      console.log(`
-      
-      User has already had local storage cleared in order to access site.`)
-      
+    // console.log("Yes! There's stuff in localStorage!")
+    // console.log("Local Storage: ", localStorage)
+    if (localStorage.user) {
+      let user = JSON.parse(localStorage.user)
+      user = {email: user.email, confirm_token: user.confirm_token}
+      const results = await confirmationCodeChallenge(user)
+      // console.log("Results from confirmationCodeChallenge, passed to checkUserCreds: ",results)
+      loggedIn = results.confirmed
+      return loggedIn
     }
     else {
-
-      console.log(`
-      
-      No clear flag found...
-      
-      `)
-      console.log(`
-      
-      Clearing local storage...
-      
-      `)
-      localStorage.clear()
-
-      console.log(`
-      
-      Setting cleared flag to TRUE
-
-      `)
-      localStorage.setItem('cleared','true')
+      return loggedIn
     }
+
+  }
+  return loggedIn
+  
   }
 
-    let loggedIn = false; 
-    if (user.email) {
-      loggedIn = true; 
-    }
-    if (!user.email) {
-      const localUser = localStorage.getItem('user');
-      console.log(localUser)
-      if (localUser) {
-        loggedIn = true;
-        return loggedIn
-      }
-    }
-    console.log("Logged in status from checkuserCreds: ", loggedIn)
-    return loggedIn; 
+  catch {
+    let loggedIn = false;
+    return loggedIn
+  }
+
+ 
   }

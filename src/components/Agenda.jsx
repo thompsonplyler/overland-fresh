@@ -25,17 +25,21 @@ useEffect(()=>{
 },[])
 
 
-  useEffect(() => {
-    console.log("Agenda props: ",props)
-    const user = checkUserCreds(props.user);
-    // console.log(localStorage.user)
-    if (!user) {
-      props.history.push(LOGIN_URL);
-    }
-    // if (user || localStorage.user) {
-    //   props.history.push(CONFIRMATION_URL)
-    // }
-  }, [])
+useEffect(() => {
+  const checkLogin = async () => {
+  document.body.classList.remove('sawdust-body')
+  // console.log("Props from Login: ", props)
+  let user = await checkUserCreds(props.user);
+  // console.log("User result from checkUserCreds: ",user)
+  if (user == false) {
+
+    props.history.push(LOGIN_URL);
+  }
+}
+checkLogin()
+}
+
+, [])
   // console.log(queryString.parse(props.location.search))
 
   const handleLogin = async (userData) => {
@@ -111,7 +115,7 @@ return(
           </div>
           </div>
     </div>
-    
+    <TestButton handleLogout={props.handleLogout} />
     </Fragment>
     )
 }

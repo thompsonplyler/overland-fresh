@@ -12,7 +12,7 @@ import BackToLogin from './BackToLogin'
 
 
 function LoginFailed(props) {
-  console.log(props.location.state.reason)
+  // console.log(props.location.state.reason)
 
     return(
 

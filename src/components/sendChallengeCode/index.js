@@ -1,5 +1,5 @@
 export const sendChallengeCode = async(event) => {
-    console.log("Sending to Challenge Verifier:", event)
+    // console.log("Sending to Challenge Verifier:", event)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     
@@ -20,7 +20,7 @@ export const sendChallengeCode = async(event) => {
     const response = await fetch("https://fresh-under-one-sky-email-api.herokuapp.com/api/v1/challenge_approve", requestOptions)
 
   const json = await response.json()
-    console.log(json)
+    // console.log(json)
   return json
       
   } catch (error) {
