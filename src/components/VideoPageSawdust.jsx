@@ -13,94 +13,46 @@ import {
   BrowserRouter as Router,
   Link, 
 } from "react-router-dom";
-// import Dat from './Dat'
 import TestButton from '../components/TestButton'
+import Login from './Login';
 import { AGENDA_URL, LOGIN_URL } from '../urls';
-
-
-const videoJsOptions = {
-  autoplay: false,
-  controls: true,
-  loop: true,
-  responsive: true,
-  mute: true,
-  poster: "https://i.imgur.com/Aaog0bm.png",
-  sources: [{
-    // src: tempVideo,
-    src: "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.k2VuaaM6o9yb.m3u8",
-    poster: "https://i.imgur.com/Aaog0bm.png"
-  }]
-}
-
-
-
-
-
+// import Dat from './Dat'
+import Iframe from 'react-iframe'
+import { Player, BigPlayButton } from 'video-react';
+import '../video-react.css'
+import poster from '../assets/images/blue_sky.jpeg'
+import HLSSource from './HLSSource';
 
 function VideoPageSawdust(props) {
+  let [stateWidth, setWidth] = useState(window.innerWidth)
 
-useEffect (()=>{
-document.body.classList.add('sawdust-body')
-},[])
 
-useEffect(() => {
-  const user = checkUserCreds(props.user);
-  if (!user) {
-    props.history.push(LOGIN_URL);
+  useEffect (()=>{
+  document.body.classList.add('sawdust-body')
+  },[])
+
+  useEffect(() => {
+    const checkLogin = async () => {
+    document.body.classList.add('sawdust-body')
+    console.log("Props from Login: ", props)
+    let user = await checkUserCreds(props.user);
+    console.log("User result from checkUserCreds: ",user)
+    if (user == false) {
+
+      props.history.push(LOGIN_URL);
+    }
   }
-}, [])
+    checkLogin()
+  }, [])
 
   useEffect(()=>{
     window.addEventListener('onfullscreenchange',()=>{
-      console.log("I've been resized!")
-      console.log(window)
+    console.log("I've been resized!")
+    console.log(window)
     })
   }
 
   )
-  class VideoPlayer extends React.Component {
-
-    componentDidMount(props) {
-      this.player = videojs(this.videoNode, this.props)
-    }
-
-    componentWillUnmount() {
-      if (this.player) {
-        this.player.dispose()
-      }
-    }
-
-
-    handleFullScreen =(thing)=>{
-      console.log("Finding thing",thing)
-      }
-    
-    render() {
-
-      let { windowHeight, windowWidth } = this.props
-      let newWidth = windowWidth * .55
-      // let newWidth = windowWidth * .40
-      let newHeight = newWidth * .5625
-      // console.log("rendering:", this)
-      
-      return (
-        <div className="video-player">
-          
-          
-          <div data-vjs-player style={{
-            width: newWidth,
-            height: newHeight
-          }}>
-            <video ref={(node) => { this.videoNode = node; }} className="video-js" />
-          </div>
-
-        </div>
-      );
-    }
-  }
-
-  let [stateWidth, setWidth] = useState(window.innerWidth)
-  let [stateHeight, setHeight] = useState(window.innerHeight)
 
 
 
@@ -111,25 +63,22 @@ useEffect(() => {
       <h2 className="event-heading-1">under one sky</h2>  
       <h3 className="event-video-title">Part 3: Purpose Experience</h3>
       <div className="video-row">
-        {/* <div className="chat-area">Test</div> */}
-        <VideoPlayer windowHeight={stateHeight} windowWidth={stateWidth}{...videoJsOptions} />
+      <Player fluid={false} width={stateWidth*.55} playsInline poster={poster} autoplay={true}>
+      <HLSSource
+        isVideoChild
+        src="https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.k2VuaaM6o9yb.m3u8"
+        />
+      <BigPlayButton position="center"></BigPlayButton>
+    </Player>
         <div className="button-video-return">
-        <a href={AGENDA_URL}><button style={{width: "200px"}}>Return to Main Page</button></a>
+        <Link to={AGENDA_URL}><button style={{width: "200px"}}>Return to Main Page</button></Link>
         </div>
       </div>
       
         <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
     </div>
 
-    
-    {/* <Chat windowHeight={stateHeight} windowWidth={stateWidth} /> */}
-    {/* <TestButton style={{paddingRight: "200px"}}handleLogout={props.handleLogout}/> */}
-    {/* <ClientPendingBanner subject="event"/> */}
-    {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
     </div>
-
-
-
   );
 }
 

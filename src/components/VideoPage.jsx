@@ -54,9 +54,7 @@ function VideoPage(props) {
     }
   }
   checkLogin()
-  }
-  
-  , [])
+  }, [])
 
   useEffect(()=>{
 
