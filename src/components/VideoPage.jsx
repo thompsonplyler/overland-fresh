@@ -18,6 +18,10 @@ import Login from './Login';
 import { AGENDA_URL, LOGIN_URL } from '../urls';
 // import Dat from './Dat'
 import Iframe from 'react-iframe'
+import { Player, BigPlayButton } from 'video-react';
+import '../video-react.css'
+import poster from '../assets/images/blue_sky.jpeg'
+import HLSSource from './HLSSource';
 
 function VideoPage(props) {
   
