@@ -20,10 +20,6 @@ import TestButton from '../components/TestButton'
 
 
 function Agenda(props) {
-useEffect(()=>{
-  document.body.classList.remove('sawdust-body')
-},[])
-
 
 useEffect(() => {
   const checkLogin = async () => {
@@ -40,50 +36,6 @@ checkLogin()
 }
 
 , [])
-  // console.log(queryString.parse(props.location.search))
-
-  const handleLogin = async (userData) => {
-    // console.log("Data returned from the Rails server to parse: ", email);
-    let email = userData.email.toLowerCase()
-    let password = userData.password
-    const user = await request(userData)
-    console.log(user.error_code)
-
-    if (user.error_code == "009"){
-      props.history.push(LOGIN_URL)
-      return
-    }
-    
-
-    if (user.email) {
-      // const emailConfirm = await emailConfirmSend(user)
-
-      // if (emailConfirm) console.log("This is what was sent back from Customer.io", emailConfirm)
-      // if (!emailConfirm) console.log("Nothing sent to customer.io because user.registered ==", user.registered)
-      // console.log("we got a match IN LOGIN");
-      let userInfo = {
-        firstname: user.firstname,
-        lastname: user.lastname,
-        email: user.email,
-        company: user.company,
-      }
-      props.handleLogin(userInfo);
-
-      props.history.push({
-        pathname: CONFIRMATION_URL,
-        state: { loggedIn: true },
-      });
-    } else {
-      props.history.push({
-        pathname: LOGIN_FAILED_URL,
-        state: {loggedIn: false}
-      })
-      localStorage.clear()
-    }
-  };
-
-const padding = 3
-const border = 1
 
 const tooltip_data ={"name":"test1","buttonText": "Click to Watch", "tooltip":"This button has been deactivated for testing purposes."}
 
@@ -100,8 +52,6 @@ return(
               <h3>8:00 AM - 8:15 AM EST</h3>
                   <a href="https://spatial.chat/s/freshunderonesky?sp=fresh007" target="_blank">
                     <button className="agenda-button">Click to Watch</button></a>
-                    {// <Tooltip message={tooltip_data.tooltip} position={'right'}>{tooltip_data.buttonText}</Tooltip>
-}
           </div>
           <div className="agenda-grid-item">
           <h3>Part 2: Under One Sky Meeting</h3>
@@ -115,7 +65,6 @@ return(
           </div>
           </div>
     </div>
-    <TestButton handleLogout={props.handleLogout} />
     </Fragment>
     )
 }

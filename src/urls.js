@@ -8,4 +8,5 @@ export const AGENDA_URL= "/228378" // agenda -
 export const WRONG_PASSWORD_URL= "/809545" // bad password / contact katie
 export const NS_EVENT_URL= "/718846" // even2 / national sawdust
 export const UNREGISTERED_ERROR_URL= "/424058" // even2 / national sawdust
+export const ADMIN_URL="/124572"
 // export const 
