@@ -100,14 +100,14 @@ class RegistrationInput extends Component {
       this.setState({errors:errorArray})
     }
 
-                          console.log(
-                            `
-                        Email: ${email}
-                        Email Confirm:${emailConfirm}
-                        Password: ${password}
-                        Password Confirm: ${passwordConfirm}
-                        `
-                        )
+                        //   console.log(
+                        //     `
+                        // Email: ${email}
+                        // Email Confirm:${emailConfirm}
+                        // Password: ${password}
+                        // Password Confirm: ${passwordConfirm}
+                        // `
+                        // )
 
   if (errorArray.length == 0) {
 
