@@ -1,6 +1,6 @@
 import {ADDRESS} from '../../env_define'
 export const sendNewPassword = async(event) => {
-    console.log("Sending to Challenge Verifier:", event)
+    // console.log("Sending to Challenge Verifier:", event)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     
@@ -21,7 +21,7 @@ export const sendNewPassword = async(event) => {
     // const response = await fetch("https://fresh-under-one-sky-email-api.herokuapp.com/api/v1/password_reset", requestOptions)
 
   const json = await response.json()
-    console.log(json)
+    // console.log(json)
   return json
       
   } catch (error) {

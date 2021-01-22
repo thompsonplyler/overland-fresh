@@ -1,7 +1,7 @@
 import {ADDRESS} from '../../env_define'
 
 export const emailRegCheck = async(event) => {
-    console.log("Sending to email check:", event)
+    // console.log("Sending to email check:", event)
     // console.log(event)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");

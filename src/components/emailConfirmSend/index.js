@@ -1,9 +1,9 @@
 import {ADDRESS} from '../../env_define'
 export const emailConfirmSend = async(event) => {
-  console.log(event.registered)
+  // console.log(event.registered)
 if (!event.registered)
   {
-console.log("New user discovered! Sending confirmation to e-mail service.")
+// console.log("New user discovered! Sending confirmation to e-mail service.")
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 

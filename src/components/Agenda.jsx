@@ -28,9 +28,9 @@ useEffect(()=>{
 useEffect(() => {
   const checkLogin = async () => {
   document.body.classList.remove('sawdust-body')
-  console.log("Props from Login: ", props)
+  // console.log("Props from Login: ", props)
   let user = await checkUserCreds(props.user);
-  console.log("User result from checkUserCreds: ",user)
+  // console.log("User result from checkUserCreds: ",user)
   if (user == false) {
 
     props.history.push(LOGIN_URL);

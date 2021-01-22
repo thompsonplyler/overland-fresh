@@ -53,8 +53,8 @@ class RegistrationInput extends Component {
     if (this.state.email=='') {
       this.setState({ errors: [...this.state.errors, "You must include a valid e-mail address."] })
     }
-    console.log("Email is false, i.e. empty?", !this.state.email)
-    console.log(this.state.errors)
+    // console.log("Email is false, i.e. empty?", !this.state.email)
+    // console.log(this.state.errors)
 
     if (this.state.email != '' && this.state.emailConfirm != '' && this.state.emailConfirm != this.state.email) {
       this.setState({ errors: [...errors, "Your e-mail address does not match."] })

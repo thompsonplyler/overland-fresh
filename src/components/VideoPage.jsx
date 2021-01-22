@@ -40,14 +40,14 @@ function VideoPage(props) {
   let [isChina,setChina] = useState(false)
   let [isUS, setUS] = useState(false)
 
-  console.log("Video Page props: ",props.user)
+  // console.log("Video Page props: ",props.user)
 
   useEffect(() => {
     const checkLogin = async () => {
     document.body.classList.remove('sawdust-body')
-    console.log("Props from Login: ", props)
+    // console.log("Props from Login: ", props)
     let user = await checkUserCreds(props.user);
-    console.log("User result from checkUserCreds: ",user)
+    // console.log("User result from checkUserCreds: ",user)
     if (user == false) {
   
       props.history.push(LOGIN_URL);
@@ -77,12 +77,12 @@ function VideoPage(props) {
     }
   
     useEffect(()=>{
-      console.log("User props: ",props.user)
+      // console.log("User props: ",props.user)
       if (props.user.firstname) setFirstName(props.user.firstname)
       if (props.user.lastname) setLastName(props.user.lastname)
       if (localStorage.user) {
         let parsed = JSON.parse(localStorage.user)
-        console.log("Parsed stuff: ",parsed)
+        // console.log("Parsed stuff: ",parsed)
         setFirstName(parsed.firstname)
         setLastName(parsed.lastname)
       }
@@ -93,7 +93,7 @@ function VideoPage(props) {
       fetch('https://extreme-ip-lookup.com/json/')
   .then( res => res.json())
   .then(response => {
-      console.log("Country: ", response.country);
+      // console.log("Country: ", response.country);
       if (response.country == "China"){
         setChina(true)
       }
@@ -102,7 +102,7 @@ function VideoPage(props) {
       }
    })
    .catch((data, status) => {
-      console.log('Request failed');
+      // console.log('Request failed');
    })
   },[])
 

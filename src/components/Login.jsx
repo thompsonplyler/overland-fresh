@@ -26,9 +26,9 @@ function Login(props) {
   useEffect(() => {
     const checkLogin = async () => {
     document.body.classList.remove('sawdust-body')
-    console.log("Props from Login: ", props)
+    // console.log("Props from Login: ", props)
     let user = await checkUserCreds(props.user);
-    console.log("User result from checkUserCreds: ",user)
+    // console.log("User result from checkUserCreds: ",user)
     if (user == false) {
 
       props.history.push(LOGIN_URL);
@@ -47,9 +47,9 @@ function Login(props) {
 
   const handleLogin = async (userData) => {
     let email = userData.email.toLowerCase()
-    console.log("Data returned from the Rails server to parse: ", email);
+    // console.log("Data returned from the Rails server to parse: ", email);
     const user = await request(userData)
-    console.log("Received error code, if any: ", user.error_code)
+    // console.log("Received error code, if any: ", user.error_code)
 
     if (user.error_code == "009"){
       props.history.push(LOGIN_URL)
@@ -87,7 +87,7 @@ function Login(props) {
         company: user.company,
         confirm_token: user.confirm_token
       }
-      console.log("User info sent to App#handleLogin: ",userInfo)
+      // console.log("User info sent to App#handleLogin: ",userInfo)
       props.handleLogin(userInfo);
 
       props.history.push({
