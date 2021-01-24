@@ -1,22 +1,15 @@
 import React from 'react'
 import { useState, Fragment, useEffect } from 'react'
-import videojs from 'video.js'
-import awsvideoconfig from '../aws-video-exports'
-// import 'video.js/dist/video-js.css'
+
+import {usePortal} from 'react-dom'
 import '../App.css';
 import freshLogo from '../assets/images/frshlogo.svg'
-import ClientPendingBanner from '../components/ClientPendingBanner'
-import Chat from './Chat'
 import { checkUserCreds } from '../components/checkUserCreds'
-import tempVideo from '../assets/videos/temp_video.mp4'
 import {
   BrowserRouter as Router,
   Link, 
 } from "react-router-dom";
-import TestButton from '../components/TestButton'
-import Login from './Login';
 import { AGENDA_URL, LOGIN_URL } from '../urls';
-// import Dat from './Dat'
 import Iframe from 'react-iframe'
 import { Player, BigPlayButton } from 'video-react';
 import '../video-react.css'
@@ -68,6 +61,19 @@ function VideoPage(props) {
   
   
     })
+useEffect(()=>{
+  if (document.getElementsByClassName("ps__rail-x")){
+    let kill = document.getElementsByClassName("ps__rail-x")
+    console.log(kill)
+    kill = Array.from(kill)
+    kill.forEach(item=>item.remove())
+    kill = document.getElementsByClassName("ps__thumb-x")
+    kill = Array.from(kill)
+    kill.forEach(item=>item.remove())
+    console.log(kill)
+    console.log("I ran the thing...")
+  }
+},chatButtonPressed)
   
     //activate and deactivate chat 
     const chatToggle = (e) => {
@@ -145,10 +151,7 @@ function VideoPage(props) {
     display="none"
     position="absolute"/>
     }
-    {/* <Chat windowHeight={stateHeight} windowWidth={stateWidth} /> */}
-    <TestButton style={{paddingRight: "200px"}} handleLogout={props.handleLogout}/>
-    {/* <ClientPendingBanner subject="event"/> */}
-    {/* <div className="heads-up">This is a staging page for testing purposes only.</div> */}
+
     </div>
 
 
