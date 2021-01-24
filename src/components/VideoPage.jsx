@@ -101,8 +101,6 @@ function VideoPage(props) {
 //  })
 // },[])
 
-console.log(location)
-
   return (
     <div>
     <div className="flex-container-video">
