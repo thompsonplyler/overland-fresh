@@ -84,7 +84,7 @@ function VideoPageSawdust(props) {
       <Player fluid={false} width={stateWidth*.55} playsInline poster={poster} autoplay={true}>
       <HLSSource
       isVideoChild
-      src={CHINA_NS_VIDEO}
+      src="http://liminal-push.ccsupport.cn/live/live/UMkMlXOwRgJSzPgXxQyw1w/playlist.m3u8"
       />
       <BigPlayButton position="center"></BigPlayButton>
     </Player>
