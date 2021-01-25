@@ -15,6 +15,7 @@ import { Player, BigPlayButton } from 'video-react';
 import '../video-react.css'
 import poster from '../assets/images/blue_sky.jpeg'
 import HLSSource from './HLSSource';
+import {ROW_VIDEO} from '../video_sources'
 
 function VideoPage(props) {
   
@@ -28,10 +29,6 @@ function VideoPage(props) {
   let [stateWidth, setWidth] = useState(window.innerWidth)
   let [firstName, setFirstName] = useState("Unknown")
   let [lastName,setLastName] = useState("User")
-  let [location,setLocation] = useState(["elsewhere"])
-  let [streamURL, setStreamURL] = useState(normalStreamURL)
-  let [isChina,setChina] = useState(false)
-  let [isUS, setUS] = useState(false)
 
   // console.log("Video Page props: ",props.user)
 
@@ -60,20 +57,20 @@ function VideoPage(props) {
     window.addEventListener('resize',handleResize)
   
   
-    })
-useEffect(()=>{
-  if (document.getElementsByClassName("ps__rail-x")){
-    let kill = document.getElementsByClassName("ps__rail-x")
-    console.log(kill)
-    kill = Array.from(kill)
-    kill.forEach(item=>item.remove())
-    kill = document.getElementsByClassName("ps__thumb-x")
-    kill = Array.from(kill)
-    kill.forEach(item=>item.remove())
-    console.log(kill)
-    console.log("I ran the thing...")
-  }
-},chatButtonPressed)
+    },[])
+// useEffect(()=>{
+//   if (document.getElementsByClassName("ps__rail-x")){
+//     let kill = document.getElementsByClassName("ps__rail-x")
+//     console.log(kill)
+//     kill = Array.from(kill)
+//     kill.forEach(item=>item.remove())
+//     kill = document.getElementsByClassName("ps__thumb-x")
+//     kill = Array.from(kill)
+//     kill.forEach(item=>item.remove())
+//     console.log(kill)
+//     console.log("I ran the thing...")
+//   }
+// },chatButtonPressed)
   
     //activate and deactivate chat 
     const chatToggle = (e) => {
@@ -94,23 +91,6 @@ useEffect(()=>{
       }
   
     },[])
-  
-  useEffect(()=>{
-      fetch('https://extreme-ip-lookup.com/json/')
-  .then( res => res.json())
-  .then(response => {
-      // console.log("Country: ", response.country);
-      if (response.country == "China"){
-        setChina(true)
-      }
-      if (response.country == "United States"){
-        setUS(true)
-      }
-   })
-   .catch((data, status) => {
-      // console.log('Request failed');
-   })
-  },[])
 
   firstName = JSON.parse(localStorage.getItem('user')).firstname
   lastName = JSON.parse(localStorage.getItem('user')).lastname
@@ -124,7 +104,7 @@ useEffect(()=>{
       <Player fluid={false} width={stateWidth*.55} playsInline poster={poster} autoplay={true}>
       <HLSSource
       isVideoChild
-      src={isChina?chinaURL:normalStreamURL}
+      src={ROW_VIDEO}
       />
       <BigPlayButton position="center"></BigPlayButton>
     </Player>

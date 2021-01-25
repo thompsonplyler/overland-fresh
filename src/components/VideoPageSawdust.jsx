@@ -14,22 +14,14 @@ import { Player, BigPlayButton } from 'video-react';
 import '../video-react.css'
 import poster from '../assets/images/blue_sky.jpeg'
 import HLSSource from './HLSSource';
+import { ROW_NS_VIDEO } from '../video_sources';
 
 function VideoPageSawdust(props) {
   let [stateWidth, setWidth] = useState(window.innerWidth)
-    // actual normal feed
-    const normalStreamURL = "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.rXLMiU83NvaX.m3u8"
-    // actual China feed with base64 hash as stream key
-    const chinaURL = "http://fresh-play.ccsupport.cn/live/67a4c84cb83788005285d9c9e6f6d6c046b4c39e/playlist.m3u8"
-    // NS feed for testing
-    const usURL = "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.k2VuaaM6o9yb.m3u8"
     const [chatButtonPressed, setChatButtonPressed] = useState(false)
     let [firstName, setFirstName] = useState("Unknown")
     let [lastName,setLastName] = useState("User")
-    let [location,setLocation] = useState(["elsewhere"])
-    let [streamURL, setStreamURL] = useState(normalStreamURL)
-    let [isChina,setChina] = useState(false)
-    let [isUS, setUS] = useState(false)
+
 
 
   useEffect (()=>{
@@ -78,7 +70,7 @@ function VideoPageSawdust(props) {
       <Player fluid={false} width={stateWidth*.55} playsInline poster={poster} autoplay={true}>
       <HLSSource
         isVideoChild
-        src="https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.k2VuaaM6o9yb.m3u8"
+        src={ROW_NS_VIDEO}
         />
       <BigPlayButton position="center"></BigPlayButton>
     </Player>
