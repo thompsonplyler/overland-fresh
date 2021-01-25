@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, WRONG_PASSWORD_URL, AGENDA_URL} from '../../urls'
 
 export const checkUserCreds = (user) => {
@@ -48,15 +49,45 @@ export const checkUserCreds = (user) => {
     let loggedIn = false; 
     if (user.email) {
       loggedIn = true; 
+=======
+import {ADDRESS} from '../../env_define'
+import { confirmationCodeChallenge } from '../confirmationCodeChallenge'
+
+export const checkUserCreds = async (data) => {
+
+  // console.log("User data passed to checkUserCreds, if any:", data)
+
+  try {
+  let loggedIn = false; 
+    if (data.user) {
+      loggedIn = true
+      return loggedIn
     }
-    if (!user.email) {
-      const localUser = localStorage.getItem('user');
-      console.log(localUser)
-      if (localUser) {
-        loggedIn = true;
-        return loggedIn
-      }
+  if (localStorage.length > 0) {
+    // console.log("Yes! There's stuff in localStorage!")
+    // console.log("Local Storage: ", localStorage)
+    if (localStorage.user) {
+      let user = JSON.parse(localStorage.user)
+      user = {email: user.email, confirm_token: user.confirm_token}
+      const results = await confirmationCodeChallenge(user)
+      // console.log("Results from confirmationCodeChallenge, passed to checkUserCreds: ",results)
+      loggedIn = results.confirmed
+      return loggedIn
+>>>>>>> final-2021
     }
-    console.log("Logged in status from checkuserCreds: ", loggedIn)
-    return loggedIn; 
+    else {
+      return loggedIn
+    }
+
+  }
+  return loggedIn
+  
+  }
+
+  catch {
+    let loggedIn = false;
+    return loggedIn
+  }
+
+ 
   }

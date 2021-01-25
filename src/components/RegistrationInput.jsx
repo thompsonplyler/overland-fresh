@@ -27,7 +27,7 @@ class RegistrationInput extends Component {
 
   onKeyPress = (event) => {
     if (event.keyCode === 13) {
-      console.log('enter')
+      // console.log('enter')
       this.handleSubmit(event)
     }
   }
@@ -48,13 +48,13 @@ class RegistrationInput extends Component {
   confirmInput = (event) => {
     const { name, value } = event.target
     let { errors } = this.state
-    console.log("Errors at start of event input:",errors)
+    // console.log("Errors at start of event input:",errors)
 
     if (this.state.email=='') {
       this.setState({ errors: [...this.state.errors, "You must include a valid e-mail address."] })
     }
-    console.log("Email is false, i.e. empty?", !this.state.email)
-    console.log(this.state.errors)
+    // console.log("Email is false, i.e. empty?", !this.state.email)
+    // console.log(this.state.errors)
 
     if (this.state.email != '' && this.state.emailConfirm != '' && this.state.emailConfirm != this.state.email) {
       this.setState({ errors: [...errors, "Your e-mail address does not match."] })
@@ -100,14 +100,14 @@ class RegistrationInput extends Component {
       this.setState({errors:errorArray})
     }
 
-                          console.log(
-                            `
-                        Email: ${email}
-                        Email Confirm:${emailConfirm}
-                        Password: ${password}
-                        Password Confirm: ${passwordConfirm}
-                        `
-                        )
+                        //   console.log(
+                        //     `
+                        // Email: ${email}
+                        // Email Confirm:${emailConfirm}
+                        // Password: ${password}
+                        // Password Confirm: ${passwordConfirm}
+                        // `
+                        // )
 
   if (errorArray.length == 0) {
 
@@ -123,7 +123,7 @@ class RegistrationInput extends Component {
   };
 
   handleErrors = () => {
-    console.log(this.state.errors)
+    // console.log(this.state.errors)
     return (
       <div className="error-div">
         <ul className="ul-error">
@@ -137,7 +137,7 @@ class RegistrationInput extends Component {
 
   onEmailBlur = async(e) => {
     const registered = await emailRegCheck(e)
-    console.log(registered)
+    // console.log(registered)
     
     if (registered.registration == true){
       this.setState({userRegistered:true})
@@ -149,7 +149,7 @@ class RegistrationInput extends Component {
   }
 
   render(props) {
-    console.log("Registration input props: ",this.props)
+    // console.log("Registration input props: ",this.props)
     const { email, password, emailConfirm, passwordConfirm } = this.state
     const junk = `Password`
     return (

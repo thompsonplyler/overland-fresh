@@ -11,8 +11,7 @@ import BackToLogin from './BackToLogin'
 
 
 
-function LoginFailed(props) {
-  // console.log(props.location.state.reason)
+function UnregisteredError(props) {
 
     return(
 
@@ -20,14 +19,13 @@ function LoginFailed(props) {
     <div className="container">
           <img className="img-fresh-logo" src={freshLogo}/>
           <h2 className="registration-heading-1">under one sky</h2>
-          <Fragment><p className="para1">Oops! We did not recognize your e-mail. </p>
-          <p className="para1">Please contact <a className="pretty-link" href="mailto:knewton@fresh.com">knewton@fresh.com</a> for help.</p>
+          <Fragment><p className="para1">Oops! This e-mail has not yet registered for the event! </p>
           <div style={{paddingTop: "3vh"}}></div>
           <BackToLogin />
           </Fragment>
-          
+
     </div>
     )
   }
   
-  export default withRouter(LoginFailed);
+  export default withRouter(UnregisteredError);

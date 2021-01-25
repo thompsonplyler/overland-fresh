@@ -10,7 +10,7 @@ import {
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import RegistrationInput from '../components/RegistrationInput'
 import LoginInput from '../components/LoginInput'
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, POST_EVENT_URL, LOGIN_FAILED_URL, WRONG_PASSWORD_URL, AGENDA_URL} from '../urls'
+import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, UNREGISTERED_ERROR_URL, POST_EVENT_URL, LOGIN_FAILED_URL, WRONG_PASSWORD_URL, AGENDA_URL} from '../urls'
 
 import axios from 'axios'
 import styled from 'styled-components';
@@ -24,28 +24,32 @@ import TestButton from "../components/TestButton"
 function Login(props) {
 
   useEffect(() => {
+    const checkLogin = async () => {
     document.body.classList.remove('sawdust-body')
-    console.log("Props from Login: ", props)
-    const user = checkUserCreds(props.user);
-    console.log("User result from checkUserCreds: ",user)
-    if (!user) {
+    // console.log("Props from Login: ", props)
+    let user = await checkUserCreds(props.user);
+    // console.log("User result from checkUserCreds: ",user)
+    if (user == false) {
+
       props.history.push(LOGIN_URL);
     }
     if (user) {
       props.history.push(AGENDA_URL)
     }
-  }, [])
 
-  useEffect(()=>{
+  }
+  checkLogin()
+}
 
-    },[])
-  // console.log(queryString.parse(props.location.search))
+, [])
+  const {handleLogout} = props
+  // console.log("Verifying logout's existence: ", handleLogout)// console.log(queryString.parse(props.location.search))
 
   const handleLogin = async (userData) => {
     let email = userData.email.toLowerCase()
-    console.log("Data returned from the Rails server to parse: ", email);
+    // console.log("Data returned from the Rails server to parse: ", email);
     const user = await request(userData)
-    console.log("Received error code, if any: ", user.error_code)
+    // console.log("Received error code, if any: ", user.error_code)
 
     if (user.error_code == "009"){
       props.history.push(LOGIN_URL)
@@ -57,7 +61,17 @@ function Login(props) {
       return
     }
 
-    console.log("User from registration: ",user)
+    if (user.error_code == "009"){
+      props.history.push(LOGIN_URL)
+      return
+    }
+
+    if (user.error_code == "007"){
+      props.history.push(UNREGISTERED_ERROR_URL)
+      return
+    }
+
+    // console.log("User from registration: ",user)
     
 
     if (user.email) {
@@ -71,8 +85,9 @@ function Login(props) {
         lastname: user.lastname,
         email: user.email,
         company: user.company,
+        confirm_token: user.confirm_token
       }
-      console.log("User info sent to App#handleLogin: ",userInfo)
+      // console.log("User info sent to App#handleLogin: ",userInfo)
       props.handleLogin(userInfo);
 
       props.history.push({
@@ -87,7 +102,7 @@ function Login(props) {
       localStorage.clear()
     }
   };
-
+// const [user,setUser]=useState({})
 const padding = 3
 const border = 1
 
@@ -105,7 +120,6 @@ return(
           </div>
           
     </div>
-    {/* <TestButton style={{paddingRight: "200px"}} handleLogout={props.handleLogout}/>     */}
     </Fragment>
     )
 }
