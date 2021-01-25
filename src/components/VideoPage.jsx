@@ -92,7 +92,7 @@ function VideoPage(props) {
       <Player fluid={false} width={stateWidth*.55} playsInline poster={poster} autoplay={true}>
       <HLSSource
       isVideoChild
-      src={CHINA_VIDEO}
+      src="http://fresh-play.ccsupport.cn/live/67a4c84cb83788005285d9c9e6f6d6c046b4c39e/playlist.m3u8"
       />
       <BigPlayButton position="center"></BigPlayButton>
     </Player>
