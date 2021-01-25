@@ -34,7 +34,7 @@ function Login(props) {
       props.history.push(LOGIN_URL);
     }
     if (user) {
-      props.history.push(AGENDA_URL)
+      props.history.push(CONFIRMATION_URL)
     }
 
   }
@@ -91,7 +91,7 @@ function Login(props) {
       props.handleLogin(userInfo);
 
       props.history.push({
-        pathname: AGENDA_URL,
+        pathname: CONFIRMATION_URL,
         state: { loggedIn: true },
       });
     } else {
