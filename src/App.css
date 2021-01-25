@@ -878,11 +878,6 @@ button {
   filter: drop-shadow(2px 2px 2px #222);
 }
 
-#myId { 
-  overflow-x: hidden;
-  display: hidden
-}
-
 iframe {
   /* border-radius: 25px; */
   border-width: 0px;

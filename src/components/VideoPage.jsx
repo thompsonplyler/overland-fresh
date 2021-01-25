@@ -15,6 +15,7 @@ import { Player, BigPlayButton } from 'video-react';
 import '../video-react.css'
 import poster from '../assets/images/blue_sky.jpeg'
 import HLSSource from './HLSSource';
+import NewWindow from 'react-new-window'
 
 function VideoPage(props) {
   
@@ -95,22 +96,6 @@ useEffect(()=>{
   
     },[])
   
-  useEffect(()=>{
-      fetch('https://extreme-ip-lookup.com/json/')
-  .then( res => res.json())
-  .then(response => {
-      // console.log("Country: ", response.country);
-      if (response.country == "China"){
-        setChina(true)
-      }
-      if (response.country == "United States"){
-        setUS(true)
-      }
-   })
-   .catch((data, status) => {
-      // console.log('Request failed');
-   })
-  },[])
 
   firstName = JSON.parse(localStorage.getItem('user')).firstname
   lastName = JSON.parse(localStorage.getItem('user')).lastname
@@ -121,6 +106,15 @@ useEffect(()=>{
       <h2 className="event-heading-1">under one sky</h2>  
       <h3 className="event-video-title">Part 2: Under One Sky Meeting</h3>
       <div className="video-row">
+        <div style={{width:"100px"}}>
+        <NewWindow copystyles="true" 
+        name="popout-chat" 
+        title="fresh - Under One Sky 2021 Chat" 
+        features={{width:"10px"}}>
+          <Iframe url={`https://www.deadsimplechat.com/CHsOaJ9WD?username=${firstName}%20${lastName}`}
+    className="chat-box"
+    /></NewWindow>
+    </div>
       <Player fluid={false} width={stateWidth*.55} playsInline poster={poster} autoplay={true}>
       <HLSSource
       isVideoChild
