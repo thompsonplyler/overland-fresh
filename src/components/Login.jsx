@@ -33,7 +33,7 @@ function Login(props) {
       props.history.push(LOGIN_URL);
     }
     if (user) {
-      props.history.push(NS_EVENT_URL)
+      props.history.push(CONFIRMATION_URL)
     }
 
   }
@@ -90,7 +90,7 @@ function Login(props) {
       props.handleLogin(userInfo);
 
       props.history.push({
-        pathname: NS_EVENT_URL,
+        pathname: CONFIRMATION_URL,
         state: { loggedIn: true },
       });
     } else {
