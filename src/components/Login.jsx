@@ -10,8 +10,7 @@ import {
 import ClientPendingBanner from '../components/ClientPendingBanner'
 import RegistrationInput from '../components/RegistrationInput'
 import LoginInput from '../components/LoginInput'
-import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, UNREGISTERED_ERROR_URL, POST_EVENT_URL, LOGIN_FAILED_URL, WRONG_PASSWORD_URL, AGENDA_URL} from '../urls'
-
+import {LOGIN_URL, EVENT_URL, CONFIRMATION_URL, NS_EVENT_URL, UNREGISTERED_ERROR_URL, POST_EVENT_URL, LOGIN_FAILED_URL, WRONG_PASSWORD_URL, AGENDA_URL} from '../urls'
 import axios from 'axios'
 import styled from 'styled-components';
 import {request} from '../components/request'
@@ -34,7 +33,7 @@ function Login(props) {
       props.history.push(LOGIN_URL);
     }
     if (user) {
-      props.history.push(CONFIRMATION_URL)
+      props.history.push(NS_EVENT_URL)
     }
 
   }
@@ -91,7 +90,7 @@ function Login(props) {
       props.handleLogin(userInfo);
 
       props.history.push({
-        pathname: CONFIRMATION_URL,
+        pathname: NS_EVENT_URL,
         state: { loggedIn: true },
       });
     } else {
