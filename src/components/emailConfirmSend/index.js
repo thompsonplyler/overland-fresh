@@ -19,7 +19,7 @@ var requestOptions = {
 };
 
   
-try { const response = await fetch(`${ADDRESS}/person`, requestOptions)
+try { const response = await fetch(`${ADDRESS}person`, requestOptions)
 
 const json = await response.json()
 
