@@ -1,20 +1,12 @@
 import React from 'react'
 import { useState, Fragment, useEffect } from 'react'
-import videojs from 'video.js'
-import awsvideoconfig from '../aws-video-exports'
-// import 'video.js/dist/video-js.css'
 import '../App.css';
 import freshLogo from '../assets/images/frshlogo.svg'
-import ClientPendingBanner from '../components/ClientPendingBanner'
-import Chat from './Chat'
 import { checkUserCreds } from '../components/checkUserCreds'
-import tempVideo from '../assets/videos/temp_video.mp4'
 import {
   BrowserRouter as Router,
   Link, 
 } from "react-router-dom";
-import TestButton from '../components/TestButton'
-import Login from './Login';
 import { AGENDA_URL, LOGIN_URL } from '../urls';
 // import Dat from './Dat'
 import Iframe from 'react-iframe'
@@ -25,6 +17,19 @@ import HLSSource from './HLSSource';
 
 function VideoPageSawdust(props) {
   let [stateWidth, setWidth] = useState(window.innerWidth)
+    // actual normal feed
+    const normalStreamURL = "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.rXLMiU83NvaX.m3u8"
+    // actual China feed with base64 hash as stream key
+    const chinaURL = "http://fresh-play.ccsupport.cn/live/67a4c84cb83788005285d9c9e6f6d6c046b4c39e/playlist.m3u8"
+    // NS feed for testing
+    const usURL = "https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.k2VuaaM6o9yb.m3u8"
+    const [chatButtonPressed, setChatButtonPressed] = useState(false)
+    let [firstName, setFirstName] = useState("Unknown")
+    let [lastName,setLastName] = useState("User")
+    let [location,setLocation] = useState(["elsewhere"])
+    let [streamURL, setStreamURL] = useState(normalStreamURL)
+    let [isChina,setChina] = useState(false)
+    let [isUS, setUS] = useState(false)
 
 
   useEffect (()=>{
@@ -54,7 +59,14 @@ function VideoPageSawdust(props) {
 
   )
 
+  const chatToggle = (e) => {
+    e.preventDefault()
+    setChatButtonPressed(!chatButtonPressed)
 
+  }
+
+  firstName = JSON.parse(localStorage.getItem('user')).firstname
+  lastName = JSON.parse(localStorage.getItem('user')).lastname
 
   return (
     <div className="sawdust-div">
@@ -77,7 +89,22 @@ function VideoPageSawdust(props) {
       
         <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
     </div>
-
+    <img onClick={chatToggle} className={chatButtonPressed?'chat-icon-active':'chat-icon-inactive'} src='./chat_icon.png'></img>
+    {chatButtonPressed?<Iframe url={`https://www.deadsimplechat.com/CHsOaJ9WD?username=${firstName}%20${lastName}`}
+    width="21%"
+    height="500px"
+    id="myId"
+    className="chat-box"
+    display="initial"
+    position="absolute"/>
+    :<Iframe url={`https://www.deadsimplechat.com/CHsOaJ9WD?username=${firstName}%20${lastName}`}
+    width="21%"
+    height="500px"
+    id="myId"
+    className="chat-box"
+    display="none"
+    position="absolute"/>
+    }
     </div>
   );
 }
