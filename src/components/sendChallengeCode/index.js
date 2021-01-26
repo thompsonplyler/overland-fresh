@@ -1,3 +1,4 @@
+import {ADDRESS} from '../../env_define'
 export const sendChallengeCode = async(event) => {
     // console.log("Sending to Challenge Verifier:", event)
     var myHeaders = new Headers();
@@ -17,7 +18,7 @@ export const sendChallengeCode = async(event) => {
     // call to test server. remove after testing registration system
     // const response = await fetch("http://localhost:3001/api/v1/challenge_approve", requestOptions)
     // the real call. restore after testing registration system. 
-    const response = await fetch("https://fresh-under-one-sky-email-api.herokuapp.com/api/v1/challenge_approve", requestOptions)
+    const response = await fetch(`${ADDRESS}challenge_approve`, requestOptions)
 
   const json = await response.json()
     // console.log(json)
