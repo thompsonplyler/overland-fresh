@@ -15,23 +15,26 @@ import { Player, BigPlayButton } from 'video-react';
 import '../video-react.css'
 import poster from '../assets/images/blue_sky.jpeg'
 import HLSSource from './HLSSource';
-import {CHINA_NS_VIDEO} from '../video_sources'
+import NewWindow from 'react-new-window'
 
-function VideoPageSawdust(props) {
-  
+function VideoPage(props) {
+
   const [chatButtonPressed, setChatButtonPressed] = useState(false)
+  const [popOut,setPopOut] = useState(false)
   let [stateWidth, setWidth] = useState(window.innerWidth)
   let [firstName, setFirstName] = useState("Unknown")
   let [lastName,setLastName] = useState("User")
+  
+  
 
-  // console.log("Video Page props: ",props.user)
 
+// must re-add this when bringing code into final
   useEffect(() => {
     const checkLogin = async () => {
     document.body.classList.add('sawdust-body')
-    // console.log("Props from Login: ", props)
+    
     let user = await checkUserCreds(props.user);
-    // console.log("User result from checkUserCreds: ",user)
+    
     if (user == false) {
   
       props.history.push(LOGIN_URL);
@@ -40,23 +43,25 @@ function VideoPageSawdust(props) {
   checkLogin()
   }, [])
 
-  useEffect(()=>{
-
-    function handleResize(){
-      console.log("I've been resized!")
-      setWidth(window.innerWidth)
-    }
-      
-      
-    window.addEventListener('resize',handleResize)
+useEffect(()=>{
+  if (document.getElementsByClassName("ps__rail-x")){
+    let kill = document.getElementsByClassName("ps__rail-x")
+    console.log(kill)
+    kill = Array.from(kill)
+    kill.forEach(item=>item.remove())
+    kill = document.getElementsByClassName("ps__thumb-x")
+    kill = Array.from(kill)
+    kill.forEach(item=>item.remove())
+    console.log(kill)
+    console.log("I ran the thing...")
+  }
+},chatButtonPressed)
   
-  
-    },[])
-
+    //activate and deactivate chat 
     const chatToggle = (e) => {
       e.preventDefault()
       setChatButtonPressed(!chatButtonPressed)
-  
+      setPopOut(false)
     }
   
     useEffect(()=>{
@@ -72,6 +77,37 @@ function VideoPageSawdust(props) {
   
     },[])
 
+    const popOutToggle = () =>{
+      setPopOut(!popOut)
+      setChatButtonPressed(!chatButtonPressed)
+    }
+
+    const popOutUnloader = () => {
+      console.log("You have unloaded the popout chat!")
+    }
+
+ 
+
+    useEffect(()=>{
+
+    },[])
+
+
+
+    const popItOut = () => {
+      return (<div><NewWindow copystyles="true" 
+      name="popout-chat" 
+      title="fresh - Under One Sky 2021 Chat">
+        <Iframe url={`https://www.deadsimplechat.com/CHsOaJ9WD?username=${firstName}%20${lastName}`}
+        width="100%"
+        height="100%"
+  className="chat-box" 
+  display="flex" id="newWindowId"
+  />
+  </NewWindow></div>)
+    }
+  
+
   firstName = JSON.parse(localStorage.getItem('user')).firstname
   lastName = JSON.parse(localStorage.getItem('user')).lastname
   return (
@@ -81,10 +117,13 @@ function VideoPageSawdust(props) {
       <h2 className="event-heading-1">under one sky</h2>  
       <h3 className="event-video-title">Part 2: Under One Sky Meeting</h3>
       <div className="video-row">
+        {/* <div style={{width:"100px"}}> */}
+    {popOut?popItOut():null}
+    {/* </div> */}
       <Player fluid={false} width={stateWidth*.55} playsInline poster={poster} autoplay={true}>
       <HLSSource
       isVideoChild
-      src="https://liminal-push.ccsupport.cn/live/UMkMlXOwRgJSzPgXxQyw1w/playlist.m3u8"
+      src="https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.k2VuaaM6o9yb.m3u8"
       />
       <BigPlayButton position="center"></BigPlayButton>
     </Player>
@@ -95,6 +134,7 @@ function VideoPageSawdust(props) {
       
         <img className="grid-heading" style={{ width: "6vw" }} src={freshLogo} />
     </div>
+    <img onClick={popOutToggle} className={chatButtonPressed?'popout-icon-active':'popout-icon-inactive'} src='./popout_icon.png'></img>
     <img onClick={chatToggle} className={chatButtonPressed?'chat-icon-active':'chat-icon-inactive'} src='./chat_icon.png'></img>
     {chatButtonPressed?<Iframe url={`https://www.deadsimplechat.com/CHsOaJ9WD?username=${firstName}%20${lastName}`}
     width="21%"
@@ -120,4 +160,4 @@ function VideoPageSawdust(props) {
 }
 
 
-export default VideoPageSawdust
+export default VideoPage

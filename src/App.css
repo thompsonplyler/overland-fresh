@@ -738,6 +738,20 @@ h3 {
   margin-top: 5px;
 }
 
+.new-window {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+#newWindowId{
+  /* display:flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  justify-self: center; */
+}
+
 .para1 {
   color: white;
   font-size: 2.5vh;
@@ -878,9 +892,21 @@ button {
   filter: drop-shadow(2px 2px 2px #222);
 }
 
-#myId { 
-  overflow-x: hidden;
-  display: hidden
+.popout-icon-inactive {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  transform: scale(.8);
+  filter: drop-shadow(2px 2px 2px #222);
+  display:none
+}
+
+.popout-icon-active {
+  position: absolute;
+  right: 118px;
+  bottom: 508px;
+  transform: scale(.8);
+  filter: drop-shadow(2px 2px 2px #222);
 }
 
 iframe {
