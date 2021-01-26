@@ -115,7 +115,7 @@ useEffect(()=>{
     <div className="flex-container-video">
       {/* <img className="img-fresh-logo" src={freshLogo}/> */}
       <h2 className="event-heading-1">under one sky</h2>  
-      <h3 className="event-video-title">Part 2: Under One Sky Meeting</h3>
+      <h3 className="event-video-title">Part 2: 2021 - 30th Anniversary - Brand Purpose</h3>
       <div className="video-row">
         {/* <div style={{width:"100px"}}> */}
     {popOut?popItOut():null}
