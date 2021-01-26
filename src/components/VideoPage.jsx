@@ -61,6 +61,7 @@ useEffect(()=>{
     const chatToggle = (e) => {
       e.preventDefault()
       setChatButtonPressed(!chatButtonPressed)
+      setPopOut(false)
     }
   
     useEffect(()=>{
@@ -85,8 +86,16 @@ useEffect(()=>{
       console.log("You have unloaded the popout chat!")
     }
 
+ 
+
+    useEffect(()=>{
+
+    },[])
+
+
+
     const popItOut = () => {
-      return await(<div><NewWindow copystyles="true" 
+      return (<div><NewWindow copystyles="true" 
       name="popout-chat" 
       title="fresh - Under One Sky 2021 Chat">
         <Iframe url={`https://www.deadsimplechat.com/CHsOaJ9WD?username=${firstName}%20${lastName}`}
