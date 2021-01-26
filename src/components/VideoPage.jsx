@@ -64,18 +64,18 @@ useEffect(()=>{
       setPopOut(false)
     }
   
-    useEffect(()=>{
-      // console.log("User props: ",props.user)
-      if (props.user.firstname) setFirstName(props.user.firstname)
-      if (props.user.lastname) setLastName(props.user.lastname)
-      if (localStorage.user) {
-        let parsed = JSON.parse(localStorage.user)
-        // console.log("Parsed stuff: ",parsed)
-        setFirstName(parsed.firstname)
-        setLastName(parsed.lastname)
-      }
+    // useEffect(()=>{
+    //   // console.log("User props: ",props.user)
+    //   if (props.user.firstname) setFirstName(props.user.firstname)
+    //   if (props.user.lastname) setLastName(props.user.lastname)
+    //   if (localStorage.user) {
+    //     let parsed = JSON.parse(localStorage.user)
+    //     // console.log("Parsed stuff: ",parsed)
+    //     setFirstName(parsed.firstname)
+    //     setLastName(parsed.lastname)
+    //   }
   
-    },[])
+    // },[])
 
     const popOutToggle = () =>{
       setPopOut(!popOut)
