@@ -123,7 +123,7 @@ useEffect(()=>{
       <Player fluid={false} width={stateWidth*.55} playsInline poster={poster} autoplay={true}>
       <HLSSource
       isVideoChild
-      src="https://b1ec00ae2bfa.us-east-1.playback.live-video.net/api/video/v1/us-east-1.023900886900.channel.rXLMiU83NvaX.m3u8"
+      src="https://fresh-play.ccsupport.cn/live/67a4c84cb83788005285d9c9e6f6d6c046b4c39e/playlist.m3u8"
       />
       <BigPlayButton position="center"></BigPlayButton>
     </Player>
