@@ -21,7 +21,7 @@ function LoginFailed(props) {
           <img className="img-fresh-logo" src={freshLogo}/>
           <h2 className="registration-heading-1">under one sky</h2>
           <Fragment><p className="para1">Oops! We did not recognize your e-mail. </p>
-          <p className="para1">Please contact <a className="pretty-link" href="mailto:knewton@fresh.com">knewton@fresh.com</a> for help.</p>
+          <p className="para1">Please contact <a className="pretty-link" href="mailto:wcohen@overlandentertainment.com">wcohen@overlandentertainment.com</a> for help.</p>
           <div style={{paddingTop: "3vh"}}></div>
           <BackToLogin />
           </Fragment>
