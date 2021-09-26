@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import ADDRESS from '../../env_define'
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +29,7 @@ class Login extends Component {
       password: password
     }
     
-axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
+axios.post(`${ADDRESS}/login`, {user}, {withCredentials: true})
     .then(response => {
       if (response.data.logged_in) {
         this.props.handleLogin(response.data)

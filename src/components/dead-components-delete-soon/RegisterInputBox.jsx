@@ -11,6 +11,7 @@ import '../App.css';
 // import { isCompositeComponent } from 'react-dom/test-utils';
 import axios from 'axios'
 import RegisterSubmitButton from './RegisterSubmitButton'
+import ADDRESS from '../../env_define'
 
 
 class RegisterInputBox extends Component{
@@ -45,7 +46,7 @@ class RegisterInputBox extends Component{
           password_confirmation: password_confirmation
         }
         
-        axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
+        axios.post(`${ADDRESS}/users`, {user}, {withCredentials: true})
         .then(response => {
           if (response.data.status === 'created') {
             this.props.handleLogin(response.data)
